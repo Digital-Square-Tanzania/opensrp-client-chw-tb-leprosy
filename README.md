@@ -1,4 +1,4 @@
 
-# opensrp-client-chw-skeleton
-OpenSRP client SKELETON module library
+# opensrp-client-chw-tbleprosy
+OpenSRP client TBLEPROSY module library
 

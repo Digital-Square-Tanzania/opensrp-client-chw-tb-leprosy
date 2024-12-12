@@ -9,7 +9,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "org.smartregister.chw.skeleton_sample"
+        applicationId "org.smartregister.chw.tbleprosy_sample"
         minSdkVersion androidMinSdkVersion
         targetSdkVersion androidTargetSdkVersion
         versionCode 1
@@ -137,7 +137,7 @@ dependencies {
         exclude group: 'com.android.support', module: 'appcompat-v7'
     }
 
-    implementation project(':opensrp-chw-skeleton')
+    implementation project(':opensrp-chw-tbleprosy')
 
 
     implementation 'org.jbundle.util.osgi.wrapped:org.jbundle.util.osgi.wrapped.org.apache.http.client:4.1.2'

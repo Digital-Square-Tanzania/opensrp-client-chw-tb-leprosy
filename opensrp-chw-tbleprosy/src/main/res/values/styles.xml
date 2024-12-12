@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TbLeprosyTheme.AppBarOverlay" parent="Base.Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/black</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="colorBackgroundFloating">@color/white</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:colorBackground">@color/white</item>
+    </style>
+
+    <style name="TbLeprosyTheme.AppBarOverlay.Light" parent="TbLeprosyTheme.AppBarOverlay">
+        <item name="android:textColorPrimary">@color/customAppThemeBlue</item>
+        <item name="android:textColorSecondary">@color/black</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="copy_clipboard_dialog" parent="android:Theme.Holo.Dialog">
+        <item name="android:windowMinWidthMajor">90%</item>
+        <item name="android:windowMinWidthMinor">90%</item>
+    </style>
+
+    <style name="ChwTheme.Dialog.FullWidth" parent="android:Theme.Holo.Light.Dialog">
+        <item name="android:windowMinWidthMajor">98%</item>
+        <item name="android:windowMinWidthMinor">98%</item>
+        <item name="android:background">@android:color/white</item>
+    </style>
+</resources>

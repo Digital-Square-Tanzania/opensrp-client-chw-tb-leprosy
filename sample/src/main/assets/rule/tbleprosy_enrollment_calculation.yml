@@ -1,0 +1,7 @@
+---
+name: step1_enrollment_date
+description: tbleprosy enrollment_date
+priority: 1
+condition: "true"
+actions:
+  - "calculation = helper.getDateToday()"

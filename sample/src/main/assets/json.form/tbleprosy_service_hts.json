@@ -1,0 +1,585 @@
+{
+  "validate_on_submit": true,
+  "count": "1",
+  "encounter_type": "TBLEPROSY HTS",
+  "entity_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "163137AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "163149AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "163150AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "163151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "163152AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": ""
+  },
+  "global": {},
+  "step1": {
+    "title": "HIV testing service",
+    "fields": [
+      {
+        "key": "hiv_viral_load_text",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "hiv_viral_load_text",
+        "type": "edit_text",
+        "hint": "Viral load",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_hts_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "tested_hiv",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "tested_hiv",
+        "type": "native_radio",
+        "label": "Client tested for HIV as part of Male Circumcision service ",
+        "label_text_size": "18px",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_hts_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "hiv_result",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "hiv_result",
+        "type": "native_radio",
+        "label": "HIV test result ",
+        "label_text_size": "18px",
+        "options": [
+          {
+            "key": "positive",
+            "text": "Positive",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "positive"
+          },
+          {
+            "key": "negative",
+            "text": "Negative",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "negative"
+          },
+          {
+            "key": "indeterminate",
+            "text": "Indeterminate",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "indeterminate"
+          }
+        ],
+        "relevance": {
+          "step1:tested_hiv": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
+          }
+        }
+      },
+      {
+        "key": "defer_procedure_hiv_positive",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "defer_procedure_hiv_positive",
+        "type": "toaster_notes",
+        "text": "Defer the procedure and link to CTC services",
+        "text_color": "#CF0800",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_hts_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "defer_procedure_hiv_indeterminate",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "defer_procedure_hiv_indeterminate",
+        "type": "toaster_notes",
+        "text": "Defer the procedure and follow HTS guidelines",
+        "text_color": "#CF0800",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_hts_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "toaster_notes_indeterminate",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "toaster_notes_indeterminate",
+        "type": "toaster_notes",
+        "text": "Defer the procedure for one month & follow HTS Guideline",
+        "text_color": "#CF0800",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:hiv_result": {
+            "type": "string",
+            "ex": "equalTo(., \"indeterminate\")"
+          }
+        }
+      },
+
+      {
+        "key": "hiv_not_tested_reasons",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "hiv_not_tested_reasons",
+        "type": "native_radio",
+        "label": "Reasons",
+        "text_color": "#000000",
+        "options": [
+          {
+            "key": "not_eligible",
+            "text": "Not Eligible",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "not_eligible"
+          },
+          {
+            "key": "test_kits_out_of_stock",
+            "text": "Test kits out of stock",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "test_kits_out_of_stock"
+          },
+          {
+            "key": "emergency_situation",
+            "text": "a client was in an emergency situation",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "emergency_situation"
+          },
+          {
+            "key": "client_refused ",
+            "text": "Client refused to be tested",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "client_refused"
+          },
+          {
+            "key": "still_counselling",
+            "text": "we are still counselling a client",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "still_counselling"
+          },
+          {
+            "key": "other",
+            "text": "Other (specify)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other"
+          }
+        ],
+        "relevance": {
+          "step1:tested_hiv": {
+            "type": "string",
+            "ex": "equalTo(., \"no\")"
+          }
+        }
+      },
+      {
+        "key": "hiv_not_tested_reasons_others",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "hiv_not_tested_reasons_others",
+        "type": "edit_text",
+        "hint": "Other(Specify)",
+        "relevance": {
+          "step1:hiv_not_tested_reasons": {
+            "type": "string",
+            "ex": "equalTo(., \"other\")"
+          }
+        }
+      },
+      {
+        "key": "self_test_kits_offered",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "self_test_kits_offered",
+        "type": "native_radio",
+        "label": "Client offered HIV self test kits? ",
+        "label_text_size": "18px",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_hts_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "was_client_referred",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "was_client_referred",
+        "type": "native_radio",
+        "label": "Was the client referred?",
+        "label_text_size": "18px",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ]
+      },
+      {
+        "key": "client_referred_to",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "client_referred_to",
+        "type": "check_box",
+        "label": "Client referred to",
+        "text_color": "#000000",
+        "combine_checkbox_option_values": "true",
+        "exclusive": [
+          "client_not_referred"
+        ],
+        "options": [
+          {
+            "key": "surgical",
+            "text": "Surgical/medical",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "surgical"
+          },
+          {
+            "key": "ctc",
+            "text": "CTC",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "ctc"
+          },
+          {
+            "key": "psychosocial_support ",
+            "text": "Psychosocial support",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "psychosocial_support"
+          },
+          {
+            "key": "other",
+            "text": "Other (specify)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other"
+          }
+        ],
+        "relevance": {
+          "step1:was_client_referred": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
+          }
+        }
+      },
+      {
+        "key": "client_referred_to_others",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "client_referred_to_others",
+        "type": "edit_text",
+        "hint": "Other(Specify)",
+        "relevance": {
+          "step1:client_referred_to": {
+            "ex-checkbox": [
+              {
+                "or": [
+                  "other"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "notes_check_contraindication",
+        "type": "label",
+        "text": "Clear contraindications, before proceeding with mc procedure",
+        "hint_on_text": false,
+        "text_color": "#FF0000",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "notes_check_contraindication",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_hts_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "toaster_notes_contraindication",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "toaster_notes_contraindication",
+        "type": "toaster_notes",
+        "text": "Clear the following Contraindication",
+        "text_color": "#CF0800",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_hts_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "toaster_notes_genital_examination",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "toaster_notes_genital_examination",
+        "type": "toaster_notes",
+        "text": "Refer physical examination form, Genital examination ?",
+        "text_color": "#CF0800",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_hts_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "toaster_notes_any_complaints",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "person_attribute",
+        "openmrs_entity_id": "toaster_notes",
+        "type": "toaster_notes",
+        "text": "Refer to medical history form, Does the client currently have any of the following complaints?",
+        "text_color": "#CF0800",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_hts_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "toaster_notes_known_allergies",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "person_attribute",
+        "openmrs_entity_id": "toaster_notes",
+        "type": "toaster_notes",
+        "text": "Refer to medical history form, Any known allergies to any of these medications?",
+        "text_color": "#CF0800",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_hts_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "toaster_notes_any_hematological_disease_symptoms",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "person_attribute",
+        "openmrs_entity_id": "toaster_notes",
+        "type": "toaster_notes",
+        "text": "Refer to medical history form, Any symptoms of hematological disease?",
+        "text_color": "#CF0800",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_hts_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "toaster_notes_is_client_diagnosed_with_any_other",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "toaster_notes_is_client_diagnosed_with_any_other",
+        "type": "toaster_notes",
+        "text": "Refer to medical history form, Is client diagnosed with any of the following?",
+        "text_color": "#CF0800",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_hts_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "toaster_notes_hypertension",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "person_attribute",
+        "openmrs_entity_id": "toaster_notes",
+        "type": "toaster_notes",
+        "text": "Client is contraindicated due to Hypertension\n",
+        "text_color": "#CF0800",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_hts_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "toaster_notes_diabetes",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "toaster_notes_diabetes",
+        "type": "toaster_notes",
+        "text": "Client is contraindicated due to Diabetes Mellitus",
+        "text_color": "#CF0800",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_hts_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "toaster_notes_hiv_results",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "toaster_notes",
+        "type": "toaster_notes",
+        "text": "Client has viral load more than 1000",
+        "text_color": "#CF0800",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_hts_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "toaster_notes_hiv_tested_positive",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "toaster_notes_hiv_tested_positive",
+        "type": "toaster_notes",
+        "text": "Newly diagonised HIV positive client",
+        "text_color": "#CF0800",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_hts_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "toaster_notes_complications_previous_surgical",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "person_attribute",
+        "openmrs_entity_id": "toaster_notes",
+        "type": "toaster_notes",
+        "text": "Refer to medical history form, Any complications related to previous surgical procedure?",
+        "text_color": "#CF0800",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_hts_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "actual_age",
+        "type": "hidden",
+        "openmrs_entity_id": "actual_age",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": ""
+      },
+      {
+        "key": "hts_completion_status",
+        "type": "hidden",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "hts_completion_status",
+        "openmrs_entity_parent": "",
+        "value": "pending"
+      }
+    ]
+  }
+}

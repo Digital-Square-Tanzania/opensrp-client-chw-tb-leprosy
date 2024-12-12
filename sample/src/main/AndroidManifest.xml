@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="org.smartregister.chw.skeleton_sample">
+    package="org.smartregister.chw.tbleprosy_sample">
 
     <application
         android:name=".application.SampleApplication"
@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme"
         tools:replace="android:theme">
         <activity
-            android:name="org.smartregister.chw.skeleton_sample.activity.EntryActivity"
+            android:name="org.smartregister.chw.tbleprosy_sample.activity.EntryActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:exported="true"> <!-- Explicitly define exported -->
             <intent-filter>
@@ -43,15 +43,15 @@
         </receiver>
 
         <activity
-            android:name="org.smartregister.chw.skeleton_sample.activity.SampleJsonFormActivity"
+            android:name="org.smartregister.chw.tbleprosy_sample.activity.SampleJsonFormActivity"
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="org.smartregister.chw.skeleton_sample.activity.SkeletonMemberProfileActivity"
+            android:name="org.smartregister.chw.tbleprosy_sample.activity.TbLeprosyMemberProfileActivity"
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="org.smartregister.chw.skeleton_sample.activity.SkeletonServiceActivity"
+            android:name="org.smartregister.chw.tbleprosy_sample.activity.TbLeprosyServiceActivity"
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity

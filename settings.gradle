@@ -1,1 +1,1 @@
-include ':sample', ':opensrp-chw-skeleton'
+include ':sample', ':opensrp-chw-tbleprosy'

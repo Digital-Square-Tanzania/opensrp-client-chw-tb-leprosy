@@ -19,7 +19,7 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
       - name: Run unit tests with Gradle
-        run: ./gradlew :opensrp-chw-skeleton:clean :opensrp-chw-skeleton:jacocoTestReport  --stacktrace
+        run: ./gradlew :opensrp-chw-tbleprosy:clean :opensrp-chw-tbleprosy:jacocoTestReport  --stacktrace
         env:
           GITHUB_TOKEN: ${{ github.token }}
       - name: Upload coverage to Coveralls with Gradle
