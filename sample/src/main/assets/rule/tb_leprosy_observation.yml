@@ -1,0 +1,9 @@
+---
+name: step1_amechukuliwa_sampuli
+description: je amechukuliwa sample
+priority: 1
+condition: "!global_observation.contains('hana_dalili')"
+actions:
+  - "isRelevant = true"
+
+

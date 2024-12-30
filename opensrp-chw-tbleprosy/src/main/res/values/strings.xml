@@ -27,6 +27,13 @@
     <string name="tbleprosy_physical_examination">Physical Examination</string>
     <string name="tbleprosy_hts">HTS</string>
 
+    <string name="tbleprosy_observation">TB Leprosy Screening</string>
+    <string name="tbleprosy_sample">Sample Collection</string>
+    <string name="tbleprosy_source">Client Type and Screening Location</string>
+
+
+
+
     <string name="optional">Optional</string>
     <string name="error_unable_save_visit">Unable to save visit</string>
     <string name="return_to_previous_page">Return all TbLeprosy Clients</string>

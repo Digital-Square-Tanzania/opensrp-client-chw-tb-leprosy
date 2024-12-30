@@ -1,0 +1,99 @@
+---
+name: step1_live_with_tbleprosy_patient
+description: Living with or near TB/Leprosy Patient
+priority: 1
+condition: "step1_tb_leprosy_screening=='client_type_screening_location'"
+actions:
+  - "isRelevant = true"
+
+---
+name: step1_tbleprosy_screening
+description: TB/Leprosy Screening
+priority: 1
+condition: "step1_tb_leprosy_screening=='screen_for_tbleprosy'"
+actions:
+  - "isRelevant = true "
+
+---
+name: step1_tested_hiv
+description: Tested for HIV
+priority: 1
+condition: "step1_tb_leprosy_screening=='hiv_tested'"
+actions:
+  - "isRelevant = true"
+
+---
+name: step1_patient_type
+description: Patient Type
+priority: 1
+condition: "step1_live_with_tbleprosy_patient=='yes_live_with_tbleprosy_patient'"
+actions:
+  - "isRelevant = true"
+
+---
+name: step1_tbleprosy_id
+description: Patient Type
+priority: 1
+condition: "step1_live_with_tbleprosy_patient=='yes_live_with_tbleprosy_patient'"
+actions:
+  - "isRelevant = true"
+
+---
+name: step1_is_kvp_client
+description: Check if it is KVP client
+priority: 1
+condition: "step1_tb_leprosy_screening=='client_type_screening_location'"
+actions:
+  - "isRelevant = true"
+
+---
+name: step1_kvp_group
+description: KVP Group
+priority: 1
+condition: "step1_is_kvp_client=='yes_kvp_client'"
+actions:
+  - "isRelevant = true"
+
+---
+name: step1_leprosy_screening_symptoms
+description: Leprosy Screening Symptoms
+priority: 1
+condition: "step1_tbleprosy_screening.contains('leprosy_screening')"
+actions:
+  - "isRelevant = true "
+---
+name: step1_tb_screening_symptoms
+description: Leprosy Screening Symptoms
+priority: 1
+condition: "step1_tbleprosy_screening.contains('tb_screening')"
+actions:
+  - "isRelevant = true"
+
+---
+name: step1_screen_location
+description: Leprosy Screening Symptoms
+priority: 1
+condition: "step1_tb_leprosy_screening=='client_type_screening_location'"
+actions:
+  - "isRelevant = true"
+
+---
+name: step1_specify_screening_location
+description: Specify screening location
+priority: 1
+condition: "step1_screen_location=='other_screening_location'"
+actions:
+  - "isRelevant = true"
+
+---
+name: step1_specify_kvp_group
+description: Specify KVP Group
+priority: 1
+condition: "step1_kvp_group=='other_kvp_group'"
+actions:
+  - "isRelevant = true"
+
+
+
+
+
