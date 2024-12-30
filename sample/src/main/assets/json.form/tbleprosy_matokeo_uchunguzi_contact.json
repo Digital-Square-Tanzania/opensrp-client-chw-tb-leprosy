@@ -1,0 +1,882 @@
+{
+  "validate_on_submit": true,
+  "count": "1",
+  "encounter_type": "TBLEPROSY Physical Examination",
+  "entity_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "163137AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "163149AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "163150AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "163151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "163152AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": ""
+  },
+  "global": {},
+  "step1": {
+    "title": "Physical Examination",
+    "fields": [
+      {
+        "key": "physical_abnormality",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "physical_abnormality",
+        "type": "check_box",
+        "label": "Any significant physical abnormality on general examination? (Check all applicable)",
+        "text_color": "#000000",
+        "combine_checkbox_option_values": "true",
+        "exclusive": [
+          "none"
+        ],
+        "options": [
+          {
+            "key": "pallor",
+            "text": "Pallor",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "pallor"
+          },
+          {
+            "key": "jaundice",
+            "text": "Jaundice",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "jaundice"
+          },
+          {
+            "key": "petechiae_ecchymosis_epistaxis",
+            "text": "Petechiae/Ecchymosis/Epistaxis",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "petechiae_ecchymosis_epistaxis"
+          },
+          {
+            "key": "joint_deformity",
+            "text": "Joint deformity ",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "joint_deformity"
+          },
+          {
+            "key": "others",
+            "text": "Others (specify)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "others"
+          },
+          {
+            "key": "none",
+            "text": "None",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "none"
+          }
+        ]
+      },
+      {
+        "key": "physical_abnormality_others",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "physical_abnormality_others",
+        "type": "edit_text",
+        "hint": "Other(Specify)",
+        "relevance": {
+          "step1:physical_abnormality": {
+            "ex-checkbox": [
+              {
+                "or": [
+                  "others"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "toaster_physical_abnormality",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "person_attribute",
+        "openmrs_entity_id": "toaster_physical_abnormality",
+        "type": "toaster_notes",
+        "text": "Do not perform Male circumcision link/refer to other service",
+        "text_color": "#CF0800",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:physical_abnormality": {
+            "ex-checkbox": [
+              {
+                "or": [
+                  "pallor",
+                  "jaundice",
+                  "petechiae_ecchymosis_epistaxis",
+                  "joint_deformity",
+                  "others"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "client_weight",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "client_weight",
+        "entity_id": "",
+        "type": "edit_text",
+        "hint": "Client’s Weight (KG)",
+        "edit_type": "number",
+        "look_up": "true",
+        "v_min": {
+          "value": "20",
+          "err": "client weight must be equal or greater than 20kg"
+        }
+      },
+      {
+        "key": "client_height",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "client_height",
+        "entity_id": "",
+        "type": "edit_text",
+        "hint": "Client’s Height (cm)",
+        "edit_type": "number"
+      },
+      {
+        "key": "bmi",
+        "type": "edit_text",
+        "hint": "Body Mass Index (BMI)",
+        "read_only": "true",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "bmi",
+        "openmrs_entity_parent": "",
+        "v_numeric": {
+          "value": "true",
+          "err": "Please enter the height"
+        },
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_physcial_exam_calculation.yml"
+            }
+          }
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_physcial_exam_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "prompt_for_underweight",
+        "type": "toaster_notes",
+        "text": "Manage the undernourished client using standard guidelines",
+        "openmrs_entity_id": "prompt_for_underweight",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "warning",
+        "relevance": {
+          "step1:bmi": {
+            "type": "numeric",
+            "ex": "lessThan(.,\"18.5\")"
+          }
+        }
+      },
+      {
+        "key": "prompt_for_overweight",
+        "type": "toaster_notes",
+        "text": "Manage the overweight client using standard guidelines",
+        "openmrs_entity_id": "prompt_for_overweight",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:bmi": {
+            "type": "numeric",
+            "ex": "greaterThanEqualTo(.,\"29\")"
+          }
+        }
+      },
+      {
+        "key": "pulse_rate",
+        "type": "edit_text",
+        "hint": "Pulse Rate (Beats per minute)",
+        "openmrs_entity_id": "pulse_rate",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "v_numeric": {
+          "value": "true",
+          "err": "Please enter the pulse rate"
+        },
+        "v_min": {
+          "value": "0",
+          "err": "The pulse rate must be equal or greater than 0 (bpm)"
+        },
+        "v_max": {
+          "value": "200",
+          "err": "The pulse rate must be equal or less than 200 (bpm)"
+        }
+      },
+      {
+        "key": "prompt_for_Bradycardia",
+        "type": "toaster_notes",
+        "text": "manage according to standard guidelines",
+        "openmrs_entity_id": "prompt_for_Bradycardia",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:pulse_rate": {
+            "type": "numeric",
+            "ex": "lessThan(.,\"60\")"
+          }
+        }
+      },
+      {
+        "key": "prompt_for_Tachycardia",
+        "type": "toaster_notes",
+        "text": "manage according to standard guidelines",
+        "openmrs_entity_id": "prompt_for_Tachycardia",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:pulse_rate": {
+            "type": "numeric",
+            "ex": "greaterThan(.,\"100\")"
+          }
+        }
+      },
+      {
+        "key": "systolic",
+        "type": "edit_text",
+        "hint": "Systolic (Blood Pressure)",
+        "openmrs_entity_id": "systolic",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "v_numeric": {
+          "value": "true",
+          "err": "Please enter the systolic value"
+        },
+        "v_min": {
+          "value": "0",
+          "err": "Systolic value must be equal or greater than 0"
+        },
+        "v_max": {
+          "value": "320",
+          "err": "Systolic value must be equal or less than 320"
+        }
+      },
+      {
+        "key": "diastolic",
+        "type": "edit_text",
+        "hint": "Diastolic (Blood Pressure)",
+        "openmrs_entity_id": "diastolic",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "v_numeric": {
+          "value": "true",
+          "err": "Please enter the diastolic value"
+        },
+        "v_min": {
+          "value": "0",
+          "err": "Diastolic value must be equal or greater than 0"
+        },
+        "v_max": {
+          "value": "200",
+          "err": "Diastolic value must be equal or less than 200"
+        },
+        "constraints": [
+          {
+            "type": "numeric",
+            "ex": "lessThan(., step1:systolic)",
+            "err": "The diastolic value must be less than the systolic value"
+          }
+        ]
+      },
+      {
+        "key": "prompt_for_management_of_hypertension",
+        "type": "toaster_notes",
+        "text": "Manage the hypertension according to standard guidelines",
+        "openmrs_entity_id": "prompt_for_management_of_hypertension",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_physcial_exam_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "prompt_for_management_of_hypotension",
+        "type": "toaster_notes",
+        "text": "Elicit the cause of hypotension and manage according to standard guidelines",
+        "openmrs_entity_id": "prompt_for_management_of_hypotension",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_physcial_exam_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "temperature",
+        "type": "edit_text",
+        "hint": "Temperature (\u2103)",
+        "openmrs_entity_id": "temperature",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "v_numeric": {
+          "value": "true",
+          "err": "Please enter the temperature"
+        },
+        "v_min": {
+          "value": "10",
+          "err": "Temperature must be equal or greater than 10"
+        },
+        "v_max": {
+          "value": "50",
+          "err": "Temperature must be equal or less than 50"
+        }
+      },
+      {
+        "key": "notify_client_has_fever",
+        "type": "toaster_notes",
+        "text": "Conduct relevant laboratory tests to elicit the cause of fever and manage according to standard guidelines ",
+        "openmrs_entity_id": "notify_client_has_fever",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "warning",
+        "relevance": {
+          "step1:temperature": {
+            "type": "numeric",
+            "ex": "greaterThan(.,\"37.8\")"
+          }
+        }
+      },
+      {
+        "key": "notify_client_has_hypothermia",
+        "type": "toaster_notes",
+        "text": "Manage the hypothermia according to standard guidelines",
+        "openmrs_entity_id": "notify_client_has_hypothermia",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "warning",
+        "relevance": {
+          "step1:temperature": {
+            "type": "numeric",
+            "ex": "lessThan(.,\"36.5\")"
+          }
+        }
+      },
+      {
+        "key": "respiration_rate",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "respiration_rate",
+        "type": "edit_text",
+        "hint": "Respiration rate (Breath per minute) ",
+        "v_numeric": {
+          "value": "true",
+          "err": "Please enter the Respiration rate"
+        },
+        "v_max": {
+          "value": "40",
+          "err": "Respiration rate value must be equal or less than 40"
+        }
+      },
+      {
+        "key": "notify_respiration_rate_bradypnoea",
+        "type": "toaster_notes",
+        "text": "Manage bradypnoea according to standard guidelines",
+        "openmrs_entity_id": "notify_respiration_rate_bradypnoea",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:respiration_rate": {
+            "type": "numeric",
+            "ex": "lessThan(.,\"14.0\")"
+          }
+        }
+      },
+      {
+        "key": "notify_respiration_rate_tachypnoea",
+        "type": "toaster_notes",
+        "text": "Manage tachypnoea according to standard guidelines",
+        "openmrs_entity_id": "notify_respiration_rate_tachypnoea",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:respiration_rate": {
+            "type": "numeric",
+            "ex": "greaterThan(.,\"20\")"
+          }
+        }
+      },
+      {
+        "key": "genital_examination",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "genital_examination",
+        "type": "check_box",
+        "label": "Genital examination",
+        "text_color": "#000000",
+        "combine_checkbox_option_values": "true",
+        "exclusive": [
+          "none"
+        ],
+        "options": [
+          {
+            "key": "urethral_discharge_syndrome",
+            "text": "Urethral Discharge Syndrome(UDS)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "urethral_discharge_syndrome"
+          },
+          {
+            "key": "genital_ulcer_disease",
+            "text": "Genital Ulcer Disease (GUD)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "genital_ulcer_disease"
+          },
+          {
+            "key": "smegma_under_foreskin",
+            "text": "Smegma under the foreskin",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "smegma_under_foreskin"
+          },
+          {
+            "key": "phimosis",
+            "text": "Phimosis",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "phimosis"
+          },
+          {
+            "key": "paraphimosis",
+            "text": "Paraphimosis",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "paraphimosis"
+          },
+          {
+            "key": "undescended_testicles",
+            "text": "Undescended testicles",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "undescended_testicles"
+          },
+          {
+            "key": "condylomata_lata",
+            "text": "Condylomata lata/acuminate",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "condylomata_lata"
+          },
+          {
+            "key": "adhesion_prepuce",
+            "text": "Adhesion of prepuce to glans",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "adhesion_prepuce"
+          },
+          {
+            "key": "hydrocele",
+            "text": "Hydrocele",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hydrocele"
+          },
+          {
+            "key": "balanitis",
+            "text": "Balanitis/redness/swelling of foreskin/ glans/ shaft",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "balanitis"
+          },
+          {
+            "key": "urethral_opening_abnormality",
+            "text": "Urethral opening abnormality",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "urethral_opening_abnormality"
+          },
+          {
+            "key": "chordae",
+            "text": "Chordae (banana shaped penis)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "chordae"
+          },
+          {
+            "key": "others",
+            "text": "Others (specify)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "others"
+          },
+          {
+            "key": "none",
+            "text": "None",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "none"
+          }
+        ]
+      },
+      {
+        "key": "toaster_banana_shaped_penis",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "person_attribute",
+        "openmrs_entity_id": "toaster_notes",
+        "type": "toaster_notes",
+        "text": "Use conventional method as a method for circumcision",
+        "text_color": "#CF0800",
+        "toaster_type": "info",
+        "relevance": {
+          "step1:genital_examination": {
+            "ex-checkbox": [
+              {
+                "or": [
+                  "chordae"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "genital_examination_others",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "genital_examination_others",
+        "type": "edit_text",
+        "hint": "Other(Specify)",
+        "v_required": {
+          "value": "true",
+          "err": "Please specify"
+        },
+        "relevance": {
+          "step1:genital_examination": {
+            "ex-checkbox": [
+              {
+                "or": [
+                  "others"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "toaster_genital_examination",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "person_attribute",
+        "openmrs_entity_id": "toaster_notes",
+        "type": "toaster_notes",
+        "text": "Do not perform Male circumcision  until the issue is resolved/refer to other service",
+        "text_color": "#CF0800",
+        "toaster_type": "problem",
+        "relevance": {
+          "step1:genital_examination": {
+            "ex-checkbox": [
+              {
+                "or": [
+                  "urethral_discharge_syndrome",
+                  "genital_ulcer_disease",
+                  "phimosis",
+                  "paraphimosis",
+                  "undescended_testicles",
+                  "condylomata_lata",
+                  "adhesion_prepuce",
+                  "hydrocele",
+                  "balanitis",
+                  "urethral_opening_abnormality",
+                  "others"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "key": "preferred_client_mc_method_without_chordae",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "preferred_client_mc_method",
+        "label": "Preferred client’s Male Circumcision method",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "convectional_surgical_procedure",
+            "text": "Conventional surgical procedure",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "convectional_surgical_procedure"
+          },
+          {
+            "key": "device",
+            "text": "Device",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "device"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_physcial_exam_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "preferred_client_mc_method",
+        "type": "hidden",
+        "openmrs_entity_id": "preferred_client_mc_method",
+        "openmrs_entity": "concept",
+        "openmrs_entity_parent": "",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_physcial_exam_calculation.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "penile_size",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "penile_size",
+        "type": "native_radio",
+        "label": "Select appropriate device size for client’s penile size",
+        "label_text_size": "18px",
+        "options": [
+          {
+            "key": "A4_40mm",
+            "text": "A4-40mm",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "A4_40mm"
+          },
+          {
+            "key": "A3_39mm",
+            "text": "A3-39mm",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "A3_39mm"
+          },
+          {
+            "key": "A2_38mm",
+            "text": "A2-38mm",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "A2_38mm"
+          },
+          {
+            "key": "A1_37mm",
+            "text": "A1-37mm",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "A1_37mm"
+          },
+          {
+            "key": "A_36mm",
+            "text": "A-36mm",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "A_36mm"
+          },
+          {
+            "key": "B_35mm",
+            "text": "B-35mm",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "B_35mm"
+          },
+          {
+            "key": "C_34mm",
+            "text": "C-34mm",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "C_34mm"
+          },
+          {
+            "key": "D_33mm",
+            "text": "D-33mm",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "D_33mm"
+          },
+          {
+            "key": "E_32mm",
+            "text": "E-32mm",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "E_32mm"
+          },
+          {
+            "key": "F_31mm",
+            "text": "F-31mm",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "F_31mm"
+          },
+          {
+            "key": "G_30mm",
+            "text": "G-30mm",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "G_30mm"
+          },
+          {
+            "key": "H_29mm",
+            "text": "H-29mm",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "H_29mm"
+          },
+          {
+            "key": "I_28mm",
+            "text": "I-28mm",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "I_28mm"
+          },
+          {
+            "key": "K_26mm",
+            "text": "K-26mm",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "K_26mm"
+          },
+          {
+            "key": "M_24mm",
+            "text": "M-24mm",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "M_24mm"
+          },
+          {
+            "key": "O_22mm",
+            "text": "O-22mm",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "O_22mm"
+          },
+          {
+            "key": "Q_20mm",
+            "text": "Q-20mm",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "Q_20mm"
+          },
+          {
+            "key": "S_18mm",
+            "text": "S-18mm",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "S_18mm"
+          },
+          {
+            "key": "U_16mm",
+            "text": "U-16mm",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "U_16mm"
+          },
+          {
+            "key": "V_15mm",
+            "text": "V-15mm",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "V_15mm"
+          },
+          {
+            "key": "W_14mm",
+            "text": "W-14mm",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "W_14mm"
+          },
+          {
+            "key": "X_13mm",
+            "text": "X-13mm",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "X_13mm"
+          },
+          {
+            "key": "Y_12mm",
+            "text": "Y-12mm",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "Y_12mm"
+          },
+          {
+            "key": "Z_11mm",
+            "text": "Z-11mm",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "Z_11mm"
+          },
+          {
+            "key": "Z1_10mm",
+            "text": "Z1-10mm",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "Z1_10mm"
+          },
+          {
+            "key": "Z2_09mm",
+            "text": "Z2-09mm",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "Z2_09mm"
+          },
+          {
+            "key": "no_size",
+            "text": "No size(specify)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no_size"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an answer"
+        },
+        "relevance": {
+          "step1:preferred_client_mc_method_without_chordae": {
+            "type": "string",
+            "ex": "equalTo(., \"device\")"
+          }
+        }
+      },
+      {
+        "key": "other_penis_size",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "other_penis_size",
+        "type": "edit_text",
+        "hint": "Other(Specify)",
+        "v_required": {
+          "value": "true",
+          "err": "Please specify"
+        },
+        "relevance": {
+          "step1:penile_size": {
+            "type": "string",
+            "ex": "equalTo(., \"no_size\")"
+          }
+        }
+      },
+      {
+        "key": "physical_exam_completion_status",
+        "type": "hidden",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "physical_exam_completion_status",
+        "openmrs_entity_parent": "",
+        "value": "pending"
+      }
+    ]
+  }
+}
