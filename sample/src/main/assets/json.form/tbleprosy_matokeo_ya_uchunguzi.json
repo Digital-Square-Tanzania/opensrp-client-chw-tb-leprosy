@@ -88,7 +88,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "kipimo_cha_uchunguzi_kilichotumika_kupima_tb",
-        "label": "Aina ya kipimo cha uchunguzi cha kilichotumika kupima TB",
+        "label": "Aina ya kipimo cha uchunguzi kilichotumika kupima TB",
         "text_color": "#000000",
         "type": "native_radio",
         "options": [
@@ -134,6 +134,201 @@
         }
       },
       {
+        "key": "matokeo_ya_sampuli_tb",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "matokeo_ya_sampuli_tb",
+        "label": "Matokeo ya sampuli ya TB",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "tb_dr_tb_haijagundulika",
+            "text": "TB,DR-TB Haijagundulika",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "tb_dr_tb_haijagundulika"
+          },
+          {
+            "key": "kifua_kikuu_ya_mapafu",
+            "text": "Kifua kikuu ya mapafu",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "kifua_kikuu_ya_mapafu"
+          },
+          {
+            "key": "kifua_kikuu_nje_ya_mapafu",
+            "text": "Kifua kikuu nje ya mapafu",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "kifua_kikuu_nje_ya_mapafu"
+          },
+          {
+            "key": "kifua_kikuu_sugu",
+            "text": "Kifua Kikuu sugu (DR-TB)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "kifua_kikuu_sugu"
+          },
+          {
+            "key": "sampuli_haina_ubora",
+            "text": "Sampuli Haina ubora",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "sampuli_haina_ubora"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please specify"
+        }
+      },
+      {
+        "key": "aina_uchunguzi_uliotumika_kupima_ukoma",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "aina_uchunguzi_uliotumika_kupima_ukoma",
+        "label": "Aina ya uchunguzi uliyotumika kupima ukoma",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "hadubini",
+            "text": "Hadubini",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hadubini"
+          },
+          {
+            "key": "maamuzi_ya_kitabibu",
+            "text": "Maamuzi ya kitabibu",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "maamuzi_ya_kitabibu"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an answer"
+        }
+      },
+      {
+        "key": "matokeo_uchunguzi_ukoma",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "matokeo_uchunguzi_ukoma",
+        "label": "Matokeo ya uchunguzi wa Ukoma",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "amegundulika_na_ukoma",
+            "text": "Amegundulika na Ukoma",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "amegundulika_na_ukoma"
+          },
+          {
+            "key": "hana_ukoma",
+            "text": "Hana Ukoma",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hana_ukoma"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an answer"
+        }
+      },
+      {
+        "key": "amepima_vvu",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "amepima_vvu",
+        "label": "Amepima VVU",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "ndiyo_amepima_vvu",
+            "text": "Ndiyo",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "ndiyo_amepima_vvu"
+          },
+          {
+            "key": "hapana_amepima_ukoma",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hapana_amepima_ukoma"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an answer"
+        }
+      },
+      {
+        "key": "ameanza_tiba_tb_dr",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "ameanza_tiba_tb_dr",
+        "label": "Ameanza tiba ya TB/DR TB",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "ndiyo_ameanza_tiba_tb_dr",
+            "text": "Ndiyo",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "ndiyo_ameanza_tiba_tb_dr"
+          },
+          {
+            "key": "hapana_ameanza_tiba_tb_dr",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hapana_ameanza_tiba_tb_dr"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an answer"
+        }
+      },
+      {
+        "key": "ameanza_tiba_ukoma",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "ameanza_tiba_ukoma",
+        "label": "Ameanza tiba ya Ukoma",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "ndiyo_ameanza_tiba_ukoma",
+            "text": "Ndiyo",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "ndiyo_ameanza_tiba_ukoma"
+          },
+          {
+            "key": "hapana_ameanza_tiba_ukoma",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hapana_ameanza_tiba_ukoma"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an answer"
+        }
+      },
+      {
         "key": "toaster_genital_examination",
         "openmrs_entity_parent": "",
         "openmrs_entity": "person_attribute",
@@ -163,229 +358,6 @@
             ]
           }
         }
-      },
-      {
-        "key": "preferred_client_mc_method",
-        "type": "hidden",
-        "openmrs_entity_id": "preferred_client_mc_method",
-        "openmrs_entity": "concept",
-        "openmrs_entity_parent": "",
-        "calculation": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "tbleprosy_physcial_exam_calculation.yml"
-            }
-          }
-        }
-      },
-      {
-        "key": "penile_size",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "penile_size",
-        "type": "native_radio",
-        "label": "Select appropriate device size for client’s penile size",
-        "label_text_size": "18px",
-        "options": [
-          {
-            "key": "A4_40mm",
-            "text": "A4-40mm",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "A4_40mm"
-          },
-          {
-            "key": "A3_39mm",
-            "text": "A3-39mm",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "A3_39mm"
-          },
-          {
-            "key": "A2_38mm",
-            "text": "A2-38mm",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "A2_38mm"
-          },
-          {
-            "key": "A1_37mm",
-            "text": "A1-37mm",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "A1_37mm"
-          },
-          {
-            "key": "A_36mm",
-            "text": "A-36mm",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "A_36mm"
-          },
-          {
-            "key": "B_35mm",
-            "text": "B-35mm",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "B_35mm"
-          },
-          {
-            "key": "C_34mm",
-            "text": "C-34mm",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "C_34mm"
-          },
-          {
-            "key": "D_33mm",
-            "text": "D-33mm",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "D_33mm"
-          },
-          {
-            "key": "E_32mm",
-            "text": "E-32mm",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "E_32mm"
-          },
-          {
-            "key": "F_31mm",
-            "text": "F-31mm",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "F_31mm"
-          },
-          {
-            "key": "G_30mm",
-            "text": "G-30mm",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "G_30mm"
-          },
-          {
-            "key": "H_29mm",
-            "text": "H-29mm",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "H_29mm"
-          },
-          {
-            "key": "I_28mm",
-            "text": "I-28mm",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "I_28mm"
-          },
-          {
-            "key": "K_26mm",
-            "text": "K-26mm",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "K_26mm"
-          },
-          {
-            "key": "M_24mm",
-            "text": "M-24mm",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "M_24mm"
-          },
-          {
-            "key": "O_22mm",
-            "text": "O-22mm",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "O_22mm"
-          },
-          {
-            "key": "Q_20mm",
-            "text": "Q-20mm",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "Q_20mm"
-          },
-          {
-            "key": "S_18mm",
-            "text": "S-18mm",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "S_18mm"
-          },
-          {
-            "key": "U_16mm",
-            "text": "U-16mm",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "U_16mm"
-          },
-          {
-            "key": "V_15mm",
-            "text": "V-15mm",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "V_15mm"
-          },
-          {
-            "key": "W_14mm",
-            "text": "W-14mm",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "W_14mm"
-          },
-          {
-            "key": "X_13mm",
-            "text": "X-13mm",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "X_13mm"
-          },
-          {
-            "key": "Y_12mm",
-            "text": "Y-12mm",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "Y_12mm"
-          },
-          {
-            "key": "Z_11mm",
-            "text": "Z-11mm",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "Z_11mm"
-          },
-          {
-            "key": "Z1_10mm",
-            "text": "Z1-10mm",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "Z1_10mm"
-          },
-          {
-            "key": "Z2_09mm",
-            "text": "Z2-09mm",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "Z2_09mm"
-          },
-          {
-            "key": "no_size",
-            "text": "No size(specify)",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "no_size"
-          }
-        ],
-        "v_required": {
-          "value": "true",
-          "err": "Please select an answer"
-        },
-        "relevance": {
-          "step1:preferred_client_mc_method_without_chordae": {
-            "type": "string",
-            "ex": "equalTo(., \"device\")"
-          }
-        }
-      },
-      {
-        "key": "other_penis_size",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "other_penis_size",
-        "type": "edit_text",
-        "hint": "Other(Specify)",
-        "v_required": {
-          "value": "true",
-          "err": "Please specify"
-        },
-        "relevance": {
-          "step1:penile_size": {
-            "type": "string",
-            "ex": "equalTo(., \"no_size\")"
-          }
-        }
-      },
-      {
-        "key": "physical_exam_completion_status",
-        "type": "hidden",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "physical_exam_completion_status",
-        "openmrs_entity_parent": "",
-        "value": "pending"
       }
     ]
   }
