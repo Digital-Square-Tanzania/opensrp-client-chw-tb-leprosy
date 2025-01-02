@@ -7,8 +7,14 @@ import android.view.View;
 
 import androidx.appcompat.widget.Toolbar;
 
+import com.vijay.jsonwizard.activities.JsonWizardFormActivity;
+import com.vijay.jsonwizard.domain.Form;
+import com.vijay.jsonwizard.factory.FileSourceFactoryHelper;
+
+import org.json.JSONObject;
 import org.smartregister.chw.tbleprosy.contract.BaseTbLeprosyVisitContract;
 import org.smartregister.chw.tbleprosy.domain.MemberObject;
+import org.smartregister.chw.tbleprosy.util.Constants;
 import org.smartregister.chw.tbleprosy.util.DBConstants;
 import org.smartregister.chw.tbleprosy_sample.R;
 import org.smartregister.commonregistry.CommonPersonObjectClient;
@@ -65,6 +71,8 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
         findViewById(R.id.tbleprosy_activity).setOnClickListener(this);
         findViewById(R.id.tbleprosy_home_visit).setOnClickListener(this);
         findViewById(R.id.tbleprosy_profile).setOnClickListener(this);
+        findViewById(R.id.tbleprosy_screening).setOnClickListener(this);
+        findViewById(R.id.tbleprosy_visit_record).setOnClickListener(this);
     }
 
     @Override
@@ -89,10 +97,48 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
             case R.id.tbleprosy_profile:
                 TbLeprosyMemberProfileActivity.startMe(this, "12345");
                 break;
+            case R.id.tbleprosy_screening:
+                try {
+                    startForm("tbleprosy_screening");
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+                break;
+            case R.id.tbleprosy_visit_record:
+                try {
+                    startForm("tbleprosy_record_visit");
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+                break;
             default:
                 break;
         }
     }
+
+    private void startForm(String formName) throws Exception {
+        JSONObject jsonForm = FileSourceFactoryHelper.getFileSource("").getFormFromFile(getApplicationContext(), formName);
+
+        String currentLocationId = "Tanzania";
+        if (jsonForm != null) {
+            jsonForm.getJSONObject("metadata").put("encounter_location", currentLocationId);
+            Intent intent = new Intent(this, JsonWizardFormActivity.class);
+            intent.putExtra("json", jsonForm.toString());
+
+            Form form = new Form();
+            form.setWizard(true);
+            form.setNextLabel("Next");
+            form.setPreviousLabel("Previous");
+            form.setSaveLabel("Save");
+            form.setHideSaveLabel(true);
+
+            intent.putExtra("form", form);
+            startActivityForResult(intent, Constants.REQUEST_CODE_GET_JSON);
+
+        }
+
+    }
+
 
     @Override
     public void onDialogOptionUpdated(String jsonString) {
