@@ -92,13 +92,13 @@ public class BaseTbLeprosyServiceVisitInteractor extends BaseTbLeprosyVisitInter
     private void evaluateTbLeprosyObservation(Map<String, List<VisitDetail>> details) throws BaseTbLeprosyVisitAction.ValidationException {
 
         TbLeprosyPhysicalExamActionHelper actionHelper = new TbLeprosyPhysicalExamActionHelper(mContext, memberObject);
-        BaseTbLeprosyVisitAction action = getBuilder(context.getString(R.string.tbleprosy_observation))
+        BaseTbLeprosyVisitAction action = getBuilder(context.getString(R.string.tbleprosy_investigation))
                 .withOptional(true)
                 .withDetails(details)
                 .withHelper(actionHelper)
-                .withFormName(Constants.TbLeprosy_FOLLOWUP_FORMS.TBLEPROSY_OBSERVATION)
+                .withFormName(Constants.TbLeprosy_FOLLOWUP_FORMS.TBLEPROSY_INVESTIGATION)
                 .build();
-        actionList.put(context.getString(R.string.tbleprosy_observation), action);
+        actionList.put(context.getString(R.string.tbleprosy_investigation), action);
     }
 
     private void evaluateTbLeprosySample(Map<String, List<VisitDetail>> details) throws BaseTbLeprosyVisitAction.ValidationException {

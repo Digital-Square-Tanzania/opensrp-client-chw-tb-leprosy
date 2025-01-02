@@ -27,9 +27,9 @@
     <string name="tbleprosy_physical_examination">Physical Examination</string>
     <string name="tbleprosy_hts">HTS</string>
 
-    <string name="tbleprosy_observation">TB Leprosy Screening</string>
+    <string name="tbleprosy_investigation">TB Investigation</string>
     <string name="tbleprosy_sample">Sample Collection</string>
-    <string name="tbleprosy_source">Client Type and Screening Location</string>
+    <string name="tbleprosy_source">Type of Contact</string>
 
 
 

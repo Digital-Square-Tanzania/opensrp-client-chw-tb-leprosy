@@ -1,7 +1,7 @@
 {
   "validate_on_submit": true,
   "count": "1",
-  "encounter_type": "tbleprosy_observation",
+  "encounter_type": "tbleprosy_source",
   "entity_id": "",
   "metadata": {
     "start": {
@@ -44,74 +44,39 @@
   },
   "global": {},
   "step1": {
-    "title": "Uchunguzi wa Kifua Kikuu",
+    "title": "Njia ya Uchunguzi wa TB",
     "fields": [
       {
-        "key": "uchunguzi_wa_tb",
+        "key": "aina_ya_ukaribu_na_mgonjwa",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "uchunguzi_wa_tb",
-        "type": "check_box",
-        "combine_checkbox_option_values": "true",
-        "label": "Uchunguzi wa TB",
+        "openmrs_entity_id": "aina_ya_ukaribu_na_mgonjwa",
+        "type": "native_radio",
+        "label": "Aina ya Ukaribu na Mgonjwa",
         "label_text_size": "18px",
-        "exclusive": [
-          "hana_dalili"
-        ],
         "options":[
           {
-            "key": "kikohozi",
-            "text": "Kikohozi (KH)",
+            "key": "anaishi_kaya_moja",
+            "text": "Anaishi Kaya Moja",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "kikohozi"
+            "openmrs_entity_id": "anaishi_kaya_moja"
           },
           {
-            "key": "makohozi_damu",
-            "text": "Makohozi yaliyochanganyika na Damu(D)",
+            "key": "jamii_ya_karibu",
+            "text": "Jamii ya Karibu",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "makohozi_damu"
+            "openmrs_entity_id": "jamii_ya_karibu"
 
           },
           {
-            "key": "homa",
-            "text": "Homa(H)",
+            "key": "maeneo_ya_wagonjwa_wengi",
+            "text": "Maeneo yenye wagonjwa wengi wa TB",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "homa"
+            "openmrs_entity_id": "hapana_kaya_moja"
 
-          },
-          {
-            "key": "kupungua_uzito",
-            "text": "Kupungua Uzito(KU)",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "kupungua_uzito"
-
-          },
-          {
-            "key": "kutokwa_jasho_jingi",
-            "text": "Kutokwa na Jasho Jingi",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "kutokwa_jasho_jingi"
-
-          },
-          {
-            "key": "dalili_za_tb_nje_ya_mapafu",
-            "text": "Dalili za TB Nje ya Mapafu(Specify)",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "dalili_za_tb_nje_ya_mapafu"
-
-          },
-          {
-            "key": "hana_dalili",
-            "text": "Hana Dalili",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "hana_dalili"
           }
         ],
         "v_required": {
@@ -120,14 +85,24 @@
         }
       },
       {
-        "key": "mhisiwa_wa_tb",
+        "key": "namba_ya_mteja",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "mhisiwa_wa_tb",
-        "type": "toaster_notes",
-        "text": "Mhisiwa wa TB, mpe Rufaa kwenda Kituo cha kutolea Huduma za Afya",
-        "text_color": "#CF0800",
-        "toaster_type": "problem"
+        "openmrs_entity_id": "namba_ya_mteja",
+        "type": "label",
+        "text": "Namba ya Mteja wa TB",
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
+      },
+      {
+        "key": "namba_ya_mteja",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "namba_ya_mteja",
+        "type": "edit_text",
+        "hint": "TB12345"
       }
     ]
   }

@@ -1,7 +1,7 @@
 {
   "validate_on_submit": true,
   "count": "1",
-  "encounter_type": "tbleprosy_contact",
+  "encounter_type": "tbleprosy_observation",
   "entity_id": "",
   "metadata": {
     "start": {
@@ -44,148 +44,130 @@
   },
   "global": {},
   "step1": {
-    "title": "Kuchukua Sampuli",
+    "title": "Uchunguzi wa Kifua Kikuu",
     "fields": [
       {
-        "key": "amechukuliwa_sampuli",
+        "key": "uchunguzi_wa_tb",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "amechukuliwa_sampuli",
-        "type": "native_radio",
-        "label": "Je mteja amechukuliwa sampuli?",
-        "label_text_size": "18px",
-        "options":[
-          {
-            "key": "ndio_sampuli",
-            "text": "Ndio",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "ndio_sampuli"
-          },
-          {
-            "key": "hapana_sampuli",
-            "text": "Hapana",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "hapana_sampuli"
-
-          }
+        "openmrs_entity_id": "uchunguzi_wa_tb",
+        "type": "check_box",
+        "combine_checkbox_option_values": "true",
+        "label": "Uchunguzi wa TB",
+        "exclusive": [
+          "hana_dalili",
+          "dalili_za_tb_nje_ya_mapafu"
         ],
         "v_required": {
           "value": "true",
           "err": "Please select an option"
-        }
-      },
-      {
-        "key": "aina_sampuli",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "aina_sampuli",
-        "type": "native_radio",
-        "label": "Aina ya sampuli",
-        "label_text_size": "18px",
+        },
         "options":[
           {
             "key": "kikohozi",
-            "text": "Kikohozi",
+            "text": "Kikohozi (KH)",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "kikohozi"
           },
           {
-            "key": "kinyesi",
-            "text": "Kinyesi",
+            "key": "makohozi_damu",
+            "text": "Makohozi yaliyochanganyika na Damu(D)",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "kinyesi"
+            "openmrs_entity_id": "makohozi_damu"
 
           },
           {
-            "key": "mkojo",
-            "text": "Mkojo",
+            "key": "homa",
+            "text": "Homa(H)",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "mkojo"
+            "openmrs_entity_id": "homa"
 
           },
           {
-            "key": "nyingine",
-            "text": "Nyingine(Taja)",
+            "key": "kupungua_uzito",
+            "text": "Kupungua Uzito(KU)",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "nyingine"
+            "openmrs_entity_id": "kupungua_uzito"
+
+          },
+          {
+            "key": "kutokwa_jasho_jingi",
+            "text": "Kutokwa na Jasho Jingi",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "kutokwa_jasho_jingi"
+
+          },
+          {
+            "key": "dalili_za_tb_nje_ya_mapafu",
+            "text": "Dalili za TB Nje ya Mapafu(Specify)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "dalili_za_tb_nje_ya_mapafu"
+
+          },
+          {
+            "key": "hana_dalili",
+            "text": "Hana Dalili",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hana_dalili"
           }
         ],
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "tb_leprosy_sample.yml"
-            }
-          }
-        },
         "v_required": {
           "value": "true",
           "err": "Please select an option"
         }
       },
       {
-        "key": "sampuli_nyingine",
+        "key": "dalili_nyingine",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "sampuli_nyingine",
+        "openmrs_entity_id": "dalili_nyingine",
         "type": "edit_text",
-        "hint": "Sampuli Nyingine",
+        "hint": "Dalili za TB Nje ya Mapafu",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "tb_leprosy_sample.yml"
+              "rules-file": "tb_leprosy_investigation.yml"
             }
           }
         }
       },
       {
-        "key": "kikopo_cha_ziada_cha_sampuli",
+        "key": "mhisiwa_wa_tb",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "kikopo_cha_ziada_cha_sampuli",
-        "type": "native_radio",
-        "label": "Je mteja anahitaji kikopo cha ziada kuchukulia sampuli?",
-        "label_text_size": "18px",
-        "options":[
-          {
-            "key": "ndio_anahitaji",
-            "text": "Ndio",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "ndio_anahitaji"
-          },
-          {
-            "key": "hapana_haitaji",
-            "text": "Hapana",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "hapana_haitaji"
-
-          }
-        ],
-        "v_required": {
-          "value": "true",
-          "err": "Please select an option"
-        }
-      },
-      {
-        "key": "kifaa_cha_sampuli",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "kifaa_cha_sampuli",
+        "openmrs_entity_id": "mhisiwa_wa_tb",
         "type": "toaster_notes",
-        "text": "Mpatie Mteja kifaa cha kuchukulia Sampuli",
+        "text": "Mhisiwa wa TB, mpe Rufaa kwenda Kituo cha kutolea Huduma za Afya",
         "text_color": "#CF0800",
         "toaster_type": "problem",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "tb_leprosy_sample.yml"
+              "rules-file": "tb_leprosy_investigation.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "sio_mhisiwa_wa_tb",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "sio_mhisiwa_wa_tb",
+        "type": "toaster_notes",
+        "text": "Mteja sio Mhisiwa wa TB",
+        "text_color": "#CF0800",
+        "toaster_type": "problem",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tb_leprosy_investigation.yml"
             }
           }
         }

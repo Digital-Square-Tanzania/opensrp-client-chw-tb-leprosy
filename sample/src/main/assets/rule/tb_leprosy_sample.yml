@@ -7,18 +7,24 @@ actions:
   - "isRelevant = true"
 
 ---
+name: step1_kifaa_cha_sampuli
+description: Kifaa cha sampuli
+priority: 1
+condition: "step1_kikopo_cha_ziada_cha_sampuli.equalsIgnoreCase('ndio_anahitaji')"
+actions:
+  - "isRelevant = true"
+---
 name: step1_aina_sampuli
 description: je amechukuliwa sample
 priority: 1
-condition: "step1_amechukuliwa_sampuli.equalsIgnoreCase('hapana_sampuli')"
+condition: "step1_amechukuliwa_sampuli.equalsIgnoreCase('ndio_sampuli')"
 actions:
   - "isRelevant = true"
-
 ---
-name: step1_kikopo_cha_ziada_cha_sampuli
-description: Kikopo cha ziada cha sampuli
+name: step1_sampuli_nyingine
+description: Aina ya sampuli nyingine
 priority: 1
-condition: "step1_amechukuliwa_sampuli.equalsIgnoreCase('hapana_sampuli')"
+condition: "step1_aina_sampuli.equalsIgnoreCase('nyingine')"
 actions:
   - "isRelevant = true"
 
