@@ -1,0 +1,7 @@
+---
+name: step1_mpatie_mteja_kifaa
+description: enter tb client id
+priority: 1
+condition: "step1_mteja_anahitaji_kifaa_kingine.contains('ndiyo')"
+actions:
+  - "isRelevant = true"
