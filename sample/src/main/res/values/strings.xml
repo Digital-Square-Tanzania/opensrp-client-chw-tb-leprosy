@@ -3,4 +3,6 @@
     <string name="action_settings">Settings</string>
     <string name="tbleprosy_client_profile">New TbLeprosy Client Profile</string>
     <string name="tbleprosy_follow_up_visit">Follow up TBLEPROSY Client Profile</string>
+    <string name="tbleprosy_screening">TB/Leprosy screening</string>
+    <string name="tbleprosy_visit_record">TB/Leprosy Visit Record</string>
 </resources>
