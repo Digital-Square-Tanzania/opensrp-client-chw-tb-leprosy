@@ -53,11 +53,9 @@
         "openmrs_entity_id": "aina_ya_uchunguzi",
         "type": "check_box",
         "label": "Aina ya Uchunguzi",
+        "label_text_style": "bold",
         "text_color": "#000000",
         "combine_checkbox_option_values": "true",
-        "exclusive": [
-          "none"
-        ],
         "options": [
           {
             "key": "kifua_kikuu",
@@ -70,12 +68,6 @@
             "text": "Ukoma",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "ukoma"
-          },
-          {
-            "key": "none",
-            "text": "None",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "none"
           }
         ],
         "v_required": {
@@ -89,6 +81,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "kipimo_cha_uchunguzi_kilichotumika_kupima_tb",
         "label": "Aina ya kipimo cha uchunguzi kilichotumika kupima TB",
+        "label_text_style": "bold",
         "text_color": "#000000",
         "type": "native_radio",
         "options": [
@@ -131,6 +124,13 @@
         "v_required": {
           "value": "true",
           "err": "Please specify"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_matokeo_ya_uchunguzi.yml"
+            }
+          }
         }
       },
       {
@@ -139,16 +139,10 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "matokeo_ya_sampuli_tb",
         "label": "Matokeo ya sampuli ya TB",
+        "label_text_style": "bold",
         "text_color": "#000000",
         "type": "native_radio",
         "options": [
-          {
-            "key": "tb_dr_tb_haijagundulika",
-            "text": "TB,DR-TB Haijagundulika",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "tb_dr_tb_haijagundulika"
-          },
           {
             "key": "kifua_kikuu_ya_mapafu",
             "text": "Kifua kikuu ya mapafu",
@@ -171,6 +165,13 @@
             "openmrs_entity_id": "kifua_kikuu_sugu"
           },
           {
+            "key": "tb_dr_tb_haijagundulika",
+            "text": "TB,DR-TB Haijagundulika",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "tb_dr_tb_haijagundulika"
+          },
+          {
             "key": "sampuli_haina_ubora",
             "text": "Sampuli Haina ubora",
             "openmrs_entity_parent": "",
@@ -181,6 +182,50 @@
         "v_required": {
           "value": "true",
           "err": "Please specify"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_matokeo_ya_uchunguzi.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "maamuzi_kitabibu",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "maamuzi_kitabibu",
+        "label": "Maamuzi ya kitabibu",
+        "label_text_style": "bold",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "suggestive",
+            "text": "Suggestive",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "suggestive"
+          },
+          {
+            "key": "non_suggestive",
+            "text": "Non suggestive",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "non_suggestive"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please specify"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_matokeo_ya_uchunguzi.yml"
+            }
+          }
         }
       },
       {
@@ -189,6 +234,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "aina_uchunguzi_uliotumika_kupima_ukoma",
         "label": "Aina ya uchunguzi uliyotumika kupima ukoma",
+        "label_text_style": "bold",
         "text_color": "#000000",
         "type": "native_radio",
         "options": [
@@ -210,6 +256,13 @@
         "v_required": {
           "value": "true",
           "err": "Please select an answer"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_matokeo_ya_uchunguzi.yml"
+            }
+          }
         }
       },
       {
@@ -218,6 +271,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "matokeo_uchunguzi_ukoma",
         "label": "Matokeo ya uchunguzi wa Ukoma",
+        "label_text_style": "bold",
         "text_color": "#000000",
         "type": "native_radio",
         "options": [
@@ -239,35 +293,13 @@
         "v_required": {
           "value": "true",
           "err": "Please select an answer"
-        }
-      },
-      {
-        "key": "amepima_vvu",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "amepima_vvu",
-        "label": "Amepima VVU",
-        "text_color": "#000000",
-        "type": "native_radio",
-        "options": [
-          {
-            "key": "ndiyo_amepima_vvu",
-            "text": "Ndiyo",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "ndiyo_amepima_vvu"
-          },
-          {
-            "key": "hapana_amepima_ukoma",
-            "text": "Hapana",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "hapana_amepima_ukoma"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_matokeo_ya_uchunguzi.yml"
+            }
           }
-        ],
-        "v_required": {
-          "value": "true",
-          "err": "Please select an answer"
         }
       },
       {
@@ -276,6 +308,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "ameanza_tiba_tb_dr",
         "label": "Ameanza tiba ya TB/DR TB",
+        "label_text_style": "bold",
         "text_color": "#000000",
         "type": "native_radio",
         "options": [
@@ -297,6 +330,13 @@
         "v_required": {
           "value": "true",
           "err": "Please select an answer"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_matokeo_ya_uchunguzi.yml"
+            }
+          }
         }
       },
       {
@@ -305,6 +345,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "ameanza_tiba_ukoma",
         "label": "Ameanza tiba ya Ukoma",
+        "label_text_style": "bold",
         "text_color": "#000000",
         "type": "native_radio",
         "options": [
@@ -326,36 +367,148 @@
         "v_required": {
           "value": "true",
           "err": "Please select an answer"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_matokeo_ya_uchunguzi.yml"
+            }
+          }
         }
       },
       {
-        "key": "toaster_genital_examination",
+        "key": "anastahili_kuanzishiwa_tpt",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "anastahili_kuanzishiwa_tpt",
+        "label": "Mteja anastahili kuanzishiwa TPT?",
+        "label_text_style": "bold",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "ndiyo_anastahili_kuanzishiwa_tpt",
+            "text": "Ndiyo",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "ndiyo_anastahili_kuanzishiwa_tpt"
+          },
+          {
+            "key": "hapana_anastahili_kuanzishiwa_tpt",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hapana_anastahili_kuanzishiwa_tpt"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an answer"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_matokeo_ya_uchunguzi.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "tarehe_ya_kuanzishiwa_tpt",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "tarehe_ya_kuanzishiwa_tpt",
+        "type": "edit_text",
+        "hint": "Tarehe ya kuanzishiwa TPT",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_matokeo_ya_uchunguzi.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "tarehe_ya_kuanza_tiba_kifua_kikuu",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "tarehe_ya_kuanza_tiba_kifua_kikuu",
+        "type": "edit_text",
+        "hint": "Tarehe ya kuanza tiba ya Kifua Kikuu",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_matokeo_ya_uchunguzi.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "tarehe_ya_kuanza_tiba_ukoma",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "tarehe_ya_kuanza_tiba_ukoma",
+        "type": "edit_text",
+        "hint": "Tarehe ya kuanza tiba Ukoma",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_matokeo_ya_uchunguzi.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "amepima_vvu",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "amepima_vvu",
+        "label": "Amepima VVU",
+        "label_text_style": "bold",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "ndiyo_amepima_vvu",
+            "text": "Ndiyo",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "ndiyo_amepima_vvu"
+          },
+          {
+            "key": "hapana_amepima_ukoma",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hapana_amepima_ukoma"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an answer"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_matokeo_ya_uchunguzi.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "toaster_sampuli_haina_ubora",
         "openmrs_entity_parent": "",
         "openmrs_entity": "person_attribute",
-        "openmrs_entity_id": "toaster_notes",
+        "openmrs_entity_id": "toaster_sampuli_haina_ubora",
         "type": "toaster_notes",
-        "text": "Do not perform Male circumcision  until the issue is resolved/refer to other service",
+        "text": "Kusanya sampuli ya mteja kwaajili ya kurudia kufanya kipimo cha kifua kikuu",
         "text_color": "#CF0800",
         "toaster_type": "problem",
         "relevance": {
-          "step1:genital_examination": {
-            "ex-checkbox": [
-              {
-                "or": [
-                  "urethral_discharge_syndrome",
-                  "genital_ulcer_disease",
-                  "phimosis",
-                  "paraphimosis",
-                  "undescended_testicles",
-                  "condylomata_lata",
-                  "adhesion_prepuce",
-                  "hydrocele",
-                  "balanitis",
-                  "urethral_opening_abnormality",
-                  "others"
-                ]
-              }
-            ]
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_matokeo_ya_uchunguzi.yml"
+            }
           }
         }
       }
