@@ -112,6 +112,26 @@
         }
       },
       {
+        "key": "taja_sababu_ya_hajapatikana",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "taja_sababu_ya_hajapatikana",
+        "type": "edit_text",
+        "hint": "Taja sababu ya matokeo ya ufuatiliaji",
+        "edit_type": "name",
+        "v_required": {
+          "value": "true",
+          "err": "Please specify"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_ufuatiliaji_wa_mteja.yml"
+            }
+          }
+        }
+      },
+      {
         "key": "amerudi_kwenye_matibabu",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
@@ -139,6 +159,13 @@
         "v_required": {
           "value": "true",
           "err": "Please specify"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_ufuatiliaji_wa_mteja.yml"
+            }
+          }
         }
       },
       {
@@ -152,13 +179,78 @@
         "v_required": {
           "value": "true",
           "err": "Please specify"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_ufuatiliaji_wa_mteja.yml"
+            }
+          }
         }
       },
       {
-        "key": "changamoto_mteja_aliyopita",
+        "key": "changamoto_katika_upatikanaji_huduma",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "changamoto_mteja_aliyopita",
+        "openmrs_entity_id": "chanagamoto_katika_upatikanaji_huduma",
+        "label": "Kuna changamoto anazokabiliana nazo katika upatikanaji wa huduma?",
+        "label_text_style": "bold",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "ndiyo_changamoto_katika_upatikanaji_huduma",
+            "text": "Ndiyo",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "ndiyo_changamoto_katika_upatikanaji_huduma"
+          },
+          {
+            "key": "hapana_changamoto_katika_upatikanaji_huduma",
+            "text": "Hapana (Taja sababu)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hapana_changamoto_katika_upatikanaji_huduma"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please specify"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_ufuatiliaji_wa_mteja.yml"
+            }
+          }
+        }
+
+      },
+      {
+        "key": "taja_sababu_hapana_changamoto_upatikanaji_huduma",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "taja_sababu_hapana_changamoto_upatikanaji_huduma",
+        "type": "edit_text",
+        "hint": "Taja sababu",
+        "edit_type": "name",
+        "v_required": {
+          "value": "true",
+          "err": "Please specify"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_ufuatiliaji_wa_mteja.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "changamoto_mteja_aliyopata",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "changamoto_mteja_aliyopata",
         "type": "check_box",
         "label": "Chagua aina ya changamoto mteja aliyopata",
         "label_text_style": "bold",
@@ -202,6 +294,13 @@
         "v_required": {
           "value": "true",
           "err": "Please specify"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_ufuatiliaji_wa_mteja.yml"
+            }
+          }
         }
       },
       {
@@ -264,36 +363,29 @@
         "v_required": {
           "value": "true",
           "err": "Please specify"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_ufuatiliaji_wa_mteja.yml"
+            }
+          }
         }
       },
       {
-        "key": "toaster_genital_examination",
+        "key": "toaster_mteja_kurudi_matibabu",
         "openmrs_entity_parent": "",
         "openmrs_entity": "person_attribute",
-        "openmrs_entity_id": "toaster_notes",
+        "openmrs_entity_id": "toaster_mteja_kurudi_matibabu",
         "type": "toaster_notes",
-        "text": "Do not perform Male circumcision  until the issue is resolved/refer to other service",
+        "text": "Mshauri mteja kurudi kwenye matibabu",
         "text_color": "#CF0800",
         "toaster_type": "problem",
         "relevance": {
-          "step1:genital_examination": {
-            "ex-checkbox": [
-              {
-                "or": [
-                  "urethral_discharge_syndrome",
-                  "genital_ulcer_disease",
-                  "phimosis",
-                  "paraphimosis",
-                  "undescended_testicles",
-                  "condylomata_lata",
-                  "adhesion_prepuce",
-                  "hydrocele",
-                  "balanitis",
-                  "urethral_opening_abnormality",
-                  "others"
-                ]
-              }
-            ]
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_ufuatiliaji_wa_mteja.yml"
+            }
           }
         }
       }

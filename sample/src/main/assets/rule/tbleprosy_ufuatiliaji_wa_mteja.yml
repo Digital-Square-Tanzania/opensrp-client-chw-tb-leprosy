@@ -1,0 +1,90 @@
+name: step1_kipimo_cha_uchunguzi_kilichotumika_kupima_tb
+description:  kipimo cha uchunguzi kilichotumika kupima TB kama aina ya uchunguzi ni kifua kikuu
+priority: 1
+condition: "step1_aina_ya_uchunguzi.contains('kifua_kikuu')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_matokeo_ya_sampuli_tb
+description:  matokeo ya sampuli ya TB kama aina ya kipimo cha uchunguzi kilichotumika kupima TB
+priority: 1
+condition: "step1_kipimo_cha_uchunguzi_kilichotumika_kupima_tb.equalsIgnoreCase('trunati') || step1_kipimo_cha_uchunguzi_kilichotumika_kupima_tb.equalsIgnoreCase('genexpert') || step1_kipimo_cha_uchunguzi_kilichotumika_kupima_tb.equals('hadubini')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_aina_uchunguzi_uliotumika_kupima_ukoma
+description:  Kama aina ya uchunguzi ni ukoma
+priority: 1
+condition: "step1_aina_ya_uchunguzi.contains('ukoma')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_matokeo_uchunguzi_ukoma
+description:  Kama aina_uchunguzi_uliotumika_kupima_ukoma ni hadubini au maamuzi ya kitabibu
+priority: 1
+condition: "step1_aina_uchunguzi_uliotumika_kupima_ukoma.equalsIgnoreCase('hadubini') || step1_aina_uchunguzi_uliotumika_kupima_ukoma.equalsIgnoreCase('maamuzi_ya_kitabibu')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_ameanza_tiba_tb_dr
+description:  Kama matokeo ya sampuli ya TB ni kifua kikuu ya mapafu au nje ya mapafu au kifua kikuu sugu
+priority: 1
+condition: "step1_matokeo_ya_sampuli_tb.equalsIgnoreCase('kifua_kikuu_ya_mapafu') || step1_matokeo_ya_sampuli_tb.equalsIgnoreCase('kifua_kikuu_nje_ya_mapafu') || step1_matokeo_ya_sampuli_tb.equalsIgnoreCase('kifua_kikuu_sugu') || step1_maamuzi_kitabibu.equalsIgnoreCase('suggestive')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_amepima_vvu
+description:  Kama matokeo ya sampuli ya TB ni kifua kikuu ya mapafu au nje ya mapafu au kifua kikuu sugu na ameanza tiba ya TB
+priority: 1
+condition: "step1_ameanza_tiba_tb_dr.equalsIgnoreCase('ndiyo_ameanza_tiba_tb_dr') || step1_ameanza_tiba_tb_dr.equalsIgnoreCase('hapana_ameanza_tiba_tb_dr') || step1_ameanza_tiba_ukoma.equalsIgnoreCase('ndiyo_ameanza_tiba_ukoma') || step1_ameanza_tiba_ukoma.equalsIgnoreCase('hapana_ameanza_tiba_ukoma')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_ameanza_tiba_ukoma
+description:  Kama matokeo ya uchunguzi wa ukoma ambayo majibu ni amegundulika na Ukoma
+priority: 1
+condition: "step1_matokeo_uchunguzi_ukoma.equalsIgnoreCase('amegundulika_na_ukoma')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_maamuzi_kitabibu
+description:  Kama aina ya kipimo cha uchunguzi kilichotumika kupima TB ni xray au score chart
+priority: 1
+condition: "step1_kipimo_cha_uchunguzi_kilichotumika_kupima_tb.equalsIgnoreCase('xray') || step1_kipimo_cha_uchunguzi_kilichotumika_kupima_tb.equalsIgnoreCase('score_chart')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_anastahili_kuanzishiwa_tpt
+description:  Kama maamuzi ya kitabibu jibu ni non-suggestive
+priority: 1
+condition: "step1_maamuzi_kitabibu.equalsIgnoreCase('non_suggestive') || step1_matokeo_ya_sampuli_tb.equalsIgnoreCase('tb_dr_tb_haijagundulika')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_toaster_sampuli_haina_ubora
+description: if toaster_sampuli_haina_ubora
+priority: 1
+condition: "step1_matokeo_ya_sampuli_tb.equalsIgnoreCase('sampuli_haina_ubora')"
+actions:
+  - "isRelevant = true "
+---
+name: step1_tarehe_ya_kuanzishiwa_tpt
+description: kama mteja amejibu Ndiyo kwenye anastahili kuanzishiwa TPT
+priority: 1
+condition: "step1_anastahili_kuanzishiwa_tpt.equalsIgnoreCase('ndiyo_anastahili_kuanzishiwa_tpt')"
+actions:
+  - "isRelevant = true "
+---
+name: step1_tarehe_ya_kuanza_tiba_kifua_kikuu
+description: kama mteja amejibu Ndiyo kwenye ameanza tiba ya TB/DR TB
+priority: 1
+condition: "step1_ameanza_tiba_tb_dr.equalsIgnoreCase('ndiyo_ameanza_tiba_tb_dr')"
+actions:
+  - "isRelevant = true "
+---
+name: step1_tarehe_ya_kuanza_tiba_ukoma
+description: kama mteja amejibu Ndiyo kwenye ameanza tiba ya ukoma
+priority: 1
+condition: "step1_ameanza_tiba_ukoma.equalsIgnoreCase('ndiyo_ameanza_tiba_ukoma')"
+actions:
+  - "isRelevant = true "
