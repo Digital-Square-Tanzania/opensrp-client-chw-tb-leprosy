@@ -19,28 +19,9 @@ import java.util.Map;
 import timber.log.Timber;
 
 public class TbLeprosySampleActionHelper implements BaseTbLeprosyVisitAction.TbLeprosyVisitActionHelper {
-
-    protected static String is_client_diagnosed_with_any;
-
-    protected static String any_complaints;
-
-    protected static String complications_previous_surgical;
-
-    protected static String any_hematological_disease_symptoms;
-
-    protected static String known_allergies;
-
-    protected static String type_of_blood_for_glucose_test;
-
-    protected static String blood_for_glucose;
-
-    protected static String blood_for_glucose_test;
-
-    protected static String client_diagnosed_other;
-
     protected String jsonPayload;
 
-    protected String medical_history;
+    protected String observation;
 
     protected String baseEntityId;
 
@@ -65,6 +46,8 @@ public class TbLeprosySampleActionHelper implements BaseTbLeprosyVisitAction.TbL
     public String getPreProcessed() {
         try {
             JSONObject jsonObject = new JSONObject(jsonPayload);
+            JSONObject global = jsonObject.getJSONObject("global");
+            global.put("observation", observation);
             return jsonObject.toString();
         } catch (JSONException e) {
             e.printStackTrace();
@@ -77,29 +60,6 @@ public class TbLeprosySampleActionHelper implements BaseTbLeprosyVisitAction.TbL
     public void onPayloadReceived(String jsonPayload) {
         try {
             JSONObject jsonObject = new JSONObject(jsonPayload);
-
-            checkObject.clear();
-
-            checkObject.put("has_client_had_any_sti", StringUtils.isNotBlank(JsonFormUtils.getValue(jsonObject, "has_client_had_any_sti")));
-            checkObject.put("any_complaints", StringUtils.isNotBlank(JsonFormUtils.getValue(jsonObject, "any_complaints")));
-            checkObject.put("is_client_diagnosed_with_any", StringUtils.isNotBlank(JsonFormUtils.getValue(jsonObject, "is_client_diagnosed_with_any")));
-            checkObject.put("surgical_procedure", StringUtils.isNotBlank(JsonFormUtils.getValue(jsonObject, "surgical_procedure")));
-            checkObject.put("known_allergies", StringUtils.isNotBlank(JsonFormUtils.getValue(jsonObject, "known_allergies")));
-            checkObject.put("tetanus_vaccination", StringUtils.isNotBlank(JsonFormUtils.getValue(jsonObject, "tetanus_vaccination")));
-            checkObject.put("any_hematological_disease_symptoms", StringUtils.isNotBlank(JsonFormUtils.getValue(jsonObject, "any_hematological_disease_symptoms")));
-
-
-            is_client_diagnosed_with_any = JsonFormUtils.getValue(jsonObject, "is_client_diagnosed_with_any");
-            any_complaints = JsonFormUtils.getValue(jsonObject, "any_complaints");
-            complications_previous_surgical = JsonFormUtils.getValue(jsonObject, "complications_previous_surgical");
-            any_hematological_disease_symptoms = JsonFormUtils.getValue(jsonObject, "any_hematological_disease_symptoms");
-            known_allergies = JsonFormUtils.getValue(jsonObject, "known_allergies");
-            type_of_blood_for_glucose_test = JsonFormUtils.getValue(jsonObject, "type_of_blood_for_glucose_test");
-            blood_for_glucose = JsonFormUtils.getValue(jsonObject, "blood_for_glucose");
-            blood_for_glucose_test = JsonFormUtils.getValue(jsonObject, "blood_for_glucose_test");
-            client_diagnosed_other = JsonFormUtils.getValue(jsonObject, "is_client_diagnosed_with_any_others");
-
-            medical_history = JsonFormUtils.getValue(jsonObject, "has_client_had_any_sti");
 
         } catch (JSONException e) {
             e.printStackTrace();

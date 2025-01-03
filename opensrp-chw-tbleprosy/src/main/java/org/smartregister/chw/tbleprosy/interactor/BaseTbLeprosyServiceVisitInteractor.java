@@ -8,8 +8,9 @@ import androidx.annotation.VisibleForTesting;
 import org.apache.commons.lang3.StringUtils;
 import org.smartregister.chw.tbleprosy.R;
 import org.smartregister.chw.tbleprosy.TbLeprosyLibrary;
-import org.smartregister.chw.tbleprosy.actionhelper.TbLeprosyHtsActionHelper;
-import org.smartregister.chw.tbleprosy.actionhelper.TbLeprosyMedicalHistoryActionHelper;
+import org.smartregister.chw.tbleprosy.actionhelper.TbLeprosySampleActionHelper;
+import org.smartregister.chw.tbleprosy.actionhelper.TbLeprosyInvestigationActionHelper;
+import org.smartregister.chw.tbleprosy.actionhelper.TbLeprosySourceActionHelper;
 import org.smartregister.chw.tbleprosy.contract.BaseTbLeprosyVisitContract;
 import org.smartregister.chw.tbleprosy.domain.MemberObject;
 import org.smartregister.chw.tbleprosy.domain.VisitDetail;
@@ -57,14 +58,17 @@ public class BaseTbLeprosyServiceVisitInteractor extends BaseTbLeprosyVisitInter
         return super.getCurrentVisitType();
     }
 
+    /**
+     * this method is used to list all actions
+     * @param callBack
+     */
     @Override
     protected void populateActionList(BaseTbLeprosyVisitContract.InteractorCallBack callBack) {
         this.callBack = callBack;
         final Runnable runnable = () -> {
             try {
                 evaluateTbLeprosySource(details);
-                evaluateTbLeprosyObservation(details);
-                evaluateTbLeprosySample(details);
+                evaluateTbLeprosyInvestigation(details);
 
             } catch (BaseTbLeprosyVisitAction.ValidationException e) {
                 Timber.e(e);
@@ -76,11 +80,16 @@ public class BaseTbLeprosyServiceVisitInteractor extends BaseTbLeprosyVisitInter
         appExecutors.diskIO().execute(runnable);
     }
 
+    /**
+     * this action deals Type of Contact (Njia ya kuchunguza Kifua Kikuu)
+     * @param details
+     * @throws BaseTbLeprosyVisitAction.ValidationException
+     */
     private void evaluateTbLeprosySource(Map<String, List<VisitDetail>> details) throws BaseTbLeprosyVisitAction.ValidationException {
 
-        TbLeprosyMedicalHistoryActionHelper actionHelper = new TbLeprosyMedicalHistory(mContext, memberObject);
+        TbLeprosySourceActionHelper actionHelper = new TbLeprosySourceActionHelper(mContext, memberObject);
         BaseTbLeprosyVisitAction action = getBuilder(context.getString(R.string.tbleprosy_source))
-                .withOptional(true)
+                .withOptional(false)
                 .withDetails(details)
                 .withHelper(actionHelper)
                 .withFormName(Constants.TbLeprosy_FOLLOWUP_FORMS.TBLEPROSY_SOURCE)
@@ -89,11 +98,32 @@ public class BaseTbLeprosyServiceVisitInteractor extends BaseTbLeprosyVisitInter
 
     }
 
-    private void evaluateTbLeprosyObservation(Map<String, List<VisitDetail>> details) throws BaseTbLeprosyVisitAction.ValidationException {
+    /**
+     * this action deals with TB Investigation (Uchunguzi wa Kifua Kikuu)
+     * @param details
+     * @throws BaseTbLeprosyVisitAction.ValidationException
+     */
+    private void evaluateTbLeprosyInvestigation(Map<String, List<VisitDetail>> details) throws BaseTbLeprosyVisitAction.ValidationException {
 
-        TbLeprosyPhysicalExamActionHelper actionHelper = new TbLeprosyPhysicalExamActionHelper(mContext, memberObject);
+        TbLeprosyInvestigationActionHelper actionHelper = new TbLeprosyInvestigationActionHelper(mContext, memberObject) {
+            @Override
+            public void processObservation(String observation) {
+                if (StringUtils.isNotBlank(observation) && !observation.contains("hana_dalili")) {
+                    try {
+                        evaluateTbLeprosySample(details, observation);
+                    } catch (BaseTbLeprosyVisitAction.ValidationException e) {
+                        Timber.e(e);
+                    }
+                }else {
+                    actionList.remove(context.getString(R.string.tbleprosy_sample));
+                }
+
+                appExecutors.mainThread().execute(() -> callBack.preloadActions(actionList));
+
+            }
+        };
         BaseTbLeprosyVisitAction action = getBuilder(context.getString(R.string.tbleprosy_investigation))
-                .withOptional(true)
+                .withOptional(false)
                 .withDetails(details)
                 .withHelper(actionHelper)
                 .withFormName(Constants.TbLeprosy_FOLLOWUP_FORMS.TBLEPROSY_INVESTIGATION)
@@ -101,9 +131,15 @@ public class BaseTbLeprosyServiceVisitInteractor extends BaseTbLeprosyVisitInter
         actionList.put(context.getString(R.string.tbleprosy_investigation), action);
     }
 
-    private void evaluateTbLeprosySample(Map<String, List<VisitDetail>> details) throws BaseTbLeprosyVisitAction.ValidationException {
+    /**
+     * this action deals with sample collection (kuchukua sampuli)
+     * @param details
+     * @param observation
+     * @throws BaseTbLeprosyVisitAction.ValidationException
+     */
+    private void evaluateTbLeprosySample(Map<String, List<VisitDetail>> details, String observation) throws BaseTbLeprosyVisitAction.ValidationException {
 
-        TbLeprosyHtsActionHelper actionHelper = new TbLeprosyHtsActionHelper(mContext, memberObject);
+        TbLeprosySampleActionHelper actionHelper = new TbLeprosySampleActionHelper(mContext, memberObject);
         BaseTbLeprosyVisitAction action = getBuilder(context.getString(R.string.tbleprosy_sample))
                 .withOptional(true)
                 .withDetails(details)
@@ -123,45 +159,7 @@ public class BaseTbLeprosyServiceVisitInteractor extends BaseTbLeprosyVisitInter
         return Constants.TABLES.TBLEPROSY_SERVICES;
     }
 
-    private class TbLeprosyMedicalHistory extends TbLeprosyMedicalHistoryActionHelper {
 
-        public TbLeprosyMedicalHistory(Context context, MemberObject memberObject) {
-            super(context, memberObject);
-        }
 
-        @Override
-        public String postProcess(String s) {
-            if (StringUtils.isNotBlank(medical_history)) {
-                try {
-                    evaluateTbLeprosyObservation(details);
-                    evaluateTbLeprosySample(details);
-                } catch (BaseTbLeprosyVisitAction.ValidationException e) {
-                    e.printStackTrace();
-                }
-            }
-            new AppExecutors().mainThread().execute(() -> callBack.preloadActions(actionList));
-            return super.postProcess(s);
-        }
-
-    }
-
-    private class TbLeprosyPhysicalExamActionHelper extends org.smartregister.chw.tbleprosy.actionhelper.TbLeprosyPhysicalExamActionHelper {
-        public TbLeprosyPhysicalExamActionHelper(Context context, MemberObject memberObject) {
-            super(context, memberObject);
-        }
-        @Override
-        public String postProcess(String s) {
-            if (StringUtils.isNotBlank(medical_history)) {
-                try {
-                    evaluateTbLeprosySample(details);
-                } catch (BaseTbLeprosyVisitAction.ValidationException e) {
-                    e.printStackTrace();
-                }
-            }
-            new AppExecutors().mainThread().execute(() -> callBack.preloadActions(actionList));
-            return super.postProcess(s);
-        }
-
-    }
 
 }

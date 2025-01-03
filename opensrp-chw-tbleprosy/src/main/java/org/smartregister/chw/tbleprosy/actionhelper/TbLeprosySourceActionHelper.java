@@ -2,6 +2,8 @@ package org.smartregister.chw.tbleprosy.actionhelper;
 
 import android.content.Context;
 
+import com.vijay.jsonwizard.constants.JsonFormConstants;
+
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -15,7 +17,7 @@ import org.smartregister.chw.tbleprosy.util.VisitUtils;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+import java.util.Calendar;
 import timber.log.Timber;
 
 public class TbLeprosySourceActionHelper implements BaseTbLeprosyVisitAction.TbLeprosyVisitActionHelper {
@@ -65,6 +67,14 @@ public class TbLeprosySourceActionHelper implements BaseTbLeprosyVisitAction.TbL
     public String getPreProcessed() {
         try {
             JSONObject jsonObject = new JSONObject(jsonPayload);
+
+            JSONArray fields = jsonObject.getJSONObject(JsonFormConstants.STEP1).getJSONArray(JsonFormConstants.FIELDS);
+            JSONObject clientNumber = JsonFormUtils.getFieldJSONObject(fields, "namba_ya_mteja");
+
+            clientNumber.put("mask","##-##-##-######-#/KK/" + Calendar.getInstance().get(Calendar.YEAR) + "/#");
+
+
+
             return jsonObject.toString();
         } catch (JSONException e) {
             e.printStackTrace();

@@ -2,6 +2,8 @@ package org.smartregister.chw.tbleprosy_sample.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 
@@ -15,6 +17,7 @@ import org.smartregister.commonregistry.CommonPersonObjectClient;
 import org.smartregister.view.activity.SecuredActivity;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 import timber.log.Timber;
@@ -57,6 +60,7 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setLocale("sw");
         setContentView(R.layout.activity_main);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -66,6 +70,15 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
         findViewById(R.id.tbleprosy_home_visit).setOnClickListener(this);
         findViewById(R.id.tbleprosy_profile).setOnClickListener(this);
         findViewById(R.id.tbleprosy_contact_visit).setOnClickListener(this);
+    }
+
+    private void setLocale(String languageCode) {
+        Locale locale = new Locale(languageCode);
+        Locale.setDefault(locale);
+        Resources resources = getResources();
+        Configuration config = resources.getConfiguration();
+        config.setLocale(locale);
+        resources.updateConfiguration(config, resources.getDisplayMetrics());
     }
 
     @Override

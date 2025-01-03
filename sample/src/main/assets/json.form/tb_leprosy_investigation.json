@@ -53,7 +53,7 @@
         "openmrs_entity_id": "uchunguzi_wa_tb",
         "type": "check_box",
         "combine_checkbox_option_values": "true",
-        "label": "Uchunguzi wa TB",
+        "label": "Uchunguzi wa Kifua Kikuu",
         "exclusive": [
           "hana_dalili",
           "dalili_za_tb_nje_ya_mapafu"
@@ -104,7 +104,7 @@
           },
           {
             "key": "dalili_za_tb_nje_ya_mapafu",
-            "text": "Dalili za TB Nje ya Mapafu(Specify)",
+            "text": "Dalili za Kifua Kikuu Nje ya Mapafu(Taja)",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "dalili_za_tb_nje_ya_mapafu"
@@ -129,7 +129,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "dalili_nyingine",
         "type": "edit_text",
-        "hint": "Dalili za TB Nje ya Mapafu",
+        "hint": "Dalili za Kifua Kikuu Nje ya Mapafu",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -144,7 +144,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "mhisiwa_wa_tb",
         "type": "toaster_notes",
-        "text": "Mhisiwa wa TB, mpe Rufaa kwenda Kituo cha kutolea Huduma za Afya",
+        "text": "Mhisiwa wa Kifua Kikuu.Mpe Rufaa kwenda Kituo cha kutolea Huduma za Afya",
         "text_color": "#CF0800",
         "toaster_type": "problem",
         "relevance": {
@@ -161,7 +161,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "sio_mhisiwa_wa_tb",
         "type": "toaster_notes",
-        "text": "Mteja sio Mhisiwa wa TB",
+        "text": "Mteja sio Mhisiwa wa Kifua Kikuu",
         "text_color": "#CF0800",
         "toaster_type": "problem",
         "relevance": {

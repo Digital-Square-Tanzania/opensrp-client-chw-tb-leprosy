@@ -18,27 +18,11 @@ import java.util.Map;
 
 import timber.log.Timber;
 
-public class TbLeprosyObservationActionHelper implements BaseTbLeprosyVisitAction.TbLeprosyVisitActionHelper {
-
-    protected static String is_client_diagnosed_with_any;
-
-    protected static String any_complaints;
-
-    protected static String complications_previous_surgical;
-
-    protected static String any_hematological_disease_symptoms;
-
-    protected static String known_allergies;
-
-    protected static String type_of_blood_for_glucose_test;
-
-    protected static String blood_for_glucose;
-
-    protected static String blood_for_glucose_test;
-
-    protected static String client_diagnosed_other;
+public abstract class TbLeprosyInvestigationActionHelper implements BaseTbLeprosyVisitAction.TbLeprosyVisitActionHelper {
 
     protected String jsonPayload;
+
+    protected  String tbleprosy_observation;
 
     protected String medical_history;
 
@@ -51,7 +35,7 @@ public class TbLeprosyObservationActionHelper implements BaseTbLeprosyVisitActio
     private HashMap<String, Boolean> checkObject = new HashMap<>();
 
 
-    public TbLeprosyObservationActionHelper(Context context, MemberObject memberObject) {
+    public TbLeprosyInvestigationActionHelper(Context context, MemberObject memberObject) {
         this.context = context;
         this.memberObject = memberObject;
     }
@@ -60,6 +44,8 @@ public class TbLeprosyObservationActionHelper implements BaseTbLeprosyVisitActio
     public void onJsonFormLoaded(String jsonPayload, Context context, Map<String, List<VisitDetail>> map) {
         this.jsonPayload = jsonPayload;
     }
+
+    public abstract void processObservation(String observation);
 
     @Override
     public String getPreProcessed() {
@@ -78,28 +64,9 @@ public class TbLeprosyObservationActionHelper implements BaseTbLeprosyVisitActio
         try {
             JSONObject jsonObject = new JSONObject(jsonPayload);
 
-            checkObject.clear();
+            tbleprosy_observation = JsonFormUtils.getValue(jsonObject, "uchunguzi_wa_tb");
 
-            checkObject.put("has_client_had_any_sti", StringUtils.isNotBlank(JsonFormUtils.getValue(jsonObject, "has_client_had_any_sti")));
-            checkObject.put("any_complaints", StringUtils.isNotBlank(JsonFormUtils.getValue(jsonObject, "any_complaints")));
-            checkObject.put("is_client_diagnosed_with_any", StringUtils.isNotBlank(JsonFormUtils.getValue(jsonObject, "is_client_diagnosed_with_any")));
-            checkObject.put("surgical_procedure", StringUtils.isNotBlank(JsonFormUtils.getValue(jsonObject, "surgical_procedure")));
-            checkObject.put("known_allergies", StringUtils.isNotBlank(JsonFormUtils.getValue(jsonObject, "known_allergies")));
-            checkObject.put("tetanus_vaccination", StringUtils.isNotBlank(JsonFormUtils.getValue(jsonObject, "tetanus_vaccination")));
-            checkObject.put("any_hematological_disease_symptoms", StringUtils.isNotBlank(JsonFormUtils.getValue(jsonObject, "any_hematological_disease_symptoms")));
-
-
-            is_client_diagnosed_with_any = JsonFormUtils.getValue(jsonObject, "is_client_diagnosed_with_any");
-            any_complaints = JsonFormUtils.getValue(jsonObject, "any_complaints");
-            complications_previous_surgical = JsonFormUtils.getValue(jsonObject, "complications_previous_surgical");
-            any_hematological_disease_symptoms = JsonFormUtils.getValue(jsonObject, "any_hematological_disease_symptoms");
-            known_allergies = JsonFormUtils.getValue(jsonObject, "known_allergies");
-            type_of_blood_for_glucose_test = JsonFormUtils.getValue(jsonObject, "type_of_blood_for_glucose_test");
-            blood_for_glucose = JsonFormUtils.getValue(jsonObject, "blood_for_glucose");
-            blood_for_glucose_test = JsonFormUtils.getValue(jsonObject, "blood_for_glucose_test");
-            client_diagnosed_other = JsonFormUtils.getValue(jsonObject, "is_client_diagnosed_with_any_others");
-
-            medical_history = JsonFormUtils.getValue(jsonObject, "has_client_had_any_sti");
+            processObservation(tbleprosy_observation);
 
         } catch (JSONException e) {
             e.printStackTrace();
