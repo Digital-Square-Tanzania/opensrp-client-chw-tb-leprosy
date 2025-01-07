@@ -22,7 +22,7 @@ actions:
 name: step1_taja_sababu_hapana_changamoto_upatikanaji_huduma
 description:  kama changamoto katika upatikanaji huduma jibu ni hapana
 priority: 1
-condition: "step1_changamoto_katika_upatikanaji_huduma.equalsIgnoreCase('hapana_changamoto_katika_upatikanaji_huduma')"
+condition: "step1_changamoto_katika_upatikanaji_huduma.equalsIgnoreCase('hapana_changamoto_katika_upatikanaji_huduma') && step1_amerudi_kwenye_matibabu.equalsIgnoreCase('ndiyo_amerudi_kwenye_matibabu')"
 actions:
   - "isRelevant = true"
 ---
