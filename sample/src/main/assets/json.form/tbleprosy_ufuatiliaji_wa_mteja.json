@@ -402,7 +402,7 @@
         "type": "toaster_notes",
         "text": "Mshauri mteja kurudi kwenye matibabu",
         "text_color": "#CF0800",
-        "toaster_type": "problem",
+        "toaster_type": "info",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
