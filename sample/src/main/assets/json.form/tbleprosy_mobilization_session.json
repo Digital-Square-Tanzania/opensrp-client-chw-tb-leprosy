@@ -158,6 +158,16 @@
           }
         }
       },
+
+      {
+        "key": "user_gps",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "openmrs_data_type": "text",
+        "type": "gps"
+      },
+
       {
        "key": "number_of_male_reached",
         "openmrs_entity_parent": "",
