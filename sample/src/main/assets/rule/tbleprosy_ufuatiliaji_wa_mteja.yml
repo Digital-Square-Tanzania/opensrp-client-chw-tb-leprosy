@@ -53,3 +53,10 @@ priority: 1
 condition: "step1_matokeo_ya_ufuatiliaji.equalsIgnoreCase('hajapatikana')"
 actions:
   - "isRelevant = true"
+---
+name: step1_tarehe_ya_miadi
+description:  kama amerudi kwenye matibabu jibu ni hapana weka tarehe ya miadi
+priority: 1
+condition: "step1_amerudi_kwenye_matibabu.equalsIgnoreCase('hapana_amerudi_kwenye_matibabu')"
+actions:
+  - "isRelevant = true"
