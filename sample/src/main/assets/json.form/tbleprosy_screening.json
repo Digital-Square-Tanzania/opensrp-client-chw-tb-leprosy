@@ -1,6 +1,6 @@
 {
   "validate_on_submit": true,
-  "count": "3",
+  "count": "4",
   "encounter_type": "tbleprosy Screening",
   "entity_id": "",
   "metadata": {
@@ -352,9 +352,9 @@
     ]
   },
 
-
   "step3": {
     "title": "TB/Leprosy Screening",
+    "next": "step4",
     "fields": [
       {
         "key": "chagua_aina_ya_uchunguzi",
@@ -448,6 +448,7 @@
           }
         }
       },
+
       {
         "key": "majibu_ya_uchunguzi_ukoma",
         "openmrs_entity_parent": "",
@@ -499,6 +500,39 @@
             }
           }
         }
+      }
+    ]
+  },
+  "step4": {
+    "title": "TB/Leprosy Screening",
+    "fields": [
+      {
+        "key": "amepimwa_vvu",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "amepimwa_vvu",
+        "type": "native_radio",
+        "label": "Amepimwa VVU?",
+        "label_text_size": "18px",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jaza taarifa"
+        },
+        "options": [
+          {
+            "key": "ndiyo",
+            "text": "Ndiyo",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "ndiyo"
+          },
+          {
+            "key": "hapana",
+            "text": "Hapana",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hapana"
+          }
+
+        ]
       }
 
     ]

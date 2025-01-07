@@ -6,7 +6,7 @@ condition: "step1_anaishi_karibu_na_mgonjwa.contains('tb')"
 actions:
   - "isRelevant = true"
 ---
-naKme: step1_leprosy_client_id
+name: step1_leprosy_client_id
 description: enter leprosy client id
 priority: 1
 condition: "step1_anaishi_karibu_na_mgonjwa.contains('ukoma')"
