@@ -189,6 +189,28 @@
         }
       },
       {
+        "key": "tarehe_ya_miadi",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "tarehe_ya_miadi",
+        "type": "date_picker",
+        "hint": "Tarehe ya Miadi",
+        "label_text_size": "18px",
+        "expanded": false,
+        "max_date": "today",
+        "v_required": {
+          "value": "true",
+          "err": "Please specify"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_ufuatiliaji_wa_mteja.yml"
+            }
+          }
+        }
+      },
+      {
         "key": "changamoto_katika_upatikanaji_huduma",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
