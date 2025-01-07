@@ -307,7 +307,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "ameanza_tiba_tb_dr",
-        "label": "Ameanza tiba ya TB/DR TB",
+        "label": "Ameanza tiba ya TB/DR TB?",
         "label_text_style": "bold",
         "text_color": "#000000",
         "type": "native_radio",
@@ -344,7 +344,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "ameanza_tiba_ukoma",
-        "label": "Ameanza tiba ya Ukoma",
+        "label": "Ameanza tiba ya Ukoma?",
         "label_text_style": "bold",
         "text_color": "#000000",
         "type": "native_radio",
@@ -418,8 +418,11 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "tarehe_ya_kuanzishiwa_tpt",
-        "type": "edit_text",
-        "hint": "Tarehe ya kuanzishiwa TPT",
+        "type": "date_picker",
+        "hint": "Tarehe ya Kuanzishiwa TPT",
+        "label_text_size": "18px",
+        "expanded": false,
+        "max_date": "today",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -433,8 +436,11 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "tarehe_ya_kuanza_tiba_kifua_kikuu",
-        "type": "edit_text",
+        "type": "date_picker",
         "hint": "Tarehe ya kuanza tiba ya Kifua Kikuu",
+        "label_text_size": "18px",
+        "expanded": false,
+        "max_date": "today",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -448,8 +454,11 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "tarehe_ya_kuanza_tiba_ukoma",
-        "type": "edit_text",
+        "type": "date_picker",
         "hint": "Tarehe ya kuanza tiba Ukoma",
+        "label_text_size": "18px",
+        "expanded": false,
+        "max_date": "today",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -463,7 +472,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "amepima_vvu",
-        "label": "Amepima VVU",
+        "label": "Amepima VVU?",
         "label_text_style": "bold",
         "text_color": "#000000",
         "type": "native_radio",
@@ -503,7 +512,7 @@
         "type": "toaster_notes",
         "text": "Kusanya sampuli ya mteja kwaajili ya kurudia kufanya kipimo cha kifua kikuu",
         "text_color": "#CF0800",
-        "toaster_type": "problem",
+        "toaster_type": "info",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
