@@ -139,8 +139,11 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "other"
           }
-        ]
-
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an answer"
+        }
       },
       {
         "key": "mobilization_area_specify",
@@ -165,7 +168,12 @@
         "openmrs_entity": "",
         "openmrs_entity_id": "",
         "openmrs_data_type": "text",
-        "type": "gps"
+        "type": "gps",
+        "v_required": {
+          "value": "true",
+          "err": "Please select an answer"
+        }
+
       },
 
       {
@@ -175,7 +183,15 @@
         "openmrs_entity_id": "number_of_male_reached",
         "hint": "Number of male reached",
         "text_color": "#000000",
-        "type": "edit_text"
+        "type": "edit_text",
+        "v_required": {
+          "value": "true",
+          "err": "Please select an answer"
+        },
+        "v_numeric": {
+          "value": "true",
+          "err": ""
+        }
       },
       {
         "key": "number_of_female_reached",
@@ -184,14 +200,22 @@
         "openmrs_entity_id": "number_of_female_reached",
         "hint": "Number of female reached",
         "text_color": "#000000",
-        "type": "edit_text"
+        "type": "edit_text",
+        "v_required": {
+          "value": "true",
+          "err": "Please select an answer"
+        },
+        "v_numeric": {
+          "value": "true",
+          "err": ""
+        }
       },
       {
-        "key": "population_type",
+        "key": "select_population_type",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "population_type",
-        "label": "Population Type",
+        "openmrs_entity_id": "select_population_type",
+        "label": "Select population Type",
         "text_color": "#000000",
         "type": "native_radio",
         "options": [
@@ -265,8 +289,11 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "other"
           }
-        ]
-
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an answer"
+        }
       },
       {
         "key": "population_type_specify",
@@ -291,7 +318,15 @@
         "openmrs_entity_id": "number_of_IEC_materials_provided",
         "hint": "Number of IEC Materials Provided",
         "text_color": "#000000",
-        "type": "edit_text"
+        "type": "edit_text",
+        "v_required": {
+          "value": "true",
+          "err": "Please select an answer"
+        },
+        "v_numeric": {
+          "value": "true",
+          "err": ""
+        }
       }
     ]
   }
