@@ -72,6 +72,8 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
         findViewById(R.id.tbleprosy_home_visit).setOnClickListener(this);
         findViewById(R.id.tbleprosy_profile).setOnClickListener(this);
         findViewById(R.id.tbleprosy_matokeo_ya_uchunguzi).setOnClickListener(this);
+        findViewById(R.id.tbleprosy_matokeo_ya_uchunguzi_contact).setOnClickListener(this);
+        findViewById(R.id.tbleprosy_ufuatiliaji_wa_mteja).setOnClickListener(this);
     }
 
     @Override
@@ -97,6 +99,20 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
                 TbLeprosyMemberProfileActivity.startMe(this, "12345");
                 break;
             case R.id.tbleprosy_matokeo_ya_uchunguzi:
+                try {
+                    startForm("tbleprosy_matokeo_ya_uchunguzi");
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+                break;
+            case R.id.tbleprosy_ufuatiliaji_wa_mteja:
+                try {
+                    startForm("tbleprosy_ufuatiliaji_wa_mteja");
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+                break;
+            case R.id.tbleprosy_matokeo_ya_uchunguzi_contact:
                 try {
                     startForm("tbleprosy_matokeo_uchunguzi_contact");
                 } catch (Exception e) {
