@@ -253,7 +253,7 @@
         "type": "toaster_notes",
         "text": "Kusanya sampuli ya mteja kwaajili ya kurudia kufanya kipimo cha kifua kikuu",
         "text_color": "#CF0800",
-        "toaster_type": "problem",
+        "toaster_type": "info",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
