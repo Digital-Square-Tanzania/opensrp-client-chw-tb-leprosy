@@ -146,7 +146,7 @@
         "type": "toaster_notes",
         "text": "Mhisiwa wa Kifua Kikuu.Mpe Rufaa kwenda Kituo cha kutolea Huduma za Afya",
         "text_color": "#CF0800",
-        "toaster_type": "problem",
+        "toaster_type": "info",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -163,7 +163,7 @@
         "type": "toaster_notes",
         "text": "Mteja sio Mhisiwa wa Kifua Kikuu",
         "text_color": "#CF0800",
-        "toaster_type": "problem",
+        "toaster_type": "info",
         "relevance": {
           "rules-engine": {
             "ex-rules": {

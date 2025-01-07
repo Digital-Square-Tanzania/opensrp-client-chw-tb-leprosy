@@ -181,7 +181,7 @@
         "type": "toaster_notes",
         "text": "Mpatie Mteja kifaa cha kuchukulia Sampuli",
         "text_color": "#CF0800",
-        "toaster_type": "problem",
+        "toaster_type": "info",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
