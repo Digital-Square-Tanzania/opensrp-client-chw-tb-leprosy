@@ -1,5 +1,6 @@
 package org.smartregister.chw.tbleprosy_sample.activity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,18 +9,23 @@ import android.view.View;
 import androidx.appcompat.widget.Toolbar;
 
 import com.vijay.jsonwizard.activities.JsonWizardFormActivity;
+import com.vijay.jsonwizard.constants.JsonFormConstants;
 import com.vijay.jsonwizard.domain.Form;
 import com.vijay.jsonwizard.factory.FileSourceFactoryHelper;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.smartregister.chw.tbleprosy.contract.BaseTbLeprosyVisitContract;
 import org.smartregister.chw.tbleprosy.domain.MemberObject;
 import org.smartregister.chw.tbleprosy.util.Constants;
 import org.smartregister.chw.tbleprosy.util.DBConstants;
+import org.smartregister.chw.tbleprosy.util.JsonFormUtils;
 import org.smartregister.chw.tbleprosy_sample.R;
 import org.smartregister.commonregistry.CommonPersonObjectClient;
 import org.smartregister.view.activity.SecuredActivity;
 
+import java.time.Year;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -116,14 +122,27 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
         }
     }
 
+    @SuppressLint("TimberArgCount")
     private void startForm(String formName) throws Exception {
         JSONObject jsonForm = FileSourceFactoryHelper.getFileSource("").getFormFromFile(getApplicationContext(), formName);
 
         String currentLocationId = "Tanzania";
         if (jsonForm != null) {
+
+            JSONArray dataFields = jsonForm.getJSONObject(JsonFormConstants.STEP1).getJSONArray(JsonFormConstants.FIELDS);
+            JSONObject clientID = JsonFormUtils.getFieldJSONObject(dataFields, "namba_ya_mteja_tb");
+            JSONObject clientIdUkoma = JsonFormUtils.getFieldJSONObject(dataFields, "namba_ya_mteja_ukoma");
+
+            assert clientID != null;
+            clientID.put("mask", "##-##-##-######-#/KK/" +Calendar.getInstance().get(Calendar.YEAR)+ "/#");
+
+            clientIdUkoma.put("mask", "##-##-##-######-#/UK/" +Calendar.getInstance().get(Calendar.YEAR)+ "/#");
+
+
             jsonForm.getJSONObject("metadata").put("encounter_location", currentLocationId);
             Intent intent = new Intent(this, JsonWizardFormActivity.class);
             intent.putExtra("json", jsonForm.toString());
+
 
             Form form = new Form();
             form.setWizard(true);
