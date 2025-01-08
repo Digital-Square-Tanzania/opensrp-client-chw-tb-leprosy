@@ -60,13 +60,13 @@
         },
         "options": [
           {
-            "key": "ndiyo",
+            "key": "ndiyo_sampuli",
             "text": "Ndiyo",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "ndiyo"
           },
           {
-            "key": "hapana",
+            "key": "hapana_sampuli",
             "text": "Hapana",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "hapana"
@@ -108,7 +108,7 @@
         "type": "toaster_notes",
         "text": "Mpatie mteja kifaa cha kuchukulia sampuli",
         "text_color": "#CF0800",
-        "toaster_type": "problem",
+        "toaster_type": "info",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
