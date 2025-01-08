@@ -24,11 +24,9 @@ actions:
 name: step1_sampuli_nyingine
 description: Aina ya sampuli nyingine
 priority: 1
-condition: "step1_aina_sampuli.equalsIgnoreCase('nyingine')"
+condition: "step1_aina_sampuli.equalsIgnoreCase('nyingine') && step1_amechukuliwa_sampuli.equalsIgnoreCase('ndio_sampuli')"
 actions:
   - "isRelevant = true"
-
-
 
 
 

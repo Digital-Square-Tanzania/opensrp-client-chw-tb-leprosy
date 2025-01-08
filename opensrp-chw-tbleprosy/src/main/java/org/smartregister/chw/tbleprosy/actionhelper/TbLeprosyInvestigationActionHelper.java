@@ -18,7 +18,7 @@ import java.util.Map;
 
 import timber.log.Timber;
 
-public abstract class TbLeprosyInvestigationActionHelper implements BaseTbLeprosyVisitAction.TbLeprosyVisitActionHelper {
+public class TbLeprosyInvestigationActionHelper implements BaseTbLeprosyVisitAction.TbLeprosyVisitActionHelper {
 
     protected String jsonPayload;
 
@@ -45,7 +45,6 @@ public abstract class TbLeprosyInvestigationActionHelper implements BaseTbLepros
         this.jsonPayload = jsonPayload;
     }
 
-    public abstract void processObservation(String observation);
 
     @Override
     public String getPreProcessed() {
@@ -66,7 +65,6 @@ public abstract class TbLeprosyInvestigationActionHelper implements BaseTbLepros
 
             tbleprosy_observation = JsonFormUtils.getValue(jsonObject, "uchunguzi_wa_tb");
 
-            processObservation(tbleprosy_observation);
 
         } catch (JSONException e) {
             e.printStackTrace();
