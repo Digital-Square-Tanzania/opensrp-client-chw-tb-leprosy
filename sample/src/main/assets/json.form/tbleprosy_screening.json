@@ -52,9 +52,12 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "anaishi_karibu_na_mgonjwa",
-        "type": "native_radio",
+        "type": "check_box",
         "label": "Anaishi na kaya/karibu na mgonjwa wa",
         "label_text_size": "18px",
+        "exclusive": [
+          "hapana"
+        ],
         "v_required": {
           "value": "true",
           "err": "Tafadhali jaza taarifa"
@@ -81,28 +84,22 @@
         ]
       },
       {
-        "key": "tb_client_id",
+        "key": "namba_ya_mteja_tb",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "tb_client_id",
+        "openmrs_entity_id": "namba_ya_mteja_tb",
         "type": "mask_edit_text",
-        "mask": "111890-1 #### 2023",
-        "mask_hint": "123456789123",
+        "mask": "##-##-##-######-#/KK/####/#",
+        "mask_hint":"020301100029820241" ,
         "allowed_chars": "0123456789",
-        "hint": "Namba ya mteja wa TB  mf 111890-1 001 2023",
-        "edit_type": "number",
-        "v_max_length": {
-          "value": "18",
-          "is_fixed_size": "true",
-          "err": "Tafadhali andika namba kwa usahihi"
-        },
+        "hint": "Namba ya Mteja wa Kifua Kikuu",
         "v_regex": {
-          "value": "^\\d{6}-\\d{1} \\d{4} \\d{4}$",
-          "err": "Namba ya mteja inatakiwa kuwa kwa mfumo huu (111890-1 0001 2023)"
+          "value": "^\\d{2}-\\d{2}-\\d{2}-\\d{6}-\\d/[A-Z]{2}/\\d{4}/\\d$",
+          "err": "Namba ya Mteja wa Kifua Kikuu inatakiwa iwe katika muundo huu (22-12-45-566789-0/KK/2025/1)"
         },
         "v_required": {
-          "value": true,
-          "err": "Tafadhali jaza namba ya mteja"
+          "value": "true",
+          "err": "Please select an option"
         },
         "relevance": {
           "rules-engine": {
@@ -113,28 +110,22 @@
         }
       },
       {
-        "key": "leprosy_client_id",
+        "key": "namba_ya_mteja_ukoma",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "leprosy_client_id",
+        "openmrs_entity_id": "namba_ya_mteja_ukoma",
         "type": "mask_edit_text",
-        "mask": "111890-1 #### 2023",
-        "mask_hint": "123456789123",
+        "mask": "##-##-##-######-#/UK/####/#",
+        "mask_hint":"020302200078980241" ,
         "allowed_chars": "0123456789",
-        "hint": "Namba ya mteja wa Ukoma  mf 111890-1 001 2023",
-        "edit_type": "number",
-        "v_max_length": {
-          "value": "18",
-          "is_fixed_size": "true",
-          "err": "Tafadhali andika namba kwa usahihi"
-        },
+        "hint": "Namba ya Mteja wa Ukoma",
         "v_regex": {
-          "value": "^\\d{6}-\\d{1} \\d{4} \\d{4}$",
-          "err": "Namba ya mteja inatakiwa kuwa kwa mfumo huu (111890-1 0001 2023)"
+          "value": "^\\d{2}-\\d{2}-\\d{2}-\\d{6}-\\d/[A-Z]{2}/\\d{4}/\\d$",
+          "err": "Namba ya Mteja wa ukoma inatakiwa iwe katika muundo huu (22-12-45-566789-0/KK/2025/1)"
         },
         "v_required": {
-          "value": true,
-          "err": "Tafadhali ingiza namba ya mteja kwa usahihi"
+          "value": "true",
+          "err": "Please select an option"
         },
         "relevance": {
           "rules-engine": {
@@ -148,7 +139,7 @@
   },
 
   "step2": {
-    "title": "TB/Leprosy Screening",
+    "title": "Aina Ya Mteja",
     "next": "step3",
     "fields": [
       {
@@ -351,9 +342,8 @@
       }
     ]
   },
-
   "step3": {
-    "title": "TB/Leprosy Screening",
+    "title": "General Health Assessment",
     "next": "step4",
     "fields": [
       {
@@ -381,7 +371,6 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "ukoma"
           }
-
         ]
       },
       {
@@ -504,7 +493,7 @@
     ]
   },
   "step4": {
-    "title": "TB/Leprosy Screening",
+    "title": "Vipimo Vya VVU",
     "fields": [
       {
         "key": "amepimwa_vvu",
