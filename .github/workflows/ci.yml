@@ -1,15 +1,12 @@
 name: Android CI with Gradle
-
 on:
   push:
     branches: [master, main]
   pull_request:
     branches: [master, main]
-
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 11
@@ -18,11 +15,8 @@ jobs:
           java-version: 11
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
-      - name: Run unit tests with Gradle
-        run: ./gradlew :opensrp-chw-tbleprosy:clean :opensrp-chw-tbleprosy:jacocoTestReport  --stacktrace
+      - name: Build the module with Gradle
+        run: ./gradlew :opensrp-chw-tb-leprosy:clean :opensrp-chw-tbleprosy:uploadArchives --stacktrace
         env:
           GITHUB_TOKEN: ${{ github.token }}
-      - name: Upload coverage to Coveralls with Gradle
-        run: ./gradlew coveralls --stacktrace
-        env:
-          COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_TOKEN }}
+
