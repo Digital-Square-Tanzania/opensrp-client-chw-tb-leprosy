@@ -16,7 +16,7 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
       - name: Build the module with Gradle
-        run: ./gradlew :opensrp-chw-tb-leprosy:clean :opensrp-chw-tb-leprosy:uploadArchives --stacktrace
+        run: ./gradlew :opensrp-chw-tbleprosy:clean :opensrp-chw-tbleprosy:uploadArchives --stacktrace
         env:
           GITHUB_TOKEN: ${{ github.token }}
 
