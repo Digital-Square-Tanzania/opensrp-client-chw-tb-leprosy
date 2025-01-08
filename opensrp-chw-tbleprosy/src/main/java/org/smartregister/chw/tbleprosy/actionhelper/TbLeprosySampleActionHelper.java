@@ -21,6 +21,7 @@ import timber.log.Timber;
 public class TbLeprosySampleActionHelper implements BaseTbLeprosyVisitAction.TbLeprosyVisitActionHelper {
     protected String jsonPayload;
 
+    protected String amechukuliwaSampuli;
     protected String observation;
 
     protected String baseEntityId;
@@ -28,8 +29,6 @@ public class TbLeprosySampleActionHelper implements BaseTbLeprosyVisitAction.TbL
     protected Context context;
 
     protected MemberObject memberObject;
-
-    private HashMap<String, Boolean> checkObject = new HashMap<>();
 
 
     public TbLeprosySampleActionHelper(Context context, MemberObject memberObject) {
@@ -60,6 +59,8 @@ public class TbLeprosySampleActionHelper implements BaseTbLeprosyVisitAction.TbL
     public void onPayloadReceived(String jsonPayload) {
         try {
             JSONObject jsonObject = new JSONObject(jsonPayload);
+            amechukuliwaSampuli = JsonFormUtils.getValue(jsonObject, "amechukuliwa_sampuli");
+
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -81,10 +82,6 @@ public class TbLeprosySampleActionHelper implements BaseTbLeprosyVisitAction.TbL
         JSONObject jsonObject = null;
         try {
             jsonObject = new JSONObject(jsonPayload);
-            JSONArray fields = JsonFormUtils.fields(jsonObject);
-            JSONObject medicalHistoryCompletionStatus = JsonFormUtils.getFieldJSONObject(fields, "medical_history_completion_status");
-            assert medicalHistoryCompletionStatus != null;
-            medicalHistoryCompletionStatus.put(com.vijay.jsonwizard.constants.JsonFormConstants.VALUE, VisitUtils.getActionStatus(checkObject));
         } catch (JSONException e) {
             Timber.e(e);
         }
@@ -102,15 +99,13 @@ public class TbLeprosySampleActionHelper implements BaseTbLeprosyVisitAction.TbL
 
     @Override
     public BaseTbLeprosyVisitAction.Status evaluateStatusOnPayload() {
-        String status = VisitUtils.getActionStatus(checkObject);
 
-        if (status.equalsIgnoreCase(VisitUtils.Complete)) {
+
+        if(StringUtils.isNotBlank(amechukuliwaSampuli)){
             return BaseTbLeprosyVisitAction.Status.COMPLETED;
         }
-        if (status.equalsIgnoreCase(VisitUtils.Ongoing)) {
-            return BaseTbLeprosyVisitAction.Status.PARTIALLY_COMPLETED;
-        }
         return BaseTbLeprosyVisitAction.Status.PENDING;
+
     }
 
     @Override

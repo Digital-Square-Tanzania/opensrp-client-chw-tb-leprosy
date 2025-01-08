@@ -22,17 +22,13 @@ public class TbLeprosyInvestigationActionHelper implements BaseTbLeprosyVisitAct
 
     protected String jsonPayload;
 
-    protected  String tbleprosy_observation;
-
-    protected String medical_history;
+    protected String tbleprosy_observation;
 
     protected String baseEntityId;
 
     protected Context context;
 
     protected MemberObject memberObject;
-
-    private HashMap<String, Boolean> checkObject = new HashMap<>();
 
 
     public TbLeprosyInvestigationActionHelper(Context context, MemberObject memberObject) {
@@ -86,10 +82,6 @@ public class TbLeprosyInvestigationActionHelper implements BaseTbLeprosyVisitAct
         JSONObject jsonObject = null;
         try {
             jsonObject = new JSONObject(jsonPayload);
-            JSONArray fields = JsonFormUtils.fields(jsonObject);
-            JSONObject medicalHistoryCompletionStatus = JsonFormUtils.getFieldJSONObject(fields, "medical_history_completion_status");
-            assert medicalHistoryCompletionStatus != null;
-            medicalHistoryCompletionStatus.put(com.vijay.jsonwizard.constants.JsonFormConstants.VALUE, VisitUtils.getActionStatus(checkObject));
         } catch (JSONException e) {
             Timber.e(e);
         }
@@ -107,13 +99,8 @@ public class TbLeprosyInvestigationActionHelper implements BaseTbLeprosyVisitAct
 
     @Override
     public BaseTbLeprosyVisitAction.Status evaluateStatusOnPayload() {
-        String status = VisitUtils.getActionStatus(checkObject);
-
-        if (status.equalsIgnoreCase(VisitUtils.Complete)) {
+        if(StringUtils.isNotBlank(tbleprosy_observation)){
             return BaseTbLeprosyVisitAction.Status.COMPLETED;
-        }
-        if (status.equalsIgnoreCase(VisitUtils.Ongoing)) {
-            return BaseTbLeprosyVisitAction.Status.PARTIALLY_COMPLETED;
         }
         return BaseTbLeprosyVisitAction.Status.PENDING;
     }

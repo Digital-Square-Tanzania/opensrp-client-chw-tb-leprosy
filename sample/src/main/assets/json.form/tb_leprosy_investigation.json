@@ -1,7 +1,7 @@
 {
   "validate_on_submit": true,
   "count": "1",
-  "encounter_type": "tbleprosy_observation",
+  "encounter_type": "tbleprosy_investigation",
   "entity_id": "",
   "metadata": {
     "start": {
