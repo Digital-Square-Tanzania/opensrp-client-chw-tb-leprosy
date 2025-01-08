@@ -1,0 +1,41 @@
+name: step1_ameanza_tiba_ya_tb
+description:  kama matokeo ya uchunguzi ni tb ya mafau au nje ya mapafu au kifua kikuu sugu swali litakuwa ameanza tiba ya tb
+priority: 1
+condition: "step1_matokeo_ya_uchunguzi_tb.equalsIgnoreCase('tb_ya_mapafu') || step1_matokeo_ya_uchunguzi_tb.equalsIgnoreCase('tb_nje_ya_mapafu') || step1_matokeo_ya_uchunguzi_tb.equalsIgnoreCase('kifua_kikuu_sugu')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_tarehe_ya_kuanza_matibabu
+description:  kama ameanza tib ya TB ni Ndiyo,fahamu tarehe ya kuanza matibabu
+priority: 1
+condition: "step1_ameanza_tiba_ya_tb.equalsIgnoreCase('ndiyo_ameanza_tiba_ya_tb')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_anastahili_kutumia_tiba_kinga
+description:  kama matokeo ya uchunguzi ya kifua kikuu ni hana TB
+priority: 1
+condition: "step1_matokeo_ya_uchunguzi_tb.equalsIgnoreCase('hana_tb')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_ameanza_tiba_kinga
+description:  kama anastahili kutumia tiba kinga jibu ni Ndiyo,tupate swali ameanza tiba kinga
+priority: 1
+condition: "step1_anastahili_kutumia_tiba_kinga.equalsIgnoreCase('ndiyo_anastahili_kutumia_tiba_kinga')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_tarehe_ya_kuanza_tiba_kinga
+description:  kama anastahili kutumia tiba kinga jibu ni Ndiyo,tupate swali ameanza tiba kinga
+priority: 1
+condition: "step1_ameanza_tiba_kinga.equalsIgnoreCase('ndiyo_ameanza_tiba_kinga')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_toaster_sampuli_haina_ubora
+description:  kama matokeo ya uchunguzi ni sampuli haina ubora
+priority: 1
+condition: "step1_matokeo_ya_uchunguzi_tb.equalsIgnoreCase('sampuli_haina_ubora')"
+actions:
+  - "isRelevant = true"
