@@ -14,6 +14,9 @@ import com.vijay.jsonwizard.domain.Form;
 import com.vijay.jsonwizard.factory.FileSourceFactoryHelper;
 
 import org.json.JSONArray;
+import com.vijay.jsonwizard.domain.Form;
+import com.vijay.jsonwizard.factory.FileSourceFactoryHelper;
+
 import org.json.JSONObject;
 import org.smartregister.chw.tbleprosy.contract.BaseTbLeprosyVisitContract;
 import org.smartregister.chw.tbleprosy.domain.MemberObject;
@@ -79,6 +82,12 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
         findViewById(R.id.tbleprosy_profile).setOnClickListener(this);
         findViewById(R.id.tbleprosy_screening).setOnClickListener(this);
         findViewById(R.id.tbleprosy_visit_record).setOnClickListener(this);
+
+        findViewById(R.id.tbleprosy_mobilization).setOnClickListener(this);
+
+        findViewById(R.id.tbleprosy_matokeo_ya_uchunguzi).setOnClickListener(this);
+        findViewById(R.id.tbleprosy_matokeo_ya_uchunguzi_contact).setOnClickListener(this);
+        findViewById(R.id.tbleprosy_ufuatiliaji_wa_mteja).setOnClickListener(this);
     }
 
     @Override
@@ -106,6 +115,19 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
             case R.id.tbleprosy_screening:
                 try {
                     startForm("tbleprosy_screening");
+            case R.id.tbleprosy_mobilization:
+                try {
+                    startForm("tbleprosy_mobilization_session");
+            case R.id.tbleprosy_matokeo_ya_uchunguzi:
+                try {
+                    startForm("tbleprosy_matokeo_ya_uchunguzi");
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+                break;
+            case R.id.tbleprosy_ufuatiliaji_wa_mteja:
+                try {
+                    startForm("tbleprosy_ufuatiliaji_wa_mteja");
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
@@ -113,12 +135,60 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
             case R.id.tbleprosy_visit_record:
                 try {
                     startForm("tbleprosy_record_visit");
+            case R.id.tbleprosy_matokeo_ya_uchunguzi_contact:
+                try {
+                    startForm("tbleprosy_matokeo_uchunguzi_contact");
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
                 break;
             default:
                 break;
+        }
+    }
+    private void startForm(String formName) throws Exception {
+        JSONObject jsonForm = FileSourceFactoryHelper.getFileSource("").getFormFromFile(getApplicationContext(), formName);
+
+        String currentLocationId = "Tanzania";
+        if (jsonForm != null) {
+            jsonForm.getJSONObject("metadata").put("encounter_location", currentLocationId);
+            Intent intent = new Intent(this, JsonWizardFormActivity.class);
+            intent.putExtra("json", jsonForm.toString());
+
+            Form form = new Form();
+            form.setWizard(true);
+            form.setNextLabel("Next");
+            form.setPreviousLabel("Previous");
+            form.setSaveLabel("Save");
+            form.setHideSaveLabel(true);
+
+            intent.putExtra("form", form);
+            startActivityForResult(intent, Constants.REQUEST_CODE_GET_JSON);
+
+        }
+
+    }
+
+
+    private void startForm(String formName)  throws  Exception {
+        JSONObject jsonForm = FileSourceFactoryHelper.getFileSource("").getFormFromFile(getApplicationContext(),formName);
+
+        String currentLocationId = "Tanzania";
+        if (jsonForm != null) {
+            jsonForm.getJSONObject("metadata").put("encounter_location", currentLocationId);
+            Intent intent = new Intent(this, JsonWizardFormActivity.class);
+            intent.putExtra("json", jsonForm.toString());
+
+            Form form = new Form();
+            form.setWizard(true);
+            form.setNextLabel("Next");
+            form.setPreviousLabel("Previous");
+            form.setSaveLabel("Save");
+            form.setHideSaveLabel(true);
+
+            intent.putExtra("form", form);
+            startActivityForResult(intent, Constants.REQUEST_CODE_GET_JSON);
+
         }
     }
 

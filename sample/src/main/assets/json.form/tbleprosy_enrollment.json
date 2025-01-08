@@ -179,12 +179,6 @@
         "v_required": {
           "value": "true",
           "err": "Please specify"
-        },
-        "relevance": {
-          "step1:reffered_from": {
-            "type": "string",
-            "ex": "equalTo(., \"others\")"
-          }
         }
       },
       {

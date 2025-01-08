@@ -1,0 +1,416 @@
+{
+  "validate_on_submit": true,
+  "count": "1",
+  "encounter_type": "TBLEPROSY Ufuatiliaji wa mteja ",
+  "entity_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "163137AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "163149AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "163150AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "163151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "163152AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": ""
+  },
+  "global": {},
+  "step1": {
+    "title": "Tembeleo la TB na Ukoma",
+    "fields": [
+      {
+        "key": "sababu_ya_ufuatiliaji",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "sababu_ya_ufuatiliaji",
+        "type": "native_radio",
+        "label": "Sababu ya ufuatiliaji",
+        "label_text_style": "bold",
+        "text_color": "#000000",
+        "options": [
+          {
+            "key": "amekatiza_dawa",
+            "text": "Amekatiza dawa",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "amekatiza_dawa"
+          },
+          {
+            "key": "hakuanza_dawa",
+            "text": "Hakuanza dawa",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hakuanza_dawa"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please specify"
+        }
+      },
+      {
+        "key": "matokeo_ya_ufuatiliaji",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "matokeo_ya_ufuatiliaji",
+        "label": "Matokeo ya Ufuatiliaji",
+        "label_text_style": "bold",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "amepatikana",
+            "text": "Amepatikana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "amepatikana"
+          },
+          {
+            "key": "hajapatikana",
+            "text": "Hajapatikana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hajapatikana"
+          },
+          {
+            "key": "amefariki",
+            "text": "Amefariki",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "amefariki"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please specify"
+        }
+      },
+      {
+        "key": "taja_sababu_ya_hajapatikana",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "taja_sababu_ya_hajapatikana",
+        "type": "edit_text",
+        "hint": "Taja sababu ya matokeo ya ufuatiliaji",
+        "edit_type": "name",
+        "v_required": {
+          "value": "true",
+          "err": "Please specify"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_ufuatiliaji_wa_mteja.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "amerudi_kwenye_matibabu",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "amerudi_kwenye_matibabu",
+        "label": "Amerudi kwenye matibabu",
+        "label_text_style": "bold",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "ndiyo_amerudi_kwenye_matibabu",
+            "text": "Ndiyo",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "ndiyo_amerudi_kwenye_matibabu"
+          },
+          {
+            "key": "hapana_amerudi_kwenye_matibabu",
+            "text": "Hapana (Taja sababu)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hapana_amerudi_kwenye_matibabu"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please specify"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_ufuatiliaji_wa_mteja.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "taja_sababu_ya_hapana",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "taja_sababu_ya_hapana",
+        "type": "edit_text",
+        "hint": "Taja sababu",
+        "edit_type": "name",
+        "v_required": {
+          "value": "true",
+          "err": "Please specify"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_ufuatiliaji_wa_mteja.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "tarehe_ya_miadi",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "tarehe_ya_miadi",
+        "type": "date_picker",
+        "hint": "Tarehe ya Miadi",
+        "label_text_size": "18px",
+        "expanded": false,
+        "max_date": "today",
+        "v_required": {
+          "value": "true",
+          "err": "Please specify"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_ufuatiliaji_wa_mteja.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "changamoto_katika_upatikanaji_huduma",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "chanagamoto_katika_upatikanaji_huduma",
+        "label": "Kuna changamoto anazokabiliana nazo katika upatikanaji wa huduma?",
+        "label_text_style": "bold",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "ndiyo_changamoto_katika_upatikanaji_huduma",
+            "text": "Ndiyo",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "ndiyo_changamoto_katika_upatikanaji_huduma"
+          },
+          {
+            "key": "hapana_changamoto_katika_upatikanaji_huduma",
+            "text": "Hapana (Taja sababu)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hapana_changamoto_katika_upatikanaji_huduma"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please specify"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_ufuatiliaji_wa_mteja.yml"
+            }
+          }
+        }
+
+      },
+      {
+        "key": "taja_sababu_hapana_changamoto_upatikanaji_huduma",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "taja_sababu_hapana_changamoto_upatikanaji_huduma",
+        "type": "edit_text",
+        "hint": "Taja sababu",
+        "edit_type": "name",
+        "v_required": {
+          "value": "true",
+          "err": "Please specify"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_ufuatiliaji_wa_mteja.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "changamoto_mteja_aliyopata",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "changamoto_mteja_aliyopata",
+        "type": "check_box",
+        "label": "Chagua aina ya changamoto mteja aliyopata",
+        "label_text_style": "bold",
+        "text_color": "#000000",
+        "combine_checkbox_option_values": "true",
+        "exclusive": [
+          "hakuna_changamoto"
+        ],
+        "options": [
+          {
+            "key": "katika_familia",
+            "text": "Katika familia",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "katika_familia"
+          },
+          {
+            "key": "kituo_cha_afya",
+            "text": "Katika kituo cha kutuloea huduma za afya",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "kituo_cha_afya"
+          },
+          {
+            "key": "katika_jamii",
+            "text": "Katika jamii",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "katika_jamii"
+          },
+          {
+            "key": "changamoto_nyinginezo",
+            "text": "Chanagamoto nyinginezo",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "changamoto_nyinginezo"
+          },
+          {
+            "key": "hakuna_changamoto",
+            "text": "Hakuna",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hakuna_changamoto"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please specify"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_ufuatiliaji_wa_mteja.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "changamoto_katika_kituo_cha_afya",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "changamoto_katika_kituo_cha_afya",
+        "type": "check_box",
+        "label": "Chagua changamoto katika kituo cha kutolea huduma za afya",
+        "label_text_style": "bold",
+        "text_color": "#000000",
+        "combine_checkbox_option_values": "true",
+        "exclusive": [
+          "hakuna_changamoto_katika_kituo"
+        ],
+        "options": [
+          {
+            "key": "kutukanwa_au_kufokewa",
+            "text": "Kutukanwa/Kufokewa",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "kutukanwa_au_kufokewa"
+          },
+          {
+            "key": "kunyimwa_taarifa_ya_ugonjwa_na_matibabu",
+            "text": "Kunyimwa taarifa juu ya ugonjwa na matibabu",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "kunyimwa_taarifa_ya_ugonjwa_na_matibabu"
+          },
+          {
+            "key": "kutelekezwa_au_kucheleweshwa",
+            "text": "Kutelekezwa au kucheleweshwa",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "kutelekezwa_au_kucheleweshwa"
+          },
+          {
+            "key": "kupata_huduma",
+            "text": "Kupata huduma",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "kupata_huduma"
+          },
+          {
+            "key": "kudharauliwa",
+            "text": "Kudharauliwa",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "kudharauliwa"
+          },
+          {
+            "key": "kunyimwa_dawa",
+            "text": "Kunyimwa dawa",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "kunyimwa_dawa"
+          },
+          {
+            "key": "hakuna_changamoto_katika_kituo",
+            "text": "Hakuna",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hakuna_changamoto_katika_kituo"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please specify"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_ufuatiliaji_wa_mteja.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "toaster_mteja_kurudi_matibabu",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "person_attribute",
+        "openmrs_entity_id": "toaster_mteja_kurudi_matibabu",
+        "type": "toaster_notes",
+        "text": "Mshauri mteja kurudi kwenye matibabu",
+        "text_color": "#CF0800",
+        "toaster_type": "info",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_ufuatiliaji_wa_mteja.yml"
+            }
+          }
+        }
+      }
+    ]
+  }
+}
