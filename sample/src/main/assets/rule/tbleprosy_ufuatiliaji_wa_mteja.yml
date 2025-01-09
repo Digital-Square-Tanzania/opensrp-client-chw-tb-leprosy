@@ -1,0 +1,62 @@
+name: step1_taja_sababu_ya_hapana
+description:  kama amerudi kwenye matibabu jibu ni Hapana
+priority: 1
+condition: "step1_amerudi_kwenye_matibabu.equalsIgnoreCase('hapana_amerudi_kwenye_matibabu')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_changamoto_katika_kituo_cha_afya
+description:  kama changamoto aliyopitia mteja jibu lake ni katika kituo cha kutolea huduma za afya
+priority: 1
+condition: "step1_changamoto_mteja_aliyopata.contains('kituo_cha_afya')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_changamoto_mteja_aliyopata
+description:  kama changamoto aliyopitia mteja jibu lake ni katika kituo cha kutolea huduma za afya
+priority: 1
+condition: "step1_changamoto_katika_upatikanaji_huduma.equalsIgnoreCase('ndiyo_changamoto_katika_upatikanaji_huduma')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_taja_sababu_hapana_changamoto_upatikanaji_huduma
+description:  kama changamoto katika upatikanaji huduma jibu ni hapana
+priority: 1
+condition: "step1_changamoto_katika_upatikanaji_huduma.equalsIgnoreCase('hapana_changamoto_katika_upatikanaji_huduma') && step1_amerudi_kwenye_matibabu.equalsIgnoreCase('ndiyo_amerudi_kwenye_matibabu')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_changamoto_katika_upatikanaji_huduma
+description:  kama amerudi kwenye matibabu na jibu ni Ndiyo
+priority: 1
+condition: "step1_amerudi_kwenye_matibabu.equalsIgnoreCase('ndiyo_amerudi_kwenye_matibabu')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_toaster_mteja_kurudi_matibabu
+description:  kama amerudi kwenye matibabu na jibu ni Hapana
+priority: 1
+condition: "step1_amerudi_kwenye_matibabu.equalsIgnoreCase('hapana_amerudi_kwenye_matibabu')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_amerudi_kwenye_matibabu
+description:  kama matokeo ya ufuatiliaji ni amepatikana
+priority: 1
+condition: "step1_matokeo_ya_ufuatiliaji.equalsIgnoreCase('amepatikana')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_taja_sababu_ya_hajapatikana
+description:  kama matokeo ya ufuatiliaji ni hajapatikana
+priority: 1
+condition: "step1_matokeo_ya_ufuatiliaji.equalsIgnoreCase('hajapatikana')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_tarehe_ya_miadi
+description:  kama amerudi kwenye matibabu jibu ni hapana weka tarehe ya miadi
+priority: 1
+condition: "step1_amerudi_kwenye_matibabu.equalsIgnoreCase('hapana_amerudi_kwenye_matibabu')"
+actions:
+  - "isRelevant = true"
