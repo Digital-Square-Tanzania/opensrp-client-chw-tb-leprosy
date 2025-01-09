@@ -128,88 +128,47 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
             case R.id.tbleprosy_profile:
                 TbLeprosyMemberProfileActivity.startMe(this, "12345");
                 break;
-
-
             case R.id.tbleprosy_contact_visit:
                 TbLeprosyServiceActivity.startTbLeprosyVisitActivity(this, "98765", true);
-
             case R.id.tbleprosy_screening:
                 try {
                     startForm("tbleprosy_screening");
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
             case R.id.tbleprosy_mobilization:
                 try {
                     startForm("tbleprosy_mobilization_session");
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
             case R.id.tbleprosy_matokeo_ya_uchunguzi:
                 try {
                     startForm("tbleprosy_matokeo_ya_uchunguzi");
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
-                break;
             case R.id.tbleprosy_ufuatiliaji_wa_mteja:
                 try {
                     startForm("tbleprosy_ufuatiliaji_wa_mteja");
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
-                break;
             case R.id.tbleprosy_visit_record:
                 try {
                     startForm("tbleprosy_record_visit");
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
             case R.id.tbleprosy_matokeo_ya_uchunguzi_contact:
                 try {
-                    startForm("tbleprosy_matokeo_uchunguzi_contact");
+                   startForm("tbleprosy_matokeo_uchunguzi_contact");
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
                 break;
             default:
                 break;
-        }
-    }
-    private void startForm(String formName) throws Exception {
-        JSONObject jsonForm = FileSourceFactoryHelper.getFileSource("").getFormFromFile(getApplicationContext(), formName);
-
-        String currentLocationId = "Tanzania";
-        if (jsonForm != null) {
-            jsonForm.getJSONObject("metadata").put("encounter_location", currentLocationId);
-            Intent intent = new Intent(this, JsonWizardFormActivity.class);
-            intent.putExtra("json", jsonForm.toString());
-
-            Form form = new Form();
-            form.setWizard(true);
-            form.setNextLabel("Next");
-            form.setPreviousLabel("Previous");
-            form.setSaveLabel("Save");
-            form.setHideSaveLabel(true);
-
-            intent.putExtra("form", form);
-            startActivityForResult(intent, Constants.REQUEST_CODE_GET_JSON);
-
-        }
-
-    }
-
-
-    private void startForm(String formName)  throws  Exception {
-        JSONObject jsonForm = FileSourceFactoryHelper.getFileSource("").getFormFromFile(getApplicationContext(),formName);
-
-        String currentLocationId = "Tanzania";
-        if (jsonForm != null) {
-            jsonForm.getJSONObject("metadata").put("encounter_location", currentLocationId);
-            Intent intent = new Intent(this, JsonWizardFormActivity.class);
-            intent.putExtra("json", jsonForm.toString());
-
-            Form form = new Form();
-            form.setWizard(true);
-            form.setNextLabel("Next");
-            form.setPreviousLabel("Previous");
-            form.setSaveLabel("Save");
-            form.setHideSaveLabel(true);
-
-            intent.putExtra("form", form);
-            startActivityForResult(intent, Constants.REQUEST_CODE_GET_JSON);
-
         }
     }
 
