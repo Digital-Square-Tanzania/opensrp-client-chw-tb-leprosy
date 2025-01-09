@@ -82,9 +82,14 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
         setSupportActionBar(toolbar);
 
         findViewById(R.id.tbleprosy_activity).setOnClickListener(this);
+        findViewById(R.id.tbleprosy_screening).setOnClickListener(this);
+        findViewById(R.id.tbleprosy_visit_record).setOnClickListener(this);
+        findViewById(R.id.tbleprosy_mobilization).setOnClickListener(this);
+        findViewById(R.id.tbleprosy_matokeo_ya_uchunguzi).setOnClickListener(this);
+        findViewById(R.id.tbleprosy_matokeo_ya_uchunguzi_contact).setOnClickListener(this);
+        findViewById(R.id.tbleprosy_ufuatiliaji_wa_mteja).setOnClickListener(this);
         findViewById(R.id.tbleprosy_home_visit).setOnClickListener(this);
         findViewById(R.id.tbleprosy_profile).setOnClickListener(this);
-
         findViewById(R.id.tbleprosy_contact_visit).setOnClickListener(this);
     }
 
@@ -95,15 +100,6 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
         Configuration config = resources.getConfiguration();
         config.setLocale(locale);
         resources.updateConfiguration(config, resources.getDisplayMetrics());
-
-        findViewById(R.id.tbleprosy_screening).setOnClickListener(this);
-        findViewById(R.id.tbleprosy_visit_record).setOnClickListener(this);
-
-        findViewById(R.id.tbleprosy_mobilization).setOnClickListener(this);
-
-        findViewById(R.id.tbleprosy_matokeo_ya_uchunguzi).setOnClickListener(this);
-        findViewById(R.id.tbleprosy_matokeo_ya_uchunguzi_contact).setOnClickListener(this);
-        findViewById(R.id.tbleprosy_ufuatiliaji_wa_mteja).setOnClickListener(this);
     }
 
     @Override
