@@ -22,7 +22,7 @@ public class TbLeprosyInvestigationActionHelper implements BaseTbLeprosyVisitAct
 
     protected String jsonPayload;
 
-    protected String tbleprosy_observation;
+    protected String tbleprosyObservation;
 
     protected String baseEntityId;
 
@@ -59,7 +59,7 @@ public class TbLeprosyInvestigationActionHelper implements BaseTbLeprosyVisitAct
         try {
             JSONObject jsonObject = new JSONObject(jsonPayload);
 
-            tbleprosy_observation = JsonFormUtils.getValue(jsonObject, "uchunguzi_wa_tb");
+            tbleprosyObservation = JsonFormUtils.getValue(jsonObject, "uchunguzi_wa_tb");
 
 
         } catch (JSONException e) {
@@ -99,7 +99,7 @@ public class TbLeprosyInvestigationActionHelper implements BaseTbLeprosyVisitAct
 
     @Override
     public BaseTbLeprosyVisitAction.Status evaluateStatusOnPayload() {
-        if(StringUtils.isNotBlank(tbleprosy_observation)){
+        if(StringUtils.isNotBlank(tbleprosyObservation)){
             return BaseTbLeprosyVisitAction.Status.COMPLETED;
         }
         return BaseTbLeprosyVisitAction.Status.PENDING;

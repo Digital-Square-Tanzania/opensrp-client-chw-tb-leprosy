@@ -21,7 +21,7 @@ import timber.log.Timber;
 public class TbLeprosySampleActionHelper implements BaseTbLeprosyVisitAction.TbLeprosyVisitActionHelper {
     protected String jsonPayload;
 
-    protected String amechukuliwaSampuli;
+    protected String sampleCollection;
     protected String observation;
 
     protected String baseEntityId;
@@ -59,7 +59,7 @@ public class TbLeprosySampleActionHelper implements BaseTbLeprosyVisitAction.TbL
     public void onPayloadReceived(String jsonPayload) {
         try {
             JSONObject jsonObject = new JSONObject(jsonPayload);
-            amechukuliwaSampuli = JsonFormUtils.getValue(jsonObject, "amechukuliwa_sampuli");
+            sampleCollection = JsonFormUtils.getValue(jsonObject, "amechukuliwa_sampuli");
 
 
         } catch (JSONException e) {
@@ -101,7 +101,7 @@ public class TbLeprosySampleActionHelper implements BaseTbLeprosyVisitAction.TbL
     public BaseTbLeprosyVisitAction.Status evaluateStatusOnPayload() {
 
 
-        if(StringUtils.isNotBlank(amechukuliwaSampuli)){
+        if(StringUtils.isNotBlank(sampleCollection)){
             return BaseTbLeprosyVisitAction.Status.COMPLETED;
         }
         return BaseTbLeprosyVisitAction.Status.PENDING;
