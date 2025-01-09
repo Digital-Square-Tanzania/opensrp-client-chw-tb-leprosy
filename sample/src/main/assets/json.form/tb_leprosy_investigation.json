@@ -1,0 +1,177 @@
+{
+  "validate_on_submit": true,
+  "count": "1",
+  "encounter_type": "tbleprosy_investigation",
+  "entity_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "163137AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "163149AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "163150AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "163151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "163152AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": ""
+  },
+  "global": {},
+  "step1": {
+    "title": "Uchunguzi wa Kifua Kikuu",
+    "fields": [
+      {
+        "key": "uchunguzi_wa_tb",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "uchunguzi_wa_tb",
+        "type": "check_box",
+        "combine_checkbox_option_values": "true",
+        "label": "Uchunguzi wa Kifua Kikuu",
+        "exclusive": [
+          "hana_dalili",
+          "dalili_za_tb_nje_ya_mapafu"
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
+        "options":[
+          {
+            "key": "kikohozi",
+            "text": "Kikohozi (KH)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "kikohozi"
+          },
+          {
+            "key": "makohozi_damu",
+            "text": "Makohozi yaliyochanganyika na Damu(D)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "makohozi_damu"
+
+          },
+          {
+            "key": "homa",
+            "text": "Homa(H)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "homa"
+
+          },
+          {
+            "key": "kupungua_uzito",
+            "text": "Kupungua Uzito(KU)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "kupungua_uzito"
+
+          },
+          {
+            "key": "kutokwa_jasho_jingi",
+            "text": "Kutokwa na Jasho Jingi",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "kutokwa_jasho_jingi"
+
+          },
+          {
+            "key": "dalili_za_tb_nje_ya_mapafu",
+            "text": "Dalili za Kifua Kikuu Nje ya Mapafu(Taja)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "dalili_za_tb_nje_ya_mapafu"
+
+          },
+          {
+            "key": "hana_dalili",
+            "text": "Hana Dalili",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hana_dalili"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
+      },
+      {
+        "key": "dalili_nyingine",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "dalili_nyingine",
+        "type": "edit_text",
+        "hint": "Dalili za Kifua Kikuu Nje ya Mapafu",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tb_leprosy_investigation.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "mhisiwa_wa_tb",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "mhisiwa_wa_tb",
+        "type": "toaster_notes",
+        "text": "Mhisiwa wa Kifua Kikuu.Mpe Rufaa kwenda Kituo cha kutolea Huduma za Afya",
+        "text_color": "#CF0800",
+        "toaster_type": "info",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tb_leprosy_investigation.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "sio_mhisiwa_wa_tb",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "sio_mhisiwa_wa_tb",
+        "type": "toaster_notes",
+        "text": "Mteja sio Mhisiwa wa Kifua Kikuu",
+        "text_color": "#CF0800",
+        "toaster_type": "info",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tb_leprosy_investigation.yml"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

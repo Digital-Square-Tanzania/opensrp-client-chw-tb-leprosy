@@ -125,6 +125,7 @@ public class BaseTbLeprosyVisitActivity extends SecuredActivity implements BaseT
 
     @Override
     public void initializeActions(LinkedHashMap<String, BaseTbLeprosyVisitAction> map) {
+        actionList.clear();
         actionList.putAll(map);
         if (mAdapter != null) {
             mAdapter.notifyDataSetChanged();

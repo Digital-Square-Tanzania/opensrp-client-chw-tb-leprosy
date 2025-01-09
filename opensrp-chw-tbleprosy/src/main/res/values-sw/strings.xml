@@ -74,4 +74,8 @@
     <string name="return_to_tbleprosy_clients">Rudi kwenye wateja wote wa tohara</string>
     <string name="number_not_filled">Nambari ya simu ya mteja, haijajazwa</string>
 
+    <string name="tbleprosy_investigation">Uchunguzi wa Kifua Kikuu</string>
+    <string name="tbleprosy_sample">Kuchukua Sampuli</string>
+    <string name="tbleprosy_source">Njia ya Uchunguzi wa Kifua Kikuu</string>
+
 </resources>

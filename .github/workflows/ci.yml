@@ -19,7 +19,4 @@ jobs:
         run: ./gradlew :opensrp-chw-tbleprosy:clean :opensrp-chw-tbleprosy:uploadArchives --stacktrace
         env:
           GITHUB_TOKEN: ${{ github.token }}
-#      - name: Upload coverage to Coveralls with Gradle
-#        run: ./gradlew coveralls --stacktrace
-#        env:
-#          COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_TOKEN }}
+
