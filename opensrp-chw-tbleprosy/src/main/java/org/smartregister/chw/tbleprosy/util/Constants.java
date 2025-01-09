@@ -30,6 +30,10 @@ public interface Constants {
     }
 
     interface TbLeprosy_FOLLOWUP_FORMS {
+
+        String TBLEPROSY_INVESTIGATION = "tb_leprosy_investigation";
+        String TBLEPROSY_SOURCE = "tb_leprosy_source";
+        String TBLEPROSY_SAMPLE = "tb_leprosy_sample";
         String MEDICAL_HISTORY = "tbleprosy_service_medical_history";
         String PHYSICAL_EXAMINATION = "tbleprosy_service_physical_examination";
         String HTS = "tbleprosy_service_hts";

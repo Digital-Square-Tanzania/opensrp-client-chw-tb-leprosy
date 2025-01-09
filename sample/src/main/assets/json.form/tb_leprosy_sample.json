@@ -1,0 +1,195 @@
+{
+  "validate_on_submit": true,
+  "count": "1",
+  "encounter_type": "tbleprosy_sample",
+  "entity_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "163137AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "163149AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "163150AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "163151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "163152AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": ""
+  },
+  "global": {},
+  "step1": {
+    "title": "Kuchukua Sampuli",
+    "fields": [
+      {
+        "key": "amechukuliwa_sampuli",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "amechukuliwa_sampuli",
+        "type": "native_radio",
+        "label": "Je mteja amechukuliwa sampuli?",
+        "label_text_size": "18px",
+        "options":[
+          {
+            "key": "ndio_sampuli",
+            "text": "Ndio",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "ndio_sampuli"
+          },
+          {
+            "key": "hapana_sampuli",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hapana_sampuli"
+
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
+      },
+      {
+        "key": "aina_sampuli",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "aina_sampuli",
+        "type": "native_radio",
+        "label": "Aina ya sampuli",
+        "label_text_size": "18px",
+        "options":[
+          {
+            "key": "kikohozi",
+            "text": "Kikohozi",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "kikohozi"
+          },
+          {
+            "key": "kinyesi",
+            "text": "Kinyesi",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "kinyesi"
+
+          },
+          {
+            "key": "mkojo",
+            "text": "Mkojo",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "mkojo"
+
+          },
+          {
+            "key": "nyingine",
+            "text": "Nyingine(Taja)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "nyingine"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tb_leprosy_sample.yml"
+            }
+          }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
+      },
+      {
+        "key": "sampuli_nyingine",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "sampuli_nyingine",
+        "type": "edit_text",
+        "hint": "Sampuli Nyingine",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tb_leprosy_sample.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "kikopo_cha_ziada_cha_sampuli",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "kikopo_cha_ziada_cha_sampuli",
+        "type": "native_radio",
+        "label": "Je mteja anahitaji kikopo cha ziada kuchukulia sampuli?",
+        "label_text_size": "18px",
+        "options":[
+          {
+            "key": "ndio_anahitaji",
+            "text": "Ndio",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "ndio_anahitaji"
+          },
+          {
+            "key": "hapana_haitaji",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hapana_haitaji"
+
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
+      },
+      {
+        "key": "kifaa_cha_sampuli",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "kifaa_cha_sampuli",
+        "type": "toaster_notes",
+        "text": "Mpatie Mteja kifaa cha kuchukulia Sampuli",
+        "text_color": "#CF0800",
+        "toaster_type": "info",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tb_leprosy_sample.yml"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

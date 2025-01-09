@@ -1,0 +1,108 @@
+{
+  "validate_on_submit": true,
+  "count": "1",
+  "encounter_type": "tbleprosy_source",
+  "entity_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "163137AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "163149AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "163150AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "163151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "163152AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": ""
+  },
+  "global": {},
+  "step1": {
+    "title": "Njia ya Uchunguzi wa KK",
+    "fields": [
+      {
+        "key": "aina_ya_ukaribu_na_mgonjwa",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "aina_ya_ukaribu_na_mgonjwa",
+        "type": "native_radio",
+        "label": "Aina ya Ukaribu na Mgonjwa",
+        "label_text_size": "18px",
+        "options":[
+          {
+            "key": "anaishi_kaya_moja",
+            "text": "Anaishi Kaya Moja",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "anaishi_kaya_moja"
+          },
+          {
+            "key": "jamii_ya_karibu",
+            "text": "Jamii ya Karibu",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "jamii_ya_karibu"
+
+          },
+          {
+            "key": "maeneo_ya_wagonjwa_wengi",
+            "text": "Maeneo yenye wagonjwa wengi wa Kifua Kikuu",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hapana_kaya_moja"
+
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
+      },
+      {
+        "key": "namba_ya_mteja",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "namba_ya_mteja",
+        "type": "mask_edit_text",
+        "mask": "##-##-##-######-#/KK/####/#",
+        "mask_hint":"020301100029820241" ,
+        "allowed_chars": "0123456789",
+        "hint": "Namba ya Mteja wa Kifua Kikuu",
+        "v_regex": {
+          "value": "^\\d{2}-\\d{2}-\\d{2}-\\d{6}-\\d/[A-Z]{2}/\\d{4}/\\d$",
+          "err": "Namba ya Mteja wa Kifua Kikuu inatakiwa iwe katika muundo huu (22-12-45-566789-0/KK/2025/1)"
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
+      }
+    ]
+  }
+}
