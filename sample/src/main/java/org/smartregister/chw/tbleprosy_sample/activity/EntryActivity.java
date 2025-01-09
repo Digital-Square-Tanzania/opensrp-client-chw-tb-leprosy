@@ -16,8 +16,6 @@ import com.vijay.jsonwizard.domain.Form;
 import com.vijay.jsonwizard.factory.FileSourceFactoryHelper;
 
 import org.json.JSONArray;
-import com.vijay.jsonwizard.domain.Form;
-import com.vijay.jsonwizard.factory.FileSourceFactoryHelper;
 
 import org.json.JSONObject;
 import org.smartregister.chw.tbleprosy.contract.BaseTbLeprosyVisitContract;
