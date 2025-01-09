@@ -243,7 +243,10 @@
             android:paddingRight="30dp"
             android:paddingBottom="10dp"
             android:text="@string/record_tbleprosy"
-            android:textColor="@color/white" />
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:textColor="@color/white"
+            />
 
         <org.smartregister.view.customcontrols.CustomFontTextView
             android:id="@+id/textview_manual_process"

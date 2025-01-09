@@ -187,43 +187,7 @@ public abstract class BaseTbLeprosyProfileActivity extends BaseProfileActivity i
     }
 
     protected void setupButtons() {
-        try {
 
-            if (getServiceVisit() != null) {
-                if (!getServiceVisit().getProcessed() && TbLeprosyVisitsUtil.getTbLeprosyServiceVisitStatus(getServiceVisit()).equalsIgnoreCase(TbLeprosyVisitsUtil.Complete)) {
-                    manualProcessVisit.setVisibility(View.VISIBLE);
-                    textViewContinueTbLeprosyService.setText(R.string.edit_visit);
-                    manualProcessVisit.setOnClickListener(view -> {
-                        try {
-                            TbLeprosyVisitsUtil.manualProcessVisit(getServiceVisit());
-                            displayToast(R.string.tbleprosy_visit_conducted);
-                            setupViews();
-                        } catch (Exception e) {
-                            Timber.d(e);
-                        }
-                    });
-                } else {
-                    manualProcessVisit.setVisibility(View.GONE);
-                }
-                if (isVisitOnProgress(getServiceVisit())) {
-                    textViewRecordTbLeprosy.setVisibility(View.GONE);
-                    tbleprosyServiceInProgress.setVisibility(View.VISIBLE);
-                } else {
-                    textViewRecordTbLeprosy.setVisibility(View.VISIBLE);
-                    tbleprosyServiceInProgress.setVisibility(View.GONE);
-                }
-
-                processTbLeprosyService();
-
-                if (isVisitOnProgress(getServiceVisit())) {
-                    findViewById(R.id.family_tbleprosy_head).setVisibility(View.GONE);
-                }
-
-            }
-
-        } catch (Exception e) {
-            Timber.d(e);
-        }
     }
 
     protected Visit getServiceVisit() {
