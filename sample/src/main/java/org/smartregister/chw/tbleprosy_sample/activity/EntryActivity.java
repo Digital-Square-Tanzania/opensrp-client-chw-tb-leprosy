@@ -9,12 +9,14 @@ import android.os.Bundle;
 import android.view.View;
 
 import androidx.appcompat.widget.Toolbar;
+import androidx.room.util.StringUtil;
 
 import com.vijay.jsonwizard.activities.JsonWizardFormActivity;
 import com.vijay.jsonwizard.constants.JsonFormConstants;
 import com.vijay.jsonwizard.domain.Form;
 import com.vijay.jsonwizard.factory.FileSourceFactoryHelper;
 
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 
 import org.json.JSONObject;
@@ -124,36 +126,42 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
                 break;
             case R.id.tbleprosy_contact_visit:
                 TbLeprosyServiceActivity.startTbLeprosyVisitActivity(this, "98765", true);
+                break;
             case R.id.tbleprosy_screening:
                 try {
                     startForm("tbleprosy_screening");
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
+                break;
             case R.id.tbleprosy_mobilization:
                 try {
                     startForm("tbleprosy_mobilization_session");
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
+                break;
             case R.id.tbleprosy_matokeo_ya_uchunguzi:
                 try {
                     startForm("tbleprosy_matokeo_ya_uchunguzi");
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
+                break;
             case R.id.tbleprosy_ufuatiliaji_wa_mteja:
                 try {
                     startForm("tbleprosy_ufuatiliaji_wa_mteja");
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
+                break;
             case R.id.tbleprosy_visit_record:
                 try {
                     startForm("tbleprosy_record_visit");
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
+                break;
             case R.id.tbleprosy_matokeo_ya_uchunguzi_contact:
                 try {
                    startForm("tbleprosy_matokeo_uchunguzi_contact");
@@ -177,11 +185,13 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
             JSONObject clientID = JsonFormUtils.getFieldJSONObject(dataFields, "namba_ya_mteja_tb");
             JSONObject clientIdUkoma = JsonFormUtils.getFieldJSONObject(dataFields, "namba_ya_mteja_ukoma");
 
-            assert clientID != null;
-            clientID.put("mask", "##-##-##-######-#/KK/" +Calendar.getInstance().get(Calendar.YEAR)+ "/#");
+             if(clientID != null){
+                 clientID.put("mask", "##-##-##-######-#/KK/" +Calendar.getInstance().get(Calendar.YEAR)+ "/#");
+             }
 
-            clientIdUkoma.put("mask", "##-##-##-######-#/UK/" +Calendar.getInstance().get(Calendar.YEAR)+ "/#");
-
+             if(clientIdUkoma != null ){
+                 clientID.put("mask", "##-##-##-######-#/KK/" +Calendar.getInstance().get(Calendar.YEAR)+ "/#");
+             }
 
             jsonForm.getJSONObject("metadata").put("encounter_location", currentLocationId);
             Intent intent = new Intent(this, JsonWizardFormActivity.class);

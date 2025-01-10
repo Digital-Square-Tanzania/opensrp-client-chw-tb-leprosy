@@ -53,13 +53,11 @@
         "hint": "Mobilization date",
         "expanded": false,
         "max_date": "today",
-
           "v_required": {
           "value": "true",
           "err": "Please select an answer"
         }
       },
-
       {
         "key": "mobilization_area",
         "openmrs_entity_parent": "",
@@ -161,21 +159,14 @@
           }
         }
       },
-
       {
         "key": "user_gps",
         "openmrs_entity_parent": "",
         "openmrs_entity": "",
         "openmrs_entity_id": "",
         "openmrs_data_type": "text",
-        "type": "gps",
-        "v_required": {
-          "value": "true",
-          "err": "Please select an answer"
-        }
-
+        "type": "gps"
       },
-
       {
        "key": "number_of_male_reached",
         "openmrs_entity_parent": "",
