@@ -91,16 +91,6 @@ public class TbLeprosySourceActionHelper implements BaseTbLeprosyVisitAction.TbL
 
     @Override
     public String postProcess(String jsonPayload) {
-        JSONObject jsonObject = null;
-        try {
-            jsonObject = new JSONObject(jsonPayload);
-        } catch (JSONException e) {
-            Timber.e(e);
-        }
-
-        if (jsonObject != null) {
-            return jsonObject.toString();
-        }
         return null;
     }
 

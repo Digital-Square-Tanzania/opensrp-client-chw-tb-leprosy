@@ -30,7 +30,6 @@ public class BaseTbLeprosyServiceVisitInteractor extends BaseTbLeprosyVisitInter
     protected BaseTbLeprosyVisitContract.InteractorCallBack callBack;
 
     String visitType;
-    private final TbLeprosyLibrary tbLeprosyLibrary;
     private final LinkedHashMap<String, BaseTbLeprosyVisitAction> actionList;
     protected AppExecutors appExecutors;
     private ECSyncHelper syncHelper;
@@ -40,7 +39,7 @@ public class BaseTbLeprosyServiceVisitInteractor extends BaseTbLeprosyVisitInter
     @VisibleForTesting
     public BaseTbLeprosyServiceVisitInteractor(AppExecutors appExecutors, TbLeprosyLibrary TbLeprosyLibrary, ECSyncHelper syncHelper) {
         this.appExecutors = appExecutors;
-        this.tbLeprosyLibrary = TbLeprosyLibrary;
+        this.mContext = TbLeprosyLibrary.getInstance().context().applicationContext();
         this.syncHelper = syncHelper;
         this.actionList = new LinkedHashMap<>();
     }
