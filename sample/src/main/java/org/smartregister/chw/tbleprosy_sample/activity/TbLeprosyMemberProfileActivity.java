@@ -69,6 +69,21 @@ public class TbLeprosyMemberProfileActivity extends BaseTbLeprosyProfileActivity
         }
     }
 
+    @Override
+    public void openRecordTbContactVisit() {
+    // Implementations here
+    }
+
+    @Override
+    public void openMatukioYaUchunguzi() {
+
+    }
+
+    @Override
+    public void observationResults() {
+        // Implementations Here.
+    }
+
     private void startForm(String formName) throws Exception {
         JSONObject jsonForm = FileSourceFactoryHelper.getFileSource("").getFormFromFile(getApplicationContext(), formName);
 
