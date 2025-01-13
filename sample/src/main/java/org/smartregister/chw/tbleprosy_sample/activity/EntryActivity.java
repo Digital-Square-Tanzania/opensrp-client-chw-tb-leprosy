@@ -41,21 +41,6 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
     private static MemberObject tbleprosyMemberObject;
 
     public static MemberObject getSampleMember() {
-        Map<String, String> details = new HashMap<>();
-        details.put(DBConstants.KEY.FIRST_NAME, "Glory");
-        details.put(DBConstants.KEY.LAST_NAME, "Juma");
-        details.put(DBConstants.KEY.MIDDLE_NAME, "Wambui");
-        details.put(DBConstants.KEY.DOB, "1982-01-18T03:00:00.000+03:00");
-        details.put(DBConstants.KEY.LAST_HOME_VISIT, "");
-        details.put(DBConstants.KEY.VILLAGE_TOWN, "Lavingtone #221");
-        details.put(DBConstants.KEY.FAMILY_NAME, "Jumwa");
-        details.put(DBConstants.KEY.UNIQUE_ID, "3503504");
-        details.put(DBConstants.KEY.BASE_ENTITY_ID, "3503504");
-        details.put(DBConstants.KEY.FAMILY_HEAD, "3503504");
-        details.put(DBConstants.KEY.PHONE_NUMBER, "0934567543");
-        CommonPersonObjectClient commonPersonObject = new CommonPersonObjectClient("", details, "Yo");
-        commonPersonObject.setColumnmaps(details);
-
         if (tbleprosyMemberObject == null) {
             tbleprosyMemberObject = new MemberObject();
             tbleprosyMemberObject.setFirstName("Glory");
@@ -125,7 +110,7 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
                 TbLeprosyMemberProfileActivity.startMe(this, "12345");
                 break;
             case R.id.tbleprosy_contact_visit:
-                TbLeprosyServiceActivity.startTbLeprosyVisitActivity(this, "98765", true);
+                TbLeprosyServiceActivity.startTbLeprosyVisitActivity(this, "98765", false);
                 break;
             case R.id.tbleprosy_screening:
                 try {

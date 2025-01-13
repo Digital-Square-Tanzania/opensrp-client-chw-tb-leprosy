@@ -75,8 +75,8 @@ public class MemberObject implements Serializable {
         return Utils.getName(getFirstName(), getLastName());
     }
 
-    public String getAge() {
-        return age;
+    public int getAge() {
+        return new Period(new DateTime(dob), new DateTime()).getYears();
     }
 
     public void setAge(String age) {
