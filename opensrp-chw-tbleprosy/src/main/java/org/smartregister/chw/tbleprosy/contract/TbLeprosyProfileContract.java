@@ -25,6 +25,11 @@ public interface TbLeprosyProfileContract {
 
         void openFollowupVisit();
 
+        void openRecordTbContactVisit();
+
+        void openMatukioYaUchunguzi();
+
+        void observationResults();
     }
 
     interface Presenter {
