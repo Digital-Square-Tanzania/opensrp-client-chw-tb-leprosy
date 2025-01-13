@@ -18,6 +18,7 @@ import com.vijay.jsonwizard.factory.FileSourceFactoryHelper;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
 import org.smartregister.chw.tbleprosy.activity.BaseTbLeprosyProfileActivity;
+import org.smartregister.chw.tbleprosy.activity.BaseTbLeprosyVisitActivity;
 import org.smartregister.chw.tbleprosy.domain.MemberObject;
 import org.smartregister.chw.tbleprosy.domain.Visit;
 import org.smartregister.chw.tbleprosy.util.Constants;
@@ -44,22 +45,46 @@ public class TbLeprosyContactProfileActivity extends BaseTbLeprosyProfileActivit
 
     @Override
     protected void setupButtons() {
-        textViewRecordTbLeprosy.setVisibility(View.VISIBLE);
-        textViewRecordTbLeprosy.setText("Record TB Leprosy Visit");
+        textViewRecordTbContactVisit.setVisibility(View.VISIBLE);
+        textViewRecordTbContactVisit.setText("Record TB Contact Visit");
 
-        if(StringUtils.isNotBlank(encounterType)){
-            if (encounterType.equalsIgnoreCase(Constants.EVENT_TYPE.TB_LEPROSY_ENROLLMENT)) {
-                textViewRecordTbLeprosy.setVisibility(View.GONE);
-            }
-        }
+//        if(StringUtils.isNotBlank(encounterType)){
+//            if (encounterType.equalsIgnoreCase(Constants.EVENT_TYPE.TB_LEPROSY_ENROLLMENT)) {
+//                textViewRecordTbLeprosy.setVisibility(View.GONE);
+//            }
+//        }
     }
 
     @Override
     public void openFollowupVisit() {
+      // Implementation here.
+    }
+
+    @Override
+    public void openRecordTbContactVisit() {
+      try {
+        startServiceForm();
+      } catch (Exception e){
+          Timber.e(e);
+      }
+    }
+
+    @Override
+    public void openMatukioYaUchunguzi() {
+        // Implementation Here
         try {
-            startForm("tbleprosy_enrollment");
+            startForm("tbleprosy_matokeo_ya_uchunguzi");
         } catch (Exception e) {
-            Timber.e(e);
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void observationResults() {
+        try {
+            startForm("tbleprosy_matokeo_ya_uchunguzi");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -91,6 +116,16 @@ public class TbLeprosyContactProfileActivity extends BaseTbLeprosyProfileActivit
         TbLeprosyServiceActivity.startTbLeprosyVisitActivity(this, memberObject.getBaseEntityId(), false);
     }
 
+    @Override
+    public void openMedicalHistory() {
+        //implementation here
+        try {
+            startForm("tbleprosy_matokeo_ya_uchunguzi");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 
     @Override
     public void continueService() {
