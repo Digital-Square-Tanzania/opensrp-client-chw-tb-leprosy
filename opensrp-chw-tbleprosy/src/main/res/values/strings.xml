@@ -12,6 +12,7 @@
     <string name="saving_dialog_title">Saving</string>
     <string name="interpunct" translatable="false">\u00b7</string>
     <string name="record_tbleprosy">Provide TbLeprosy Services</string>
+    <string name="record_tbleprosy_contact_visit">Record TB Contact Visit</string>
     <string name="manual_process_visit">Process Visit</string>
     <string name="continue_visit">Continue</string>
     <string name="edit_visit">Edit</string>
@@ -39,8 +40,9 @@
     <string name="return_to_previous_page">Return all TbLeprosy Clients</string>
     <string name="last_visit_40_days_ago">Last visit %1$s ago</string>
     <string name="view_medical_history">View medical history</string>
+    <string name="observation_results">View Observation Results</string>
     <string name="call_no_number_provided">(no number provided)</string>
-    <string name="view_upcoming_services">View upcoming services</string>
+    <string name="view_observation_results">View Observation Results</string>
     <string name="family_has_nothing_due">Family has nothing due</string>
     <string name="go_to_family_s_profile">Go to family\'s profile</string>
     <string name="family_has_services_due">Family has services due</string>
@@ -78,5 +80,6 @@
     <string name="female">Female</string>
     <string name="return_to_tbleprosy_clients">Return to TbLeprosy Clients</string>
     <string name="number_not_filled">client phone number, not filled</string>
+    <string name="view_upcoming_services">View Upcoming Services</string>
 
 </resources>
