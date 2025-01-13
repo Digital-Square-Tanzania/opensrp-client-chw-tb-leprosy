@@ -313,7 +313,6 @@ public class BaseTbLeprosyVisitActivity extends SecuredActivity implements BaseT
                     Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             } else {
-
                 BaseTbLeprosyVisitAction baseTbLeprosyVisitAction = actionList.get(current_action);
                 if (baseTbLeprosyVisitAction != null)
                     baseTbLeprosyVisitAction.evaluateStatus();
