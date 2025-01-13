@@ -59,7 +59,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@+id/tick_image"
-                android:text="@string/view_medical_history"
+                android:text="@string/view_visit_history"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@color/light_grey_text" />
         </RelativeLayout>
@@ -100,7 +100,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@+id/tick_image"
-                android:text="@string/view_medical_history"
+                android:text="@string/observation_results"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@color/light_grey_text" />
         </RelativeLayout>

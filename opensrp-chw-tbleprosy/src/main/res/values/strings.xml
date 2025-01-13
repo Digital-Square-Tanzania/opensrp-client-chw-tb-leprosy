@@ -39,7 +39,7 @@
     <string name="error_unable_save_visit">Unable to save visit</string>
     <string name="return_to_previous_page">Return all TbLeprosy Clients</string>
     <string name="last_visit_40_days_ago">Last visit %1$s ago</string>
-    <string name="view_medical_history">View medical history</string>
+    <string name="view_visit_history">View Visit history</string>
     <string name="observation_results">View Observation Results</string>
     <string name="call_no_number_provided">(no number provided)</string>
     <string name="view_observation_results">View Observation Results</string>
