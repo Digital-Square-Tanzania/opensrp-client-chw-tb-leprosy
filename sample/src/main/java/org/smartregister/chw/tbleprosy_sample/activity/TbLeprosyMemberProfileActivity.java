@@ -1,8 +1,6 @@
 package org.smartregister.chw.tbleprosy_sample.activity;
 
-import static com.google.zxing.integration.android.IntentIntegrator.REQUEST_CODE;
-
-import static org.smartregister.chw.tbleprosy.util.Constants.JSON_FORM_EXTRA.ENCOUNTER_TYPE;
+import static org.smartregister.chw.tbleprosy.util.Constants.JSON_FORM_EXTRA.EVENT_TYPE;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -12,13 +10,9 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 
-import com.vijay.jsonwizard.activities.JsonFormActivity;
 import com.vijay.jsonwizard.activities.JsonWizardFormActivity;
-import com.vijay.jsonwizard.constants.JsonFormConstants;
 import com.vijay.jsonwizard.domain.Form;
 import com.vijay.jsonwizard.factory.FileSourceFactoryHelper;
-import com.vijay.jsonwizard.utils.FormUtils;
-
 
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
@@ -27,13 +21,12 @@ import org.smartregister.chw.tbleprosy.domain.MemberObject;
 import org.smartregister.chw.tbleprosy.domain.Visit;
 import org.smartregister.chw.tbleprosy.util.Constants;
 
-
 import timber.log.Timber;
 
 
 public class TbLeprosyMemberProfileActivity extends BaseTbLeprosyProfileActivity {
-    private Visit enrollmentVisit = null;
-    private Visit serviceVisit = null;
+    private final Visit enrollmentVisit = null;
+    private final Visit serviceVisit = null;
 
     private String encounterType;
 
@@ -53,7 +46,7 @@ public class TbLeprosyMemberProfileActivity extends BaseTbLeprosyProfileActivity
         textViewRecordTbLeprosy.setVisibility(View.VISIBLE);
         textViewRecordTbLeprosy.setText("Record TB Leprosy Visit");
 
-        if(StringUtils.isNotBlank(encounterType)){
+        if (StringUtils.isNotBlank(encounterType)) {
             if (encounterType.equalsIgnoreCase(Constants.EVENT_TYPE.TB_LEPROSY_ENROLLMENT)) {
                 textViewRecordTbLeprosy.setVisibility(View.GONE);
             }
@@ -71,7 +64,7 @@ public class TbLeprosyMemberProfileActivity extends BaseTbLeprosyProfileActivity
 
     @Override
     public void openRecordTbContactVisit() {
-    // Implementations here
+        // Implementations here
     }
 
     @Override
@@ -101,7 +94,7 @@ public class TbLeprosyMemberProfileActivity extends BaseTbLeprosyProfileActivity
             form.setHideSaveLabel(true);
 
             intent.putExtra("form", form);
-            startActivityForResult(intent, REQUEST_CODE);
+            startActivityForResult(intent, Constants.REQUEST_CODE_GET_JSON);
 
         }
 
@@ -133,11 +126,11 @@ public class TbLeprosyMemberProfileActivity extends BaseTbLeprosyProfileActivity
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+        if (requestCode == Constants.REQUEST_CODE_GET_JSON && resultCode == Activity.RESULT_OK) {
             try {
                 String jsonString = data.getStringExtra(Constants.JSON_FORM_EXTRA.JSON);
                 JSONObject form = new JSONObject(jsonString);
-                encounterType = form.getString(ENCOUNTER_TYPE);
+                encounterType = form.getString(EVENT_TYPE);
 
             } catch (Exception e) {
                 Timber.e(e);

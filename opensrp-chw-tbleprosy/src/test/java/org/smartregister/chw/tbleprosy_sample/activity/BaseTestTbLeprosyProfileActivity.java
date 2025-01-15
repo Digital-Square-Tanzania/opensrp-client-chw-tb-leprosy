@@ -20,4 +20,19 @@ public class BaseTestTbLeprosyProfileActivity extends BaseTbLeprosyProfileActivi
     public void continueDischarge() {
 
     }
+
+    @Override
+    public void openRecordTbContactVisit() {
+
+    }
+
+    @Override
+    public void openMatukioYaUchunguzi() {
+
+    }
+
+    @Override
+    public void observationResults() {
+
+    }
 }

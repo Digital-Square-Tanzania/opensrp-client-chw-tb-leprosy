@@ -1,7 +1,9 @@
 package org.smartregister.chw.tbleprosy_sample.activity;
 
 import static com.google.zxing.integration.android.IntentIntegrator.REQUEST_CODE;
+import static org.smartregister.chw.tbleprosy.util.Constants.EVENT_TYPE.TBLEPROSY_CONTACT_VISIT;
 import static org.smartregister.chw.tbleprosy.util.Constants.JSON_FORM_EXTRA.ENCOUNTER_TYPE;
+import static org.smartregister.chw.tbleprosy.util.Constants.JSON_FORM_EXTRA.EVENT_TYPE;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -22,6 +24,7 @@ import org.smartregister.chw.tbleprosy.activity.BaseTbLeprosyVisitActivity;
 import org.smartregister.chw.tbleprosy.domain.MemberObject;
 import org.smartregister.chw.tbleprosy.domain.Visit;
 import org.smartregister.chw.tbleprosy.util.Constants;
+import org.smartregister.chw.tbleprosy_sample.R;
 
 import timber.log.Timber;
 
@@ -46,13 +49,17 @@ public class TbLeprosyContactProfileActivity extends BaseTbLeprosyProfileActivit
     @Override
     protected void setupButtons() {
         textViewRecordTbContactVisit.setVisibility(View.VISIBLE);
-        textViewRecordTbContactVisit.setText("Record TB Contact Visit");
 
-//        if(StringUtils.isNotBlank(encounterType)){
-//            if (encounterType.equalsIgnoreCase(Constants.EVENT_TYPE.TB_LEPROSY_ENROLLMENT)) {
-//                textViewRecordTbLeprosy.setVisibility(View.GONE);
-//            }
-//        }
+        if (StringUtils.isNotBlank(encounterType)) {
+            if (encounterType.equalsIgnoreCase(TBLEPROSY_CONTACT_VISIT)) {
+
+                textViewRecordTbContactVisit.setVisibility(View.GONE);
+
+                rlLastVisit.setVisibility(View.VISIBLE);
+                rlObservationResults.setVisibility(View.VISIBLE);
+            }
+
+        }
     }
 
     @Override
@@ -105,7 +112,7 @@ public class TbLeprosyContactProfileActivity extends BaseTbLeprosyProfileActivit
             form.setHideSaveLabel(true);
 
             intent.putExtra("form", form);
-            startActivityForResult(intent, REQUEST_CODE);
+            startActivityForResult(intent, Constants.REQUEST_CODE_GET_JSON);
 
         }
 
@@ -147,11 +154,11 @@ public class TbLeprosyContactProfileActivity extends BaseTbLeprosyProfileActivit
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+        if (requestCode == Constants.REQUEST_CODE_GET_JSON && resultCode == Activity.RESULT_OK) {
             try {
                 String jsonString = data.getStringExtra(Constants.JSON_FORM_EXTRA.JSON);
                 JSONObject form = new JSONObject(jsonString);
-                encounterType = form.getString(ENCOUNTER_TYPE);
+                encounterType = form.getString(EVENT_TYPE);
 
             } catch (Exception e) {
                 Timber.e(e);

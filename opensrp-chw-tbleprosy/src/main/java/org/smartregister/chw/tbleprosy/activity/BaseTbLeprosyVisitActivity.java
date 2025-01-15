@@ -23,6 +23,7 @@ import org.joda.time.DateTime;
 import org.joda.time.Period;
 import org.json.JSONObject;
 import org.smartregister.AllConstants;
+import org.smartregister.chw.tbleprosy.R;
 import org.smartregister.chw.tbleprosy.TbLeprosyLibrary;
 import org.smartregister.chw.tbleprosy.adapter.BaseTbLeprosyVisitAdapter;
 import org.smartregister.chw.tbleprosy.contract.BaseTbLeprosyVisitContract;
@@ -33,7 +34,6 @@ import org.smartregister.chw.tbleprosy.model.BaseTbLeprosyVisitAction;
 import org.smartregister.chw.tbleprosy.presenter.BaseTbLeprosyVisitPresenter;
 import org.smartregister.chw.tbleprosy.util.Constants;
 import org.smartregister.view.activity.SecuredActivity;
-import org.smartregister.chw.tbleprosy.R;
 
 import java.text.MessageFormat;
 import java.util.LinkedHashMap;

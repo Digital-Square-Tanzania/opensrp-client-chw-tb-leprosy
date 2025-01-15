@@ -33,10 +33,10 @@ import org.smartregister.chw.tbleprosy.interactor.BaseTbLeprosyProfileInteractor
 import org.smartregister.chw.tbleprosy.presenter.BaseTbLeprosyProfilePresenter;
 import org.smartregister.chw.tbleprosy.util.Constants;
 import org.smartregister.chw.tbleprosy.util.TbLeprosyUtil;
-import org.smartregister.chw.tbleprosy.util.TbLeprosyVisitsUtil;
 import org.smartregister.domain.AlertStatus;
 import org.smartregister.helper.ImageRenderHelper;
 import org.smartregister.view.activity.BaseProfileActivity;
+import org.smartregister.view.customcontrols.CustomFontTextView;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -67,7 +67,6 @@ public abstract class BaseTbLeprosyProfileActivity extends BaseProfileActivity i
     protected View view_family_row;
     protected View view_positive_date_row;
     protected RelativeLayout rlLastVisit;
-//    protected RelativeLayout rlTbLeprosyMatokeoYaUchunguzi;
     protected RelativeLayout rlObservationResults;
     protected RelativeLayout rlUpcomingServices;
     protected RelativeLayout rlFamilyServicesDue;
@@ -88,6 +87,8 @@ public abstract class BaseTbLeprosyProfileActivity extends BaseProfileActivity i
     private TextView tvFamilyStatus;
     private SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM", Locale.getDefault());
     private ProgressBar progressBar;
+
+    protected CustomFontTextView ivViewHistoryArrow;
 
     public static void startProfileActivity(Activity activity, String baseEntityId) {
         Intent intent = new Intent(activity, BaseTbLeprosyProfileActivity.class);
@@ -153,6 +154,9 @@ public abstract class BaseTbLeprosyProfileActivity extends BaseProfileActivity i
         textViewUndo = findViewById(R.id.textview_undo);
         imageView = findViewById(R.id.imageview_profile);
 
+        ivViewHistoryArrow = findViewById(R.id.ivViewHistoryArrow);
+        ivViewHistoryArrow.setOnClickListener(this);
+
         textViewRecordAncNotDone.setOnClickListener(this);
         textViewVisitDoneEdit.setOnClickListener(this);
         rlLastVisit.setOnClickListener(this);
@@ -196,7 +200,7 @@ public abstract class BaseTbLeprosyProfileActivity extends BaseProfileActivity i
     }
 
     protected void setupButtons() {
-
+        rlLastVisit.setVisibility(View.GONE);
     }
 
     protected Visit getServiceVisit() {
@@ -205,7 +209,7 @@ public abstract class BaseTbLeprosyProfileActivity extends BaseProfileActivity i
 
 
     protected void processTbLeprosyService() {
-         rlLastVisit.setVisibility(View.VISIBLE);
+//         rlLastVisit.setVisibility(View.VISIBLE);
 //        rlTbLeprosyMatokeoYaUchunguzi.setVisibility(View.VISIBLE);
         findViewById(R.id.family_tbleprosy_head).setVisibility(View.VISIBLE);
     }
@@ -238,6 +242,7 @@ public abstract class BaseTbLeprosyProfileActivity extends BaseProfileActivity i
         } else if (id == R.id.rlObservationResults) {
             this.observationResults();
         }
+
     }
 
     @Override
@@ -279,6 +284,7 @@ public abstract class BaseTbLeprosyProfileActivity extends BaseProfileActivity i
         if (StringUtils.isNotBlank(memberObject.getPrimaryCareGiver()) && memberObject.getPrimaryCareGiver().equals(memberObject.getBaseEntityId())) {
             findViewById(R.id.primary_tbleprosy_caregiver).setVisibility(View.GONE);
         }
+
         if (memberObject.getTbLeprosyTestDate() != null) {
             textview_positive_date.setText(getString(R.string.tbleprosy_positive) + " " + formatTime(memberObject.getTbLeprosyTestDate()));
         }
@@ -313,8 +319,7 @@ public abstract class BaseTbLeprosyProfileActivity extends BaseProfileActivity i
     @Override
     public void refreshMedicalHistory(boolean hasHistory) {
         showProgressBar(false);
-       rlLastVisit.setVisibility(hasHistory ? View.VISIBLE : View.GONE);
-//        rlTbLeprosyMatokeoYaUchunguzi.setVisibility(hasHistory ? View.VISIBLE : View.GONE);
+//       rlLastVisit.setVisibility(hasHistory ? View.VISIBLE : View.GONE);
     }
 
     @Override
@@ -381,7 +386,9 @@ public abstract class BaseTbLeprosyProfileActivity extends BaseProfileActivity i
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == Constants.REQUEST_CODE_GET_JSON && resultCode == RESULT_OK) {
             profilePresenter.saveForm(data.getStringExtra(Constants.JSON_FORM_EXTRA.JSON));
-            finish();
+//           finish();
+            textViewRecordTbContactVisit.setVisibility(View.GONE);
+
         }
     }
 

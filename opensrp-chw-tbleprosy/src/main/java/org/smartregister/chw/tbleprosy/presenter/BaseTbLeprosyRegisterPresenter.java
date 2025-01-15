@@ -4,8 +4,8 @@ import android.util.Log;
 
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
-import org.smartregister.chw.tbleprosy.contract.TbLeprosyRegisterContract;
 import org.smartregister.chw.tbleprosy.R;
+import org.smartregister.chw.tbleprosy.contract.TbLeprosyRegisterContract;
 
 import java.lang.ref.WeakReference;
 import java.util.List;

@@ -1,12 +1,12 @@
 package org.smartregister.chw.tbleprosy.presenter;
 
 import org.json.JSONObject;
+import org.smartregister.chw.tbleprosy.R;
 import org.smartregister.chw.tbleprosy.contract.BaseTbLeprosyVisitContract;
 import org.smartregister.chw.tbleprosy.domain.MemberObject;
 import org.smartregister.chw.tbleprosy.model.BaseTbLeprosyVisitAction;
 import org.smartregister.chw.tbleprosy.util.TbLeprosyJsonFormUtils;
 import org.smartregister.util.FormUtils;
-import org.smartregister.chw.tbleprosy.R;
 
 import java.lang.ref.WeakReference;
 import java.util.LinkedHashMap;

@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.joda.time.DateTime;
 import org.joda.time.Period;
+import org.smartregister.chw.tbleprosy.R;
 import org.smartregister.chw.tbleprosy.fragment.BaseTbLeprosyRegisterFragment;
 import org.smartregister.chw.tbleprosy.util.DBConstants;
 import org.smartregister.chw.tbleprosy.util.TbLeprosyUtil;
@@ -26,7 +27,6 @@ import org.smartregister.view.dialog.FilterOption;
 import org.smartregister.view.dialog.ServiceModeOption;
 import org.smartregister.view.dialog.SortOption;
 import org.smartregister.view.viewholder.OnClickFormLauncher;
-import org.smartregister.chw.tbleprosy.R;
 
 import java.text.MessageFormat;
 import java.util.Set;

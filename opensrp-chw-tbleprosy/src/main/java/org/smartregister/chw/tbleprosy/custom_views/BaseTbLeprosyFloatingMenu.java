@@ -7,9 +7,9 @@ import android.widget.LinearLayout;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import org.smartregister.chw.tbleprosy.R;
 import org.smartregister.chw.tbleprosy.domain.MemberObject;
 import org.smartregister.chw.tbleprosy.fragment.BaseTbLeprosyCallDialogFragment;
-import org.smartregister.chw.tbleprosy.R;
 
 public class BaseTbLeprosyFloatingMenu extends LinearLayout implements View.OnClickListener {
     private MemberObject MEMBER_OBJECT;

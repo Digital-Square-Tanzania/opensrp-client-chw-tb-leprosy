@@ -5,9 +5,9 @@ import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 
+import org.smartregister.chw.tbleprosy.R;
 import org.smartregister.listener.BottomNavigationListener;
 import org.smartregister.view.activity.BaseRegisterActivity;
-import org.smartregister.chw.tbleprosy.R;
 
 public class TbLeprosyBottomNavigationListener extends BottomNavigationListener {
     private Activity context;

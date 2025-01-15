@@ -13,6 +13,7 @@
     <string name="interpunct" translatable="false">\u00b7</string>
     <string name="record_tbleprosy">Provide TbLeprosy Services</string>
     <string name="record_tbleprosy_contact_visit">Record TB Contact Visit</string>
+    <string name="provide_contact_visit">Provide Contact Visit</string>
     <string name="manual_process_visit">Process Visit</string>
     <string name="continue_visit">Continue</string>
     <string name="edit_visit">Edit</string>

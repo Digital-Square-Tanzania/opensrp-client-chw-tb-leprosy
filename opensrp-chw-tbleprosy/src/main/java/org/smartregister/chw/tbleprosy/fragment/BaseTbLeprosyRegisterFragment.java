@@ -3,6 +3,7 @@ package org.smartregister.chw.tbleprosy.fragment;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.smartregister.chw.tbleprosy.R;
 import org.smartregister.chw.tbleprosy.activity.BaseTbLeprosyProfileActivity;
 import org.smartregister.chw.tbleprosy.contract.TbLeprosyRegisterFragmentContract;
 import org.smartregister.chw.tbleprosy.model.BaseTbLeprosyRegisterFragmentModel;
@@ -14,7 +15,6 @@ import org.smartregister.cursoradapter.RecyclerViewPaginatedAdapter;
 import org.smartregister.view.customcontrols.CustomFontTextView;
 import org.smartregister.view.customcontrols.FontVariant;
 import org.smartregister.view.fragment.BaseRegisterFragment;
-import org.smartregister.chw.tbleprosy.R;
 
 import java.util.HashMap;
 import java.util.Set;
