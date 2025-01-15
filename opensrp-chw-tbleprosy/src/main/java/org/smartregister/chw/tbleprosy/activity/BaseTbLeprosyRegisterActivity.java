@@ -16,6 +16,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.smartregister.AllConstants;
 import org.smartregister.Context;
+import org.smartregister.chw.tbleprosy.R;
 import org.smartregister.chw.tbleprosy.contract.TbLeprosyRegisterContract;
 import org.smartregister.chw.tbleprosy.fragment.BaseTbLeprosyRegisterFragment;
 import org.smartregister.chw.tbleprosy.interactor.BaseTbLeprosyRegisterInteractor;
@@ -32,7 +33,6 @@ import org.smartregister.repository.BaseRepository;
 import org.smartregister.util.Utils;
 import org.smartregister.view.activity.BaseRegisterActivity;
 import org.smartregister.view.fragment.BaseRegisterFragment;
-import org.smartregister.chw.tbleprosy.R;
 
 import java.util.Arrays;
 import java.util.Date;
