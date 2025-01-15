@@ -187,7 +187,6 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
             Intent intent = new Intent(this, JsonWizardFormActivity.class);
             intent.putExtra("json", jsonForm.toString());
 
-
             Form form = new Form();
             form.setWizard(true);
             form.setNextLabel("Next");
@@ -197,9 +196,7 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
 
             intent.putExtra("form", form);
             startActivityForResult(intent, Constants.REQUEST_CODE_GET_JSON);
-
         }
-
     }
 
 
