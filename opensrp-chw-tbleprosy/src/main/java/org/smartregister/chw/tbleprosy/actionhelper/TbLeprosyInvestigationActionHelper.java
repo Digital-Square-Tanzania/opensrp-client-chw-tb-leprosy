@@ -3,16 +3,13 @@ package org.smartregister.chw.tbleprosy.actionhelper;
 import android.content.Context;
 
 import org.apache.commons.lang3.StringUtils;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.smartregister.chw.tbleprosy.domain.MemberObject;
 import org.smartregister.chw.tbleprosy.domain.VisitDetail;
 import org.smartregister.chw.tbleprosy.model.BaseTbLeprosyVisitAction;
 import org.smartregister.chw.tbleprosy.util.JsonFormUtils;
-import org.smartregister.chw.tbleprosy.util.VisitUtils;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
