@@ -6,6 +6,8 @@
 
     <string name="tbleprosy_follow_up_visit">Follow up TBLEPROSY Client Profile</string>
 
+<!--    <string name="tbleprosy_record_tb_contact_follow_up_visit">Record TB Contact Follow up Visit</string>-->
+
     <string name="tbleprosy_contact_visit">"Record TB Contact Visit"</string>
 
     <string name="tbleprosy_screening">TB/Leprosy screening</string>
