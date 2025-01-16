@@ -22,6 +22,7 @@ public interface Constants {
         String VOID_EVENT = "Void Event";
         String CLOSE_TB_LEPROSY_SERVICE = "Close TbLeprosy Service";
         String TBLEPROSY_CONTACT_VISIT = "TBLeprosy Contact Visit";
+        String TB_LEPROSY_OBSERVATIONS_RESULT = "TBLEPROSY Matokeo ya Uchunguzi Contact";
 
     }
 
