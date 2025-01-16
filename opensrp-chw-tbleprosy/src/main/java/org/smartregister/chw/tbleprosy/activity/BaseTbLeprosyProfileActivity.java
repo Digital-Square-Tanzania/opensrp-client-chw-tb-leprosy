@@ -135,7 +135,6 @@ public abstract class BaseTbLeprosyProfileActivity extends BaseProfileActivity i
         rlUpcomingServices = findViewById(R.id.rlUpcomingServices);
         rlFamilyServicesDue = findViewById(R.id.rlFamilyServicesDue);
         rlTbLeprosyPositiveDate = findViewById(R.id.rlTbLeprosyPositiveDate);
-//        rlTbLeprosyMatokeoYaUchunguzi = findViewById(R.id.rlTbLeprosyMatokeoYaUchunguzi);
         textViewVisitDone = findViewById(R.id.textview_visit_done);
         visitStatus = findViewById(R.id.record_visit_not_done_bar);
         visitDone = findViewById(R.id.visit_done_bar);
@@ -161,7 +160,6 @@ public abstract class BaseTbLeprosyProfileActivity extends BaseProfileActivity i
         textViewVisitDoneEdit.setOnClickListener(this);
         rlLastVisit.setOnClickListener(this);
         rlObservationResults.setOnClickListener(this);
-//        rlTbLeprosyMatokeoYaUchunguzi.setOnClickListener(this);
         rlUpcomingServices.setOnClickListener(this);
         rlFamilyServicesDue.setOnClickListener(this);
         rlTbLeprosyPositiveDate.setOnClickListener(this);
@@ -237,12 +235,15 @@ public abstract class BaseTbLeprosyProfileActivity extends BaseProfileActivity i
         } else if (id == R.id.textview_continue) {
             this.continueDischarge();
         }
-        else if (id == R.id.textview_record_tbleprosy_contact_visit) {
-            this.openRecordTbContactVisit();
-        } else if (id == R.id.rlObservationResults) {
+        else if (id == R.id.rlObservationResults) {
             this.observationResults();
         }
-
+        else if (textViewRecordTbContactVisit.getText().equals(getString(R.string.record_tbleprosy_contact_visit))) {
+                this.openRecordTbContactVisit();
+        }
+        else if (textViewRecordTbContactVisit.getText().equals(getString(R.string.record_tbleprosy_contact_visit_followup))){
+                this.openTbContactFollowUpVisit();
+        }
     }
 
     @Override
