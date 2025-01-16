@@ -44,7 +44,7 @@ public class TbLeprosyMemberProfileActivity extends BaseTbLeprosyProfileActivity
     @Override
     protected void setupButtons() {
         textViewRecordTbLeprosy.setVisibility(View.VISIBLE);
-        textViewRecordTbLeprosy.setText("Record TB Leprosy Visit");
+//        textViewRecordTbLeprosy.setText("Record TB Leprosy Visit");
 
         if (StringUtils.isNotBlank(encounterType)) {
             if (encounterType.equalsIgnoreCase(Constants.EVENT_TYPE.TB_LEPROSY_ENROLLMENT)) {
@@ -67,14 +67,15 @@ public class TbLeprosyMemberProfileActivity extends BaseTbLeprosyProfileActivity
         // Implementations here
     }
 
-    @Override
-    public void openMatukioYaUchunguzi() {
-
-    }
 
     @Override
     public void observationResults() {
         // Implementations Here.
+    }
+
+    @Override
+    public void openTbContactFollowUpVisit() {
+
     }
 
     private void startForm(String formName) throws Exception {
