@@ -248,6 +248,26 @@
             android:textColor="@color/white"
             />
         <org.smartregister.view.customcontrols.CustomFontTextView
+            android:id="@+id/textview_register_tb_leprosy_contact"
+            style="@style/CustomFontTextViewStyle.ListView.Normal.MultipleLines"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/record_btn_selector"
+            android:gravity="center_horizontal"
+            android:paddingLeft="30dp"
+            android:paddingTop="10dp"
+            android:paddingRight="30dp"
+            android:paddingBottom="10dp"
+            android:text="@string/register_tb_leprosy_contact"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:textColor="@color/white"
+            />
+
+        <org.smartregister.view.customcontrols.CustomFontTextView
             android:id="@+id/textview_record_tbleprosy_contact_visit"
             style="@style/CustomFontTextViewStyle.ListView.Normal.MultipleLines"
             android:layout_width="match_parent"
