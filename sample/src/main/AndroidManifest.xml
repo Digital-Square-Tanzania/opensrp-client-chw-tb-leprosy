@@ -55,6 +55,10 @@
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name="org.smartregister.chw.tbleprosy_sample.activity.UpdateTbLeprosyMemberProfileActivity"
+            android:exported="true"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name="org.smartregister.chw.tbleprosy_sample.activity.TbLeprosyServiceActivity"
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar" />
