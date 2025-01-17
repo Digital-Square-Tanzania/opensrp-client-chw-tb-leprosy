@@ -77,6 +77,7 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
         findViewById(R.id.tbleprosy_home_visit).setOnClickListener(this);
         findViewById(R.id.tbleprosy_profile).setOnClickListener(this);
         findViewById(R.id.tbleprosy_contact_profile).setOnClickListener(this);
+        findViewById(R.id.tbleprosy_update_member_profile).setOnClickListener(this);
         findViewById(R.id.tbleprosy_contact_visit).setOnClickListener(this);
     }
 
@@ -113,6 +114,9 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
                 break;
             case R.id.tbleprosy_contact_profile:
                 TbLeprosyContactProfileActivity.startMe(this, "12345");
+                break;
+            case R.id.tbleprosy_update_member_profile:
+                UpdateTbLeprosyMemberProfileActivity.startMe(this, "12345");
                 break;
             case R.id.tbleprosy_contact_visit:
                 TbLeprosyServiceActivity.startTbLeprosyVisitActivity(this, "98765", false);
