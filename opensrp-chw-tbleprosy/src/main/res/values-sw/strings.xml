@@ -10,8 +10,7 @@
     <string name="job_aids">Vitendea kazi</string>
     <string name="saving_dialog_title">Kuhifadhi</string>
     <string name="tbleprosy_followup_visit">Tembeleo la ufuatiliaji</string>
-    <string name="record_tbleprosy">Utoaji wa Huduma Ya TbLeprosy</string>
-
+    <string name="record_tbleprosy">Tembeleo la TB na Ukoma</string>
 
     <string name="optional">Sio lazima</string>
     <string name="error_unable_save_visit">Imeshindwa kuitunza hii visit</string>
