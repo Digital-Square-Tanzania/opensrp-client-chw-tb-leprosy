@@ -62,6 +62,7 @@ public abstract class BaseTbLeprosyProfileActivity extends BaseProfileActivity i
     protected TextView textViewContinueTbLeprosyService;
     protected TextView manualProcessVisit;
     protected TextView textview_positive_date;
+    protected TextView textViewRegisterTBLeprosyContact;
     protected View view_last_visit_row;
     protected View view_most_due_overdue_row;
     protected View view_family_row;
@@ -90,11 +91,14 @@ public abstract class BaseTbLeprosyProfileActivity extends BaseProfileActivity i
 
     protected CustomFontTextView ivViewHistoryArrow;
 
+
     public static void startProfileActivity(Activity activity, String baseEntityId) {
         Intent intent = new Intent(activity, BaseTbLeprosyProfileActivity.class);
         intent.putExtra(Constants.ACTIVITY_PAYLOAD.BASE_ENTITY_ID, baseEntityId);
         activity.startActivity(intent);
     }
+
+    public abstract void openFormProfile();
 
     @Override
     protected void onCreation() {
@@ -148,14 +152,16 @@ public abstract class BaseTbLeprosyProfileActivity extends BaseProfileActivity i
         textViewRecordTbContactVisit = findViewById(R.id.textview_record_tbleprosy_contact_visit);
         textViewContinueTbLeprosy = findViewById(R.id.textview_continue);
         textViewContinueTbLeprosyService = findViewById(R.id.continue_tbleprosy_service);
+        textViewRegisterTBLeprosyContact = findViewById(R.id.textview_register_tb_leprosy_contact);
         manualProcessVisit = findViewById(R.id.textview_manual_process);
         textViewRecordAnc = findViewById(R.id.textview_record_anc);
         textViewUndo = findViewById(R.id.textview_undo);
         imageView = findViewById(R.id.imageview_profile);
 
         ivViewHistoryArrow = findViewById(R.id.ivViewHistoryArrow);
-        ivViewHistoryArrow.setOnClickListener(this);
 
+
+        ivViewHistoryArrow.setOnClickListener(this);
         textViewRecordAncNotDone.setOnClickListener(this);
         textViewVisitDoneEdit.setOnClickListener(this);
         rlLastVisit.setOnClickListener(this);
@@ -167,6 +173,7 @@ public abstract class BaseTbLeprosyProfileActivity extends BaseProfileActivity i
         textViewRecordTbContactVisit.setOnClickListener(this);
         textViewContinueTbLeprosy.setOnClickListener(this);
         textViewContinueTbLeprosyService.setOnClickListener(this);
+        textViewRegisterTBLeprosyContact.setOnClickListener(this);
         manualProcessVisit.setOnClickListener(this);
         textViewRecordAnc.setOnClickListener(this);
         textViewUndo.setOnClickListener(this);
@@ -229,14 +236,23 @@ public abstract class BaseTbLeprosyProfileActivity extends BaseProfileActivity i
         } else if (id == R.id.rlFamilyServicesDue) {
             this.openFamilyDueServices();
         } else if (id == R.id.textview_record_tbleprosy) {
-            this.openFollowupVisit();
+            if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_tbleprosy))){
+                this.openRecordClientVisit();
+            }
+            else {
+                this.openFollowupVisit();
+            }
         } else if (id == R.id.continue_tbleprosy_service) {
             this.continueService();
         } else if (id == R.id.textview_continue) {
             this.continueDischarge();
         }
+        else if (id == R.id.textview_register_tb_leprosy_contact) {
+            this.startServiceForm();
+        }
+
         else if (id == R.id.rlObservationResults) {
-            this.observationResults();
+            this.openFormProfile();
         }
         else if (textViewRecordTbContactVisit.getText().equals(getString(R.string.record_tbleprosy_contact_visit))) {
                 this.openRecordTbContactVisit();
