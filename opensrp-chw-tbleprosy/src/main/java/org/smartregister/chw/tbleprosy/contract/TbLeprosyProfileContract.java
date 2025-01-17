@@ -27,10 +27,13 @@ public interface TbLeprosyProfileContract {
 
         void openRecordTbContactVisit();
 
+        void openClientObservationResults();
 
         void observationResults();
 
         void openTbContactFollowUpVisit();
+
+        void openRecordClientVisit();
     }
 
     interface Presenter {
