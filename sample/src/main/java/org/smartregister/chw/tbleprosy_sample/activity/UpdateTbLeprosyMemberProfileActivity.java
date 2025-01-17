@@ -1,5 +1,7 @@
 package org.smartregister.chw.tbleprosy_sample.activity;
 
+import static org.smartregister.chw.tbleprosy.util.Constants.EVENT_TYPE.TB_LEPROSY_OBSERVATIONS_RESULT;
+import static org.smartregister.chw.tbleprosy.util.Constants.JSON_FORM_EXTRA.ENCOUNTER_TYPE;
 import static org.smartregister.chw.tbleprosy.util.Constants.JSON_FORM_EXTRA.EVENT_TYPE;
 
 import android.app.Activity;
@@ -16,15 +18,19 @@ import com.vijay.jsonwizard.factory.FileSourceFactoryHelper;
 
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.smartregister.chw.tbleprosy.activity.BaseTbLeprosyProfileActivity;
 import org.smartregister.chw.tbleprosy.domain.MemberObject;
 import org.smartregister.chw.tbleprosy.domain.Visit;
 import org.smartregister.chw.tbleprosy.util.Constants;
+import org.smartregister.chw.tbleprosy_sample.R;
 
 import timber.log.Timber;
 
 
 public class UpdateTbLeprosyMemberProfileActivity extends BaseTbLeprosyProfileActivity {
+    private static final Logger log = LoggerFactory.getLogger(UpdateTbLeprosyMemberProfileActivity.class);
     private final Visit enrollmentVisit = null;
     private final Visit serviceVisit = null;
 
@@ -44,17 +50,26 @@ public class UpdateTbLeprosyMemberProfileActivity extends BaseTbLeprosyProfileAc
     @Override
     protected void setupButtons() {
         textViewRecordTbLeprosy.setVisibility(View.VISIBLE);
-//        textViewRecordTbLeprosy.setText("Record TB Leprosy Visit");
 
         if (StringUtils.isNotBlank(encounterType)) {
-            if (encounterType.equalsIgnoreCase(Constants.EVENT_TYPE.TB_LEPROSY_ENROLLMENT)) {
+            if (encounterType.equalsIgnoreCase(Constants.EVENT_TYPE.TB_LEPROSY_RECORD_VISIT)) {
                 textViewRecordTbLeprosy.setVisibility(View.GONE);
+                rlLastVisit.setVisibility(View.VISIBLE);
+                rlObservationResults.setVisibility(View.VISIBLE);
+            }
+        }
+
+        if(StringUtils.isNotBlank(encounterType)){
+            if(encounterType.equalsIgnoreCase(Constants.EVENT_TYPE.TB_LEPROSY_CLIENT_OBSERVATION)){
+                textViewRegisterTBLeprosyContact.setVisibility(View.VISIBLE);
+                textViewRecordTbLeprosy.setText("Record TB/Leprosy Follow Up Visit");
             }
         }
     }
 
+
     @Override
-    public void openFollowupVisit() {
+    public void openRecordClientVisit() {
         try {
             startForm("tbleprosy_record_visit");
         } catch (Exception e) {
@@ -63,8 +78,31 @@ public class UpdateTbLeprosyMemberProfileActivity extends BaseTbLeprosyProfileAc
     }
 
     @Override
+    public void openFollowupVisit() {
+        try {
+            startForm("tbleprosy_ufuatiliaji_wa_mteja");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
     public void openRecordTbContactVisit() {
         // Implementations here
+    }
+
+    @Override
+    public void openClientObservationResults() {
+
+    }
+
+    @Override
+    public void openFormProfile() {
+        try {
+            startForm("tbleprosy_matokeo_ya_uchunguzi");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
 
@@ -75,7 +113,7 @@ public class UpdateTbLeprosyMemberProfileActivity extends BaseTbLeprosyProfileAc
 
     @Override
     public void openTbContactFollowUpVisit() {
-
+      // Implementation here.
     }
 
     private void startForm(String formName) throws Exception {
@@ -98,7 +136,6 @@ public class UpdateTbLeprosyMemberProfileActivity extends BaseTbLeprosyProfileAc
             startActivityForResult(intent, Constants.REQUEST_CODE_GET_JSON);
 
         }
-
     }
 
     @Override
@@ -131,7 +168,7 @@ public class UpdateTbLeprosyMemberProfileActivity extends BaseTbLeprosyProfileAc
             try {
                 String jsonString = data.getStringExtra(Constants.JSON_FORM_EXTRA.JSON);
                 JSONObject form = new JSONObject(jsonString);
-                encounterType = form.getString(EVENT_TYPE);
+                encounterType = form.getString(ENCOUNTER_TYPE);
 
             } catch (Exception e) {
                 Timber.e(e);
