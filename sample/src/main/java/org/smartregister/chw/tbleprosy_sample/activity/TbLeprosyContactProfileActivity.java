@@ -64,11 +64,11 @@ public class TbLeprosyContactProfileActivity extends BaseTbLeprosyProfileActivit
 
         if(StringUtils.isNotBlank(encounterType)){
             if(encounterType.equalsIgnoreCase(TB_LEPROSY_OBSERVATIONS_RESULT)){
-
                 textViewRecordTbContactVisit.setVisibility(View.VISIBLE);
                 textViewRecordTbContactVisit.setText(R.string.record_tbleprosy_contact_visit_followup);
-
             }
+            textViewRecordTbContactVisit.setVisibility(View.VISIBLE);
+
         }
     }
 
@@ -86,9 +86,19 @@ public class TbLeprosyContactProfileActivity extends BaseTbLeprosyProfileActivit
       }
     }
 
+    @Override
+    public void openClientObservationResults() {
+
+    }
+
 
     @Override
     public void observationResults() {
+
+    }
+
+    @Override
+    public void openFormProfile() {
         try {
             startForm("tbleprosy_matokeo_uchunguzi_contact");
         } catch (Exception e) {
@@ -104,6 +114,11 @@ public class TbLeprosyContactProfileActivity extends BaseTbLeprosyProfileActivit
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public void openRecordClientVisit() {
+
     }
 
     private void startForm(String formName) throws Exception {
@@ -180,6 +195,8 @@ public class TbLeprosyContactProfileActivity extends BaseTbLeprosyProfileActivit
             }
         }
     }
+
+
 
     @Override
     protected void onResumption() {
