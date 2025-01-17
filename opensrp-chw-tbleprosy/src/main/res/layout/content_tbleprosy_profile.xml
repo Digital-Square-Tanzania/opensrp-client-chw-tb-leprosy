@@ -63,7 +63,8 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@color/light_grey_text" />
         </RelativeLayout>
-
+        
+        
         <View
             android:id="@+id/view_last_visit_row"
             android:layout_width="match_parent"
@@ -104,7 +105,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="@color/light_grey_text" />
         </RelativeLayout>
-
+        
         <RelativeLayout
             android:id="@+id/rlUpcomingServices"
             android:layout_width="match_parent"
@@ -221,7 +222,7 @@
             android:layout_height="1px"
             android:layout_below="@+id/rlTbLeprosyPositiveDate"
             android:background="@color/light_grey"
-            android:visibility="visible" />
+            android:visibility="gone" />
 
         <RelativeLayout
             android:id="@+id/rlFamilyServicesDue"
