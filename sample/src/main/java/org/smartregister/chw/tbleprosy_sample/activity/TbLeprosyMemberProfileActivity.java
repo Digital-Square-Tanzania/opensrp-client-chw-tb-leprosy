@@ -56,7 +56,7 @@ public class TbLeprosyMemberProfileActivity extends BaseTbLeprosyProfileActivity
     @Override
     public void openFollowupVisit() {
         try {
-            startForm("tbleprosy_enrollment");
+            startForm("tbleprosy_record_visit");
         } catch (Exception e) {
             Timber.e(e);
         }
@@ -67,6 +67,11 @@ public class TbLeprosyMemberProfileActivity extends BaseTbLeprosyProfileActivity
         // Implementations here
     }
 
+    @Override
+    public void openClientObservationResults() {
+
+    }
+
 
     @Override
     public void observationResults() {
@@ -75,6 +80,11 @@ public class TbLeprosyMemberProfileActivity extends BaseTbLeprosyProfileActivity
 
     @Override
     public void openTbContactFollowUpVisit() {
+
+    }
+
+    @Override
+    public void openRecordClientVisit() {
 
     }
 
@@ -137,6 +147,11 @@ public class TbLeprosyMemberProfileActivity extends BaseTbLeprosyProfileActivity
                 Timber.e(e);
             }
         }
+    }
+
+    @Override
+    public void openFormProfile() {
+
     }
 
     @Override
