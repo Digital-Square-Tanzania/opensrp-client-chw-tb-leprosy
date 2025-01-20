@@ -107,6 +107,11 @@ public class TbLeprosyContactProfileActivity extends BaseTbLeprosyProfileActivit
     }
 
     @Override
+    public void openTbLeprosyContactRegister() {
+
+    }
+
+    @Override
     public void openTbContactFollowUpVisit() {
       //Implementations Here
         try {
