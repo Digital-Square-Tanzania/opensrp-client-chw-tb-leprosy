@@ -84,7 +84,6 @@
             >
 
 
-
             <ImageView
                 android:id="@+id/iv_last_visit_arrow"
                 android:layout_width="wrap_content"
