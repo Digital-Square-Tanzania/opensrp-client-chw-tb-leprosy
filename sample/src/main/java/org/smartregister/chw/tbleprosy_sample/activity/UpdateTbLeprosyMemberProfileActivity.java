@@ -1,8 +1,6 @@
 package org.smartregister.chw.tbleprosy_sample.activity;
 
-import static org.smartregister.chw.tbleprosy.util.Constants.EVENT_TYPE.TB_LEPROSY_OBSERVATIONS_RESULT;
 import static org.smartregister.chw.tbleprosy.util.Constants.JSON_FORM_EXTRA.ENCOUNTER_TYPE;
-import static org.smartregister.chw.tbleprosy.util.Constants.JSON_FORM_EXTRA.EVENT_TYPE;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -24,7 +22,6 @@ import org.smartregister.chw.tbleprosy.activity.BaseTbLeprosyProfileActivity;
 import org.smartregister.chw.tbleprosy.domain.MemberObject;
 import org.smartregister.chw.tbleprosy.domain.Visit;
 import org.smartregister.chw.tbleprosy.util.Constants;
-import org.smartregister.chw.tbleprosy_sample.R;
 
 import timber.log.Timber;
 
@@ -105,6 +102,11 @@ public class UpdateTbLeprosyMemberProfileActivity extends BaseTbLeprosyProfileAc
         }
     }
 
+
+    public void openTbLeprosyContactRegister(){
+        Intent intent = new Intent(this, TbLeprosyContactRegister.class);
+        startActivity(intent);
+    }
 
     @Override
     public void observationResults() {
