@@ -155,6 +155,11 @@ public class TbLeprosyMemberProfileActivity extends BaseTbLeprosyProfileActivity
     }
 
     @Override
+    public void openTbLeprosyContactRegister() {
+
+    }
+
+    @Override
     protected void onResumption() {
         super.onResumption();
         delayRefreshSetupViews();
