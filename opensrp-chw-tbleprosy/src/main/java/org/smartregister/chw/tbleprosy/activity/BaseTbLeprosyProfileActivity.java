@@ -100,6 +100,7 @@ public abstract class BaseTbLeprosyProfileActivity extends BaseProfileActivity i
 
     public abstract void openFormProfile();
 
+    public abstract void openTbLeprosyContactRegister();
     @Override
     protected void onCreation() {
         setContentView(R.layout.activity_tbleprosy_profile);
@@ -248,7 +249,8 @@ public abstract class BaseTbLeprosyProfileActivity extends BaseProfileActivity i
             this.continueDischarge();
         }
         else if (id == R.id.textview_register_tb_leprosy_contact) {
-            this.startServiceForm();
+            // Here, Open the New Activity
+            this.openTbLeprosyContactRegister();
         }
 
         else if (id == R.id.rlObservationResults) {
@@ -278,6 +280,8 @@ public abstract class BaseTbLeprosyProfileActivity extends BaseProfileActivity i
             addContentView(baseTbLeprosyFloatingMenu, linearLayoutParams);
         }
     }
+
+
 
     @Override
     public void hideView() {
