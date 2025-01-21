@@ -97,7 +97,7 @@ public class BaseTbLeprosyRegisterFragmentPresenter implements TbLeprosyRegister
 
     @Override
     public String getMainTable() {
-        return Constants.TABLES.TBLEPROSY_ENROLLMENT;
+        return Constants.TABLES.TBLEPROSY_SCREENING;
     }
 
     @Override

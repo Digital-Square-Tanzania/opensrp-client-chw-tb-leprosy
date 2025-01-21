@@ -69,7 +69,7 @@ public class BaseTbLeprosyVisitInteractor implements BaseTbLeprosyVisitContract.
         if(StringUtils.isNotBlank(visitType)){
             return visitType;
         }
-        return Constants.EVENT_TYPE.TB_LEPROSY_ENROLLMENT;
+        return Constants.EVENT_TYPE.TB_LEPROSY_SCREENING;
     }
 
     @Override
@@ -374,10 +374,10 @@ public class BaseTbLeprosyVisitInteractor implements BaseTbLeprosyVisitContract.
     }
 
     protected String getEncounterType() {
-        return Constants.EVENT_TYPE.TB_LEPROSY_ENROLLMENT;
+        return Constants.EVENT_TYPE.TB_LEPROSY_SCREENING;
     }
 
     protected String getTableName() {
-        return Constants.TABLES.TBLEPROSY_ENROLLMENT;
+        return Constants.TABLES.TBLEPROSY_SCREENING;
     }
 }

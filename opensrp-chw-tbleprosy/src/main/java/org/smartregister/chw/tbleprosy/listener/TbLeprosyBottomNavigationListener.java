@@ -23,8 +23,10 @@ public class TbLeprosyBottomNavigationListener extends BottomNavigationListener 
 
         BaseRegisterActivity baseRegisterActivity = (BaseRegisterActivity) context;
 
-        if (item.getItemId() == R.id.action_family) {
+        if (item.getItemId() == R.id.action_home) {
             baseRegisterActivity.switchToBaseFragment();
+        } else if (item.getItemId() == R.id.action_mobilization) {
+            baseRegisterActivity.switchToFragment(1);
         }
 
         return true;

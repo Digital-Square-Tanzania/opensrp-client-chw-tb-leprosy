@@ -78,4 +78,16 @@
     <string name="tbleprosy_sample">Kuchukua Sampuli</string>
     <string name="tbleprosy_source">Njia ya Uchunguzi wa Kifua Kikuu</string>
 
+    <string name="mobilization_session_participants">Waliohamasishwa: %s</string>
+    <string name="mobilization_condoms_issued">Kondomu zilizogaiwa: %s</string>
+    <string name="mobilziation_session_date">Tarehe: %s</string>
+
+    <string name="tbleprosy_session">TB/Ukoma</string>
+    <string name="participants">Waliohamasishwa:</string>
+    <string name="date">Tarehe:</string>
+    <string name="issued_condoms">Kondomu zilizogaiwa:</string>
+
+    <string name="tbleprosy_sessions">Vipindi vya uhamasishaji wa TB/Ukoma</string>
+    <string name="tbleprosy_mobilization">Uhamasishaji</string>
+
 </resources>

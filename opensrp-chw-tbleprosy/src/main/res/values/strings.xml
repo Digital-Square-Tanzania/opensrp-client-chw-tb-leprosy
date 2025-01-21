@@ -79,4 +79,18 @@
     <string name="return_to_tbleprosy_clients">Return to TbLeprosy Clients</string>
     <string name="number_not_filled">client phone number, not filled</string>
 
+    <string name="tbleprosy_session">TB/Leprosy Session</string>
+    <string name="participants">Participants:</string>
+    <string name="date">Date:</string>
+    <string name="issued_condoms">Condoms Issued:</string>
+
+    <string name="mobilization_session_participants">Participants: %s</string>
+    <string name="mobilization_condoms_issued">Condoms Issued: %s</string>
+    <string name="mobilziation_session_date">Date: %s</string>
+
+    <string name="tbleprosy_sessions">TB/Leprosy Sessions</string>
+
+    <string name="tbleprosy_mobilization">Mobilization</string>
+
+
 </resources>

@@ -12,12 +12,9 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 
-import com.vijay.jsonwizard.activities.JsonFormActivity;
 import com.vijay.jsonwizard.activities.JsonWizardFormActivity;
-import com.vijay.jsonwizard.constants.JsonFormConstants;
 import com.vijay.jsonwizard.domain.Form;
 import com.vijay.jsonwizard.factory.FileSourceFactoryHelper;
-import com.vijay.jsonwizard.utils.FormUtils;
 
 
 import org.apache.commons.lang3.StringUtils;
@@ -54,7 +51,7 @@ public class TbLeprosyMemberProfileActivity extends BaseTbLeprosyProfileActivity
         textViewRecordTbLeprosy.setText("Record TB Leprosy Visit");
 
         if(StringUtils.isNotBlank(encounterType)){
-            if (encounterType.equalsIgnoreCase(Constants.EVENT_TYPE.TB_LEPROSY_ENROLLMENT)) {
+            if (encounterType.equalsIgnoreCase(Constants.EVENT_TYPE.TB_LEPROSY_SCREENING)) {
                 textViewRecordTbLeprosy.setVisibility(View.GONE);
             }
         }

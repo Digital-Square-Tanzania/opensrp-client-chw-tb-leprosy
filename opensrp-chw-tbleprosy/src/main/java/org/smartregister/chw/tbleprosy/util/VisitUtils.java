@@ -35,7 +35,7 @@ public class VisitUtils {
     public static List<Visit> getVisits(String memberID, String... eventTypes) {
 
 
-        List<Visit> visits = (eventTypes != null && eventTypes.length > 0) ? getVisitsOnly(memberID, eventTypes[0]) : getVisitsOnly(memberID, Constants.EVENT_TYPE.TB_LEPROSY_ENROLLMENT);
+        List<Visit> visits = (eventTypes != null && eventTypes.length > 0) ? getVisitsOnly(memberID, eventTypes[0]) : getVisitsOnly(memberID, Constants.EVENT_TYPE.TB_LEPROSY_SCREENING);
 
         return visits;
     }

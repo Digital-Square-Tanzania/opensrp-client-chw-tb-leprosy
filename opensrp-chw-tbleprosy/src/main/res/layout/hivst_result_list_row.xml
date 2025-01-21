@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/register_columns"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:id="@+id/patient_column"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rlKitCodeWrapper">
+
+            <org.smartregister.view.customcontrols.CustomFontTextView
+                android:id="@+id/hivst_kit_code_label"
+                style="@style/CustomFontTextViewStyle.ClientList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="@string/hivst_kit_code"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/register_list_title_size"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+            <org.smartregister.view.customcontrols.CustomFontTextView
+                android:id="@+id/kit_code"
+                style="@style/CustomFontTextViewStyle.ClientList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/hivst_kit_code_label"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/register_list_title_size"
+                android:visibility="visible"
+                tools:text="23" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rlCollectionDateWrapper">
+
+            <org.smartregister.view.customcontrols.CustomFontTextView
+                android:id="@+id/collection_date_label"
+                style="@style/CustomFontTextViewStyle.ClientList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="@string/collectiondate"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/register_list_desc_size"
+                android:visibility="visible" />
+
+            <org.smartregister.view.customcontrols.CustomFontTextView
+                android:id="@+id/collection_date"
+                style="@style/CustomFontTextViewStyle.ClientList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/collection_date_label"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/register_list_desc_size"
+                android:visibility="visible"
+                tools:text="10-02-2022" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rlKitForWrapper">
+
+            <org.smartregister.view.customcontrols.CustomFontTextView
+                android:id="@+id/kit_for_label"
+                style="@style/CustomFontTextViewStyle.ClientList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="@string/kit_for"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/register_list_desc_size"
+                android:visibility="visible" />
+
+            <org.smartregister.view.customcontrols.CustomFontTextView
+                android:id="@+id/kit_for"
+                style="@style/CustomFontTextViewStyle.ClientList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/kit_for_label"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/register_list_desc_size"
+                android:visibility="visible"
+                tools:text="Client" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rlRecordHivstWrapper"
+            >
+
+            <org.smartregister.view.customcontrols.CustomFontTextView
+                android:id="@+id/hivst_result_label"
+                style="@style/CustomFontTextViewStyle.ClientList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="@string/hivst_result"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/register_list_desc_size"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+            <org.smartregister.view.customcontrols.CustomFontTextView
+                android:id="@+id/result"
+                style="@style/CustomFontTextViewStyle.ClientList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/hivst_result_label"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/register_list_desc_size"
+                android:visibility="visible"
+                tools:text="Non-Reactive" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+    <Button
+        android:id="@+id/record_result_button"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/record_btn_hivst"
+        android:gravity="center"
+        android:paddingLeft="50dp"
+        android:paddingTop="3dp"
+        android:paddingRight="50dp"
+        android:paddingBottom="3dp"
+        android:textColor="@color/white"
+        android:text="@string/record_result" />
+
+    <View
+        android:id="@+id/row"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/light_grey"
+        android:visibility="visible" />
+
+</LinearLayout>

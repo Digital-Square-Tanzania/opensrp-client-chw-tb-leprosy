@@ -17,6 +17,7 @@ import org.json.JSONObject;
 import org.smartregister.AllConstants;
 import org.smartregister.Context;
 import org.smartregister.chw.tbleprosy.contract.TbLeprosyRegisterContract;
+import org.smartregister.chw.tbleprosy.fragment.BaseTbLeprosyMobilizationRegisterFragment;
 import org.smartregister.chw.tbleprosy.fragment.BaseTbLeprosyRegisterFragment;
 import org.smartregister.chw.tbleprosy.interactor.BaseTbLeprosyRegisterInteractor;
 import org.smartregister.chw.tbleprosy.listener.TbLeprosyBottomNavigationListener;
@@ -51,7 +52,7 @@ public class BaseTbLeprosyRegisterActivity extends BaseRegisterActivity implemen
         super.onCreate(savedInstanceState);
         BASE_ENTITY_ID = getIntent().getStringExtra(Constants.ACTIVITY_PAYLOAD.BASE_ENTITY_ID);
         FAMILY_BASE_ENTITY_ID = getIntent().getStringExtra(Constants.ACTIVITY_PAYLOAD.FAMILY_BASE_ENTITY_ID);
-        FORM_NAME = getIntent().getStringExtra(Constants.ACTIVITY_PAYLOAD.TbLeprosy_FORM_NAME);
+        FORM_NAME = getIntent().getStringExtra(Constants.ACTIVITY_PAYLOAD.TB_LEPROSY_FORM_NAME);
         onStartActivityWithAction();
     }
 
@@ -149,7 +150,9 @@ public class BaseTbLeprosyRegisterActivity extends BaseRegisterActivity implemen
 
     @Override
     protected Fragment[] getOtherFragments() {
-        return new Fragment[0];
+        return new Fragment[] {
+                new BaseTbLeprosyMobilizationRegisterFragment()
+        };
     }
 
     @Override

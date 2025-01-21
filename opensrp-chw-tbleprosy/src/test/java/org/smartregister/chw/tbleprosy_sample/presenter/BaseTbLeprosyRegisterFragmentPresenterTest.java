@@ -38,7 +38,7 @@ public class BaseTbLeprosyRegisterFragmentPresenterTest {
 
     @Test
     public void getMainCondition() {
-        Assert.assertEquals(" ec_tbleprosy_enrollment.is_closed = 0 ", baseTbLeprosyRegisterFragmentPresenter.getMainCondition());
+        Assert.assertEquals(" ec_tbleprosy_screening.is_closed = 0 ", baseTbLeprosyRegisterFragmentPresenter.getMainCondition());
     }
 
     @Test
@@ -48,20 +48,20 @@ public class BaseTbLeprosyRegisterFragmentPresenterTest {
 
     @Test
     public void getDefaultSortQuery() {
-        Assert.assertEquals(Constants.TABLES.TBLEPROSY_ENROLLMENT + "." + DBConstants.KEY.LAST_INTERACTED_WITH + " DESC ", baseTbLeprosyRegisterFragmentPresenter.getDefaultSortQuery());
+        Assert.assertEquals(Constants.TABLES.TBLEPROSY_SCREENING + "." + DBConstants.KEY.LAST_INTERACTED_WITH + " DESC ", baseTbLeprosyRegisterFragmentPresenter.getDefaultSortQuery());
     }
 
     @Test
     public void getMainTable() {
-        Assert.assertEquals(Constants.TABLES.TBLEPROSY_ENROLLMENT, baseTbLeprosyRegisterFragmentPresenter.getMainTable());
+        Assert.assertEquals(Constants.TABLES.TBLEPROSY_SCREENING, baseTbLeprosyRegisterFragmentPresenter.getMainTable());
     }
 
     @Test
     public void initializeQueries() {
         Set<View> visibleColumns = new TreeSet<>();
         baseTbLeprosyRegisterFragmentPresenter.initializeQueries(null);
-        Mockito.doNothing().when(view).initializeQueryParams(Constants.TABLES.TBLEPROSY_ENROLLMENT, null, null);
-        Mockito.verify(view).initializeQueryParams(Constants.TABLES.TBLEPROSY_ENROLLMENT, null, null);
+        Mockito.doNothing().when(view).initializeQueryParams(Constants.TABLES.TBLEPROSY_SCREENING, null, null);
+        Mockito.verify(view).initializeQueryParams(Constants.TABLES.TBLEPROSY_SCREENING, null, null);
         Mockito.verify(view).initializeAdapter(visibleColumns);
         Mockito.verify(view).countExecute();
         Mockito.verify(view).filterandSortInInitializeQueries();

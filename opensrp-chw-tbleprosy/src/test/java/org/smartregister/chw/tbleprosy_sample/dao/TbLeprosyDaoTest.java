@@ -34,7 +34,7 @@ public class TbLeprosyDaoTest extends TbLeprosyDao {
     public void testIsRegisteredForTbLeprosy() {
         Mockito.doReturn(database).when(repository).getReadableDatabase();
         boolean registered = TbLeprosyDao.isRegisteredForTbLeprosy("12345");
-        Mockito.verify(database).rawQuery(Mockito.contains("SELECT count(p.base_entity_id) count FROM ec_tbleprosy_enrollment p WHERE p.base_entity_id = '12345' AND p.is_closed = 0"), Mockito.any());
+        Mockito.verify(database).rawQuery(Mockito.contains("SELECT count(p.base_entity_id) count FROM ec_tbleprosy_screening p WHERE p.base_entity_id = '12345' AND p.is_closed = 0"), Mockito.any());
         Assert.assertFalse(registered);
     }
 
@@ -42,7 +42,7 @@ public class TbLeprosyDaoTest extends TbLeprosyDao {
     public void testGetTbLeprosyTestDate() {
         Mockito.doReturn(database).when(repository).getReadableDatabase();
         Date testDate = TbLeprosyDao.getTbLeprosyTestDate("34233");
-        Mockito.verify(database).rawQuery(Mockito.contains("select tbleprosy_test_date from ec_tbleprosy_enrollment where base_entity_id = '34233'"), Mockito.any());
+        Mockito.verify(database).rawQuery(Mockito.contains("select tbleprosy_test_date from ec_tbleprosy_screening where base_entity_id = '34233'"), Mockito.any());
     }
 
 

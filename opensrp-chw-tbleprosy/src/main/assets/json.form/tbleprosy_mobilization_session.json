@@ -1,6 +1,6 @@
 {
   "count": "1",
-  "encounter_type": "TbLeprosy Enrollment",
+  "encounter_type": "TbLeprosy Mobilization Session",
   "entity_id": "",
   "metadata": {
     "start": {
@@ -41,6 +41,7 @@
     },
     "encounter_location": ""
   },
+  "global": {},
   "step1": {
     "title": "TbLeprosy Mobilization",
     "fields": [
@@ -160,46 +161,62 @@
         }
       },
       {
-        "key": "user_gps",
+        "key": "female_clients_reached",
         "openmrs_entity_parent": "",
-        "openmrs_entity": "",
-        "openmrs_entity_id": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "female_clients_reached",
+        "type": "edit_text",
+        "hint": "Number of Female clients reached",
+        "v_numeric": {
+          "value": "true",
+          "err": "Please enter a valid number"
+        },
+        "v_min": {
+          "value": "0",
+          "err": "The number must be equal or greater than 0"
+        },
+        "v_max_length": {
+          "value": "3",
+          "is_fixed_size": "true",
+          "err": "The number of female clients reached must be less than or equal to 999"
+        },
+        "v_required": {
+          "value": true,
+          "err": "Please enter the number"
+        }
+      },
+      {
+        "key": "male_clients_reached",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "male_clients_reached",
+        "type": "edit_text",
+        "hint": "Number of Male clients reached",
+        "v_numeric": {
+          "value": "true",
+          "err": "Please enter a valid number"
+        },
+        "v_min": {
+          "value": "0",
+          "err": "The number must be equal or greater than 0"
+        },
+        "v_max_length": {
+          "value": "3",
+          "is_fixed_size": "true",
+          "err": "The number of male clients reached must be less than or equal to 999"
+        },
+        "v_required": {
+          "value": true,
+          "err": "Please enter the number"
+        }
+      },
+      {
+        "key": "gps",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "gps",
         "openmrs_data_type": "text",
         "type": "gps"
-      },
-      {
-       "key": "number_of_male_reached",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "number_of_male_reached",
-        "hint": "Number of male reached",
-        "text_color": "#000000",
-        "type": "edit_text",
-        "v_required": {
-          "value": "true",
-          "err": "Please select an answer"
-        },
-        "v_numeric": {
-          "value": "true",
-          "err": ""
-        }
-      },
-      {
-        "key": "number_of_female_reached",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "number_of_female_reached",
-        "hint": "Number of female reached",
-        "text_color": "#000000",
-        "type": "edit_text",
-        "v_required": {
-          "value": "true",
-          "err": "Please select an answer"
-        },
-        "v_numeric": {
-          "value": "true",
-          "err": ""
-        }
       },
       {
         "key": "select_population_type",

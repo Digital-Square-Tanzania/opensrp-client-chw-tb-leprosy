@@ -58,7 +58,7 @@ public class TbLeprosyDao extends AbstractDao {
     };
 
     public static Date getTbLeprosyTestDate(String baseEntityID) {
-        String sql = "select tbleprosy_test_date from ec_tbleprosy_enrollment where base_entity_id = '" + baseEntityID + "'";
+        String sql = "select tbleprosy_test_date from ec_tbleprosy_screening where base_entity_id = '" + baseEntityID + "'";
 
         DataMap<Date> dataMap = cursor -> getCursorValueAsDate(cursor, "tbleprosy_test_date", getNativeFormsDateFormat());
 
@@ -70,7 +70,7 @@ public class TbLeprosyDao extends AbstractDao {
     }
 
     public static String getClientTbLeprosyID(String baseEntityId) {
-        String sql = "SELECT tbleprosy_client_id FROM ec_tbleprosy_enrollment p " +
+        String sql = "SELECT tbleprosy_client_id FROM ec_tbleprosy_screening p " +
                 " WHERE p.base_entity_id = '" + baseEntityId + "' ORDER BY enrollment_date DESC LIMIT 1";
 
         DataMap<String> dataMap = cursor -> getCursorValue(cursor, "tbleprosy_client_id");
@@ -83,7 +83,7 @@ public class TbLeprosyDao extends AbstractDao {
     }
 
     public static String getEnrollmentDate(String baseEntityId) {
-        String sql = "SELECT enrollment_date FROM ec_tbleprosy_enrollment p " +
+        String sql = "SELECT enrollment_date FROM ec_tbleprosy_screening p " +
                 " WHERE p.base_entity_id = '" + baseEntityId + "' ORDER BY enrollment_date DESC LIMIT 1";
 
         DataMap<String> dataMap = cursor -> getCursorValue(cursor, "enrollment_date");
@@ -107,7 +107,7 @@ public class TbLeprosyDao extends AbstractDao {
     }
 
     public static boolean isRegisteredForTbLeprosy(String baseEntityID) {
-        String sql = "SELECT count(p.base_entity_id) count FROM ec_tbleprosy_enrollment p " +
+        String sql = "SELECT count(p.base_entity_id) count FROM ec_tbleprosy_screening p " +
                 "WHERE p.base_entity_id = '" + baseEntityID + "' AND p.is_closed = 0 ";
 
         DataMap<Integer> dataMap = cursor -> getCursorIntValue(cursor, "count");
@@ -120,7 +120,7 @@ public class TbLeprosyDao extends AbstractDao {
     }
 
     public static Integer getTbLeprosyFamilyMembersCount(String familyBaseEntityId) {
-        String sql = "SELECT count(emc.base_entity_id) count FROM ec_tbleprosy_enrollment emc " +
+        String sql = "SELECT count(emc.base_entity_id) count FROM ec_tbleprosy_screening emc " +
                 "INNER Join ec_family_member fm on fm.base_entity_id = emc.base_entity_id " +
                 "WHERE fm.relational_id = '" + familyBaseEntityId + "' AND fm.is_closed = 0 " +
                 "AND emc.is_closed = 0 AND emc.tbleprosy = 1";
@@ -161,7 +161,7 @@ public class TbLeprosyDao extends AbstractDao {
                 "mr.* " +
                 "from ec_family_member m " +
                 "inner join ec_family f on m.relational_id = f.base_entity_id " +
-                "inner join ec_tbleprosy_enrollment mr on mr.base_entity_id = m.base_entity_id " +
+                "inner join ec_tbleprosy_screening mr on mr.base_entity_id = m.base_entity_id " +
                 "left join ec_family_member fh on fh.base_entity_id = f.family_head " +
                 "left join ec_family_member pcg on pcg.base_entity_id = f.primary_caregiver " +
                 "where mr.is_closed = 0 AND m.base_entity_id ='" + baseEntityID + "' ";
@@ -200,7 +200,7 @@ public class TbLeprosyDao extends AbstractDao {
                 "mr.* " +
                 "from ec_family_member m " +
                 "inner join ec_family f on m.relational_id = f.base_entity_id " +
-                "inner join ec_tbleprosy_enrollment mr on mr.base_entity_id = m.base_entity_id " +
+                "inner join ec_tbleprosy_screening mr on mr.base_entity_id = m.base_entity_id " +
                 "left join ec_family_member fh on fh.base_entity_id = f.family_head " +
                 "left join ec_family_member pcg on pcg.base_entity_id = f.primary_caregiver " +
                 "where mr.is_closed = 0 ";

@@ -95,7 +95,8 @@
         android:paddingTop="@dimen/register_list_top_bottom_padding"
         android:paddingEnd="@dimen/register_list_item_padding"
         android:paddingRight="@dimen/register_list_item_padding"
-        android:paddingBottom="@dimen/register_list_top_bottom_padding">
+        android:paddingBottom="@dimen/register_list_top_bottom_padding"
+        android:visibility="gone" >
 
         <Button
             android:id="@+id/due_button"
@@ -115,7 +116,8 @@
             android:textAppearance="?android:textAppearanceSmall"
             android:textColor="@color/vaccine_blue_bg_st"
             android:textSize="@dimen/tbleprosy_register_list_due_size"
-            android:typeface="normal" />
+            android:typeface="normal"
+            />
 
     </LinearLayout>
 

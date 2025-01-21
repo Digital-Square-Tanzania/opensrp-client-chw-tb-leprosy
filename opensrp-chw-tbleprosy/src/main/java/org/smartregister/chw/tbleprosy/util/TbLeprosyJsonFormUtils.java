@@ -90,8 +90,8 @@ public class TbLeprosyJsonFormUtils extends org.smartregister.util.JsonFormUtils
         String entityId = getString(jsonForm, ENTITY_ID);
         String encounter_type = jsonForm.optString(Constants.JSON_FORM_EXTRA.ENCOUNTER_TYPE);
 
-        if (Constants.EVENT_TYPE.TB_LEPROSY_ENROLLMENT.equals(encounter_type)) {
-            encounter_type = Constants.TABLES.TBLEPROSY_ENROLLMENT;
+        if (Constants.EVENT_TYPE.TB_LEPROSY_SCREENING.equals(encounter_type)) {
+            encounter_type = Constants.TABLES.TBLEPROSY_SCREENING;
         } else if (Constants.EVENT_TYPE.TB_LEPROSY_SERVICES.equals(encounter_type)) {
             encounter_type = Constants.TABLES.TBLEPROSY_SERVICES;
         }

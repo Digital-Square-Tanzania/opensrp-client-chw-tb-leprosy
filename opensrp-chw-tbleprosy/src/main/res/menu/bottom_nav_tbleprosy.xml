@@ -8,4 +8,11 @@
         android:title="@string/home"
         app:showAsAction="ifRoom" />
 
+    <item
+        android:id="@+id/action_mobilization"
+        android:enabled="true"
+        android:icon="@mipmap/ic_jobaids"
+        android:title="@string/tbleprosy_mobilization"
+        app:showAsAction="ifRoom" />
+
 </menu>

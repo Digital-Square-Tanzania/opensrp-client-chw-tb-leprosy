@@ -391,7 +391,7 @@ public class VisitRepository extends BaseRepository {
         try {
             ContentValues values = new ContentValues();
             values.put(DBConstants.KEY.VISIT_NOT_DONE, date);
-            getWritableDatabase().update(Constants.TABLES.TBLEPROSY_ENROLLMENT, values, DBConstants.KEY.BASE_ENTITY_ID + " = ?", new String[]{baseID});
+            getWritableDatabase().update(Constants.TABLES.TBLEPROSY_SCREENING, values, DBConstants.KEY.BASE_ENTITY_ID + " = ?", new String[]{baseID});
         } catch (Exception e) {
             Timber.e(e);
         }
@@ -405,7 +405,7 @@ public class VisitRepository extends BaseRepository {
                 return null;
             }
 
-            cursor = database.query(Constants.TABLES.TBLEPROSY_ENROLLMENT, new String[]{dateColumn}, BASE_ENTITY_ID + " = ? " + COLLATE_NOCASE, new String[]{baseEntityID}, null, null, null);
+            cursor = database.query(Constants.TABLES.TBLEPROSY_SCREENING, new String[]{dateColumn}, BASE_ENTITY_ID + " = ? " + COLLATE_NOCASE, new String[]{baseEntityID}, null, null, null);
 
             if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
                 String date = cursor.getString(cursor.getColumnIndex(dateColumn));

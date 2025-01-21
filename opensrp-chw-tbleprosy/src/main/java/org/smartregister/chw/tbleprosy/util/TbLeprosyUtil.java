@@ -138,7 +138,7 @@ public class TbLeprosyUtil {
         Event closeTbLeprosyEvent = new Gson().
                 fromJson(jsonString, Event.class);
 
-        closeTbLeprosyEvent.setEntityType(Constants.TABLES.TBLEPROSY_ENROLLMENT);
+        closeTbLeprosyEvent.setEntityType(Constants.TABLES.TBLEPROSY_SCREENING);
         closeTbLeprosyEvent.setEventType(Constants.EVENT_TYPE.CLOSE_TB_LEPROSY_SERVICE);
         closeTbLeprosyEvent.setBaseEntityId(baseEntityId);
         closeTbLeprosyEvent.setFormSubmissionId(JsonFormUtils.

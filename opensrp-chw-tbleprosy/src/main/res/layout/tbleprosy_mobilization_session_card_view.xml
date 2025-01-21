@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/rlMobilizationSession"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/iv_mobilization_session"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:padding="10dp"
+            android:layout_marginEnd="10dp"
+            android:contentDescription="mobilization session"
+            android:src="@drawable/ic_mobilization" />
+
+
+        <LinearLayout
+            android:id="@+id/mobilization_session_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mobilization_session_label"
+            android:layout_toEndOf="@id/iv_mobilization_session">
+
+            <TextView
+                android:id="@+id/mobilization_session_participants"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="5dp"
+                android:ellipsize="none"
+                android:maxLines="1"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:textColor="@android:color/black"
+
+                android:visibility="visible"
+                tools:text="@string/participants" />
+
+            <TextView
+                android:id="@+id/mobilization_session_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="5dp"
+                android:ellipsize="none"
+                android:maxLines="1"
+                android:scrollHorizontally="false"
+                android:singleLine="false"
+                android:textColor="@android:color/black"
+                android:visibility="visible"
+                tools:text="@string/date" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/mobilization_session_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@+id/iv_mobilization_session"
+            android:text="@string/tbleprosy_session"
+            android:textAlignment="textStart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/view_child_followup_row"
+        android:layout_width="match_parent"
+        android:layout_height="1.5px"
+        android:layout_below="@id/rlMobilizationSession"
+        android:layout_marginTop="6dp"
+        android:background="@color/light_grey"
+        android:visibility="visible" />
+</RelativeLayout>
