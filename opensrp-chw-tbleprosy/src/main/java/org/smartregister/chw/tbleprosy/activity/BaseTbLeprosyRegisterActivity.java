@@ -16,6 +16,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.smartregister.AllConstants;
 import org.smartregister.Context;
+import org.smartregister.chw.tbleprosy.R;
 import org.smartregister.chw.tbleprosy.contract.TbLeprosyRegisterContract;
 import org.smartregister.chw.tbleprosy.fragment.BaseTbLeprosyMobilizationRegisterFragment;
 import org.smartregister.chw.tbleprosy.fragment.BaseTbLeprosyRegisterFragment;
@@ -33,7 +34,6 @@ import org.smartregister.repository.BaseRepository;
 import org.smartregister.util.Utils;
 import org.smartregister.view.activity.BaseRegisterActivity;
 import org.smartregister.view.fragment.BaseRegisterFragment;
-import org.smartregister.chw.tbleprosy.R;
 
 import java.util.Arrays;
 import java.util.Date;
@@ -163,7 +163,6 @@ public class BaseTbLeprosyRegisterActivity extends BaseRegisterActivity implemen
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == Activity.RESULT_OK && requestCode == Constants.REQUEST_CODE_GET_JSON) {
-
             try {
                 String jsonString = data.getStringExtra(Constants.JSON_FORM_EXTRA.JSON);
                 JSONObject form = new JSONObject(jsonString);

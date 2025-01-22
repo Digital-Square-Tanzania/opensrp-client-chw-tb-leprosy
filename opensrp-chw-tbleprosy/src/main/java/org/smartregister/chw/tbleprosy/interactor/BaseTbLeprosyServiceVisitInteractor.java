@@ -8,11 +8,10 @@ import androidx.annotation.VisibleForTesting;
 import org.apache.commons.lang3.StringUtils;
 import org.smartregister.chw.tbleprosy.R;
 import org.smartregister.chw.tbleprosy.TbLeprosyLibrary;
-import org.smartregister.chw.tbleprosy.actionhelper.TbLeprosySampleActionHelper;
 import org.smartregister.chw.tbleprosy.actionhelper.TbLeprosyInvestigationActionHelper;
+import org.smartregister.chw.tbleprosy.actionhelper.TbLeprosySampleActionHelper;
 import org.smartregister.chw.tbleprosy.actionhelper.TbLeprosySourceActionHelper;
 import org.smartregister.chw.tbleprosy.contract.BaseTbLeprosyVisitContract;
-import org.smartregister.chw.tbleprosy.domain.MemberObject;
 import org.smartregister.chw.tbleprosy.domain.VisitDetail;
 import org.smartregister.chw.tbleprosy.model.BaseTbLeprosyVisitAction;
 import org.smartregister.chw.tbleprosy.util.AppExecutors;
@@ -134,7 +133,7 @@ public class BaseTbLeprosyServiceVisitInteractor extends BaseTbLeprosyVisitInter
 
     @Override
     protected String getEncounterType() {
-        return Constants.EVENT_TYPE.TB_LEPROSY_SERVICES;
+        return Constants.EVENT_TYPE.TBLEPROSY_CONTACT_VISIT;
     }
 
     @Override

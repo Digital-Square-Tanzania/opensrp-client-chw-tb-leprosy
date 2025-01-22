@@ -10,16 +10,16 @@
     <string name="job_aids">Vitendea kazi</string>
     <string name="saving_dialog_title">Kuhifadhi</string>
     <string name="tbleprosy_followup_visit">Tembeleo la ufuatiliaji</string>
-    <string name="record_tbleprosy">Utoaji wa Huduma Ya TbLeprosy</string>
-
+    <string name="record_tbleprosy">Tembeleo la TB na Ukoma</string>
 
     <string name="optional">Sio lazima</string>
     <string name="error_unable_save_visit">Imeshindwa kuitunza hii visit</string>
     <string name="return_to_previous_page">Rudi kwenye wateja wote wa tbleprosy</string>
     <string name="last_visit_40_days_ago">Tembeleo la mwisho %1$s uliyopita</string>
     <string name="view_medical_history">Angalia historia ya huduma</string>
+    <string name="observation_results">Matokeo Ya Uchunguzi</string>
     <string name="call_no_number_provided">(Hakuna namba iliyotolewa)</string>
-    <string name="view_upcoming_services">Angalia huduma zinazokaribia</string>
+    <string name="view_observation_results">Angalia Matokeo Ya Uchunguzi</string>
     <string name="family_has_nothing_due">Muda wa huduma kwenye kaya haujafika</string>
     <string name="go_to_family_s_profile">Rudi kwenye taarifa ya kaya</string>
     <string name="family_has_services_due">Muda wa huduma kwenye kaya umefika</string>
@@ -45,7 +45,7 @@
     <string name="call_anc_client">Mjamzito</string>
     <string name="call_pnc_client">Mama aliyejifungua</string>
     <string name="call_head_of_family">Piga simu kwa mkuu wa kaya</string>
-    <string name="view_tbleprosy_test_result">Angalia majibu ya kipimo cha tbleprosy</string>
+    <string name="view_tbleprosy_test_result">Angalia Matokeo Ya Uchunguzi</string>
     <string name="tbleprosy_positive">TbLeprosy chanya</string>
     <string name="anc_string">Wajawazito</string>
     <string name="pnc_string">Baada ya kujifungua</string>
@@ -77,6 +77,7 @@
     <string name="tbleprosy_investigation">Uchunguzi wa Kifua Kikuu</string>
     <string name="tbleprosy_sample">Kuchukua Sampuli</string>
     <string name="tbleprosy_source">Njia ya Uchunguzi wa Kifua Kikuu</string>
+    <string name="view_upcoming_services">View Upcoming Services</string>
 
     <string name="mobilization_session_participants">Waliohamasishwa: %s</string>
     <string name="mobilization_condoms_issued">Kondomu zilizogaiwa: %s</string>

@@ -12,12 +12,11 @@ import org.smartregister.chw.tbleprosy.domain.MemberObject;
 import org.smartregister.chw.tbleprosy.domain.VisitDetail;
 import org.smartregister.chw.tbleprosy.model.BaseTbLeprosyVisitAction;
 import org.smartregister.chw.tbleprosy.util.JsonFormUtils;
-import org.smartregister.chw.tbleprosy.util.VisitUtils;
 
-import java.util.HashMap;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
-import java.util.Calendar;
+
 import timber.log.Timber;
 
 public class TbLeprosySourceActionHelper implements BaseTbLeprosyVisitAction.TbLeprosyVisitActionHelper {

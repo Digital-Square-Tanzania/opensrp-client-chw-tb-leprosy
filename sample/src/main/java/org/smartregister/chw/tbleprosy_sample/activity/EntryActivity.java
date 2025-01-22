@@ -48,6 +48,7 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
             tbleprosyMemberObject.setMiddleName("Ali");
             tbleprosyMemberObject.setGender("Female");
             tbleprosyMemberObject.setMartialStatus("Married");
+            tbleprosyMemberObject.setAddress("Morogoro");
             tbleprosyMemberObject.setDob("1982-01-18T03:00:00.000+03:00");
             tbleprosyMemberObject.setUniqueId("3503504");
             tbleprosyMemberObject.setBaseEntityId("3503504");
@@ -75,6 +76,8 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
         findViewById(R.id.tbleprosy_ufuatiliaji_wa_mteja).setOnClickListener(this);
         findViewById(R.id.tbleprosy_home_visit).setOnClickListener(this);
         findViewById(R.id.tbleprosy_profile).setOnClickListener(this);
+        findViewById(R.id.tbleprosy_contact_profile).setOnClickListener(this);
+        findViewById(R.id.tbleprosy_update_member_profile).setOnClickListener(this);
         findViewById(R.id.tbleprosy_contact_visit).setOnClickListener(this);
     }
 
@@ -108,6 +111,12 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
                 break;
             case R.id.tbleprosy_profile:
                 TbLeprosyMemberProfileActivity.startMe(this, "12345");
+                break;
+            case R.id.tbleprosy_contact_profile:
+                TbLeprosyContactProfileActivity.startMe(this, "12345");
+                break;
+            case R.id.tbleprosy_update_member_profile:
+                UpdateTbLeprosyMemberProfileActivity.startMe(this, "12345");
                 break;
             case R.id.tbleprosy_contact_visit:
                 TbLeprosyServiceActivity.startTbLeprosyVisitActivity(this, "98765", false);
@@ -182,7 +191,6 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
             Intent intent = new Intent(this, JsonWizardFormActivity.class);
             intent.putExtra("json", jsonForm.toString());
 
-
             Form form = new Form();
             form.setWizard(true);
             form.setNextLabel("Next");
@@ -192,9 +200,7 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
 
             intent.putExtra("form", form);
             startActivityForResult(intent, Constants.REQUEST_CODE_GET_JSON);
-
         }
-
     }
 
 

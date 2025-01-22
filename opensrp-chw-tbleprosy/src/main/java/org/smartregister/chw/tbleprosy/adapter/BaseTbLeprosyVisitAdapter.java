@@ -12,9 +12,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
+import org.smartregister.chw.tbleprosy.R;
 import org.smartregister.chw.tbleprosy.contract.BaseTbLeprosyVisitContract;
 import org.smartregister.chw.tbleprosy.model.BaseTbLeprosyVisitAction;
-import org.smartregister.chw.tbleprosy.R;
 
 import java.text.MessageFormat;
 import java.util.LinkedHashMap;

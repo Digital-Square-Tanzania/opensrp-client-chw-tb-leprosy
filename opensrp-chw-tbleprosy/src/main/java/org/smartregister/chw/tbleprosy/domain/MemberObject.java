@@ -84,6 +84,7 @@ public class MemberObject implements Serializable {
     }
 
     public int getVisitAge() {
+
         return new Period(new DateTime(dob), new DateTime()).getYears();
     }
 
