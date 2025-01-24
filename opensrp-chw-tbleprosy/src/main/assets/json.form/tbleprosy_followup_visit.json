@@ -1,7 +1,7 @@
 {
   "validate_on_submit": true,
   "count": "1",
-  "encounter_type": "TBLEPROSY Ufuatiliaji wa mteja ",
+  "encounter_type": "TbLeprosy Follow-up Visit",
   "entity_id": "",
   "metadata": {
     "start": {
@@ -126,7 +126,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "tbleprosy_ufuatiliaji_wa_mteja.yml"
+              "rules-file": "tbleprosy_followup_visit.yml"
             }
           }
         }
@@ -163,7 +163,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "tbleprosy_ufuatiliaji_wa_mteja.yml"
+              "rules-file": "tbleprosy_followup_visit.yml"
             }
           }
         }
@@ -183,7 +183,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "tbleprosy_ufuatiliaji_wa_mteja.yml"
+              "rules-file": "tbleprosy_followup_visit.yml"
             }
           }
         }
@@ -205,7 +205,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "tbleprosy_ufuatiliaji_wa_mteja.yml"
+              "rules-file": "tbleprosy_followup_visit.yml"
             }
           }
         }
@@ -242,7 +242,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "tbleprosy_ufuatiliaji_wa_mteja.yml"
+              "rules-file": "tbleprosy_followup_visit.yml"
             }
           }
         }
@@ -263,7 +263,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "tbleprosy_ufuatiliaji_wa_mteja.yml"
+              "rules-file": "tbleprosy_followup_visit.yml"
             }
           }
         }
@@ -320,7 +320,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "tbleprosy_ufuatiliaji_wa_mteja.yml"
+              "rules-file": "tbleprosy_followup_visit.yml"
             }
           }
         }
@@ -389,7 +389,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "tbleprosy_ufuatiliaji_wa_mteja.yml"
+              "rules-file": "tbleprosy_followup_visit.yml"
             }
           }
         }
@@ -406,7 +406,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "tbleprosy_ufuatiliaji_wa_mteja.yml"
+              "rules-file": "tbleprosy_followup_visit.yml"
             }
           }
         }

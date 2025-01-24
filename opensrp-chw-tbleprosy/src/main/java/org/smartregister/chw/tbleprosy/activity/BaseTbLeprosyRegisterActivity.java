@@ -18,6 +18,7 @@ import org.smartregister.AllConstants;
 import org.smartregister.Context;
 import org.smartregister.chw.tbleprosy.R;
 import org.smartregister.chw.tbleprosy.contract.TbLeprosyRegisterContract;
+import org.smartregister.chw.tbleprosy.fragment.BaseTbLeprosyContactFragment;
 import org.smartregister.chw.tbleprosy.fragment.BaseTbLeprosyMobilizationRegisterFragment;
 import org.smartregister.chw.tbleprosy.fragment.BaseTbLeprosyRegisterFragment;
 import org.smartregister.chw.tbleprosy.interactor.BaseTbLeprosyRegisterInteractor;
@@ -151,6 +152,7 @@ public class BaseTbLeprosyRegisterActivity extends BaseRegisterActivity implemen
     @Override
     protected Fragment[] getOtherFragments() {
         return new Fragment[] {
+                new BaseTbLeprosyContactFragment(),
                 new BaseTbLeprosyMobilizationRegisterFragment()
         };
     }

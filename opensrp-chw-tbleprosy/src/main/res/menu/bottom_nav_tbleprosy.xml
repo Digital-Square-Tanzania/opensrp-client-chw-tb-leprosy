@@ -9,6 +9,13 @@
         app:showAsAction="ifRoom" />
 
     <item
+        android:id="@+id/action_contact"
+        android:enabled="true"
+        android:icon="@mipmap/ic_home"
+        android:title="@string/tbleprosy_contact"
+        app:showAsAction="ifRoom" />
+
+    <item
         android:id="@+id/action_mobilization"
         android:enabled="true"
         android:icon="@mipmap/ic_jobaids"

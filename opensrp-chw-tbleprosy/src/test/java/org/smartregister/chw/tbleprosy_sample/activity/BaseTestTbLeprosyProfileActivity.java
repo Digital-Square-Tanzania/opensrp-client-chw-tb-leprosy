@@ -17,7 +17,7 @@ public class BaseTestTbLeprosyProfileActivity extends BaseTbLeprosyProfileActivi
 
 
     @Override
-    public void continueDischarge() {
+    public void continueContactVisit() {
 
     }
 

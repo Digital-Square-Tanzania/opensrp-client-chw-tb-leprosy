@@ -71,9 +71,9 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
         findViewById(R.id.tbleprosy_screening).setOnClickListener(this);
         findViewById(R.id.tbleprosy_visit_record).setOnClickListener(this);
         findViewById(R.id.tbleprosy_mobilization).setOnClickListener(this);
-        findViewById(R.id.tbleprosy_matokeo_ya_uchunguzi).setOnClickListener(this);
-        findViewById(R.id.tbleprosy_matokeo_ya_uchunguzi_contact).setOnClickListener(this);
-        findViewById(R.id.tbleprosy_ufuatiliaji_wa_mteja).setOnClickListener(this);
+        findViewById(R.id.tbleprosy_observation_results).setOnClickListener(this);
+        findViewById(R.id.tbleprosy_observation_results_contact).setOnClickListener(this);
+        findViewById(R.id.tbleprosy_followup_visit).setOnClickListener(this);
         findViewById(R.id.tbleprosy_home_visit).setOnClickListener(this);
         findViewById(R.id.tbleprosy_profile).setOnClickListener(this);
         findViewById(R.id.tbleprosy_contact_profile).setOnClickListener(this);
@@ -135,16 +135,16 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
                     throw new RuntimeException(e);
                 }
                 break;
-            case R.id.tbleprosy_matokeo_ya_uchunguzi:
+            case R.id.tbleprosy_observation_results:
                 try {
-                    startForm("tbleprosy_matokeo_ya_uchunguzi");
+                    startForm("tbleprosy_observation_results");
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
                 break;
-            case R.id.tbleprosy_ufuatiliaji_wa_mteja:
+            case R.id.tbleprosy_followup_visit:
                 try {
-                    startForm("tbleprosy_ufuatiliaji_wa_mteja");
+                    startForm("tbleprosy_followup_visit");
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
@@ -156,9 +156,9 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
                     throw new RuntimeException(e);
                 }
                 break;
-            case R.id.tbleprosy_matokeo_ya_uchunguzi_contact:
+            case R.id.tbleprosy_observation_results_contact:
                 try {
-                   startForm("tbleprosy_matokeo_uchunguzi_contact");
+                   startForm("tbleprosy_contact_observation_results");
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }

@@ -57,6 +57,71 @@ public class TbLeprosyDao extends AbstractDao {
         return memberObject;
     };
 
+    public static String getTbLeprosyClientStatus(String baseEntityId) {
+        String sql = "SELECT status FROM ec_tbleprosy_screening p " +
+                " WHERE p.base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "status");
+
+        List<String> res = readData(sql, dataMap);
+        if (res != null && res.size() != 0 && res.get(0) != null) {
+            return res.get(0);
+        }
+        return "";
+    }
+
+    public static String getTBleprosyObservationResults(String baseEntityId) {
+        String sql = "SELECT aina_ya_uchunguzi FROM ec_tbleprosy_observation_results p " +
+                " WHERE p.base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "aina_ya_uchunguzi");
+
+        List<String> res = readData(sql, dataMap);
+        if (res != null && res.size() != 0 && res.get(0) != null) {
+            return res.get(0);
+        }
+        return "";
+    }
+
+    public static String getTBleprosyContactObservationResults(String baseEntityId) {
+        String sql = "SELECT matokeo_ya_uchunguzi_tb FROM ec_tbleprosy_contact_observation_results p " +
+                " WHERE p.base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "matokeo_ya_uchunguzi_tb");
+
+        List<String> res = readData(sql, dataMap);
+        if (res != null && res.size() != 0 && res.get(0) != null) {
+            return res.get(0);
+        }
+        return "";
+    }
+
+    public static String getTBleprosyFollowUpVisit(String baseEntityId) {
+        String sql = "SELECT sababu_ya_ufuatiliaji FROM ec_tbleprosy_followup_visit p " +
+                " WHERE p.base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "sababu_ya_ufuatiliaji");
+
+        List<String> res = readData(sql, dataMap);
+        if (res != null && res.size() != 0 && res.get(0) != null) {
+            return res.get(0);
+        }
+        return "";
+    }
+
+    public static String getTBleprosyVisit(String baseEntityId) {
+        String sql = "SELECT kuchukuliwa_sampuli FROM ec_tbleprosy_visit p " +
+                " WHERE p.base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "kuchukuliwa_sampuli");
+
+        List<String> res = readData(sql, dataMap);
+        if (res != null && res.size() != 0 && res.get(0) != null) {
+            return res.get(0);
+        }
+        return "";
+    }
+
     public static Date getTbLeprosyTestDate(String baseEntityID) {
         String sql = "select tbleprosy_test_date from ec_tbleprosy_screening where base_entity_id = '" + baseEntityID + "'";
 

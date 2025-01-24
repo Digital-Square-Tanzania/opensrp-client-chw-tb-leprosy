@@ -126,7 +126,7 @@
             />
 
         <org.smartregister.view.customcontrols.CustomFontTextView
-            android:id="@+id/tbleprosy_matokeo_ya_uchunguzi"
+            android:id="@+id/tbleprosy_observation_results"
             style="@style/CustomFontTextViewStyle.ListView.Normal.MultipleLines"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -139,11 +139,11 @@
             android:paddingTop="10dp"
             android:paddingRight="30dp"
             android:paddingBottom="10dp"
-            android:text="@string/tbleprosy_matokeo_ya_uchunguzi"
+            android:text="@string/tbleprosy_observation_results"
             android:textColor="@color/white" />
 
         <org.smartregister.view.customcontrols.CustomFontTextView
-            android:id="@+id/tbleprosy_ufuatiliaji_wa_mteja"
+            android:id="@+id/tbleprosy_followup_visit"
             style="@style/CustomFontTextViewStyle.ListView.Normal.MultipleLines"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -156,11 +156,11 @@
             android:paddingTop="10dp"
             android:paddingRight="30dp"
             android:paddingBottom="10dp"
-            android:text="@string/tbleprosy_ufuatiliaji_wa_mteja"
+            android:text="@string/tbleprosy_followup_visit"
             android:textColor="@color/white" />
 
         <org.smartregister.view.customcontrols.CustomFontTextView
-            android:id="@+id/tbleprosy_matokeo_ya_uchunguzi_contact"
+            android:id="@+id/tbleprosy_observation_results_contact"
             style="@style/CustomFontTextViewStyle.ListView.Normal.MultipleLines"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -173,7 +173,7 @@
             android:paddingTop="10dp"
             android:paddingRight="30dp"
             android:paddingBottom="10dp"
-            android:text="@string/tbleprosy_matokeo_ya_uchunguzi_contact"
+            android:text="@string/tbleprosy_observation_results_contact"
             android:textColor="@color/white" />
 
         <org.smartregister.view.customcontrols.CustomFontTextView

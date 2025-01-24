@@ -13,7 +13,7 @@
     <string name="interpunct" translatable="false">\u00b7</string>
     <string name="record_tbleprosy">Record TB Leprosy Visit</string>
     <string name="record_tbleprosy_contact_visit">Record TB Contact Visit</string>
-    <string name="record_tbleprosy_client_followup_visit">Record TB/Leprosy Follow Up</string>
+    <string name="record_tbleprosy_client_followup_visit">Record TB/Leprosy FollowUp Visit</string>
     <string name="register_tb_leprosy_contact">Register TB/Leprosy Contact</string>
     <string name="record_tbleprosy_contact_visit_followup">Record TB Contact Visit FollowUp</string>
     <string name="provide_contact_visit">Provide Contact Visit</string>
@@ -100,6 +100,7 @@
     <string name="tbleprosy_sessions">TB/Leprosy Sessions</string>
 
     <string name="tbleprosy_mobilization">Mobilization</string>
+    <string name="tbleprosy_contact">Contacts</string>
 
 
 </resources>

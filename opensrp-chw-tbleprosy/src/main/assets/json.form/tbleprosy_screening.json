@@ -1,7 +1,7 @@
 {
   "validate_on_submit": true,
   "count": "4",
-  "encounter_type": "tbleprosy Screening",
+  "encounter_type": "TBLeprosy Screening",
   "entity_id": "",
   "metadata": {
     "start": {
@@ -134,6 +134,15 @@
             }
           }
         }
+      },
+      {
+        "key": "status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "status",
+        "type": "edit_text",
+        "hint": "client status",
+        "value": "contact"
       }
     ]
   },
@@ -523,7 +532,6 @@
 
         ]
       }
-
     ]
   }
 }

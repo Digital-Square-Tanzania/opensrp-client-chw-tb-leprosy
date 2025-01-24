@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
@@ -98,7 +99,7 @@ public abstract class BaseTbLeprosyProfileActivity extends BaseProfileActivity i
         activity.startActivity(intent);
     }
 
-    public abstract void openFormProfile();
+    public abstract void openObservationResults();
 
     public abstract void openTbLeprosyContactRegister();
     @Override
@@ -239,28 +240,28 @@ public abstract class BaseTbLeprosyProfileActivity extends BaseProfileActivity i
         } else if (id == R.id.textview_record_tbleprosy) {
             if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_tbleprosy))){
                 this.openRecordClientVisit();
+            }else if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_tbleprosy_contact_visit))){
+                this.openRecordTbContactVisit();
             }
-            else {
+            else if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_tbleprosy_client_followup_visit))) {
                 this.openFollowupVisit();
+            }
+            else if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_tbleprosy_contact_visit_followup))) {
+                this.openTbContactFollowUpVisit();
+            } else {
+                Toast.makeText(getApplicationContext(), "No click", Toast.LENGTH_SHORT).show();
             }
         } else if (id == R.id.continue_tbleprosy_service) {
             this.continueService();
         } else if (id == R.id.textview_continue) {
-            this.continueDischarge();
+            this.continueContactVisit();
         }
         else if (id == R.id.textview_register_tb_leprosy_contact) {
             // Here, Open the New Activity
             this.openTbLeprosyContactRegister();
         }
-
         else if (id == R.id.rlObservationResults) {
-            this.openFormProfile();
-        }
-        else if (textViewRecordTbContactVisit.getText().equals(getString(R.string.record_tbleprosy_contact_visit))) {
-                this.openRecordTbContactVisit();
-        }
-        else if (textViewRecordTbContactVisit.getText().equals(getString(R.string.record_tbleprosy_contact_visit_followup))){
-                this.openTbContactFollowUpVisit();
+            this.openObservationResults();
         }
     }
 
@@ -285,7 +286,7 @@ public abstract class BaseTbLeprosyProfileActivity extends BaseProfileActivity i
 
     @Override
     public void hideView() {
-        textViewRecordTbLeprosy.setVisibility(View.GONE);
+        //Implement later
     }
 
     @Override

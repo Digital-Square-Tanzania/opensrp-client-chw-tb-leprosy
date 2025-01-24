@@ -25,8 +25,10 @@ public class TbLeprosyBottomNavigationListener extends BottomNavigationListener 
 
         if (item.getItemId() == R.id.action_home) {
             baseRegisterActivity.switchToBaseFragment();
-        } else if (item.getItemId() == R.id.action_mobilization) {
+        } else if (item.getItemId() == R.id.action_contact) {
             baseRegisterActivity.switchToFragment(1);
+        } else if (item.getItemId() == R.id.action_mobilization) {
+            baseRegisterActivity.switchToFragment(2);
         }
 
         return true;

@@ -124,7 +124,7 @@ public class TbLeprosyMemberProfileActivity extends BaseTbLeprosyProfileActivity
 
 
     @Override
-    public void continueDischarge() {
+    public void continueContactVisit() {
 
     }
 
@@ -150,7 +150,7 @@ public class TbLeprosyMemberProfileActivity extends BaseTbLeprosyProfileActivity
     }
 
     @Override
-    public void openFormProfile() {
+    public void openObservationResults() {
 
     }
 

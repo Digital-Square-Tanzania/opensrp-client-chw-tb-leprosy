@@ -1,7 +1,7 @@
 {
   "validate_on_submit": true,
   "count": "1",
-  "encounter_type": "TBLEPROSY Matokeo Uchunguzi",
+  "encounter_type": "TBLEPROSY Observation Results",
   "entity_id": "",
   "metadata": {
     "start": {
@@ -128,7 +128,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "tbleprosy_matokeo_ya_uchunguzi.yml"
+              "rules-file": "tbleprosy_observation_results.yml"
             }
           }
         }
@@ -186,7 +186,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "tbleprosy_matokeo_ya_uchunguzi.yml"
+              "rules-file": "tbleprosy_observation_results.yml"
             }
           }
         }
@@ -223,7 +223,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "tbleprosy_matokeo_ya_uchunguzi.yml"
+              "rules-file": "tbleprosy_observation_results.yml"
             }
           }
         }
@@ -260,7 +260,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "tbleprosy_matokeo_ya_uchunguzi.yml"
+              "rules-file": "tbleprosy_observation_results.yml"
             }
           }
         }
@@ -297,7 +297,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "tbleprosy_matokeo_ya_uchunguzi.yml"
+              "rules-file": "tbleprosy_observation_results.yml"
             }
           }
         }
@@ -334,7 +334,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "tbleprosy_matokeo_ya_uchunguzi.yml"
+              "rules-file": "tbleprosy_observation_results.yml"
             }
           }
         }
@@ -371,7 +371,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "tbleprosy_matokeo_ya_uchunguzi.yml"
+              "rules-file": "tbleprosy_observation_results.yml"
             }
           }
         }
@@ -408,7 +408,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "tbleprosy_matokeo_ya_uchunguzi.yml"
+              "rules-file": "tbleprosy_observation_results.yml"
             }
           }
         }
@@ -426,7 +426,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "tbleprosy_matokeo_ya_uchunguzi.yml"
+              "rules-file": "tbleprosy_observation_results.yml"
             }
           }
         }
@@ -444,7 +444,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "tbleprosy_matokeo_ya_uchunguzi.yml"
+              "rules-file": "tbleprosy_observation_results.yml"
             }
           }
         }
@@ -462,7 +462,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "tbleprosy_matokeo_ya_uchunguzi.yml"
+              "rules-file": "tbleprosy_observation_results.yml"
             }
           }
         }
@@ -499,7 +499,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "tbleprosy_matokeo_ya_uchunguzi.yml"
+              "rules-file": "tbleprosy_observation_results.yml"
             }
           }
         }
@@ -516,7 +516,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "tbleprosy_matokeo_ya_uchunguzi.yml"
+              "rules-file": "tbleprosy_observation_results.yml"
             }
           }
         }

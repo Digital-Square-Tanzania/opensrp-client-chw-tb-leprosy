@@ -98,9 +98,9 @@ public class TbLeprosyContactProfileActivity extends BaseTbLeprosyProfileActivit
     }
 
     @Override
-    public void openFormProfile() {
+    public void openObservationResults() {
         try {
-            startForm("tbleprosy_matokeo_uchunguzi_contact");
+            startForm("tbleprosy_contact_observation_results");
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -115,7 +115,7 @@ public class TbLeprosyContactProfileActivity extends BaseTbLeprosyProfileActivit
     public void openTbContactFollowUpVisit() {
       //Implementations Here
         try {
-            startForm("tbleprosy_ufuatiliaji_wa_mteja");
+            startForm("tbleprosy_followup_visit");
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -158,7 +158,7 @@ public class TbLeprosyContactProfileActivity extends BaseTbLeprosyProfileActivit
     public void openMedicalHistory() {
         //implementation here
         try {
-            startForm("tbleprosy_matokeo_ya_uchunguzi");
+            startForm("tbleprosy_observation_results");
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -172,7 +172,7 @@ public class TbLeprosyContactProfileActivity extends BaseTbLeprosyProfileActivit
 
 
     @Override
-    public void continueDischarge() {
+    public void continueContactVisit() {
 
     }
 

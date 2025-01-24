@@ -1,7 +1,7 @@
 {
   "validate_on_submit": true,
   "count": "1",
-  "encounter_type": "TBLEPROSY Matokeo ya Uchunguzi Contact",
+  "encounter_type": "TBLEPROSY Contact Observation Results",
   "entity_id": "",
   "metadata": {
     "start": {
@@ -124,7 +124,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "tbleprosy_matokeo_uchunguzi_contact.yml"
+              "rules-file": "tbleprosy_contact_observation_results.yml"
             }
           }
         }
@@ -146,7 +146,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "tbleprosy_matokeo_uchunguzi_contact.yml"
+              "rules-file": "tbleprosy_contact_observation_results.yml"
             }
           }
         }
@@ -182,7 +182,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "tbleprosy_matokeo_uchunguzi_contact.yml"
+              "rules-file": "tbleprosy_contact_observation_results.yml"
             }
           }
         }
@@ -218,7 +218,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "tbleprosy_matokeo_uchunguzi_contact.yml"
+              "rules-file": "tbleprosy_contact_observation_results.yml"
             }
           }
         }
@@ -240,7 +240,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "tbleprosy_matokeo_uchunguzi_contact.yml"
+              "rules-file": "tbleprosy_contact_observation_results.yml"
             }
           }
         }
@@ -257,7 +257,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "tbleprosy_matokeo_uchunguzi_contact.yml"
+              "rules-file": "tbleprosy_contact_observation_results.yml"
             }
           }
         }

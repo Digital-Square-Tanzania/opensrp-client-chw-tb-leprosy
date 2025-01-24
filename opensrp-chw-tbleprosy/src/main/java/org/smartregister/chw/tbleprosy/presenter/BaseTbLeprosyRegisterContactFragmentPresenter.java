@@ -14,7 +14,7 @@ import java.lang.ref.WeakReference;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class BaseTbLeprosyRegisterFragmentPresenter implements TbLeprosyRegisterFragmentContract.Presenter {
+public class BaseTbLeprosyRegisterContactFragmentPresenter implements TbLeprosyRegisterFragmentContract.Presenter {
 
     protected WeakReference<TbLeprosyRegisterFragmentContract.View> viewReference;
 
@@ -25,7 +25,7 @@ public class BaseTbLeprosyRegisterFragmentPresenter implements TbLeprosyRegister
     protected Set<View> visibleColumns = new TreeSet<>();
     protected String viewConfigurationIdentifier;
 
-    public BaseTbLeprosyRegisterFragmentPresenter(TbLeprosyRegisterFragmentContract.View view, TbLeprosyRegisterFragmentContract.Model model, String viewConfigurationIdentifier) {
+    public BaseTbLeprosyRegisterContactFragmentPresenter(TbLeprosyRegisterFragmentContract.View view, TbLeprosyRegisterFragmentContract.Model model, String viewConfigurationIdentifier) {
         this.viewReference = new WeakReference<>(view);
         this.model = model;
         this.viewConfigurationIdentifier = viewConfigurationIdentifier;
@@ -34,7 +34,7 @@ public class BaseTbLeprosyRegisterFragmentPresenter implements TbLeprosyRegister
 
     @Override
     public String getMainCondition() {
-        return " "+getMainTable()+".is_closed = 0 AND (status IS NULL OR status = 'client')";
+        return " "+getMainTable()+".is_closed = 0 AND status = 'contact'";
     }
 
     @Override

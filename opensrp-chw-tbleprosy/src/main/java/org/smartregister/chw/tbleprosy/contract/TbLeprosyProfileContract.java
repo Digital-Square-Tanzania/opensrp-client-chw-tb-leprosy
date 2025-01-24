@@ -72,7 +72,7 @@ public interface TbLeprosyProfileContract {
         void continueService();
 
 
-        void continueDischarge();
+        void continueContactVisit();
 
     }
 }
