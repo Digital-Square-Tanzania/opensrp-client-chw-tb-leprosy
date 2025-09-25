@@ -6,7 +6,7 @@ import android.widget.TextView;
 import org.smartregister.chw.tbleprosy.R;
 import org.smartregister.chw.tbleprosy.activity.BaseTbLeprosyProfileActivity;
 import org.smartregister.chw.tbleprosy.contract.TbLeprosyRegisterFragmentContract;
-import org.smartregister.chw.tbleprosy.model.BaseTbLeprosyRegisterFragmentModel;
+import org.smartregister.chw.tbleprosy.model.BaseTbLeprosyContactsRegisterFragmentModel;
 import org.smartregister.chw.tbleprosy.presenter.BaseTbLeprosyRegisterContactFragmentPresenter;
 import org.smartregister.chw.tbleprosy.presenter.BaseTbLeprosyRegisterFragmentPresenter;
 import org.smartregister.chw.tbleprosy.provider.TbLeprosyRegisterProvider;
@@ -81,7 +81,7 @@ public class BaseTbLeprosyContactFragment extends BaseRegisterFragment implement
         if (getActivity() == null) {
             return;
         }
-        presenter = new BaseTbLeprosyRegisterContactFragmentPresenter(this, new BaseTbLeprosyRegisterFragmentModel(), null);
+        presenter = new BaseTbLeprosyRegisterContactFragmentPresenter(this, new BaseTbLeprosyContactsRegisterFragmentModel(), null);
     }
 
     @Override

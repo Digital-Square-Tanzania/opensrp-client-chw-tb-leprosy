@@ -223,7 +223,13 @@ public abstract class BaseTbLeprosyProfileActivity extends BaseProfileActivity i
 
 
     protected MemberObject getMemberObject(String baseEntityId) {
-        return TbLeprosyDao.getMember(baseEntityId);
+        MemberObject member = TbLeprosyDao.getMember(baseEntityId);
+        if (member != null) {
+            return member;
+        }
+
+        return TbLeprosyDao.getContact(baseEntityId);
+
     }
 
     @Override

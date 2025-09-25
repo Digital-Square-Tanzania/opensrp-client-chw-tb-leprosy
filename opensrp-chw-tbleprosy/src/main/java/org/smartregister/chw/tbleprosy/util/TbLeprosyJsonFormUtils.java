@@ -94,6 +94,8 @@ public class TbLeprosyJsonFormUtils extends org.smartregister.util.JsonFormUtils
             encounter_type = Constants.TABLES.TBLEPROSY_SCREENING;
         } else if (Constants.EVENT_TYPE.TB_LEPROSY_SERVICES.equals(encounter_type)) {
             encounter_type = Constants.TABLES.TBLEPROSY_SERVICES;
+        } else if (Constants.EVENT_TYPE.TBLEPROSY_CONTACTS.equals(encounter_type)) {
+            encounter_type = Constants.TABLES.TBLEPROSY_CONTACTS;
         }
         return org.smartregister.util.JsonFormUtils.createEvent(fields, getJSONObject(jsonForm, METADATA), formTag(allSharedPreferences), entityId, getString(jsonForm, ENCOUNTER_TYPE), encounter_type);
     }

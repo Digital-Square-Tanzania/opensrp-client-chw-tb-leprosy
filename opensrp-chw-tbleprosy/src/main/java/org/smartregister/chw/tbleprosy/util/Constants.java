@@ -26,13 +26,14 @@ public interface Constants {
         String TB_LEPROSY_OBSERVATIONS_RESULT = "TBLEPROSY Contact Observation Results";
         String TB_LEPROSY_RECORD_VISIT = "TBLeprosy Visit";
         String TB_LEPROSY_CLIENT_OBSERVATION = "TBLEPROSY Observation Results";
+        String TBLEPROSY_CONTACTS = "TBLeprosy Contacts";
 
     }
 
     interface FORMS {
         String TB_LEPROSY_SCREENING = "tbleprosy_screening";
         String TBLEPROSY_MOBILIZATION_SESSION = "tbleprosy_mobilization_session";
-
+        String TBLEPROSY_CONTACT_REGISTRATION = "tbleprosy_contact_registration";
         String RECORD_TBLEPROSY_VISIT = "tbleprosy_record_visit";
         String OBSERVATION_RESULTS = "tbleprosy_observation_results";
         String CONTACT_OBSERVATION_RESULTS = "tbleprosy_contact_observation_results";
@@ -52,6 +53,7 @@ public interface Constants {
 
     interface TABLES {
         String TBLEPROSY_SCREENING = "ec_tbleprosy_screening";
+        String TBLEPROSY_CONTACTS = "ec_tbleprosy_contacts";
         String TBLEPROSY_SERVICES = "ec_tbleprosy_services";
         String TBLEPROSY_MOBILIZATION = "ec_tbleprosy_mobilization";
     }
