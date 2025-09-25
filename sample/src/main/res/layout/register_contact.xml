@@ -62,7 +62,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="10dp"
-                        android:text="@string/tbleprosy_new_client"
+                        android:text="@string/tbleprosy_family_member"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:textColor="@color/light_grey_text" />
                 </RelativeLayout>
