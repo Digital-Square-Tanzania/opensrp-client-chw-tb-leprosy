@@ -52,7 +52,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "kuchukuliwa_sampuli",
         "type": "native_radio",
-        "label": "Je mteja amechukuliwa sampuli?",
+        "label": "Je mteja anahitajika kuchukuliwa sampuli?",
         "label_text_size": "18px",
         "v_required": {
           "value": "true",
@@ -60,18 +60,83 @@
         },
         "options": [
           {
-            "key": "ndiyo_sampuli",
+            "key": "yes",
             "text": "Ndiyo",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "ndiyo"
+            "openmrs_entity_id": "yes"
           },
           {
-            "key": "hapana_sampuli",
+            "key": "no",
             "text": "Hapana",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "hapana"
+            "openmrs_entity_id": "no"
           }
         ]
+      },
+      {
+        "key": "aina_sampuli",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "aina_sampuli",
+        "type": "native_radio",
+        "label": "Aina ya sampuli",
+        "label_text_size": "18px",
+        "options": [
+          {
+            "key": "kikohozi",
+            "text": "Kikohozi",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "kikohozi"
+          },
+          {
+            "key": "kinyesi",
+            "text": "Kinyesi",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "kinyesi"
+          },
+          {
+            "key": "mkojo",
+            "text": "Mkojo",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "mkojo"
+          },
+          {
+            "key": "other",
+            "text": "Nyingine(Taja)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_record_visit_relevance.yml"
+            }
+          }
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        }
+      },
+      {
+        "key": "sampuli_nyingine",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "sampuli_nyingine",
+        "type": "edit_text",
+        "hint": "Sampuli Nyingine",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_record_visit_relevance.yml"
+            }
+          }
+        }
       },
       {
         "key": "mteja_anahitaji_kifaa_kingine",
@@ -87,18 +152,25 @@
         },
         "options": [
           {
-            "key": "ndiyo",
+            "key": "yes",
             "text": "Ndiyo",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "ndiyo"
+            "openmrs_entity_id": "yes"
           },
           {
-            "key": "hapana",
+            "key": "no",
             "text": "Hapana",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "hapana"
+            "openmrs_entity_id": "no"
           }
-        ]
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_record_visit_relevance.yml"
+            }
+          }
+        }
       },
       {
         "key": "mpatie_mteja_kifaa",
@@ -117,7 +189,6 @@
           }
         }
       }
-
     ]
   }
 }

@@ -1,7 +1,28 @@
 ---
+name: step1_mteja_anahitaji_kifaa_kingine
+description: mteja_anahitaji_kifaa_kingine
+priority: 1
+condition: "step1_kuchukuliwa_sampuli.contains('yes')"
+actions:
+  - "isRelevant = true"
+---
 name: step1_mpatie_mteja_kifaa
 description: enter tb client id
 priority: 1
-condition: "step1_mteja_anahitaji_kifaa_kingine.contains('ndiyo')"
+condition: "step1_mteja_anahitaji_kifaa_kingine.contains('yes')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_aina_sampuli
+description: aina_sampuli
+priority: 1
+condition: "step1_kuchukuliwa_sampuli.contains('yes')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_sampuli_nyingine
+description: sampuli_nyingine
+priority: 1
+condition: "step1_aina_sampuli.contains('other')"
 actions:
   - "isRelevant = true"
