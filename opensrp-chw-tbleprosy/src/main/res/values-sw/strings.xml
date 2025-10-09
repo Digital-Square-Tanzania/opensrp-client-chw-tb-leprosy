@@ -60,23 +60,24 @@
     <string name="continue_visit">Endelea</string>
     <string name="edit_visit">Hariri</string>
     <string name="tbleprosy_visit_in_progress">Hudhurio linaendelea</string>
-    <string name="tbleprosy_service_visit_in_progress">Huduma ya tohara inaendelea</string>
-    <string name="tbleprosy_procedure_visit_in_progress">Huduma ya upasuaji wa tohara inaendelea</string>
-    <string name="tbleprosy_visit_conducted">Hudhurio la tohara limefanyika</string>
+    <string name="tbleprosy_service_visit_in_progress">Huduma inaendelea</string>
+    <string name="tbleprosy_procedure_visit_in_progress">Huduma inaendelea</string>
+    <string name="tbleprosy_visit_conducted">Hudhurio limefanyika</string>
 
-    <string name="tbleprosy_profile">Profile la tohara</string>
+    <string name="tbleprosy_profile">Profile</string>
 
     <string name="tbleprosy_medical_history">Historia ya kitibabu</string>
     <string name="tbleprosy_physical_examination">Uchunguzi wa kimwili</string>
     <string name="tbleprosy_hts">Huduma za upimaji wa VVU</string>
-    <string name="tbleprosy_contraindication">Tatua vizuizi kwanza , kuendelea na upasuaji wa tohara</string>
+    <string name="tbleprosy_contraindication">Tatua vizuizi kwanza , kuendelea na huduma</string>
     <string name="no_phone_number">Hakuna nambari ya simu</string>
-    <string name="return_to_tbleprosy_clients">Rudi kwenye wateja wote wa tohara</string>
+    <string name="return_to_tbleprosy_clients">Rudi kwenye wateja wote</string>
     <string name="number_not_filled">Nambari ya simu ya mteja, haijajazwa</string>
 
-    <string name="tbleprosy_investigation">Uchunguzi wa Kifua Kikuu</string>
+    <string name="tbleprosy_contact_tb_investigation">Uchunguzi wa Kifua Kikuu</string>
+    <string name="tbleprosy_contact_leprosy_investigation">Uchunguzi wa Ukoma</string>
     <string name="tbleprosy_sample">Kuchukua Sampuli</string>
-    <string name="tbleprosy_source">Njia ya Uchunguzi wa Kifua Kikuu</string>
+    <string name="tbleprosy_source">Taarifa za mteja</string>
     <string name="view_upcoming_services">View Upcoming Services</string>
 
     <string name="mobilization_session_participants">Waliohamasishwa: %s</string>

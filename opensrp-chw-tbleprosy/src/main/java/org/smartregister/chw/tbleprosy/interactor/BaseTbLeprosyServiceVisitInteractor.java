@@ -66,7 +66,8 @@ public class BaseTbLeprosyServiceVisitInteractor extends BaseTbLeprosyVisitInter
         final Runnable runnable = () -> {
             try {
                 evaluateTbLeprosySource(details);
-                evaluateTbLeprosyInvestigation(details);
+                evaluateContactTbInvestigation(details);
+                evaluateContactLeprosyInvestigation(details);
                 evaluateTbLeprosySample(details);
 
             } catch (BaseTbLeprosyVisitAction.ValidationException e) {
@@ -102,16 +103,33 @@ public class BaseTbLeprosyServiceVisitInteractor extends BaseTbLeprosyVisitInter
      * @param details
      * @throws BaseTbLeprosyVisitAction.ValidationException
      */
-    private void evaluateTbLeprosyInvestigation(Map<String, List<VisitDetail>> details) throws BaseTbLeprosyVisitAction.ValidationException {
+    private void evaluateContactTbInvestigation(Map<String, List<VisitDetail>> details) throws BaseTbLeprosyVisitAction.ValidationException {
 
         TbLeprosyInvestigationActionHelper actionHelper = new TbLeprosyInvestigationActionHelper(mContext, memberObject);
-        BaseTbLeprosyVisitAction action = getBuilder(context.getString(R.string.tbleprosy_investigation))
+        BaseTbLeprosyVisitAction action = getBuilder(context.getString(R.string.tbleprosy_contact_tb_investigation))
                 .withOptional(false)
                 .withDetails(details)
                 .withHelper(actionHelper)
-                .withFormName(Constants.TbLeprosy_FOLLOWUP_FORMS.TBLEPROSY_INVESTIGATION)
+                .withFormName(Constants.TbLeprosy_FOLLOWUP_FORMS.TBLEPROSY_CONTACT_TB_INVESTIGATION)
                 .build();
-        actionList.put(context.getString(R.string.tbleprosy_investigation), action);
+        actionList.put(context.getString(R.string.tbleprosy_contact_tb_investigation), action);
+    }
+
+    /**
+     * this action deals with Leprosy Investigation (Uchunguzi wa Ukoma)
+     * @param details
+     * @throws BaseTbLeprosyVisitAction.ValidationException
+     */
+    private void evaluateContactLeprosyInvestigation(Map<String, List<VisitDetail>> details) throws BaseTbLeprosyVisitAction.ValidationException {
+
+        TbLeprosyInvestigationActionHelper actionHelper = new TbLeprosyInvestigationActionHelper(mContext, memberObject);
+        BaseTbLeprosyVisitAction action = getBuilder(context.getString(R.string.tbleprosy_contact_leprosy_investigation))
+                .withOptional(false)
+                .withDetails(details)
+                .withHelper(actionHelper)
+                .withFormName(Constants.TbLeprosy_FOLLOWUP_FORMS.TBLEPROSY_CONTACT_LEPROSY_INVESTIGATION)
+                .build();
+        actionList.put(context.getString(R.string.tbleprosy_contact_leprosy_investigation), action);
     }
 
     /**

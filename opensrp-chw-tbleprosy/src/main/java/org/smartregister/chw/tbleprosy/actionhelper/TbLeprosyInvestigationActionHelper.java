@@ -45,7 +45,7 @@ public class TbLeprosyInvestigationActionHelper implements BaseTbLeprosyVisitAct
             JSONObject jsonObject = new JSONObject(jsonPayload);
             return jsonObject.toString();
         } catch (JSONException e) {
-            e.printStackTrace();
+            Timber.e(e);
         }
 
         return null;
@@ -56,11 +56,15 @@ public class TbLeprosyInvestigationActionHelper implements BaseTbLeprosyVisitAct
         try {
             JSONObject jsonObject = new JSONObject(jsonPayload);
 
-            tbleprosyObservation = JsonFormUtils.getValue(jsonObject, "uchunguzi_wa_tb");
+            tbleprosyObservation = JsonFormUtils.getValue(jsonObject, "majibu_ya_uchunguzi_tb");
+
+            if (StringUtils.isBlank(tbleprosyObservation)){
+                tbleprosyObservation = JsonFormUtils.getValue(jsonObject, "majibu_ya_uchunguzi_ukoma");
+            }
 
 
         } catch (JSONException e) {
-            e.printStackTrace();
+           Timber.e(e);
         }
     }
 
