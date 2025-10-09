@@ -58,16 +58,16 @@
         "combine_checkbox_option_values": "true",
         "options": [
           {
-            "key": "kifua_kikuu",
+            "key": "tb",
             "text": "Kifua Kikuu (TB)",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "kifua_kikuu"
+            "openmrs_entity_id": "tb"
           },
           {
-            "key": "ukoma",
+            "key": "leprosy",
             "text": "Ukoma",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "ukoma"
+            "openmrs_entity_id": "leprosy"
           }
         ],
         "v_required": {
@@ -313,18 +313,18 @@
         "type": "native_radio",
         "options": [
           {
-            "key": "ndiyo_ameanza_tiba_tb_dr",
+            "key": "yes",
             "text": "Ndiyo",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "ndiyo_ameanza_tiba_tb_dr"
+            "openmrs_entity_id": "yes"
           },
           {
-            "key": "hapana_ameanza_tiba_tb_dr",
+            "key": "no",
             "text": "Hapana",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "hapana_ameanza_tiba_tb_dr"
+            "openmrs_entity_id": "no"
           }
         ],
         "v_required": {
@@ -350,18 +350,18 @@
         "type": "native_radio",
         "options": [
           {
-            "key": "ndiyo_ameanza_tiba_ukoma",
+            "key": "yes",
             "text": "Ndiyo",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "ndiyo_ameanza_tiba_ukoma"
+            "openmrs_entity_id": "yes"
           },
           {
-            "key": "hapana_ameanza_tiba_ukoma",
+            "key": "no",
             "text": "Hapana",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "hapana_ameanza_tiba_ukoma"
+            "openmrs_entity_id": "no"
           }
         ],
         "v_required": {
@@ -387,18 +387,18 @@
         "type": "native_radio",
         "options": [
           {
-            "key": "ndiyo_anastahili_kuanzishiwa_tpt",
+            "key": "yes",
             "text": "Ndiyo",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "ndiyo_anastahili_kuanzishiwa_tpt"
+            "openmrs_entity_id": "yes"
           },
           {
-            "key": "hapana_anastahili_kuanzishiwa_tpt",
+            "key": "no",
             "text": "Hapana",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "hapana_anastahili_kuanzishiwa_tpt"
+            "openmrs_entity_id": "no"
           }
         ],
         "v_required": {

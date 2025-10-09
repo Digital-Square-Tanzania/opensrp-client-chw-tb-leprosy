@@ -57,7 +57,7 @@
         "text_color": "#000000",
         "combine_checkbox_option_values": "true",
         "exclusive": [
-          "kifua_kikuu"
+          "tb"
         ],
         "options": [
           {
@@ -260,18 +260,18 @@
         "type": "native_radio",
         "options": [
           {
-            "key": "ndiyo_ameanza_tiba_tb_dr",
+            "key": "yes",
             "text": "Ndiyo",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "ndiyo_ameanza_tiba_tb_dr"
+            "openmrs_entity_id": "yes"
           },
           {
-            "key": "hapana_ameanza_tiba_tb_dr",
+            "key": "no",
             "text": "Hapana",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "hapana_ameanza_tiba_tb_dr"
+            "openmrs_entity_id": "no"
           }
         ],
         "v_required": {
@@ -290,18 +290,18 @@
         "type": "native_radio",
         "options": [
           {
-            "key": "ndiyo_ameanza_tiba_ukoma",
+            "key": "yes",
             "text": "Ndiyo",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "ndiyo_ameanza_tiba_ukoma"
+            "openmrs_entity_id": "yes"
           },
           {
-            "key": "hapana_ameanza_tiba_ukoma",
+            "key": "no",
             "text": "Hapana",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "hapana_ameanza_tiba_ukoma"
+            "openmrs_entity_id": "no"
           }
         ],
         "v_required": {

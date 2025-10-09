@@ -1,7 +1,7 @@
 name: step1_kipimo_cha_uchunguzi_kilichotumika_kupima_tb
 description:  kipimo cha uchunguzi kilichotumika kupima TB kama aina ya uchunguzi ni kifua kikuu
 priority: 1
-condition: "step1_aina_ya_uchunguzi.contains('kifua_kikuu')"
+condition: "step1_aina_ya_uchunguzi.contains('tb')"
 actions:
   - "isRelevant = true"
 ---
@@ -15,7 +15,7 @@ actions:
 name: step1_aina_uchunguzi_uliotumika_kupima_ukoma
 description:  Kama aina ya uchunguzi ni ukoma
 priority: 1
-condition: "step1_aina_ya_uchunguzi.contains('ukoma')"
+condition: "step1_aina_ya_uchunguzi.contains('leprosy')"
 actions:
   - "isRelevant = true"
 ---
@@ -36,7 +36,7 @@ actions:
 name: step1_amepima_vvu
 description:  Kama matokeo ya sampuli ya TB ni kifua kikuu ya mapafu au nje ya mapafu au kifua kikuu sugu na ameanza tiba ya TB
 priority: 1
-condition: "step1_ameanza_tiba_tb_dr.equalsIgnoreCase('ndiyo_ameanza_tiba_tb_dr') || step1_ameanza_tiba_tb_dr.equalsIgnoreCase('hapana_ameanza_tiba_tb_dr') || step1_ameanza_tiba_ukoma.equalsIgnoreCase('ndiyo_ameanza_tiba_ukoma') || step1_ameanza_tiba_ukoma.equalsIgnoreCase('hapana_ameanza_tiba_ukoma')"
+condition: "step1_ameanza_tiba_tb_dr.equalsIgnoreCase('yes') || step1_ameanza_tiba_tb_dr.equalsIgnoreCase('no') || step1_ameanza_tiba_ukoma.equalsIgnoreCase('yes') || step1_ameanza_tiba_ukoma.equalsIgnoreCase('no')"
 actions:
   - "isRelevant = true"
 ---
@@ -71,20 +71,20 @@ actions:
 name: step1_tarehe_ya_kuanzishiwa_tpt
 description: kama mteja amejibu Ndiyo kwenye anastahili kuanzishiwa TPT
 priority: 1
-condition: "step1_anastahili_kuanzishiwa_tpt.equalsIgnoreCase('ndiyo_anastahili_kuanzishiwa_tpt')"
+condition: "step1_anastahili_kuanzishiwa_tpt.equalsIgnoreCase('yes')"
 actions:
   - "isRelevant = true "
 ---
 name: step1_tarehe_ya_kuanza_tiba_kifua_kikuu
 description: kama mteja amejibu Ndiyo kwenye ameanza tiba ya TB/DR TB
 priority: 1
-condition: "step1_ameanza_tiba_tb_dr.equalsIgnoreCase('ndiyo_ameanza_tiba_tb_dr')"
+condition: "step1_ameanza_tiba_tb_dr.equalsIgnoreCase('yes')"
 actions:
   - "isRelevant = true "
 ---
 name: step1_tarehe_ya_kuanza_tiba_ukoma
 description: kama mteja amejibu Ndiyo kwenye ameanza tiba ya ukoma
 priority: 1
-condition: "step1_ameanza_tiba_ukoma.equalsIgnoreCase('ndiyo_ameanza_tiba_ukoma')"
+condition: "step1_ameanza_tiba_ukoma.equalsIgnoreCase('yes')"
 actions:
   - "isRelevant = true "
