@@ -10,7 +10,7 @@ actions:
 name: step1_dalili_nyingine
 description: dalili nyingine
 priority: 1
-condition: "step1_uchunguzi_wa_tb.contains('dalili_za_tb_nje_ya_mapafu')"
+condition: "step1_majibu_ya_uchunguzi_tb.contains('dalili_za_tb_nje_ya_mapafu')"
 actions:
   - "isRelevant = true"
 
@@ -18,7 +18,7 @@ actions:
 name: step1_mhisiwa_wa_tb
 description: je amechukuliwa sample
 priority: 1
-condition: "step1_uchunguzi_wa_tb.contains('kikohozi') && step1_uchunguzi_wa_tb.contains('makohozi_damu') && step1_uchunguzi_wa_tb.contains('homa') && step1_uchunguzi_wa_tb.contains('kupungua_uzito') && step1_uchunguzi_wa_tb.contains('kutokwa_jasho_jingi')"
+condition: "step1_majibu_ya_uchunguzi_tb.contains('kikohozi') && step1_majibu_ya_uchunguzi_tb.contains('makohozi_damu') && step1_majibu_ya_uchunguzi_tb.contains('homa') && step1_majibu_ya_uchunguzi_tb.contains('kupungua_uzito') && step1_majibu_ya_uchunguzi_tb.contains('kutokwa_jasho_jingi')"
 actions:
   - "isRelevant = true"
 
@@ -26,6 +26,6 @@ actions:
 name: step1_sio_mhisiwa_wa_tb
 description: je amechukuliwa sample
 priority: 1
-condition: "step1_uchunguzi_wa_tb.contains('hana_dalili')"
+condition: "step1_majibu_ya_uchunguzi_tb.contains('hana_dalili')"
 actions:
   - "isRelevant = true"

@@ -53,10 +53,10 @@
     "title": "Uchunguzi wa Kifua Kikuu",
     "fields": [
       {
-        "key": "uchunguzi_wa_tb",
+        "key": "majibu_ya_uchunguzi_tb",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "uchunguzi_wa_tb",
+        "openmrs_entity_id": "majibu_ya_uchunguzi_tb",
         "type": "check_box",
         "combine_checkbox_option_values": "true",
         "label": "Uchunguzi wa Kifua Kikuu",
@@ -139,7 +139,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "tb_leprosy_investigation.yml"
+              "rules-file": "tb_leprosy_contact_tb_investigation.yml"
             }
           }
         }
@@ -156,7 +156,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "tb_leprosy_investigation.yml"
+              "rules-file": "tb_leprosy_contact_tb_investigation.yml"
             }
           }
         }
@@ -173,7 +173,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "tb_leprosy_investigation.yml"
+              "rules-file": "tb_leprosy_contact_tb_investigation.yml"
             }
           }
         }

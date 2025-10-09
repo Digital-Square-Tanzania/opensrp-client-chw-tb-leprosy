@@ -1,0 +1,147 @@
+{
+  "count": "1",
+  "encounter_type": "Uchunguzi wa Ukoma",
+  "entity_id": "",
+  "relational_id": "",
+  "validate_on_submit": true,
+  "show_errors_on_submit": false,
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "163137AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "163149AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "163150AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "163151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "163152AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "global": {},
+  "step1": {
+    "title": "Uchunguzi wa Ukoma",
+    "fields": [
+      {
+        "key": "majibu_ya_uchunguzi_ukoma",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "majibu_ya_uchunguzi_ukoma",
+        "type": "check_box",
+        "combine_checkbox_option_values": "true",
+        "label": "Matokeo ya Mahojiano Kuhusu Ukoma",
+        "label_text_size": "18px",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jaza taarifa"
+        },
+        "exclusive": [
+          "hana_dalili"
+        ],
+        "options": [
+          {
+            "key": "baka_mabaka_yasiyo_hisia",
+            "text": "Baka au Mabaka yasiyo na hisia(B)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "baka_mabaka_yasiyo_hisia"
+          },
+          {
+            "key": "ngozi_kuota_vinundu_kukamaa",
+            "text": "Ngozi kuota Vinundu au Kukamaa(NV)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "ngozi_kuota_vinundu_kukamaa"
+          },
+          {
+            "key": "ganzi_mikononi_miguuni",
+            "text": "Ganzi Mikononi/Miguuni",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "ganzi_mikononi_miguuni"
+          },
+          {
+            "key": "kupata_ulemavu_vidonda_sugu",
+            "text": "Kupata ulemavu au vidonda sugu",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "kupata_ulemavu_vidonda_sugu"
+          },
+          {
+            "key": "hana_dalili",
+            "text": "Hana Dalili",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hana_dalili"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_screening_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "mhisiwa_wa_ukoma",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "mhisiwa_wa_tb",
+        "type": "toaster_notes",
+        "text": "Mhisiwa wa Ukoma.Mpe Rufaa kwenda Kituo cha kutolea Huduma za Afya",
+        "text_color": "#CF0800",
+        "toaster_type": "info",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tb_leprosy_contact_leprosy_investigation.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "sio_mhisiwa_wa_ukoma",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "sio_mhisiwa_wa_tb",
+        "type": "toaster_notes",
+        "text": "Mteja sio Mhisiwa wa Ukoma",
+        "text_color": "#CF0800",
+        "toaster_type": "info",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tb_leprosy_contact_leprosy_investigation.yml"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+---
+name: step1_namba_ya_mteja_tb
+description: enter tb client id
+priority: 1
+condition: "step1_anaishi_karibu_na_mgonjwa.contains('tb') || step1_aina_ya_ukaribu_na_mgonjwa.contains('maeneo_ya_wagonjwa_wengi')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_namba_ya_mteja_ukoma
+description: enter leprosy client id
+priority: 1
+condition: "step1_anaishi_karibu_na_mgonjwa.contains('ukoma')"
+actions:
+  - "isRelevant = true"
