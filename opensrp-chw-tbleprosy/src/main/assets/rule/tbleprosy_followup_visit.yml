@@ -1,0 +1,62 @@
+name: step1_taja_sababu_ya_hajapatikana
+description: show reason input when client was not found during follow-up
+priority: 1
+condition: "step1_matokeo_ya_ufuatiliaji.equalsIgnoreCase('hajapatikana')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_amerudi_kwenye_matibabu
+description: ask if client returned to treatment only when found
+priority: 1
+condition: "step1_matokeo_ya_ufuatiliaji.equalsIgnoreCase('amepatikana')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_taja_sababu_ya_hapana
+description: capture reason when client has not returned to treatment
+priority: 1
+condition: "step1_amerudi_kwenye_matibabu.equalsIgnoreCase('no')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_tarehe_ya_miadi
+description: schedule next appointment when client has not resumed treatment
+priority: 1
+condition: "step1_amerudi_kwenye_matibabu.equalsIgnoreCase('no')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_toaster_mteja_kurudi_matibabu
+description: prompt counsellor to encourage client return when treatment not resumed
+priority: 1
+condition: "step1_amerudi_kwenye_matibabu.equalsIgnoreCase('no')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_changamoto_katika_upatikanaji_huduma
+description: ask about challenges only when client resumed treatment
+priority: 1
+condition: "step1_amerudi_kwenye_matibabu.equalsIgnoreCase('no')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_reasons_for_not_returning_to_services_while_not_facing_challenges
+description: collect reason when no challenges reported despite resuming treatment
+priority: 1
+condition: "step1_changamoto_katika_upatikanaji_huduma.equalsIgnoreCase('no') && step1_amerudi_kwenye_matibabu.equalsIgnoreCase('no')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_changamoto_mteja_aliyopata
+description: list challenge types when client reports facing challenges
+priority: 1
+condition: "step1_changamoto_katika_upatikanaji_huduma.equalsIgnoreCase('yes')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_changamoto_katika_kituo_cha_afya
+description: detail facility challenges when selected among challenge types
+priority: 1
+condition: "step1_changamoto_mteja_aliyopata.contains('kituo_cha_afya')"
+actions:
+  - "isRelevant = true"

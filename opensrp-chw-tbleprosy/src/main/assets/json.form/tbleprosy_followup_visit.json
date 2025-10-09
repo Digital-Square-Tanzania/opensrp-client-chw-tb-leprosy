@@ -117,7 +117,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "taja_sababu_ya_hajapatikana",
         "type": "edit_text",
-        "hint": "Taja sababu ya matokeo ya ufuatiliaji",
+        "hint": "Taja sababu ya kutopatikana mteja",
         "edit_type": "name",
         "v_required": {
           "value": "true",
@@ -142,62 +142,20 @@
         "type": "native_radio",
         "options": [
           {
-            "key": "ndiyo_amerudi_kwenye_matibabu",
+            "key": "yes",
             "text": "Ndiyo",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "ndiyo_amerudi_kwenye_matibabu"
+            "openmrs_entity_id": "yes"
           },
           {
-            "key": "hapana_amerudi_kwenye_matibabu",
-            "text": "Hapana (Taja sababu)",
+            "key": "no",
+            "text": "Hapana",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "hapana_amerudi_kwenye_matibabu"
+            "openmrs_entity_id": "no"
           }
         ],
-        "v_required": {
-          "value": "true",
-          "err": "Please specify"
-        },
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "tbleprosy_followup_visit.yml"
-            }
-          }
-        }
-      },
-      {
-        "key": "taja_sababu_ya_hapana",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "taja_sababu_ya_hapana",
-        "type": "edit_text",
-        "hint": "Taja sababu",
-        "edit_type": "name",
-        "v_required": {
-          "value": "true",
-          "err": "Please specify"
-        },
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "tbleprosy_followup_visit.yml"
-            }
-          }
-        }
-      },
-      {
-        "key": "tarehe_ya_miadi",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "tarehe_ya_miadi",
-        "type": "date_picker",
-        "hint": "Tarehe ya Miadi",
-        "label_text_size": "18px",
-        "expanded": false,
-        "max_date": "today",
         "v_required": {
           "value": "true",
           "err": "Please specify"
@@ -221,18 +179,18 @@
         "type": "native_radio",
         "options": [
           {
-            "key": "ndiyo_changamoto_katika_upatikanaji_huduma",
+            "key": "yes",
             "text": "Ndiyo",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "ndiyo_changamoto_katika_upatikanaji_huduma"
+            "openmrs_entity_id": "yes"
           },
           {
-            "key": "hapana_changamoto_katika_upatikanaji_huduma",
-            "text": "Hapana (Taja sababu)",
+            "key": "no",
+            "text": "Hapana",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "hapana_changamoto_katika_upatikanaji_huduma"
+            "openmrs_entity_id": "no"
           }
         ],
         "v_required": {
@@ -249,12 +207,12 @@
 
       },
       {
-        "key": "taja_sababu_hapana_changamoto_upatikanaji_huduma",
+        "key": "reasons_for_not_returning_to_services_while_not_facing_challenges",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "taja_sababu_hapana_changamoto_upatikanaji_huduma",
+        "openmrs_entity_id": "reasons_for_not_returning_to_services_while_not_facing_challenges",
         "type": "edit_text",
-        "hint": "Taja sababu",
+        "hint": "Taja sababu ya kutokuanza/kutatiza dawa",
         "edit_type": "name",
         "v_required": {
           "value": "true",
@@ -279,7 +237,7 @@
         "text_color": "#000000",
         "combine_checkbox_option_values": "true",
         "exclusive": [
-          "hakuna_changamoto"
+          "none"
         ],
         "options": [
           {
@@ -301,16 +259,10 @@
             "openmrs_entity_id": "katika_jamii"
           },
           {
-            "key": "changamoto_nyinginezo",
+            "key": "other",
             "text": "Chanagamoto nyinginezo",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "changamoto_nyinginezo"
-          },
-          {
-            "key": "hakuna_changamoto",
-            "text": "Hakuna",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "hakuna_changamoto"
+            "openmrs_entity_id": "other"
           }
         ],
         "v_required": {
@@ -335,9 +287,6 @@
         "label_text_style": "bold",
         "text_color": "#000000",
         "combine_checkbox_option_values": "true",
-        "exclusive": [
-          "hakuna_changamoto_katika_kituo"
-        ],
         "options": [
           {
             "key": "kutukanwa_au_kufokewa",
@@ -374,12 +323,6 @@
             "text": "Kunyimwa dawa",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "kunyimwa_dawa"
-          },
-          {
-            "key": "hakuna_changamoto_katika_kituo",
-            "text": "Hakuna",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "hakuna_changamoto_katika_kituo"
           }
         ],
         "v_required": {
