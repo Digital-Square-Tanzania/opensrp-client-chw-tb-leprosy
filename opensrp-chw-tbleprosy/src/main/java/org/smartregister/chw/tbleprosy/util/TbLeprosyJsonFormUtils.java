@@ -1,8 +1,6 @@
 package org.smartregister.chw.tbleprosy.util;
 
 import static org.smartregister.chw.tbleprosy.util.Constants.ENCOUNTER_TYPE;
-import static org.smartregister.chw.tbleprosy.util.Constants.STEP_ONE;
-import static org.smartregister.chw.tbleprosy.util.Constants.STEP_TWO;
 import static org.smartregister.chw.tbleprosy.util.Constants.TBLEPROSY_VISIT_GROUP;
 
 import android.util.Log;
@@ -44,16 +42,35 @@ public class TbLeprosyJsonFormUtils extends org.smartregister.util.JsonFormUtils
     }
 
     public static JSONArray tbleprosyFormFields(JSONObject jsonForm) {
+        if (jsonForm == null) {
+            return null;
+        }
+
+        JSONArray aggregatedFields = new JSONArray();
+        int stepCount = 1;
+
+        String countString = jsonForm.optString(JsonFormConstants.COUNT);
+        if (StringUtils.isNotBlank(countString)) {
+            try {
+                stepCount = Integer.parseInt(countString);
+            } catch (NumberFormatException e) {
+                Log.e(TAG, "Invalid step count: " + countString, e);
+            }
+        }
+
         try {
-            JSONArray fieldsOne = fields(jsonForm, STEP_ONE);
-            JSONArray fieldsTwo = fields(jsonForm, STEP_TWO);
-            if (fieldsTwo != null) {
-                for (int i = 0; i < fieldsTwo.length(); i++) {
-                    fieldsOne.put(fieldsTwo.get(i));
+            for (int step = 1; step <= stepCount; step++) {
+                JSONArray stepFields = fields(jsonForm, MessageFormat.format("step{0}", step));
+                if (stepFields == null) {
+                    continue;
+                }
+
+                for (int i = 0; i < stepFields.length(); i++) {
+                    aggregatedFields.put(stepFields.getJSONObject(i));
                 }
             }
-            return fieldsOne;
 
+            return aggregatedFields.length() > 0 ? aggregatedFields : null;
         } catch (JSONException e) {
             Log.e(TAG, "", e);
         }
