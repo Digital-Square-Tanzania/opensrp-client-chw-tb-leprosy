@@ -84,6 +84,40 @@ public class TbLeprosyDao extends AbstractDao {
         return null;
     }
 
+    public static String getTbScreeningStatus(String baseEntityId) {
+        String sql = "SELECT screening_status FROM ec_tbleprosy_screening WHERE base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "screening_status");
+        List<String> res = readData(sql, dataMap);
+        if (res != null && !res.isEmpty() && res.get(0) != null) {
+            return res.get(0);
+        }
+        return null;
+    }
+
+    public static boolean isTbPresumptiveClient(String baseEntityId) {
+        String screeningStatus = getTbScreeningStatus(baseEntityId);
+        if (StringUtils.isBlank(screeningStatus)) {
+            return false;
+        }
+
+        String normalizedStatus = screeningStatus.toLowerCase(Locale.ENGLISH);
+        return normalizedStatus.contains("tb_presamptive") || normalizedStatus.contains("tb_presumptive");
+    }
+
+    public static boolean isLeprosyPresumptiveClient(String baseEntityId) {
+        String screeningStatus = getTbScreeningStatus(baseEntityId);
+        if (StringUtils.isBlank(screeningStatus)) {
+            return false;
+        }
+
+        String normalizedStatus = screeningStatus.toLowerCase(Locale.ENGLISH);
+        return normalizedStatus.contains("leprocy_presamptive")
+                || normalizedStatus.contains("leprocy_presumptive")
+                || normalizedStatus.contains("leprosy_presamptive")
+                || normalizedStatus.contains("leprosy_presumptive");
+    }
+
     public static String getTBleprosyObservationResults(String baseEntityId) {
         String sql = "SELECT aina_ya_uchunguzi FROM ec_tbleprosy_observation_results p " +
                 " WHERE p.base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
