@@ -1,7 +1,7 @@
 {
   "validate_on_submit": true,
-  "count": "1",
-  "encounter_type": "TBLeprosy Screening",
+  "count": "4",
+  "encounter_type": "TbLeprosy Screening",
   "entity_id": "",
   "metadata": {
     "start": {
@@ -44,568 +44,567 @@
   },
   "global": {},
   "step1": {
-    "title": "Njia ya Uchunguzi wa Kifua Kikuu",
+    "title": "TB/Leprosy Screening",
+    "next": "step2",
     "fields": [
       {
-        "key": "tb_leprosy_screening",
+        "key": "is_the_client_living_with_or_near_tb_leprosy_patient",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "tb_leprosy_screening",
+        "openmrs_entity_id": "chagua_aina_ya_uchunguzi",
         "type": "native_radio",
-        "label": "Screen for TB or Leprosy",
+        "label": "Anaishi kaya au karibu na mgonjwa wa TB au Ukoma",
         "label_text_size": "18px",
-        "options":[
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jaza taarifa"
+        },
+        "options": [
           {
-            "key": "client_type_screening_location",
-            "text": "Client Type and Screening Location",
-            "openmrs_entity_parent": "",
+            "key": "yes",
+            "text": "Ndio",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "client_type_screening_location"
+            "openmrs_entity_id": "yes"
           },
           {
-            "key": "screen_for_tbleprosy",
-            "text": "Screen for TB or Leprosy",
-            "openmrs_entity_parent": "",
+            "key": "no",
+            "text": "Hapana",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "screen_for_tbleprosy"
-
-          },
-          {
-            "key": "hiv_tested",
-            "text": "Tested for HIV",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "hiv_tested"
+            "openmrs_entity_id": "no"
           }
         ]
       },
       {
-        "key": "live_with_tbleprosy_patient",
+        "key": "anaishi_karibu_na_mgonjwa",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "live_with_tbleprosy_patient",
-        "type": "native_radio",
-        "label": "Living with or near TB/Leprosy patient",
-        "label_text_size": "18px",
-        "label_text_style": "bold",
-        "options": [
-          {
-            "key": "yes_live_with_tbleprosy_patient",
-            "text": "Yes",
-            "value": false,
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "yes_live_with_tbleprosy_patient",
-            "relevance": {
-              "rules-engine": {
-                "ex-rules": {
-                  "rules-file": "tb_leprosy_screening.yml"
-                }
-              }
-            }
-
-          },
-          {
-            "key": "no_live_with_tbleprosy_patient",
-            "text": "No",
-            "value": false,
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "no_live_with_tbleprosy_patient"
-          }
-        ],
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "tb_leprosy_screening.yml"
-            }
-          }
-        }
-      },
-      {
-        "key": "patient_type",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "patient_type",
+        "openmrs_entity_id": "anaishi_karibu_na_mgonjwa",
         "type": "check_box",
-        "label": "Patient Type",
+        "label": "Aina ya mgonjwa anayeishi naye/karibu naye",
         "label_text_size": "18px",
-        "label_text_style": "bold",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jaza taarifa"
+        },
         "options": [
           {
-            "key": "tb_patient",
+            "key": "tb",
             "text": "TB",
-            "value": false,
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "tb_patient"
+            "openmrs_entity_id": "tb"
           },
           {
-            "key": "leprosy_patient",
-            "text": "Leprosy",
-            "value": false,
+            "key": "ukoma",
+            "text": "Ukoma",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "leprosy_patient"
+            "openmrs_entity_id": "ukoma"
           }
         ],
         "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "tb_leprosy_screening.yml"
-            }
+          "step1:is_the_client_living_with_or_near_tb_leprosy_patient": {
+            "type": "string",
+            "ex": "equalTo(., \"yes\")"
           }
         }
-
       },
       {
-        "key": "tbleprosy_id",
+        "key": "namba_ya_mteja_tb",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "tbleprosy_id",
-        "type": "edit_text",
-        "hint": "Write TB/Leprosy ID",
+        "openmrs_entity_id": "namba_ya_mteja_tb",
+        "type": "mask_edit_text",
+        "mask": "##-##-##-######-#/KK/####/#",
+        "mask_hint":"020301100029820241" ,
+        "allowed_chars": "0123456789",
+        "hint": "Namba ya Mteja wa Kifua Kikuu",
+        "v_regex": {
+          "value": "^\\d{2}-\\d{2}-\\d{2}-\\d{6}-\\d/[A-Z]{2}/\\d{4}/\\d$",
+          "err": "Namba ya Mteja wa Kifua Kikuu inatakiwa iwe katika muundo huu (22-12-45-566789-0/KK/2025/1)"
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "tb_leprosy_screening.yml"
+              "rules-file": "tbleprosy_screening_relevance.yml"
             }
           }
         }
       },
       {
-        "key": "is_kvp_client",
+        "key": "namba_ya_mteja_ukoma",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "is_kvp_client",
-        "type": "native_radio",
-        "label": "Is it a KVP Client?",
-        "label_text_size": "18px",
-        "label_text_style": "bold",
-        "options":[
-          {
-            "key": "yes_kvp_client",
-            "text": "Yes",
-            "value": false,
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "yes_kvp_client"
-          },
-          {
-            "key": "no_kvp_client",
-            "text": "No",
-            "value": false,
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "no_kvp_client"
-          }
-        ],
+        "openmrs_entity_id": "namba_ya_mteja_ukoma",
+        "type": "mask_edit_text",
+        "mask": "##-##-##-######-#/UK/####/#",
+        "mask_hint":"020302200078980241" ,
+        "allowed_chars": "0123456789",
+        "hint": "Namba ya Mteja wa Ukoma",
+        "v_regex": {
+          "value": "^\\d{2}-\\d{2}-\\d{2}-\\d{6}-\\d/[A-Z]{2}/\\d{4}/\\d$",
+          "err": "Namba ya Mteja wa ukoma inatakiwa iwe katika muundo huu (22-12-45-566789-0/KK/2025/1)"
+        },
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "tb_leprosy_screening.yml"
+              "rules-file": "tbleprosy_screening_relevance.yml"
             }
           }
         }
-      },
+      }
+    ]
+  },
+  "step2": {
+    "title": "Aina Ya Mteja",
+    "next": "step3",
+    "fields": [
       {
-        "key": "kvp_group",
+        "key": "kundi_maalumu",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "kvp_group",
+        "openmrs_entity_id": "kundi_maalumu",
         "type": "native_radio",
-        "label": "Choose a KVP Group",
+        "label": "Je mteja ni wa kundi maalumu?",
         "label_text_size": "18px",
-        "label_text_style": "bold",
-        "options":[
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jaza taarifa"
+        },
+        "options": [
           {
-            "key": "health_care_providers",
-            "text": "Health Care Providers",
-            "value": false,
+            "key": "ndiyo",
+            "text": "Ndiyo",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "health_care_providers"
+            "openmrs_entity_id": "ndiyo"
           },
           {
-            "key": "miners",
-            "text": "Miners",
-            "value": false,
+            "key": "hapana",
+            "text": "Hapana",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "miners"
+            "openmrs_entity_id": "hapana"
+          }
+        ]
+      },
+      {
+        "key": "kundi_la_mteja",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "kundi_la_mteja",
+        "type": "native_radio",
+        "label": "Chagua Kundi la mteja?",
+        "label_text_size": "18px",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jaza taarifa"
+        },
+        "options": [
+          {
+            "key": "muhudumu_wa_afya",
+            "text": "Muhudumu wa Afya",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "muhudumu_wa_afya"
           },
           {
-            "key": "prisoners_prison_officers",
-            "text": "Prisoners/Prison Officers",
-            "value": false,
+            "key": "mchimbaji",
+            "text": "Mchimbaji(Machimbo/Migodi)",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "prisoners_prison_officers"
+            "openmrs_entity_id": "mchimbaji"
+          },
+          {
+            "key": "mfungwa_afisa",
+            "text": "Mfungwa/Afisa wa Magereza",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "mfungwa_afisa"
           },
           {
             "key": "pwud",
             "text": "PWUD",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "pwud"
           },
           {
-            "key": "fisherfolks",
-            "text": "Fisherfolks",
-            "value": false,
+            "key": "mvuvi",
+            "text": "Mvuvi(Kambi ya wavuvi)",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "fisherfolks"
+            "openmrs_entity_id": "pwud"
           },
           {
-            "key": "refugees",
-            "text": "Refugees",
-            "value": false,
+            "key": "wakimbizi",
+            "text": "Wakimbizi",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "refugees"
+            "openmrs_entity_id": "wakimbizi"
           },
           {
-            "key": "migrants",
-            "text": "Migrants",
-            "value": false,
+            "key": "wahamiaji",
+            "text": "Wahamiaji",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "migrants"
+            "openmrs_entity_id": "wahamiaji"
           },
           {
             "key": "slum_dwellers",
             "text": "Slum Dwellers",
-            "value": false,
             "openmrs_entity": "concept",
             "openmrs_entity_id": "slum_dwellers"
           },
           {
-            "key": "other_kvp_group",
-            "text": "Others(Specify)",
-            "value": false,
+            "key": "kundi_lingine",
+            "text": "Kundi lingine(Taja)",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "other_kvp_group"
+            "openmrs_entity_id": "kundi_lingine"
           }
         ],
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "tb_leprosy_screening.yml"
+              "rules-file": "tbleprosy_screening_relevance.yml"
             }
           }
         }
       },
       {
-        "key": "specify_kvp_group",
-        "hint": "Others(Specify)",
-        "type": "edit_text",
+        "key": "taja_kundi_lingine",
+        "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "specify_kvp_group",
+        "openmrs_entity_id": "taja_kundi_lingine",
+        "type": "edit_text",
+        "hint": "Taja Kundi Lingine",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali taja"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "tb_leprosy_screening.yml"
+              "rules-file": "tbleprosy_screening_relevance.yml"
             }
           }
         }
       },
       {
-        "key": "screen_location",
+        "key": "uchunguzi_ulipofanyika",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "screen_location",
+        "openmrs_entity_id": "uchunguzi_ulipofanyika",
         "type": "native_radio",
-        "label": "Screen Location",
+        "label": "Mahali uchunguzi ulipofanyika?",
         "label_text_size": "18px",
-        "label_text_style": "bold",
-        "options":[
-          {
-            "key": "addo_pharmacy",
-            "text": "ADDO/Pharmacy",
-            "value": false,
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "addo_pharmacy"
-          },
-          {
-            "key": "traditional_healers",
-            "text": "Traditional Healers",
-            "value": false,
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "traditional_healers"
-          },
-          {
-            "key": "public_meeting",
-            "text": "Public Meeting",
-            "value": false,
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "public_meeting"
-          },
-          {
-            "key": "church_mosque",
-            "text": "Church/Mosque",
-            "value": false,
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "church_mosque"
-          },
-          {
-            "key": "school_college",
-            "text": "School/College",
-            "value": false,
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "school_college"
-          },
-          {
-            "key": "market",
-            "text": "Market",
-            "value": false,
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "market"
-          },
-          {
-            "key": "other_screening_location",
-            "text": "Other(Specify)",
-            "value": false,
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "other_screening_location"
-          }
-        ],
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "tb_leprosy_screening.yml"
-            }
-          }
-        }
-      },
-      {
-        "key": "specify_screening_location",
-        "hint": "Others(Specify)",
-        "type": "edit_text",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "specify_screening_location",
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "tb_leprosy_screening.yml"
-            }
-          }
-        }
-      },
-      {
-        "key": "tbleprosy_screening",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "tbleprosy_screening",
-        "type": "check_box",
-        "label": "",
-        "label_text_size": "18px",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jaza taarifa"
+        },
         "options": [
           {
-            "key": "tb_screening",
-            "text": "TB",
-            "value": false,
+            "key": "duka_la_dawa",
+            "text": "Duka la dawa",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "tb_screening"
+            "openmrs_entity_id": "duka_la_dawa"
           },
           {
-            "key": "leprosy_screening",
-            "text": "Leprosy",
-            "value": false,
+            "key": "mganga_tiba_asili",
+            "text": "Mganga wa Tiba Asili",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "leprosy_screening"
+            "openmrs_entity_id": "mganga_tiba_asili"
+          },
+          {
+            "key": "mikutano_ya_hadhara",
+            "text": "Mikutano ya Hadhara",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "mikutano_ya_hadhara"
+          },
+          {
+            "key": "nyumba_za_ibada",
+            "text": "Nyumba za Ibada",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "nyumba_za_ibada"
+          },
+          {
+            "key": "shule_vyuo",
+            "text": "Shule/Vyuo",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "shule_vyuo"
+          },
+          {
+            "key": "sokoni",
+            "text": "Sokoni",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "sokoni"
+          },
+          {
+            "key": "kwingineko",
+            "text": "Kwingineko(Taja)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "kwingineko"
           }
-        ],
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "tb_leprosy_screening.yml"
-            }
-          }
-        }
-
+        ]
       },
       {
-        "key": "tested_hiv",
+        "key": "taja_sehemu_nyingine",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "tested_hiv",
-        "type": "native_radio",
-        "label": "Tested for HIV",
-        "label_text_size": "18px",
-        "label_text_style": "bold",
-        "options": [
-          {
-            "key": "yes_tested_hiv",
-            "text": "Yes",
-            "value": false,
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "yes_tested_hiv"
-          },
-          {
-            "key": "no_tested_hiv",
-            "text": "No",
-            "value": false,
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "no_tested_hiv"
-          }
-        ],
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "tb_leprosy_screening.yml"
-            }
-          }
-        }
-
-      },
-      {
-        "key": "tb_screening_symptoms",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "tb_screening_symptoms",
-        "type": "check_box",
-        "label": "TB Screening Symptoms",
-        "label_text_size": "18px",
-        "label_text_style": "bold",
-        "options":[
-          {
-            "key": "cough",
-            "text": "Cough",
-            "value": false,
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "cough"
-          },
-          {
-            "key": "cough_with_blood",
-            "text": "Cough with Blood",
-            "value": false,
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "cough_with_blood"
-          },
-          {
-            "key": "fever",
-            "text": "Fever",
-            "value": false,
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "fever"
-          },
-          {
-            "key": "weight_loss",
-            "text": "Weight Loss",
-            "value": false,
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "weight_loss"
-          },
-          {
-            "key": "excessive_night_sweats",
-            "text": "Excessive Night Sweats",
-            "value": false,
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "excessive_night_sweats"
-          },
-          {
-            "key": "no_tb_symptoms",
-            "text": "No symptoms",
-            "value": false,
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "no_tb_symptoms"
-          },
-          {
-            "key": "other_tb_symptoms",
-            "text": "Extra Pulmonary TB Symptoms",
-            "value": false,
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "other_tb_symptoms"
-          }
-        ],
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "tb_leprosy_screening.yml"
-            }
-          }
-        }
-      },
-      {
-        "key": "extra_pulmonary_tb_symptoms",
-        "hint": "Extra Pulmonary TB Symptoms(Specify)",
+        "openmrs_entity_id": "taja_sehemu_nyingine",
         "type": "edit_text",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "extra_pulmonary_tb_symptoms",
+        "hint": "Taja Eneo",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali taja"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "tb_leprosy_screening.yml"
+              "rules-file": "tbleprosy_screening_relevance.yml"
             }
           }
         }
-      },
-      {
-        "key": "leprosy_screening_symptoms",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "leprosy_screening_symptoms",
-        "type": "check_box",
-        "label": "Leprosy Screening Symptoms",
-        "label_text_size": "18px",
-        "label_text_style": "bold",
-        "options":[
-          {
-            "key": "pale_reddish_skin",
-            "text": "One or more pale or reddish, hypopigmented patch(es) on the skin with diminished or loss of sensation",
-            "value": false,
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "cough"
-          },
-          {
-            "key": "painless_swelling",
-            "text": "Painless swelling or lumps\n on the face and/or earlobes",
-            "value": false,
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "cough_with_blood"
-          },
-          {
-            "key": "enlarged_tender_nerves",
-            "text": "Enlarged and/or tender nerves",
-            "value": false,
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "fever"
-          },
-          {
-            "key": "burning_skin",
-            "text": "Burning sensation of the skin,\n numbness or tingling of hands/or feet",
-            "value": false,
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "weight_loss"
-          },
-          {
-            "key": "weekness_eyelids",
-            "text": "Weekness of eyelids, hands and/or feet",
-            "value": false,
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "excessive_night_sweats"
-          },
-          {
-            "key": "no_leprosy_symptoms",
-            "text": "No symptoms",
-            "value": false,
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "no_leprosy_symptoms"
-          },
-          {
-            "key": "painless_wounds",
-            "text": "Painless wounds or burns on the hands and/or feet",
-            "value": false,
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "other_tb_symptoms"
-          }
-        ],
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "tb_leprosy_screening.yml"
-            }
-          }
-        }
-      },
-      {
-        "key": "status",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "status",
-        "type": "edit_text",
-        "hint": "client status",
-        "value": "contact"
       }
+    ]
+  },
+  "step3": {
+    "title": "General Health Assessment",
+    "next": "step4",
+    "fields": [
+      {
+        "key": "chagua_aina_ya_uchunguzi",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "chagua_aina_ya_uchunguzi",
+        "type": "check_box",
+        "combine_checkbox_option_values": "true",
+        "label": "Uchunguzi wa Awali wa Kifua Kikuu au Ukoma uliofanyika",
+        "label_text_size": "18px",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jaza taarifa"
+        },
+        "options": [
+          {
+            "key": "tb",
+            "text": "TB",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "tb"
+          },
+          {
+            "key": "ukoma",
+            "text": "Ukoma",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "ukoma"
+          }
+        ]
+      },
+      {
+        "key": "majibu_ya_uchunguzi_tb",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "majibu_ya_uchunguzi_tb",
+        "type": "check_box",
+        "combine_checkbox_option_values": "true",
+        "label": "Matokeo ya Mahojiano Kuhusu TB",
+        "label_text_size": "18px",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jaza taarifa"
+        },
+        "exclusive": [
+          "hana_dalili"
+        ],
+        "options": [
+          {
+            "key": "kikohozi",
+            "text": "Kikohozi(KH)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "kikohozi"
+          },
+          {
+            "key": "makohozi",
+            "text": "Makohozi yaliyochangayika na damu(D)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "makohozi"
+          },
+          {
+            "key": "homa",
+            "text": "Homa(H)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "homa"
+          },
+          {
+            "key": "kupungua_uzito",
+            "text": "Kupungua Uzito(KU)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "kupungua_uzito"
+          },
+          {
+            "key": "kutokwa_na_jasho",
+            "text": "Kutokwa na jasho jingi kuliko kawaida hasa nyakati za usiku",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "kutokwa_na_jasho"
+          },
+          {
+            "key": "dalili_za_tb_nje_ya_mapafu",
+            "text": "Dalili za TB nje ya mapafu(Specify)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "dalili_za_tb_nje_ya_mapafu"
+          },
+          {
+            "key": "hana_dalili",
+            "text": "Hana Dalili",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hana_dalili"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_screening_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "majibu_ya_uchunguzi_ukoma",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "majibu_ya_uchunguzi_ukoma",
+        "type": "check_box",
+        "combine_checkbox_option_values": "true",
+        "label": "Matokeo ya Mahojiano Kuhusu Ukoma",
+        "label_text_size": "18px",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jaza taarifa"
+        },
+        "exclusive": [
+          "hana_dalili"
+        ],
+        "options": [
+          {
+            "key": "baka_mabaka_yasiyo_hisia",
+            "text": "Baka au Mabaka yasiyo na hisia(B)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "baka_mabaka_yasiyo_hisia"
+          },
+          {
+            "key": "ngozi_kuota_vinundu_kukamaa",
+            "text": "Ngozi kuota Vinundu au Kukamaa(NV)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "ngozi_kuota_vinundu_kukamaa"
+          },
+          {
+            "key": "ganzi_mikononi_miguuni",
+            "text": "Ganzi Mikononi/Miguuni",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "ganzi_mikononi_miguuni"
+          },
+          {
+            "key": "kupata_ulemavu_vidonda_sugu",
+            "text": "Kupata ulemavu au vidonda sugu",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "kupata_ulemavu_vidonda_sugu"
+          },
+          {
+            "key": "hana_dalili",
+            "text": "Hana Dalili",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hana_dalili"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_screening_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "screening_status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "screening_status",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_screening_calculation.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "non_presumptive_prompt",
+        "type": "toaster_notes",
+        "text": "Mteja hana dalili za ukoma wala TB kwa sasa.",
+        "toaster_info_title": "Hakuna dalili za ukoma zilizobainika",
+        "toaster_info_text": "Mteja hana dalili za ukoma wala TB zilizobainika katika uchunguzi huu.",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "toaster_type": "info",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_screening_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "leprosy_referral_prompt",
+        "type": "toaster_notes",
+        "text": "Mteja ana dalili za ukoma, toa rufaa kwenda kituo cha afya.",
+        "toaster_info_title": "Mpe mteja rufaa ya kwenda kituo cha afya",
+        "toaster_info_text": "Mteja anaonekana kuwa mtuhumiwa wa ukoma. Andaa na mkabidhi rufaa ya kwenda kituo cha afya kwa uchunguzi zaidi.",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "toaster_type": "warning",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_screening_relevance.yml"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "step4": {
+    "title": "Upimaji wa VVU",
+    "fields": [
+      {
+        "key": "amepimwa_vvu",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "amepimwa_vvu",
+        "type": "native_radio",
+        "label": "Amepimwa VVU?",
+        "label_text_size": "18px",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jaza taarifa"
+        },
+        "options": [
+          {
+            "key": "ndiyo",
+            "text": "Ndiyo",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "ndiyo"
+          },
+          {
+            "key": "hapana",
+            "text": "Hapana",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hapana"
+          }
+
+        ]
+      }
+
     ]
   }
 }
