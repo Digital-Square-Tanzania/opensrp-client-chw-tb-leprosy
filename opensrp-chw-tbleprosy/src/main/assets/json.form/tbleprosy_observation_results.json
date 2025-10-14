@@ -144,11 +144,11 @@
         "type": "native_radio",
         "options": [
           {
-            "key": "kifua_kikuu_ya_mapafu",
-            "text": "Kifua kikuu ya mapafu",
+            "key": "kifua_kikuu_cha_mapafu",
+            "text": "Kifua kikuu cha mapafu",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "kifua_kikuu_ya_mapafu"
+            "openmrs_entity_id": "kifua_kikuu_cha_mapafu"
           },
           {
             "key": "kifua_kikuu_nje_ya_mapafu",

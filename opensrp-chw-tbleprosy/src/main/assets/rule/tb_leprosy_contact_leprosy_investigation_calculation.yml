@@ -1,0 +1,7 @@
+---
+name: step1_screening_status
+description: screening status calculation
+priority: 1
+condition: "true"
+actions:
+  - "calculation = step1_majibu_ya_uchunguzi_ukoma != null && !step1_majibu_ya_uchunguzi_ukoma.isEmpty() && step1_majibu_ya_uchunguzi_ukoma.contains('hana_dalili') ? 'leprocy_presumptive' : '-' "

@@ -64,10 +64,6 @@
           "hana_dalili",
           "dalili_za_tb_nje_ya_mapafu"
         ],
-        "v_required": {
-          "value": "true",
-          "err": "Please select an option"
-        },
         "options":[
           {
             "key": "kikohozi",
@@ -174,6 +170,20 @@
           "rules-engine": {
             "ex-rules": {
               "rules-file": "tb_leprosy_contact_tb_investigation.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "screening_status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "screening_status",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tb_leprosy_contact_tb_investigation_calculation.yml"
             }
           }
         }

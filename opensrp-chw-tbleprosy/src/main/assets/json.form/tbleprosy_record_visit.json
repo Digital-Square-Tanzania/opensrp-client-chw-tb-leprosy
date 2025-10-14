@@ -52,7 +52,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "kuchukuliwa_sampuli",
         "type": "native_radio",
-        "label": "Je mteja anahitajika kuchukuliwa sampuli?",
+        "label": "Je mteja amechukuliwa sampuli?",
         "label_text_size": "18px",
         "v_required": {
           "value": "true",
@@ -74,20 +74,42 @@
         ]
       },
       {
+        "key": "sample_collection_date",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "sample_collection_date",
+        "type": "date_picker",
+        "hint": "Tarehe ya kuchukuliwa sampuli",
+        "expanded": false,
+        "max_date": "today",
+        "v_required": {
+          "value": "true",
+          "err": "Please select an answer"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_record_visit_relevance.yml"
+            }
+          }
+        }
+      },
+      {
         "key": "aina_sampuli",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "aina_sampuli",
-        "type": "native_radio",
+        "type": "check_box",
+        "combine_checkbox_option_values": "true",
         "label": "Aina ya sampuli",
         "label_text_size": "18px",
         "options": [
           {
-            "key": "kikohozi",
-            "text": "Kikohozi",
+            "key": "makohozi",
+            "text": "makohozi",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "kikohozi"
+            "openmrs_entity_id": "makohozi"
           },
           {
             "key": "kinyesi",

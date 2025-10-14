@@ -13,6 +13,13 @@ condition: "step1_mteja_anahitaji_kifaa_kingine.contains('yes')"
 actions:
   - "isRelevant = true"
 ---
+name: step1_sample_collection_date
+description: sample_collection_date
+priority: 1
+condition: "step1_kuchukuliwa_sampuli.contains('yes')"
+actions:
+  - "isRelevant = true"
+---
 name: step1_aina_sampuli
 description: aina_sampuli
 priority: 1

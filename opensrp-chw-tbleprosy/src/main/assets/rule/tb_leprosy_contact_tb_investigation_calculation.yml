@@ -1,0 +1,7 @@
+---
+name: step1_screening_status
+description: screening status calculation
+priority: 1
+condition: "true"
+actions:
+  - "calculation = step1_majibu_ya_uchunguzi_tb != null && !step1_majibu_ya_uchunguzi_tb.isEmpty() && !step1_majibu_ya_uchunguzi_tb.contains('hana_dalili') ? 'tb-presumptive' : '-' "

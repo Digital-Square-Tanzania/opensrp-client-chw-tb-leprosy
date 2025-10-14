@@ -117,9 +117,9 @@
           }
         ],
         "relevance": {
-          "step1:is_the_client_living_with_or_near_tb_leprosy_patient": {
+          "step1:aina_ya_ukaribu_na_mgonjwa": {
             "type": "string",
-            "ex": "equalTo(., \"yes\")"
+            "ex": "notEqualTo(., \"maeneo_ya_wagonjwa_wengi\")"
           }
         }
       },
@@ -129,8 +129,8 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "namba_ya_mteja_tb",
         "type": "mask_edit_text",
-        "mask": "##-##-##-######-#/KK/####/#",
-        "mask_hint":"020301100029820241" ,
+        "mask": "##-##-##-######-#/KK/2025/#",
+        "mask_hint":"020301100029820251" ,
         "allowed_chars": "0123456789",
         "hint": "Namba ya Mteja wa Kifua Kikuu",
         "v_regex": {
@@ -155,8 +155,8 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "namba_ya_mteja_ukoma",
         "type": "mask_edit_text",
-        "mask": "##-##-##-######-#/UK/####/#",
-        "mask_hint":"020302200078980241" ,
+        "mask": "##-##-##-######-#/UK/2025/#",
+        "mask_hint":"020302200078920251" ,
         "allowed_chars": "0123456789",
         "hint": "Namba ya Mteja wa Ukoma",
         "v_regex": {

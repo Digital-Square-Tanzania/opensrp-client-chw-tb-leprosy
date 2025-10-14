@@ -5,12 +5,18 @@ priority: 1
 condition: "!global_observation.contains('hana_dalili')"
 actions:
   - "isRelevant = true"
-
+---
+name: step1_sample_collection_date
+description: sample_collection_date
+priority: 1
+condition: "step1_mteja_anahitaji_kifaa_kingine.equalsIgnoreCase('yes')"
+actions:
+  - "isRelevant = true"
 ---
 name: step1_kifaa_cha_sampuli
 description: Kifaa cha sampuli
 priority: 1
-condition: "step1_kikopo_cha_ziada_cha_sampuli.equalsIgnoreCase('ndio_anahitaji')"
+condition: "step1_mteja_anahitaji_kifaa_kingine.equalsIgnoreCase('yes')"
 actions:
   - "isRelevant = true"
 ---
