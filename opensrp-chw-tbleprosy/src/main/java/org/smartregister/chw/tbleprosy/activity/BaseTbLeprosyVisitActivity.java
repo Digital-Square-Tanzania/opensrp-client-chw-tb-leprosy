@@ -234,18 +234,24 @@ public class BaseTbLeprosyVisitActivity extends SecuredActivity implements BaseT
 
     @Override
     public void redrawVisitUI() {
-        boolean valid = actionList.size() > 0;
+        boolean hasValidAction = false;
+        boolean allActionsComplete = true;
         for (Map.Entry<String, BaseTbLeprosyVisitAction> entry : actionList.entrySet()) {
             BaseTbLeprosyVisitAction action = entry.getValue();
-            if (
-                    (!action.isOptional() && (action.getActionStatus() == BaseTbLeprosyVisitAction.Status.PENDING && action.isValid()))
-                            || !action.isEnabled()
-            ) {
-                valid = false;
+            if (!action.isValid()) {
+                continue;
+            }
+
+            hasValidAction = true;
+
+            if (!action.isEnabled()
+                    || (!action.isOptional() && action.getActionStatus() == BaseTbLeprosyVisitAction.Status.PENDING)) {
+                allActionsComplete = false;
                 break;
             }
         }
 
+        boolean valid = hasValidAction && allActionsComplete;
         int res_color = valid ? R.color.white : R.color.light_grey;
         tvSubmit.setTextColor(getResources().getColor(res_color));
         tvSubmit.setOnClickListener(valid ? this : null); // update listener to null

@@ -26,11 +26,14 @@ public class TbLeprosySampleActionHelper implements BaseTbLeprosyVisitAction.TbL
     protected Context context;
 
     protected MemberObject memberObject;
+    private TbLeprosyInvestigationActionHelper tbInvestigationActionHelper;
 
 
-    public TbLeprosySampleActionHelper(Context context, MemberObject memberObject) {
+    public TbLeprosySampleActionHelper(Context context, MemberObject memberObject, TbLeprosyInvestigationActionHelper tbInvestigationActionHelper) {
         this.context = context;
         this.memberObject = memberObject;
+        this.tbInvestigationActionHelper = tbInvestigationActionHelper;
+        this.observation = tbInvestigationActionHelper != null ? tbInvestigationActionHelper.getScreeningStatus() : null;
     }
 
     @Override
@@ -43,7 +46,7 @@ public class TbLeprosySampleActionHelper implements BaseTbLeprosyVisitAction.TbL
         try {
             JSONObject jsonObject = new JSONObject(jsonPayload);
             JSONObject global = jsonObject.getJSONObject("global");
-            global.put("observation", observation);
+            global.put("observation", getCurrentScreeningStatus());
             return jsonObject.toString();
         } catch (JSONException e) {
             e.printStackTrace();
@@ -98,5 +101,24 @@ public class TbLeprosySampleActionHelper implements BaseTbLeprosyVisitAction.TbL
     @Override
     public void onPayloadReceived(BaseTbLeprosyVisitAction baseTbLeprosyVisitAction) {
         Timber.v("onPayloadReceived");
+    }
+
+    public boolean isEligibleForSampleCollection() {
+        return tbInvestigationActionHelper != null && tbInvestigationActionHelper.isTbPresumptive();
+    }
+
+    private String getCurrentScreeningStatus() {
+        if (tbInvestigationActionHelper != null) {
+            String status = tbInvestigationActionHelper.getScreeningStatus();
+            if (StringUtils.isNotBlank(status)) {
+                return status;
+            }
+        }
+        return StringUtils.defaultString(observation);
+    }
+
+    public void setTbInvestigationActionHelper(TbLeprosyInvestigationActionHelper tbInvestigationActionHelper) {
+        this.tbInvestigationActionHelper = tbInvestigationActionHelper;
+        this.observation = tbInvestigationActionHelper != null ? tbInvestigationActionHelper.getScreeningStatus() : null;
     }
 }

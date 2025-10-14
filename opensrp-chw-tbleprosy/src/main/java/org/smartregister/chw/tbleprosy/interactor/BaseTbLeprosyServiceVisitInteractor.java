@@ -5,7 +5,12 @@ import android.content.Context;
 
 import androidx.annotation.VisibleForTesting;
 
+import com.vijay.jsonwizard.constants.JsonFormConstants;
+import com.vijay.jsonwizard.utils.FormUtils;
+
 import org.apache.commons.lang3.StringUtils;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.smartregister.chw.tbleprosy.R;
 import org.smartregister.chw.tbleprosy.TbLeprosyLibrary;
 import org.smartregister.chw.tbleprosy.actionhelper.TbLeprosyInvestigationActionHelper;
@@ -18,8 +23,10 @@ import org.smartregister.chw.tbleprosy.util.AppExecutors;
 import org.smartregister.chw.tbleprosy.util.Constants;
 import org.smartregister.sync.helper.ECSyncHelper;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import timber.log.Timber;
@@ -33,6 +40,7 @@ public class BaseTbLeprosyServiceVisitInteractor extends BaseTbLeprosyVisitInter
     protected AppExecutors appExecutors;
     private ECSyncHelper syncHelper;
     private Context mContext;
+    private TbLeprosyInvestigationActionHelper contactTbInvestigationHelper;
 
 
     @VisibleForTesting
@@ -92,7 +100,7 @@ public class BaseTbLeprosyServiceVisitInteractor extends BaseTbLeprosyVisitInter
                 .withOptional(false)
                 .withDetails(details)
                 .withHelper(actionHelper)
-                .withFormName(Constants.TbLeprosy_FOLLOWUP_FORMS.TBLEPROSY_SOURCE)
+                .withFormName(Constants.TbLeprosy_FOLLOWUP_FORMS.TBLEPROSY_INDEX_CLIENT_DETAILS_SOURCE)
                 .build();
         actionList.put(context.getString(R.string.tbleprosy_source), action);
 
@@ -106,10 +114,12 @@ public class BaseTbLeprosyServiceVisitInteractor extends BaseTbLeprosyVisitInter
     private void evaluateContactTbInvestigation(Map<String, List<VisitDetail>> details) throws BaseTbLeprosyVisitAction.ValidationException {
 
         TbLeprosyInvestigationActionHelper actionHelper = new TbLeprosyInvestigationActionHelper(mContext, memberObject);
+        contactTbInvestigationHelper = actionHelper;
         BaseTbLeprosyVisitAction action = getBuilder(context.getString(R.string.tbleprosy_contact_tb_investigation))
                 .withOptional(false)
                 .withDetails(details)
                 .withHelper(actionHelper)
+                .withValidator(getSourceContactTypeValidator("tb"))
                 .withFormName(Constants.TbLeprosy_FOLLOWUP_FORMS.TBLEPROSY_CONTACT_TB_INVESTIGATION)
                 .build();
         actionList.put(context.getString(R.string.tbleprosy_contact_tb_investigation), action);
@@ -127,6 +137,7 @@ public class BaseTbLeprosyServiceVisitInteractor extends BaseTbLeprosyVisitInter
                 .withOptional(false)
                 .withDetails(details)
                 .withHelper(actionHelper)
+                .withValidator(getSourceContactTypeValidator("ukoma"))
                 .withFormName(Constants.TbLeprosy_FOLLOWUP_FORMS.TBLEPROSY_CONTACT_LEPROSY_INVESTIGATION)
                 .build();
         actionList.put(context.getString(R.string.tbleprosy_contact_leprosy_investigation), action);
@@ -139,14 +150,133 @@ public class BaseTbLeprosyServiceVisitInteractor extends BaseTbLeprosyVisitInter
      */
     private void evaluateTbLeprosySample(Map<String, List<VisitDetail>> details) throws BaseTbLeprosyVisitAction.ValidationException {
 
-        TbLeprosySampleActionHelper actionHelper = new TbLeprosySampleActionHelper(mContext, memberObject);
+        TbLeprosySampleActionHelper actionHelper = new TbLeprosySampleActionHelper(mContext, memberObject, contactTbInvestigationHelper);
         BaseTbLeprosyVisitAction action = getBuilder(context.getString(R.string.tbleprosy_sample))
-                .withOptional(true)
+                .withOptional(false)
                 .withDetails(details)
                 .withHelper(actionHelper)
+                .withValidator(getSampleEligibilityValidator(actionHelper))
                 .withFormName(Constants.TbLeprosy_FOLLOWUP_FORMS.TBLEPROSY_SAMPLE)
                 .build();
         actionList.put(context.getString(R.string.tbleprosy_sample), action);
+    }
+
+    private BaseTbLeprosyVisitAction.Validator getSourceContactTypeValidator(final String requiredType) {
+        return new BaseTbLeprosyVisitAction.Validator() {
+            @Override
+            public boolean isValid(String key) {
+                return isSourceContactTypeSelected(requiredType);
+            }
+
+            @Override
+            public boolean isEnabled(String key) {
+                return isValid(key);
+            }
+
+            @Override
+            public void onChanged(String key) {
+                // UI refresh handles visibility changes when data updates
+            }
+        };
+    }
+
+    private boolean isSourceContactTypeSelected(String requiredType) {
+        if (StringUtils.isBlank(requiredType) || context == null) {
+            return false;
+        }
+
+        BaseTbLeprosyVisitAction sourceAction = actionList.get(context.getString(R.string.tbleprosy_source));
+        if (sourceAction == null) {
+            return false;
+        }
+
+        String payload = sourceAction.getJsonPayload();
+        if (StringUtils.isBlank(payload)) {
+            return false;
+        }
+
+        try {
+            JSONObject jsonObject = new JSONObject(payload);
+            List<String> selections = extractSelections(jsonObject, "anaishi_karibu_na_mgonjwa");
+
+            if (selections.isEmpty()) {
+                selections = extractSelections(jsonObject, "aina_ya_ukaribu_na_mgonjwa");
+            }
+
+            String normalizedRequiredType = requiredType.toLowerCase(Locale.ENGLISH);
+            for (String selection : selections) {
+                if (StringUtils.isBlank(selection)) {
+                    continue;
+                }
+                if (selection.toLowerCase(Locale.ENGLISH).equals(normalizedRequiredType)) {
+                    return true;
+                }
+            }
+        } catch (Exception e) {
+            Timber.e(e);
+        }
+
+        return false;
+    }
+
+    private List<String> extractSelections(JSONObject jsonObject, String key) {
+        List<String> selections = new ArrayList<>();
+        if (jsonObject == null || StringUtils.isBlank(key)) {
+            return selections;
+        }
+
+        try {
+            JSONObject fieldObject = FormUtils.getFieldFromForm(jsonObject, key);
+            if (fieldObject == null || !fieldObject.has(JsonFormConstants.VALUE)) {
+                return selections;
+            }
+
+            Object rawValue = fieldObject.get(JsonFormConstants.VALUE);
+            if (rawValue instanceof JSONArray) {
+                JSONArray array = (JSONArray) rawValue;
+                for (int i = 0; i < array.length(); i++) {
+                    String value = array.optString(i);
+                    if (StringUtils.isNotBlank(value)) {
+                        selections.add(value.trim());
+                    }
+                }
+            } else if (rawValue instanceof String) {
+                String value = (String) rawValue;
+                if (StringUtils.isNotBlank(value)) {
+                    String[] tokens = value.split("[,\\s]+");
+                    for (String token : tokens) {
+                        if (StringUtils.isNotBlank(token)) {
+                            selections.add(token.trim());
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            Timber.e(e);
+        }
+
+        return selections;
+    }
+
+    private BaseTbLeprosyVisitAction.Validator getSampleEligibilityValidator(final TbLeprosySampleActionHelper sampleActionHelper) {
+        return new BaseTbLeprosyVisitAction.Validator() {
+            @Override
+            public boolean isValid(String key) {
+                return sampleActionHelper != null
+                        && isSourceContactTypeSelected("tb")
+                        && sampleActionHelper.isEligibleForSampleCollection();
+            }
+
+            @Override
+            public boolean isEnabled(String key) {
+                return isValid(key);
+            }
+
+            @Override
+            public void onChanged(String key) {
+                // No-op
+            }
+        };
     }
 
     @Override

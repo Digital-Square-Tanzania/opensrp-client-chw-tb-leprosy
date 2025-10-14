@@ -49,9 +49,12 @@ public class TbLeprosySourceActionHelper implements BaseTbLeprosyVisitAction.TbL
             JSONObject jsonObject = new JSONObject(jsonPayload);
 
             JSONArray fields = jsonObject.getJSONObject(JsonFormConstants.STEP1).getJSONArray(JsonFormConstants.FIELDS);
-            JSONObject clientNumber = JsonFormUtils.getFieldJSONObject(fields, "namba_ya_mteja");
+            JSONObject tbClientNumber = JsonFormUtils.getFieldJSONObject(fields, "namba_ya_mteja_tb");
+            tbClientNumber.put("mask","##-##-##-######-#/KK/" + Calendar.getInstance().get(Calendar.YEAR) + "/#");
 
-            clientNumber.put("mask","##-##-##-######-#/KK/" + Calendar.getInstance().get(Calendar.YEAR) + "/#");
+
+            JSONObject leprosyClientNumber = JsonFormUtils.getFieldJSONObject(fields, "namba_ya_mteja_ukoma");
+            leprosyClientNumber.put("mask","##-##-##-######-#/UK/" + Calendar.getInstance().get(Calendar.YEAR) + "/#");
 
 
 

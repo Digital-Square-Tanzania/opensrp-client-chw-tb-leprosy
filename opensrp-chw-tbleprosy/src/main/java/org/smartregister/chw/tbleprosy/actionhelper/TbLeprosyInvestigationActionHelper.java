@@ -20,6 +20,7 @@ public class TbLeprosyInvestigationActionHelper implements BaseTbLeprosyVisitAct
     protected String jsonPayload;
 
     protected String tbleprosyObservation;
+    protected String screeningStatus;
 
     protected String baseEntityId;
 
@@ -36,6 +37,12 @@ public class TbLeprosyInvestigationActionHelper implements BaseTbLeprosyVisitAct
     @Override
     public void onJsonFormLoaded(String jsonPayload, Context context, Map<String, List<VisitDetail>> map) {
         this.jsonPayload = jsonPayload;
+        try {
+            JSONObject jsonObject = new JSONObject(jsonPayload);
+            screeningStatus = JsonFormUtils.getValue(jsonObject, "screening_status");
+        } catch (JSONException e) {
+            Timber.e(e);
+        }
     }
 
 
@@ -62,6 +69,7 @@ public class TbLeprosyInvestigationActionHelper implements BaseTbLeprosyVisitAct
                 tbleprosyObservation = JsonFormUtils.getValue(jsonObject, "majibu_ya_uchunguzi_ukoma");
             }
 
+            screeningStatus = JsonFormUtils.getValue(jsonObject, "screening_status");
 
         } catch (JSONException e) {
            Timber.e(e);
@@ -99,5 +107,13 @@ public class TbLeprosyInvestigationActionHelper implements BaseTbLeprosyVisitAct
     @Override
     public void onPayloadReceived(BaseTbLeprosyVisitAction baseTbLeprosyVisitAction) {
         Timber.v("onPayloadReceived");
+    }
+
+    public String getScreeningStatus() {
+        return screeningStatus;
+    }
+
+    public boolean isTbPresumptive() {
+        return StringUtils.equalsIgnoreCase(screeningStatus, "tb-presumptive");
     }
 }
