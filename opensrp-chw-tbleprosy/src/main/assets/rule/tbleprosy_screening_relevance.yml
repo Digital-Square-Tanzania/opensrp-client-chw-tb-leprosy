@@ -1,15 +1,36 @@
 ---
+name: step1_do_you_know_clients_number
+description: do_you_know_clients_number
+priority: 1
+condition: "step1_anaishi_karibu_na_mgonjwa.contains('tb') || step1_anaishi_karibu_na_mgonjwa.contains('ukoma')"
+actions:
+  - "isRelevant = true"
+---
 name: step1_namba_ya_mteja_tb
 description: enter tb client id
 priority: 1
-condition: "step1_anaishi_karibu_na_mgonjwa.contains('tb')"
+condition: "step1_anaishi_karibu_na_mgonjwa.contains('tb') && step1_do_you_know_clients_number.contains('yes')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_majina_ya_mteja_tb
+description: capture tb client names when id unknown
+priority: 1
+condition: "step1_anaishi_karibu_na_mgonjwa.contains('tb') && step1_do_you_know_clients_number.contains('no')"
 actions:
   - "isRelevant = true"
 ---
 name: step1_namba_ya_mteja_ukoma
 description: enter leprosy client id
 priority: 1
-condition: "step1_anaishi_karibu_na_mgonjwa.contains('ukoma')"
+condition: "step1_anaishi_karibu_na_mgonjwa.contains('ukoma') && step1_do_you_know_clients_number.contains('yes')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_majina_ya_mteja_ukoma
+description: capture leprosy client names when id unknown
+priority: 1
+condition: "step1_anaishi_karibu_na_mgonjwa.contains('ukoma') && step1_do_you_know_clients_number.contains('no')"
 actions:
   - "isRelevant = true"
 ---

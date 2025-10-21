@@ -84,13 +84,47 @@
         ]
       },
       {
+        "key": "do_you_know_clients_number",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "type": "native_radio",
+        "label": "Mteja anafahamu namba ya Mteja wa Kifua Kikuu/Ukoma ayeishi karibu naye?",
+        "label_text_size": "18px",
+        "v_required": {
+          "value": "true",
+          "err": "Please answer the question"
+        },
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndiyo",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "hapana"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_screening_relevance.yml"
+            }
+          }
+        }
+      },
+      {
         "key": "namba_ya_mteja_tb",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "namba_ya_mteja_tb",
         "type": "mask_edit_text",
         "mask": "############-#/KK/####/###",
-        "mask_hint":"070201100097-5/KK/2025/431" ,
+        "mask_hint": "07020110009752025431",
         "allowed_chars": "0123456789",
         "hint": "Namba ya Mteja wa Kifua Kikuu",
         "v_regex": {
@@ -106,13 +140,32 @@
         }
       },
       {
+        "key": "majina_ya_mteja_tb",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "majina_ya_mteja_tb",
+        "type": "edit_text",
+        "hint": "Majina ya Mteja wa Kifua Kikuu",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jaza taarifa"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_screening_relevance.yml"
+            }
+          }
+        }
+      },
+      {
         "key": "namba_ya_mteja_ukoma",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "namba_ya_mteja_ukoma",
         "type": "mask_edit_text",
-        "mask": "############-#/UK/####/###",
-        "mask_hint":"070201100097-5/UK/2025/431" ,
+        "mask": "############-#/UK/555421/###",
+        "mask_hint": "07020110009752025431",
         "allowed_chars": "0123456789",
         "hint": "Namba ya Mteja wa Ukoma",
         "v_regex": {
@@ -128,13 +181,32 @@
         }
       },
       {
+        "key": "majina_ya_mteja_ukoma",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "majina_ya_mteja_ukoma",
+        "type": "edit_text",
+        "hint": "Majina ya Mteja wa Ukoma",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jaza taarifa"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_screening_relevance.yml"
+            }
+          }
+        }
+      },
+      {
         "key": "status",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "status",
-        "type": "edit_text",
+        "type": "hidden",
         "hint": "client status",
-        "value": "contact"
+        "value": "client"
       }
     ]
   },
@@ -378,13 +450,17 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "majibu_ya_uchunguzi_tb",
-        "type": "native_radio",
+        "type": "check_box",
+        "combine_checkbox_option_values": "true",
         "label": "Majibu ya Uchunguzi wa TB",
         "label_text_size": "18px",
         "v_required": {
           "value": "true",
           "err": "Tafadhali jaza taarifa"
         },
+        "exclusive": [
+          "hana_dalili"
+        ],
         "options": [
           {
             "key": "kikohozi",
@@ -437,19 +513,22 @@
           }
         }
       },
-
       {
         "key": "majibu_ya_uchunguzi_ukoma",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "majibu_ya_uchunguzi_ukoma",
-        "type": "native_radio",
+        "type": "check_box",
+        "combine_checkbox_option_values": "true",
         "label": "Majibu ya Uchunguzi wa Ukoma",
         "label_text_size": "18px",
         "v_required": {
           "value": "true",
           "err": "Tafadhali jaza taarifa"
         },
+        "exclusive": [
+          "hana_dalili"
+        ],
         "options": [
           {
             "key": "baka_mabaka_yasiyo_hisia",
@@ -489,6 +568,56 @@
             }
           }
         }
+      },
+      {
+        "key": "screening_status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "screening_status",
+        "type": "hidden",
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_screening_calculation.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "non_presumptive_prompt",
+        "type": "toaster_notes",
+        "text": "Mteja hana dalili za ukoma wala TB kwa sasa.",
+        "toaster_info_title": "Hakuna dalili za ukoma zilizobainika",
+        "toaster_info_text": "Mteja hana dalili za ukoma wala TB zilizobainika katika uchunguzi huu.",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "toaster_type": "info",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_screening_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "leprosy_referral_prompt",
+        "type": "toaster_notes",
+        "text": "Mteja ana dalili za ukoma, toa rufaa kwenda kituo cha afya.",
+        "toaster_info_title": "Mpe mteja rufaa ya kwenda kituo cha afya",
+        "toaster_info_text": "Mteja anaonekana kuwa mtuhumiwa wa ukoma. Andaa na mkabidhi rufaa ya kwenda kituo cha afya kwa uchunguzi zaidi.",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "toaster_type": "warning",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_screening_relevance.yml"
+            }
+          }
+        }
       }
     ]
   },
@@ -520,7 +649,6 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "hapana"
           }
-
         ]
       }
     ]
