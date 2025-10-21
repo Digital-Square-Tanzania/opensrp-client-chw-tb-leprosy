@@ -47,3 +47,17 @@ priority: 1
 condition: "step3_chagua_aina_ya_uchunguzi.contains('ukoma')"
 actions:
   - "isRelevant = true"
+---
+name: step3_leprosy_referral_prompt
+description: prompt referral when client is presumptive for leprosy
+priority: 1
+condition: "step3_screening_status != null && step3_screening_status.contains('leprocy_presumptive')"
+actions:
+  - "isRelevant = true"
+---
+name: step3_non_presumptive_prompt
+description: notify when client is not presumptive for leprosy
+priority: 1
+condition: "(!step3_majibu_ya_uchunguzi_tb.isEmpty() || !step3_majibu_ya_uchunguzi_ukoma.isEmpty()) && step3_screening_status != null && step3_screening_status == '-'"
+actions:
+  - "isRelevant = true"
