@@ -129,17 +129,13 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "namba_ya_mteja_tb",
         "type": "mask_edit_text",
-        "mask": "##-##-##-######-#/KK/2025/#",
-        "mask_hint":"020301100029820251" ,
+        "mask": "############-#/KK/####/###",
+        "mask_hint":"070201100097-5/KK/2025/431" ,
         "allowed_chars": "0123456789",
         "hint": "Namba ya Mteja wa Kifua Kikuu",
         "v_regex": {
-          "value": "^\\d{2}-\\d{2}-\\d{2}-\\d{6}-\\d/[A-Z]{2}/\\d{4}/\\d$",
-          "err": "Namba ya Mteja wa Kifua Kikuu inatakiwa iwe katika muundo huu (22-12-45-566789-0/KK/2025/1)"
-        },
-        "v_required": {
-          "value": "true",
-          "err": "Please select an option"
+          "value": "^\\d{12}-\\d/KK/\\d{4}/\\d{3}$",
+          "err": "Namba ya Mteja wa Kifua Kikuu inatakiwa iwe katika muundo huu (070201100097-5/KK/2025/431)"
         },
         "relevance": {
           "rules-engine": {
@@ -155,17 +151,13 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "namba_ya_mteja_ukoma",
         "type": "mask_edit_text",
-        "mask": "##-##-##-######-#/UK/2025/#",
-        "mask_hint":"020302200078920251" ,
+        "mask": "############-#/UK/####/###",
+        "mask_hint":"070201100097-5/UK/2025/431" ,
         "allowed_chars": "0123456789",
         "hint": "Namba ya Mteja wa Ukoma",
         "v_regex": {
-          "value": "^\\d{2}-\\d{2}-\\d{2}-\\d{6}-\\d/[A-Z]{2}/\\d{4}/\\d$",
-          "err": "Namba ya Mteja wa ukoma inatakiwa iwe katika muundo huu (22-12-45-566789-0/KK/2025/1)"
-        },
-        "v_required": {
-          "value": "true",
-          "err": "Please select an option"
+          "value": "^\\d{12}-\\d/UK/\\d{4}/\\d{3}$",
+          "err": "Namba ya Mteja wa ukoma inatakiwa iwe katika muundo huu (070201100097-5/UK/2025/431)"
         },
         "relevance": {
           "rules-engine": {
