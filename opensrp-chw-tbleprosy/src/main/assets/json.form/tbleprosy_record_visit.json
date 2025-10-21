@@ -164,45 +164,37 @@
         "key": "mteja_anahitaji_kifaa_kingine",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "kuchukuliwa_sampuli",
+        "openmrs_entity_id": "mteja_anahitaji_kifaa_kingine",
         "type": "native_radio",
-        "label": "Je, mteja anahitaji kifaa kingine cha ziada cha kuchukulia sampuli?",
+        "label": "Chagua kikopo cha kuchukulia sampuli alichopewa mteja",
         "label_text_size": "18px",
-        "v_required": {
-          "value": "true",
-          "err": "Tafadhali jaza taarifa"
-        },
         "options": [
           {
-            "key": "yes",
-            "text": "Ndiyo",
+            "key": "sputum_container",
+            "text": "Kikopo cha makohozi",
+            "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "yes"
+            "openmrs_entity_id": "sputum_container"
           },
           {
-            "key": "no",
-            "text": "Hapana",
+            "key": "urine_container",
+            "text": "Kikopo cha mkojo",
+            "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "no"
+            "openmrs_entity_id": "urine_container"
+          },
+          {
+            "key": "stool_container",
+            "text": "Kikopo cha kinyesi",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "stool_container"
           }
         ],
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "tbleprosy_record_visit_relevance.yml"
-            }
-          }
-        }
-      },
-      {
-        "key": "mpatie_mteja_kifaa",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "mpatie_mteja_kifaa",
-        "type": "toaster_notes",
-        "text": "Mpatie mteja kifaa cha kuchukulia sampuli",
-        "text_color": "#CF0800",
-        "toaster_type": "info",
+        "v_required": {
+          "value": "true",
+          "err": "Please select an option"
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
