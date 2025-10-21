@@ -119,10 +119,16 @@ public class TbLeprosyDao extends AbstractDao {
     }
 
     public static String getTBleprosyObservationResults(String baseEntityId) {
-        String sql = "SELECT aina_ya_uchunguzi FROM ec_tbleprosy_observation_results p " +
+        String sql = "SELECT tb_sample_test_results, clinical_decision FROM ec_tbleprosy_observation_results p " +
                 " WHERE p.base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
 
-        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "aina_ya_uchunguzi");
+        DataMap<String> dataMap = cursor -> {
+            String tbSampleTestResults = getCursorValue(cursor, "tb_sample_test_results");
+            if (StringUtils.isNotBlank(tbSampleTestResults)) {
+                return tbSampleTestResults;
+            }
+            return getCursorValue(cursor, "clinical_decision");
+        };
 
         List<String> res = readData(sql, dataMap);
         if (res != null && res.size() != 0 && res.get(0) != null) {
@@ -168,6 +174,20 @@ public class TbLeprosyDao extends AbstractDao {
             return res.get(0);
         }
         return "";
+    }
+
+    public static boolean hasTbLeprosyVisit(String baseEntityId) {
+        String sql = "SELECT count(p.entity_id) count FROM ec_tbleprosy_visit p " +
+                " WHERE p.entity_id = '" + baseEntityId + "'";
+
+        DataMap<Integer> dataMap = cursor -> getCursorIntValue(cursor, "count");
+
+        List<Integer> res = readData(sql, dataMap);
+        if (res == null || res.size() != 1) {
+            return false;
+        }
+        Integer count = res.get(0);
+        return count != null && count > 0;
     }
 
     public static Date getTbLeprosyTestDate(String baseEntityID) {

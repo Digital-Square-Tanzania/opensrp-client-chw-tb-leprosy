@@ -254,6 +254,9 @@ public abstract class BaseTbLeprosyProfileActivity extends BaseProfileActivity i
             }
             else if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_tbleprosy_contact_visit_followup))) {
                 this.openTbContactFollowUpVisit();
+            }
+            else if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_observation_results))) {
+                this.openObservationResults();
             } else {
                 Toast.makeText(getApplicationContext(), "No click", Toast.LENGTH_SHORT).show();
             }
@@ -263,11 +266,7 @@ public abstract class BaseTbLeprosyProfileActivity extends BaseProfileActivity i
             this.continueContactVisit();
         }
         else if (id == R.id.textview_register_tb_leprosy_contact) {
-            // Here, Open the New Activity
             this.openTbLeprosyContactRegister();
-        }
-        else if (id == R.id.rlObservationResults) {
-            this.openObservationResults();
         }
     }
 

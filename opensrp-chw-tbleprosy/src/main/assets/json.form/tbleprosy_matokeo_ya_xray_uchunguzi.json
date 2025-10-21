@@ -130,10 +130,10 @@
         }
       },
       {
-        "key": "maamuzi_kitabibu",
+        "key": "clinical_decision",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "maamuzi_kitabibu",
+        "openmrs_entity_id": "clinical_decision",
         "label": "Maamuzi ya kitabibu",
         "label_text_style": "bold",
         "text_color": "#000000",

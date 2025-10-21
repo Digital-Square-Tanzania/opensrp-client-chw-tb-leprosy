@@ -75,11 +75,11 @@
             "openmrs_entity_id": "kifua_kikuu_sugu"
           },
           {
-            "key": "sampuli_haina_ubora",
+            "key": "poor_quality_sample",
             "text": "Sampuli Haina ubora",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "sampuli_haina_ubora"
+            "openmrs_entity_id": "poor_quality_sample"
           },
           {
             "key": "hana_tb",

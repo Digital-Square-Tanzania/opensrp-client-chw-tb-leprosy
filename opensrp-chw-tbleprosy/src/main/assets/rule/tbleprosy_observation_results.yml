@@ -5,7 +5,7 @@ condition: "step1_aina_ya_uchunguzi.contains('tb')"
 actions:
   - "isRelevant = true"
 ---
-name: step1_matokeo_ya_sampuli_tb
+name: step1_tb_sample_test_results
 description:  matokeo ya sampuli ya TB kama aina ya kipimo cha uchunguzi kilichotumika kupima TB
 priority: 1
 condition: "step1_kipimo_cha_uchunguzi_kilichotumika_kupima_tb.equalsIgnoreCase('trunati') || step1_kipimo_cha_uchunguzi_kilichotumika_kupima_tb.equalsIgnoreCase('genexpert') || step1_kipimo_cha_uchunguzi_kilichotumika_kupima_tb.equals('hadubini')"
@@ -29,7 +29,7 @@ actions:
 name: step1_ameanza_tiba_tb_dr
 description:  Kama matokeo ya sampuli ya TB ni kifua kikuu ya mapafu au nje ya mapafu au kifua kikuu sugu
 priority: 1
-condition: "step1_matokeo_ya_sampuli_tb.equalsIgnoreCase('kifua_kikuu_ya_mapafu') || step1_matokeo_ya_sampuli_tb.equalsIgnoreCase('kifua_kikuu_nje_ya_mapafu') || step1_matokeo_ya_sampuli_tb.equalsIgnoreCase('kifua_kikuu_sugu') || step1_maamuzi_kitabibu.equalsIgnoreCase('suggestive')"
+condition: "step1_tb_sample_test_results.equalsIgnoreCase('kifua_kikuu_ya_mapafu') || step1_tb_sample_test_results.equalsIgnoreCase('kifua_kikuu_nje_ya_mapafu') || step1_tb_sample_test_results.equalsIgnoreCase('kifua_kikuu_sugu') || step1_clinical_decision.equalsIgnoreCase('suggestive')"
 actions:
   - "isRelevant = true"
 ---
@@ -47,7 +47,7 @@ condition: "step1_matokeo_uchunguzi_ukoma.equalsIgnoreCase('amegundulika_na_ukom
 actions:
   - "isRelevant = true"
 ---
-name: step1_maamuzi_kitabibu
+name: step1_clinical_decision
 description:  Kama aina ya kipimo cha uchunguzi kilichotumika kupima TB ni xray au score chart
 priority: 1
 condition: "step1_kipimo_cha_uchunguzi_kilichotumika_kupima_tb.equalsIgnoreCase('xray') || step1_kipimo_cha_uchunguzi_kilichotumika_kupima_tb.equalsIgnoreCase('score_chart')"
@@ -57,14 +57,14 @@ actions:
 name: step1_anastahili_kuanzishiwa_tpt
 description:  Kama maamuzi ya kitabibu jibu ni non-suggestive
 priority: 1
-condition: "step1_maamuzi_kitabibu.equalsIgnoreCase('non_suggestive') || step1_matokeo_ya_sampuli_tb.equalsIgnoreCase('tb_dr_tb_haijagundulika')"
+condition: "step1_clinical_decision.equalsIgnoreCase('non_suggestive') || step1_tb_sample_test_results.equalsIgnoreCase('tb_dr_tb_haijagundulika')"
 actions:
   - "isRelevant = true"
 ---
 name: step1_toaster_sampuli_haina_ubora
 description: if toaster_sampuli_haina_ubora
 priority: 1
-condition: "step1_matokeo_ya_sampuli_tb.equalsIgnoreCase('sampuli_haina_ubora')"
+condition: "step1_tb_sample_test_results.equalsIgnoreCase('sampuli_haina_ubora')"
 actions:
   - "isRelevant = true "
 ---

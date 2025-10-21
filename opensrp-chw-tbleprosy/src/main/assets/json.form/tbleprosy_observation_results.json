@@ -134,10 +134,10 @@
         }
       },
       {
-        "key": "matokeo_ya_sampuli_tb",
+        "key": "tb_sample_test_results",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "matokeo_ya_sampuli_tb",
+        "openmrs_entity_id": "tb_sample_test_results",
         "label": "Matokeo ya sampuli ya TB",
         "label_text_style": "bold",
         "text_color": "#000000",
@@ -172,11 +172,11 @@
             "openmrs_entity_id": "tb_dr_tb_haijagundulika"
           },
           {
-            "key": "sampuli_haina_ubora",
+            "key": "poor_quality_sample",
             "text": "Sampuli Haina ubora",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "sampuli_haina_ubora"
+            "openmrs_entity_id": "poor_quality_sample"
           }
         ],
         "v_required": {
@@ -192,10 +192,10 @@
         }
       },
       {
-        "key": "maamuzi_kitabibu",
+        "key": "clinical_decision",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "maamuzi_kitabibu",
+        "openmrs_entity_id": "clinical_decision",
         "label": "Maamuzi ya kitabibu",
         "label_text_style": "bold",
         "text_color": "#000000",
