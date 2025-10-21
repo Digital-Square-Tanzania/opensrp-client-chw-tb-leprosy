@@ -134,11 +134,11 @@
             "openmrs_entity_id": "mkojo"
           },
           {
-            "key": "nyingine",
+            "key": "other",
             "text": "Nyingine(Taja)",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "nyingine"
+            "openmrs_entity_id": "other"
           }
         ],
         "relevance": {
@@ -174,38 +174,35 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "mteja_anahitaji_kifaa_kingine",
         "type": "native_radio",
-        "label": "Je mteja anahitaji kikopo cha ziada kuchukulia sampuli?",
+        "label": "Chagua kikopo cha kuchukulia sampuli alichopewa mteja",
         "label_text_size": "18px",
         "options": [
           {
-            "key": "yes",
-            "text": "Ndio",
+            "key": "sputum_container",
+            "text": "Kikopo cha makohozi",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "yes"
+            "openmrs_entity_id": "sputum_container"
           },
           {
-            "key": "no",
-            "text": "Hapana",
+            "key": "urine_container",
+            "text": "Kikopo cha mkojo",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "no"
+            "openmrs_entity_id": "urine_container"
+          },
+          {
+            "key": "stool_container",
+            "text": "Kikopo cha kinyesi",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "stool_container"
           }
         ],
         "v_required": {
           "value": "true",
           "err": "Please select an option"
-        }
-      },
-      {
-        "key": "kifaa_cha_sampuli",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "kifaa_cha_sampuli",
-        "type": "toaster_notes",
-        "text": "Mpatie Mteja kifaa cha kuchukulia Sampuli",
-        "text_color": "#CF0800",
-        "toaster_type": "info",
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
