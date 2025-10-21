@@ -78,7 +78,7 @@ public class TbLeprosyDao extends AbstractDao {
 
         DataMap<String> dataMap = cursor -> getCursorValue(cursor, "status");
         List<String> res = readData(sql, dataMap);
-        if (res != null && res.size() != 0) {
+        if (res != null && !res.isEmpty()) {
             return res.get(0);
         }
         return null;
@@ -131,7 +131,7 @@ public class TbLeprosyDao extends AbstractDao {
         };
 
         List<String> res = readData(sql, dataMap);
-        if (res != null && res.size() != 0 && res.get(0) != null) {
+        if (res != null && !res.isEmpty() && res.get(0) != null) {
             return res.get(0);
         }
         return "";
@@ -144,7 +144,7 @@ public class TbLeprosyDao extends AbstractDao {
         DataMap<String> dataMap = cursor -> getCursorValue(cursor, "matokeo_ya_uchunguzi_tb");
 
         List<String> res = readData(sql, dataMap);
-        if (res != null && res.size() != 0 && res.get(0) != null) {
+        if (res != null && !res.isEmpty() && res.get(0) != null) {
             return res.get(0);
         }
         return "";
@@ -157,7 +157,7 @@ public class TbLeprosyDao extends AbstractDao {
         DataMap<String> dataMap = cursor -> getCursorValue(cursor, "sababu_ya_ufuatiliaji");
 
         List<String> res = readData(sql, dataMap);
-        if (res != null && res.size() != 0 && res.get(0) != null) {
+        if (res != null && !res.isEmpty() && res.get(0) != null) {
             return res.get(0);
         }
         return "";
@@ -165,12 +165,12 @@ public class TbLeprosyDao extends AbstractDao {
 
     public static String getTBleprosyVisit(String baseEntityId) {
         String sql = "SELECT kuchukuliwa_sampuli FROM ec_tbleprosy_visit p " +
-                " WHERE p.base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+                " WHERE p.entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
 
         DataMap<String> dataMap = cursor -> getCursorValue(cursor, "kuchukuliwa_sampuli");
 
         List<String> res = readData(sql, dataMap);
-        if (res != null && res.size() != 0 && res.get(0) != null) {
+        if (res != null && !res.isEmpty() && res.get(0) != null) {
             return res.get(0);
         }
         return "";
@@ -209,7 +209,7 @@ public class TbLeprosyDao extends AbstractDao {
         DataMap<String> dataMap = cursor -> getCursorValue(cursor, "tbleprosy_client_id");
 
         List<String> res = readData(sql, dataMap);
-        if (res != null && res.size() != 0 && res.get(0) != null) {
+        if (res != null && !res.isEmpty() && res.get(0) != null) {
             return res.get(0);
         }
         return "";
@@ -222,7 +222,7 @@ public class TbLeprosyDao extends AbstractDao {
         DataMap<String> dataMap = cursor -> getCursorValue(cursor, "enrollment_date");
 
         List<String> res = readData(sql, dataMap);
-        if (res != null && res.size() != 0 && res.get(0) != null) {
+        if (res != null && !res.isEmpty() && res.get(0) != null) {
             return res.get(0);
         }
         return "";
@@ -233,7 +233,7 @@ public class TbLeprosyDao extends AbstractDao {
         DataMap<Integer> map = cursor -> getCursorIntValue(cursor, "visit_number");
         List<Integer> res = readData(sql, map);
 
-        if (res != null && res.size() > 0 && res.get(0) != null) {
+        if (res != null && !res.isEmpty() && res.get(0) != null) {
             return res.get(0) + 1;
         } else
             return 0;
@@ -261,7 +261,7 @@ public class TbLeprosyDao extends AbstractDao {
         DataMap<Integer> dataMap = cursor -> getCursorIntValue(cursor, "count");
 
         List<Integer> res = readData(sql, dataMap);
-        if (res == null || res.size() == 0)
+        if (res == null || res.isEmpty())
             return 0;
         return res.get(0);
     }
