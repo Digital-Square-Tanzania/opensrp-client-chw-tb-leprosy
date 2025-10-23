@@ -99,14 +99,7 @@
             "openmrs_entity": "concept",
             "openmrs_entity_id": "hana_dalili"
           }
-        ],
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "tbleprosy_screening_relevance.yml"
-            }
-          }
-        }
+        ]
       },
       {
         "key": "mhisiwa_wa_ukoma",
@@ -151,7 +144,7 @@
         "calculation": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "tb_leprosy_contact_tb_investigation_calculation.yml"
+              "rules-file": "tb_leprosy_contact_leprosy_investigation_calculation.yml"
             }
           }
         }

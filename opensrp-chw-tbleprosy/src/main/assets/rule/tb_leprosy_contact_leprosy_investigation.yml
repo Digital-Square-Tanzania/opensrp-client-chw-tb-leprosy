@@ -2,7 +2,7 @@
 name: step1_mhisiwa_wa_ukoma
 description: mhisiwa_wa_ukoma
 priority: 1
-condition: "!step1_majibu_ya_uchunguzi_tb.contains('hana_dalili')"
+condition: "!step1_majibu_ya_uchunguzi_ukoma.contains('hana_dalili')"
 actions:
   - "isRelevant = true"
 
@@ -10,6 +10,6 @@ actions:
 name: step1_sio_mhisiwa_wa_ukoma
 description: sio_mhisiwa_wa_ukoma
 priority: 1
-condition: "step1_majibu_ya_uchunguzi_tb.contains('hana_dalili')"
+condition: "step1_majibu_ya_uchunguzi_ukoma.contains('hana_dalili')"
 actions:
   - "isRelevant = true"
