@@ -62,18 +62,18 @@
         "label_text_size": "18px",
         "options": [
           {
-            "key": "ndio_sampuli",
+            "key": "yes",
             "text": "Ndio",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "ndio_sampuli"
+            "openmrs_entity_id": "yes"
           },
           {
-            "key": "hapana_sampuli",
+            "key": "no",
             "text": "Hapana",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "hapana_sampuli"
+            "openmrs_entity_id": "no"
           }
         ],
         "v_required": {
@@ -114,7 +114,7 @@
         "options": [
           {
             "key": "makohozi",
-            "text": "makohozi",
+            "text": "Makohozi",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "makohozi"

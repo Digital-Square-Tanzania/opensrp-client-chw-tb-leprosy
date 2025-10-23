@@ -2,21 +2,28 @@
 name: step1_sample_collection_date
 description: sample_collection_date
 priority: 1
-condition: "step1_mteja_anahitaji_kifaa_kingine.equalsIgnoreCase('yes')"
+condition: "step1_amechukuliwa_sampuli.equalsIgnoreCase('yes')"
 actions:
   - "isRelevant = true"
 ---
 name: step1_kifaa_cha_sampuli
 description: Kifaa cha sampuli
 priority: 1
-condition: "step1_mteja_anahitaji_kifaa_kingine.equalsIgnoreCase('yes')"
+condition: "step1_amechukuliwa_sampuli.equalsIgnoreCase('yes')"
 actions:
   - "isRelevant = true"
 ---
 name: step1_aina_sampuli
 description: je amechukuliwa sample
 priority: 1
-condition: "step1_amechukuliwa_sampuli.equalsIgnoreCase('ndio_sampuli')"
+condition: "step1_amechukuliwa_sampuli.equalsIgnoreCase('yes')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_mteja_anahitaji_kifaa_kingine
+description: mteja_anahitaji_kifaa_kingine
+priority: 1
+condition: "step1_amechukuliwa_sampuli.equalsIgnoreCase('yes')"
 actions:
   - "isRelevant = true"
 ---
