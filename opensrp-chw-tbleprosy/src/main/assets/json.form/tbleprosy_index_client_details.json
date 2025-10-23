@@ -234,6 +234,15 @@
             }
           }
         }
+      },
+      {
+        "key": "status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "status",
+        "type": "hidden",
+        "hint": "client status",
+        "value": "client"
       }
     ]
   }
