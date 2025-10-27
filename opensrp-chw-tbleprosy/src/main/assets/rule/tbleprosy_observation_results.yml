@@ -1,3 +1,11 @@
+---
+name: step1_contact_lives_with_patient_type
+description: show contact options when client lives near patient
+priority: 1
+condition: "step1_living_with_tb_leprosy_patient.contains('yes')"
+actions:
+  - "isRelevant = true"
+---
 name: step1_tb_diagnostic_test_type
 description:  kipimo cha uchunguzi kilichotumika kupima TB kama aina ya uchunguzi ni kifua kikuu
 priority: 1

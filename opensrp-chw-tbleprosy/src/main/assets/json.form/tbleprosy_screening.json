@@ -48,6 +48,33 @@
     "next": "step2",
     "fields": [
       {
+        "key": "living_with_tb_leprosy_patient",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "type": "native_radio",
+        "label": "Living with, or near TB/Leprosy Patient",
+        "label_text_size": "18px",
+        "v_required": {
+          "value": "true",
+          "err": "Please answer the question"
+        },
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ]
+      },
+      {
         "key": "contact_lives_with_patient_type",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
@@ -55,12 +82,16 @@
         "type": "check_box",
         "label": "Client lives with/near which patient type?",
         "label_text_size": "18px",
-        "exclusive": [
-          "none"
-        ],
         "v_required": {
           "value": "true",
           "err": "Please provide this information"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_screening_relevance.yml"
+            }
+          }
         },
         "options": [
           {
@@ -74,12 +105,6 @@
             "text": "Leprosy",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "leprosy"
-          },
-          {
-            "key": "none",
-            "text": "None",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "none"
           }
         ]
       },
