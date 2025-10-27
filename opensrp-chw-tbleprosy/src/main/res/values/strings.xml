@@ -51,7 +51,7 @@
     <string name="tbleprosy_no_contacts_available">No eligible contacts available</string>
     <string name="tbleprosy_contact_option_family">Family members</string>
     <string name="tbleprosy_contact_option_all_clients">All other clients</string>
-    <string name="observation_results">View Observation Results</string>
+    <string name="observation_results">View Visit History</string>
     <string name="call_no_number_provided">(no number provided)</string>
     <string name="record_observation_results">Record Observation Results</string>
     <string name="view_observation_results">View Service History</string>
