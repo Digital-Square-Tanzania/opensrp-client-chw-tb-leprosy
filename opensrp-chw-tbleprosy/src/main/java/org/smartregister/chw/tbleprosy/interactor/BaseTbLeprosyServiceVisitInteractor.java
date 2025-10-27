@@ -222,10 +222,7 @@ public class BaseTbLeprosyServiceVisitInteractor extends BaseTbLeprosyVisitInter
 
         String[] candidateKeys = new String[]{
                 "index_case_condition_types",
-                "contact_lives_with_patient_type",
-                "relationship_to_index_client",
-                "anaishi_karibu_na_mgonjwa",
-                "aina_ya_ukaribu_na_mgonjwa"
+                "relationship_to_index_client"
         };
 
         for (String key : candidateKeys) {
@@ -256,11 +253,9 @@ public class BaseTbLeprosyServiceVisitInteractor extends BaseTbLeprosyVisitInter
         String normalized = rawValue.trim().toLowerCase(Locale.ENGLISH);
         switch (normalized) {
             case "tb":
-            case "tuberculosis":
             case "high_tb_burden_area":
                 return "tb";
             case "leprosy":
-            case "ukoma":
                 return "leprosy";
             default:
                 return null;
