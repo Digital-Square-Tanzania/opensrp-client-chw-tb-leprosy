@@ -1,0 +1,529 @@
+{
+  "validate_on_submit": true,
+  "count": "1",
+  "encounter_type": "TBLEPROSY Observation Results",
+  "entity_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "163137AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "163149AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "163150AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "163151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "163152AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": ""
+  },
+  "global": {},
+  "step1": {
+    "title": "Matokeo ya Uchunguzi",
+    "fields": [
+      {
+        "key": "investigation_type",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "investigation_type",
+        "type": "check_box",
+        "label": "Aina ya Uchunguzi",
+        "label_text_style": "bold",
+        "text_color": "#000000",
+        "combine_checkbox_option_values": "true",
+        "options": [
+          {
+            "key": "tuberculosis",
+            "text": "Kifua Kikuu (TB)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "tuberculosis"
+          },
+          {
+            "key": "leprosy",
+            "text": "Ukoma",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "leprosy"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali taja"
+        }
+      },
+      {
+        "key": "tb_diagnostic_test_type",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "tb_diagnostic_test_type",
+        "label": "Aina ya kipimo cha uchunguzi kilichotumika kupima TB",
+        "label_text_style": "bold",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "genexpert",
+            "text": "GeneXpert",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "genexpert"
+          },
+          {
+            "key": "trunati",
+            "text": "Trunati",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "trunati"
+          },
+          {
+            "key": "hadubini",
+            "text": "Hadubini",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "microscopy"
+          },
+          {
+            "key": "xray",
+            "text": "X-ray",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "xray"
+          },
+          {
+            "key": "score_chart",
+            "text": "Score Chart",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "score_chart"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali taja"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_observation_results.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "tb_sample_test_results",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "tb_sample_test_results",
+        "label": "Matokeo ya sampuli ya TB",
+        "label_text_style": "bold",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "pulmonary_tb",
+            "text": "Kifua kikuu cha mapafu",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "pulmonary_tb"
+          },
+          {
+            "key": "extra_pulmonary_tb",
+            "text": "Kifua kikuu nje ya mapafu",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "extra_pulmonary_tb"
+          },
+          {
+            "key": "drug_resistant_tb",
+            "text": "Kifua Kikuu sugu (DR-TB)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "drug_resistant_tb"
+          },
+          {
+            "key": "tb_dr_tb_undetected",
+            "text": "TB,DR-TB Haijagundulika",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "tb_dr_tb_undetected"
+          },
+          {
+            "key": "poor_quality_sample",
+            "text": "Sampuli Haina ubora",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "poor_quality_sample"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali taja"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_observation_results.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "clinical_decision",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "clinical_decision",
+        "label": "Maamuzi ya kitabibu",
+        "label_text_style": "bold",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "suggestive",
+            "text": "Suggestive",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "suggestive"
+          },
+          {
+            "key": "non_suggestive",
+            "text": "Non suggestive",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "non_suggestive"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali taja"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_observation_results.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "leprosy_diagnostic_method",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "leprosy_diagnostic_method",
+        "label": "Aina ya uchunguzi uliyotumika kupima ukoma",
+        "label_text_style": "bold",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "hadubini",
+            "text": "Hadubini",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "microscopy"
+          },
+          {
+            "key": "clinical_decision_method",
+            "text": "Maamuzi ya kitabibu",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "clinical_decision_method"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua jibu"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_observation_results.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "leprosy_investigation_results",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "leprosy_investigation_results",
+        "label": "Matokeo ya uchunguzi wa Ukoma",
+        "label_text_style": "bold",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "leprosy_confirmed",
+            "text": "Amegundulika na Ukoma",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "leprosy_confirmed"
+          },
+          {
+            "key": "no_leprosy_detected",
+            "text": "Hana Ukoma",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no_leprosy_detected"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua jibu"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_observation_results.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "tb_treatment_initiated",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "tb_treatment_initiated",
+        "label": "Ameanza tiba ya TB/DR TB?",
+        "label_text_style": "bold",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndiyo",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua jibu"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_observation_results.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "leprosy_treatment_initiated",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "leprosy_treatment_initiated",
+        "label": "Ameanza tiba ya Ukoma?",
+        "label_text_style": "bold",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndiyo",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua jibu"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_observation_results.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "eligible_for_tpt",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "eligible_for_tpt",
+        "label": "Mteja anastahili kuanzishiwa TPT?",
+        "label_text_style": "bold",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndiyo",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua jibu"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_observation_results.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "tpt_initiation_date",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "tpt_initiation_date",
+        "type": "date_picker",
+        "hint": "Tarehe ya Kuanzishiwa TPT",
+        "label_text_size": "18px",
+        "expanded": false,
+        "max_date": "today",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_observation_results.yml"
+            }
+          }
+        },
+        "label": "TPT initiation date"
+      },
+      {
+        "key": "tb_treatment_start_date",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "tb_treatment_start_date",
+        "type": "date_picker",
+        "hint": "Tarehe ya kuanza tiba ya Kifua Kikuu",
+        "label_text_size": "18px",
+        "expanded": false,
+        "max_date": "today",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_observation_results.yml"
+            }
+          }
+        },
+        "label": "TB treatment start date"
+      },
+      {
+        "key": "leprosy_treatment_start_date",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "leprosy_treatment_start_date",
+        "type": "date_picker",
+        "hint": "Tarehe ya kuanza tiba Ukoma",
+        "label_text_size": "18px",
+        "expanded": false,
+        "max_date": "today",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_observation_results.yml"
+            }
+          }
+        },
+        "label": "Leprosy treatment start date"
+      },
+      {
+        "key": "hiv_tested",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "hiv_tested",
+        "label": "Amepima VVU?",
+        "label_text_style": "bold",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "yes_hiv_tested",
+            "text": "Ndiyo",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes_hiv_tested"
+          },
+          {
+            "key": "no_hiv_not_tested",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no_hiv_not_tested"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua jibu"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_observation_results.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "poor_sample_quality_prompt",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "person_attribute",
+        "openmrs_entity_id": "poor_sample_quality_prompt",
+        "type": "toaster_notes",
+        "text": "Kusanya sampuli ya mteja kwaajili ya kurudia kufanya kipimo cha kifua kikuu",
+        "text_color": "#CF0800",
+        "toaster_type": "info",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_observation_results.yml"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

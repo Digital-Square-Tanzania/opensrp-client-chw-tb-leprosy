@@ -1,0 +1,247 @@
+{
+  "count": "1",
+  "encounter_type": "Njia ya Uchunguzi wa Kifua Kikuu",
+  "entity_id": "",
+  "relational_id": "",
+  "validate_on_submit": true,
+  "show_errors_on_submit": false,
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "163137AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "163149AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "163150AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "163151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "163152AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": "",
+    "look_up": {
+      "entity_id": "",
+      "value": ""
+    }
+  },
+  "global": {},
+  "step1": {
+    "title": "Taarifa za mteja",
+    "fields": [
+      {
+        "key": "relationship_to_index_client",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "relationship_to_index_client",
+        "type": "native_radio",
+        "label": "Aina ya Ukaribu na Mgonjwa",
+        "label_text_size": "18px",
+        "options": [
+          {
+            "key": "same_household",
+            "text": "Anaishi Kaya Moja",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "same_household"
+          },
+          {
+            "key": "close_community_member",
+            "text": "Jamii ya Karibu",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "close_community_member"
+          },
+          {
+            "key": "high_tb_burden_area",
+            "text": "Maeneo yenye wagonjwa wengi wa Kifua Kikuu",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "high_tb_burden_area"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali chagua chaguo"
+        }
+      },
+      {
+        "key": "index_case_condition_types",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "index_case_condition_types",
+        "type": "check_box",
+        "label": "Aina ya mgonjwa anayeishi naye/karibu naye",
+        "label_text_size": "18px",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jaza taarifa"
+        },
+        "options": [
+          {
+            "key": "tuberculosis",
+            "text": "TB",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "tuberculosis"
+          },
+          {
+            "key": "leprosy",
+            "text": "Ukoma",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "leprosy"
+          }
+        ],
+        "relevance": {
+          "step1:relationship_to_index_client": {
+            "type": "string",
+            "ex": "notEqualTo(., \"high_tb_burden_area\")"
+          }
+        }
+      },
+      {
+        "key": "do_you_know_clients_number",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "type": "native_radio",
+        "label": "Mteja anaifahamu namba ya Mteja wa Kifua Kikuu/Ukoma",
+        "label_text_size": "18px",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jibu swali"
+        },
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes"
+          },
+          {
+            "key": "no",
+            "text": "No"
+          }
+        ],
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_contact_index_details_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "tb_client_number",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "tb_client_number",
+        "type": "mask_edit_text",
+        "mask": "############-#/KK/####/###",
+        "mask_hint": "07020110009752025431",
+        "allowed_chars": "0123456789",
+        "hint": "Namba ya Mteja wa Kifua Kikuu",
+        "v_regex": {
+          "value": "^\\d{12}-\\d/KK/\\d{4}/\\d{3}$",
+          "err": "Namba ya Mteja wa Kifua Kikuu inatakiwa iwe katika muundo huu (070201100097-5/KK/2025/431)"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_contact_index_details_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "tb_client_names",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "tb_client_names",
+        "type": "edit_text",
+        "hint": "Majina ya Mteja wa Kifua Kikuu",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jaza taarifa"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_contact_index_details_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "leprosy_client_number",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "leprosy_client_number",
+        "type": "mask_edit_text",
+        "mask": "############-#/UK/####/###",
+        "mask_hint": "07020110009752025431",
+        "allowed_chars": "0123456789",
+        "hint": "Namba ya Mteja wa Ukoma",
+        "v_regex": {
+          "value": "^\\d{12}-\\d/UK/\\d{4}/\\d{3}$",
+          "err": "Namba ya Mteja wa ukoma inatakiwa iwe katika muundo huu (070201100097-5/UK/2025/431)"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_contact_index_details_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "leprosy_client_names",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "leprosy_client_names",
+        "type": "edit_text",
+        "hint": "Majina ya Mteja wa Ukoma",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali jaza taarifa"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_contact_index_details_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "status",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "status",
+        "type": "hidden",
+        "hint": "client status",
+        "value": "client"
+      }
+    ]
+  }
+}

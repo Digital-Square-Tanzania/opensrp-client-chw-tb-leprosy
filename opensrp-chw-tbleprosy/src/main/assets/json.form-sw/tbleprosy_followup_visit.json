@@ -1,0 +1,358 @@
+{
+  "validate_on_submit": true,
+  "count": "1",
+  "encounter_type": "TbLeprosy Follow-up Visit",
+  "entity_id": "",
+  "metadata": {
+    "start": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "start",
+      "openmrs_entity_id": "163137AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "end": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "end",
+      "openmrs_entity_id": "163138AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "deviceid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "deviceid",
+      "openmrs_entity_id": "163149AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "subscriberid": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "subscriberid",
+      "openmrs_entity_id": "163150AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "simserial": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "simserial",
+      "openmrs_entity_id": "163151AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "phonenumber": {
+      "openmrs_entity_parent": "",
+      "openmrs_entity": "concept",
+      "openmrs_data_type": "phonenumber",
+      "openmrs_entity_id": "163152AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    },
+    "encounter_location": ""
+  },
+  "global": {},
+  "step1": {
+    "title": "Tembeleo la TB na Ukoma",
+    "fields": [
+      {
+        "key": "follow_up_reason",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "follow_up_reason",
+        "type": "native_radio",
+        "label": "Sababu ya ufuatiliaji",
+        "label_text_style": "bold",
+        "text_color": "#000000",
+        "options": [
+          {
+            "key": "interrupted_treatment",
+            "text": "Amekatiza dawa",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "interrupted_treatment"
+          },
+          {
+            "key": "never_started_treatment",
+            "text": "Hakuanza dawa",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "never_started_treatment"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali taja"
+        }
+      },
+      {
+        "key": "follow_up_outcome",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "follow_up_outcome",
+        "label": "Matokeo ya Ufuatiliaji",
+        "label_text_style": "bold",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "client_found",
+            "text": "Amepatikana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "client_found"
+          },
+          {
+            "key": "client_not_found",
+            "text": "Hajapatikana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "client_not_found"
+          },
+          {
+            "key": "client_deceased",
+            "text": "Amefariki",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "client_deceased"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali taja"
+        }
+      },
+      {
+        "key": "reason_client_not_found",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "reason_client_not_found",
+        "type": "edit_text",
+        "hint": "Taja sababu ya kutopatikana mteja",
+        "edit_type": "name",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali taja"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_followup_visit.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "returned_to_treatment",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "returned_to_treatment",
+        "label": "Amerudi kwenye matibabu",
+        "label_text_style": "bold",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndiyo",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali taja"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_followup_visit.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "service_access_challenges",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "service_access_challenges",
+        "label": "Kuna changamoto anazokabiliana nazo katika upatikanaji wa huduma?",
+        "label_text_style": "bold",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Ndiyo",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "Hapana",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali taja"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_followup_visit.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "reasons_for_not_returning_to_services_while_not_facing_challenges",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "reasons_for_not_returning_to_services_while_not_facing_challenges",
+        "type": "edit_text",
+        "hint": "Taja sababu ya kutokuanza/kutatiza dawa",
+        "edit_type": "name",
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali taja"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_followup_visit.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "client_challenge_types",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "client_challenge_types",
+        "type": "check_box",
+        "label": "Chagua aina ya changamoto mteja aliyopata",
+        "label_text_style": "bold",
+        "text_color": "#000000",
+        "combine_checkbox_option_values": "true",
+        "exclusive": [
+          "none"
+        ],
+        "options": [
+          {
+            "key": "family_challenges",
+            "text": "Katika familia",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "family_challenges"
+          },
+          {
+            "key": "health_facility_challenges",
+            "text": "Katika kituo cha kutuloea huduma za afya",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "health_facility_challenges"
+          },
+          {
+            "key": "community_challenges",
+            "text": "Katika jamii",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "community_challenges"
+          },
+          {
+            "key": "other",
+            "text": "Chanagamoto nyinginezo",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali taja"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_followup_visit.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "health_facility_challenges_detail",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "health_facility_challenges_detail",
+        "type": "check_box",
+        "label": "Chagua changamoto katika kituo cha kutolea huduma za afya",
+        "label_text_style": "bold",
+        "text_color": "#000000",
+        "combine_checkbox_option_values": "true",
+        "options": [
+          {
+            "key": "verbal_abuse",
+            "text": "Kutukanwa/Kufokewa",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "verbal_abuse"
+          },
+          {
+            "key": "denied_information_on_condition",
+            "text": "Kunyimwa taarifa juu ya ugonjwa na matibabu",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "denied_information_on_condition"
+          },
+          {
+            "key": "neglected_or_delayed",
+            "text": "Kutelekezwa au kucheleweshwa",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "neglected_or_delayed"
+          },
+          {
+            "key": "limited_service_access",
+            "text": "Kupata huduma",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "limited_service_access"
+          },
+          {
+            "key": "discriminated",
+            "text": "Kudharauliwa",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "discriminated"
+          },
+          {
+            "key": "medication_denied",
+            "text": "Kunyimwa dawa",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "medication_denied"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali taja"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_followup_visit.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "return_to_treatment_prompt",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "person_attribute",
+        "openmrs_entity_id": "return_to_treatment_prompt",
+        "type": "toaster_notes",
+        "text": "Mshauri mteja kurudi kwenye matibabu",
+        "text_color": "#CF0800",
+        "toaster_type": "info",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_followup_visit.yml"
+            }
+          }
+        }
+      }
+    ]
+  }
+}
