@@ -1,15 +1,15 @@
 ---
-name: step1_sample_container_provided
-description: sample_container_provided
+name: step1_sputum_container_provided
+description: was the client provided sputum container
 priority: 1
 condition: "step1_has_sample_been_collected.contains('yes')"
 actions:
   - "isRelevant = true"
 ---
-name: step1_mpatie_mteja_kifaa
-description: enter tb client id
+name: step1_extra_sputum_container_required
+description: does the client require extra sputum container
 priority: 1
-condition: "step1_sample_container_provided.contains('yes')"
+condition: "step1_sputum_container_provided.contains('yes')"
 actions:
   - "isRelevant = true"
 ---
@@ -17,19 +17,5 @@ name: step1_sample_collection_date
 description: sample_collection_date
 priority: 1
 condition: "step1_has_sample_been_collected.contains('yes')"
-actions:
-  - "isRelevant = true"
----
-name: step1_sample_type
-description: sample_type
-priority: 1
-condition: "step1_has_sample_been_collected.contains('yes')"
-actions:
-  - "isRelevant = true"
----
-name: step1_sample_type_other
-description: sample_type_other
-priority: 1
-condition: "step1_sample_type.contains('other_sample')"
 actions:
   - "isRelevant = true"

@@ -95,63 +95,33 @@
         }
       },
       {
-        "key": "sample_type",
+        "key": "sputum_container_provided",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "sample_type",
-        "type": "check_box",
-        "combine_checkbox_option_values": "true",
-        "label": "Aina ya sampuli",
+        "openmrs_entity_id": "sputum_container_provided",
+        "type": "native_radio",
+        "label": "Je mteja amepewa kikopo cha makohozi?",
         "label_text_size": "18px",
         "options": [
           {
-            "key": "sputum",
-            "text": "Makohozi",
+            "key": "yes",
+            "text": "Ndiyo",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "sputum"
+            "openmrs_entity_id": "yes"
           },
           {
-            "key": "stool",
-            "text": "Kinyesi",
+            "key": "no",
+            "text": "Hapana",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "stool"
-          },
-          {
-            "key": "urine",
-            "text": "Mkojo",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "urine"
-          },
-          {
-            "key": "other_sample",
-            "text": "Nyingine(Taja)",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "other_sample"
+            "openmrs_entity_id": "no"
           }
         ],
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "tbleprosy_record_visit_relevance.yml"
-            }
-          }
-        },
         "v_required": {
           "value": "true",
           "err": "Tafadhali chagua chaguo"
-        }
-      },
-      {
-        "key": "sample_type_other",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "sample_type_other",
-        "type": "edit_text",
-        "hint": "Sampuli Nyingine",
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -161,34 +131,27 @@
         }
       },
       {
-        "key": "sample_container_provided",
+        "key": "extra_sputum_container_required",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "sample_container_provided",
+        "openmrs_entity_id": "extra_sputum_container_required",
         "type": "native_radio",
-        "label": "Chagua kikopo cha kuchukulia sampuli alichopewa mteja",
+        "label": "Je mteja anahitaji kikopo cha makohozi cha ziada?",
         "label_text_size": "18px",
         "options": [
           {
-            "key": "sputum_container",
-            "text": "Kikopo cha makohozi",
+            "key": "yes",
+            "text": "Ndiyo",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "sputum_container"
+            "openmrs_entity_id": "yes"
           },
           {
-            "key": "urine_container",
-            "text": "Kikopo cha mkojo",
+            "key": "no",
+            "text": "Hapana",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "urine_container"
-          },
-          {
-            "key": "stool_container",
-            "text": "Kikopo cha kinyesi",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "stool_container"
+            "openmrs_entity_id": "no"
           }
         ],
         "v_required": {

@@ -95,63 +95,33 @@
         }
       },
       {
-        "key": "sample_type",
+        "key": "sputum_container_provided",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "sample_type",
-        "type": "check_box",
-        "combine_checkbox_option_values": "true",
-        "label": "Sample type",
+        "openmrs_entity_id": "sputum_container_provided",
+        "type": "native_radio",
+        "label": "Has the client been provided with a sputum container?",
         "label_text_size": "18px",
         "options": [
           {
-            "key": "sputum",
-            "text": "Sputum",
+            "key": "yes",
+            "text": "Yes",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "sputum"
+            "openmrs_entity_id": "yes"
           },
           {
-            "key": "stool",
-            "text": "Stool",
+            "key": "no",
+            "text": "No",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "stool"
-          },
-          {
-            "key": "urine",
-            "text": "Urine",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "urine"
-          },
-          {
-            "key": "other_sample",
-            "text": "Other (specify)",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "other_sample"
+            "openmrs_entity_id": "no"
           }
         ],
-        "relevance": {
-          "rules-engine": {
-            "ex-rules": {
-              "rules-file": "tbleprosy_record_visit_relevance.yml"
-            }
-          }
-        },
         "v_required": {
           "value": "true",
           "err": "Please select an option"
-        }
-      },
-      {
-        "key": "sample_type_other",
-        "openmrs_entity_parent": "",
-        "openmrs_entity": "concept",
-        "openmrs_entity_id": "sample_type_other",
-        "type": "edit_text",
-        "hint": "Other sample (specify)",
+        },
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -161,34 +131,27 @@
         }
       },
       {
-        "key": "sample_container_provided",
+        "key": "extra_sputum_container_required",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "sample_container_provided",
+        "openmrs_entity_id": "extra_sputum_container_required",
         "type": "native_radio",
-        "label": "Select the specimen container provided to the client",
+        "label": "Does the client require an extra sputum container?",
         "label_text_size": "18px",
         "options": [
           {
-            "key": "sputum_container",
-            "text": "Sputum container",
+            "key": "yes",
+            "text": "Yes",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "sputum_container"
+            "openmrs_entity_id": "yes"
           },
           {
-            "key": "urine_container",
-            "text": "Urine container",
+            "key": "no",
+            "text": "No",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "urine_container"
-          },
-          {
-            "key": "stool_container",
-            "text": "Stool container",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "stool_container"
+            "openmrs_entity_id": "no"
           }
         ],
         "v_required": {
