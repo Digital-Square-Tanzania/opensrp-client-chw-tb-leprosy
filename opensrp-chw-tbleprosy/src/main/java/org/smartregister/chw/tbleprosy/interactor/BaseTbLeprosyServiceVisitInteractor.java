@@ -137,7 +137,7 @@ public class BaseTbLeprosyServiceVisitInteractor extends BaseTbLeprosyVisitInter
                 .withOptional(false)
                 .withDetails(details)
                 .withHelper(actionHelper)
-                .withValidator(getSourceContactTypeValidator("ukoma"))
+                .withValidator(getSourceContactTypeValidator("leprosy"))
                 .withFormName(Constants.TbLeprosy_FOLLOWUP_FORMS.TBLEPROSY_CONTACT_LEPROSY_INVESTIGATION)
                 .build();
         actionList.put(context.getString(R.string.tbleprosy_contact_leprosy_investigation), action);
@@ -197,18 +197,40 @@ public class BaseTbLeprosyServiceVisitInteractor extends BaseTbLeprosyVisitInter
 
         try {
             JSONObject jsonObject = new JSONObject(payload);
-            List<String> selections = extractSelections(jsonObject, "anaishi_karibu_na_mgonjwa");
+            List<String> selections = extractSelections(jsonObject, "contact_lives_with_patient_type");
+
+            if (selections.isEmpty()) {
+                selections = extractSelections(jsonObject, "anaishi_karibu_na_mgonjwa");
+            }
+
+            if (selections.isEmpty()) {
+                selections = extractSelections(jsonObject, "relationship_to_index_client");
+            }
 
             if (selections.isEmpty()) {
                 selections = extractSelections(jsonObject, "aina_ya_ukaribu_na_mgonjwa");
             }
 
             String normalizedRequiredType = requiredType.toLowerCase(Locale.ENGLISH);
+            if ("tuberculosis".equals(normalizedRequiredType)) {
+                normalizedRequiredType = "tb";
+            } else if ("ukoma".equals(normalizedRequiredType)) {
+                normalizedRequiredType = "leprosy";
+            }
+
             for (String selection : selections) {
                 if (StringUtils.isBlank(selection)) {
                     continue;
                 }
-                if (selection.toLowerCase(Locale.ENGLISH).equals(normalizedRequiredType)) {
+
+                String normalizedSelection = selection.toLowerCase(Locale.ENGLISH);
+                if ("tuberculosis".equals(normalizedSelection)) {
+                    normalizedSelection = "tb";
+                } else if ("ukoma".equals(normalizedSelection)) {
+                    normalizedSelection = "leprosy";
+                }
+
+                if (normalizedSelection.equals(normalizedRequiredType)) {
                     return true;
                 }
             }

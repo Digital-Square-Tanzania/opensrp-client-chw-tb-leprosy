@@ -49,11 +49,11 @@ public class TbLeprosySourceActionHelper implements BaseTbLeprosyVisitAction.TbL
             JSONObject jsonObject = new JSONObject(jsonPayload);
 
             JSONArray fields = jsonObject.getJSONObject(JsonFormConstants.STEP1).getJSONArray(JsonFormConstants.FIELDS);
-            JSONObject tbClientNumber = JsonFormUtils.getFieldJSONObject(fields, "namba_ya_mteja_tb");
+            JSONObject tbClientNumber = JsonFormUtils.getFieldJSONObject(fields, "tb_client_number");
             tbClientNumber.put("mask","##-##-##-######-#/KK/" + Calendar.getInstance().get(Calendar.YEAR) + "/#");
 
 
-            JSONObject leprosyClientNumber = JsonFormUtils.getFieldJSONObject(fields, "namba_ya_mteja_ukoma");
+            JSONObject leprosyClientNumber = JsonFormUtils.getFieldJSONObject(fields, "leprosy_client_number");
             leprosyClientNumber.put("mask","##-##-##-######-#/UK/" + Calendar.getInstance().get(Calendar.YEAR) + "/#");
 
 
@@ -71,8 +71,16 @@ public class TbLeprosySourceActionHelper implements BaseTbLeprosyVisitAction.TbL
         try {
             JSONObject jsonObject = new JSONObject(jsonPayload);
 
-            typeOfPatientRelationship = JsonFormUtils.getValue(jsonObject, "aina_ya_ukaribu_na_mgonjwa");
-
+            typeOfPatientRelationship = JsonFormUtils.getValue(jsonObject, "contact_lives_with_patient_type");
+            if (StringUtils.isBlank(typeOfPatientRelationship)) {
+                typeOfPatientRelationship = JsonFormUtils.getValue(jsonObject, "anaishi_karibu_na_mgonjwa");
+            }
+            if (StringUtils.isBlank(typeOfPatientRelationship)) {
+                typeOfPatientRelationship = JsonFormUtils.getValue(jsonObject, "relationship_to_index_client");
+            }
+            if (StringUtils.isBlank(typeOfPatientRelationship)) {
+                typeOfPatientRelationship = JsonFormUtils.getValue(jsonObject, "aina_ya_ukaribu_na_mgonjwa");
+            }
 
         } catch (JSONException e) {
             e.printStackTrace();

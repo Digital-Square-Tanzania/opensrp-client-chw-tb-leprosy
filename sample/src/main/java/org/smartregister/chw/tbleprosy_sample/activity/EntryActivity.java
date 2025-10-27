@@ -176,16 +176,16 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
         if (jsonForm != null) {
 
             JSONArray dataFields = jsonForm.getJSONObject(JsonFormConstants.STEP1).getJSONArray(JsonFormConstants.FIELDS);
-            JSONObject clientID = JsonFormUtils.getFieldJSONObject(dataFields, "namba_ya_mteja_tb");
-            JSONObject clientIdUkoma = JsonFormUtils.getFieldJSONObject(dataFields, "namba_ya_mteja_ukoma");
+            JSONObject clientID = JsonFormUtils.getFieldJSONObject(dataFields, "tb_client_number");
+            JSONObject clientIdUkoma = JsonFormUtils.getFieldJSONObject(dataFields, "leprosy_client_number");
 
-             if(clientID != null){
-                 clientID.put("mask", "##-##-##-######-#/KK/" +Calendar.getInstance().get(Calendar.YEAR)+ "/#");
-             }
+            if (clientID != null) {
+                clientID.put("mask", "##-##-##-######-#/KK/" + Calendar.getInstance().get(Calendar.YEAR) + "/#");
+            }
 
-             if(clientIdUkoma != null ){
-                 clientID.put("mask", "##-##-##-######-#/KK/" +Calendar.getInstance().get(Calendar.YEAR)+ "/#");
-             }
+            if (clientIdUkoma != null) {
+                clientIdUkoma.put("mask", "##-##-##-######-#/UK/" + Calendar.getInstance().get(Calendar.YEAR) + "/#");
+            }
 
             jsonForm.getJSONObject("metadata").put("encounter_location", currentLocationId);
             Intent intent = new Intent(this, JsonWizardFormActivity.class);

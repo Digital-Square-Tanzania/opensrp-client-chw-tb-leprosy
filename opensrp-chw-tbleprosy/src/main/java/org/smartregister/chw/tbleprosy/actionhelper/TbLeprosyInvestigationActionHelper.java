@@ -63,7 +63,14 @@ public class TbLeprosyInvestigationActionHelper implements BaseTbLeprosyVisitAct
         try {
             JSONObject jsonObject = new JSONObject(jsonPayload);
 
-            tbleprosyObservation = JsonFormUtils.getValue(jsonObject, "majibu_ya_uchunguzi_tb");
+            tbleprosyObservation = JsonFormUtils.getValue(jsonObject, "tb_screening_findings");
+            if (StringUtils.isBlank(tbleprosyObservation)) {
+                tbleprosyObservation = JsonFormUtils.getValue(jsonObject, "majibu_ya_uchunguzi_tb");
+            }
+
+            if (StringUtils.isBlank(tbleprosyObservation)){
+                tbleprosyObservation = JsonFormUtils.getValue(jsonObject, "leprosy_interview_findings");
+            }
 
             if (StringUtils.isBlank(tbleprosyObservation)){
                 tbleprosyObservation = JsonFormUtils.getValue(jsonObject, "majibu_ya_uchunguzi_ukoma");
@@ -114,6 +121,6 @@ public class TbLeprosyInvestigationActionHelper implements BaseTbLeprosyVisitAct
     }
 
     public boolean isTbPresumptive() {
-        return StringUtils.equalsIgnoreCase(screeningStatus, "tb-presumptive");
+        return StringUtils.equalsIgnoreCase(screeningStatus, "tb_presumptive");
     }
 }
