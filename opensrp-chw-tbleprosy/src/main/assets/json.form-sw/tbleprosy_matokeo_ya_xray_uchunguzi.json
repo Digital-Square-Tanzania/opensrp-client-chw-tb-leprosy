@@ -56,15 +56,12 @@
         "label_text_style": "bold",
         "text_color": "#000000",
         "combine_checkbox_option_values": "true",
-        "exclusive": [
-          "tuberculosis"
-        ],
         "options": [
           {
-            "key": "tuberculosis",
+            "key": "tb",
             "text": "Kifua Kikuu (TB)",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "tuberculosis"
+            "openmrs_entity_id": "tb"
           },
           {
             "key": "leprosy",
