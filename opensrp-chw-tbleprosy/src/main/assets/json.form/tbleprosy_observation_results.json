@@ -76,6 +76,95 @@
         }
       },
       {
+        "key": "tb_preliminary_investigation_tests",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "tb_preliminary_investigation_tests",
+        "type": "native_radio",
+        "label": "Select initial TB investigation tests",
+        "label_text_style": "bold",
+        "text_color": "#000000",
+        "combine_checkbox_option_values": "true",
+        "options": [
+          {
+            "key": "screening_questionnaire",
+            "text": "Screening questionnaire",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "screening_questionnaire"
+          },
+          {
+            "key": "xray",
+            "text": "X-Ray",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "xray"
+          },
+          {
+            "key": "scorechart",
+            "text": "Scorechart",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "scorechart"
+          },
+          {
+            "key": "treatment_decision_algorithm",
+            "text": "Treatment Decision Algorithm",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "treatment_decision_algorithm"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select at least one option"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_observation_results.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "tb_preliminary_investigation_results",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "tb_preliminary_investigation_results",
+        "label": "Initial TB investigation results",
+        "label_text_style": "bold",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "tb_indicative",
+            "text": "Suggestive of TB",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "tb_indicative"
+          },
+          {
+            "key": "no_tb_indications",
+            "text": "Not suggestive of TB",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no_tb_indications"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an answer"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_observation_results.yml"
+            }
+          }
+        }
+      },
+      {
         "key": "tb_diagnostic_test_type",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
@@ -100,25 +189,18 @@
             "openmrs_entity_id": "trunati"
           },
           {
-            "key": "hadubini",
-            "text": "Microscopy",
+            "key": "smear_microscopy",
+            "text": "Smear Microscopy",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "microscopy"
+            "openmrs_entity_id": "smear_microscopy"
           },
           {
-            "key": "xray",
-            "text": "X-ray",
+            "key": "lflam",
+            "text": "LFLAM",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "xray"
-          },
-          {
-            "key": "score_chart",
-            "text": "Score Chart",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "score_chart"
+            "openmrs_entity_id": "lflam"
           }
         ],
         "v_required": {

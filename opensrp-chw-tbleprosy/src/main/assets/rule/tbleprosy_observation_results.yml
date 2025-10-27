@@ -6,17 +6,31 @@ condition: "step1_living_with_tb_leprosy_patient.contains('yes')"
 actions:
   - "isRelevant = true"
 ---
+name: step1_tb_preliminary_investigation_tests
+description:  onyesha vipimo vya awali vya uchunguzi wa TB kama aina ya uchunguzi ni kifua kikuu
+priority: 1
+condition: "step1_investigation_type.contains('tb')"
+actions:
+  - "isRelevant = true"
+---
+name: step1_tb_preliminary_investigation_results
+description:  onyesha matokeo ya uchunguzi wa awali kama aina ya uchunguzi ni kifua kikuu
+priority: 1
+condition: "step1_investigation_type.contains('tb')"
+actions:
+  - "isRelevant = true"
+---
 name: step1_tb_diagnostic_test_type
 description:  kipimo cha uchunguzi kilichotumika kupima TB kama aina ya uchunguzi ni kifua kikuu
 priority: 1
-condition: "step1_investigation_type.contains('tuberculosis')"
+condition: "step1_investigation_type.contains('tb') && step1_tb_preliminary_investigation_results.equalsIgnoreCase('tb_indicative')"
 actions:
   - "isRelevant = true"
 ---
 name: step1_tb_sample_test_results
 description:  matokeo ya sampuli ya TB kama aina ya kipimo cha uchunguzi kilichotumika kupima TB
 priority: 1
-condition: "step1_tb_diagnostic_test_type.equalsIgnoreCase('trunati') || step1_tb_diagnostic_test_type.equalsIgnoreCase('genexpert') || step1_tb_diagnostic_test_type.equalsIgnoreCase('hadubini')"
+condition: "step1_tb_diagnostic_test_type.equalsIgnoreCase('trunati') || step1_tb_diagnostic_test_type.equalsIgnoreCase('genexpert') || step1_tb_diagnostic_test_type.equalsIgnoreCase('smear_microscopy') || step1_tb_diagnostic_test_type.equalsIgnoreCase('lflam')"
 actions:
   - "isRelevant = true"
 ---
