@@ -143,10 +143,10 @@
         }
       },
       {
-        "key": "tb_client_number",
+        "key": "tb_index_client_number",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "tb_client_number",
+        "openmrs_entity_id": "tb_index_client_number",
         "type": "mask_edit_text",
         "mask": "############-#/KK/####/###",
         "mask_hint": "07020110009752025431",
@@ -184,10 +184,10 @@
         }
       },
       {
-        "key": "leprosy_client_number",
+        "key": "leprosy_index_client_number",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "leprosy_client_number",
+        "openmrs_entity_id": "leprosy_index_client_number",
         "type": "mask_edit_text",
         "mask": "############-#/UK/555421/###",
         "mask_hint": "07020110009752025431",
