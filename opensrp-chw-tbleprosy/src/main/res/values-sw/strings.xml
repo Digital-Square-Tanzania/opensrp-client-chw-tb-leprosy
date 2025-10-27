@@ -17,7 +17,7 @@
     <string name="return_to_previous_page">Rudi kwenye wateja wote wa tbleprosy</string>
     <string name="last_visit_40_days_ago">Tembeleo la mwisho %1$s uliyopita</string>
     <string name="view_medical_history">Angalia historia ya huduma</string>
-    <string name="observation_results">Angalia Matokeo Ya Uchunguzi</string>
+    <string name="observation_results">Angalia historia ya huduma</string>
     <string name="call_no_number_provided">(Hakuna namba iliyotolewa)</string>
     <string name="record_observation_results">Jaza matokeo ya Uchunguzi</string>
     <string name="view_observation_results">Angalia Historia ya Huduma</string>
