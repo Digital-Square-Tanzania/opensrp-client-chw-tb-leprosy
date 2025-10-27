@@ -534,6 +534,28 @@
         "label": "TB treatment start date"
       },
       {
+        "key": "tb_client_number",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "tb_client_number",
+        "type": "mask_edit_text",
+        "mask": "############-#/KK/####/###",
+        "mask_hint": "07020110009752025431",
+        "allowed_chars": "0123456789",
+        "hint": "Namba ya Mteja wa Kifua Kikuu",
+        "v_regex": {
+          "value": "^\\d{12}-\\d/KK/\\d{4}/\\d{3}$",
+          "err": "Namba ya Mteja wa Kifua Kikuu inatakiwa iwe katika muundo huu (070201100097-5/KK/2025/431)"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_observation_results.yml"
+            }
+          }
+        }
+      },
+      {
         "key": "leprosy_treatment_start_date",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
@@ -551,6 +573,28 @@
           }
         },
         "label": "Leprosy treatment start date"
+      },
+      {
+        "key": "leprosy_client_number",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "leprosy_client_number",
+        "type": "mask_edit_text",
+        "mask": "############-#/UK/555421/###",
+        "mask_hint": "07020110009752025431",
+        "allowed_chars": "0123456789",
+        "hint": "Namba ya Mteja wa Ukoma",
+        "v_regex": {
+          "value": "^\\d{12}-\\d/UK/\\d{4}/\\d{3}$",
+          "err": "Namba ya Mteja wa ukoma inatakiwa iwe katika muundo huu (070201100097-5/UK/2025/431)"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_observation_results.yml"
+            }
+          }
+        }
       },
       {
         "key": "hiv_tested",

@@ -1,4 +1,11 @@
 ---
+name: step1_do_you_know_clients_number
+description: do_you_know_clients_number
+priority: 1
+condition: "!step1_index_case_condition_types.isEmpty()"
+actions:
+  - "isRelevant = true"
+---
 name: step1_tb_client_number
 description: enter tb client id
 priority: 1

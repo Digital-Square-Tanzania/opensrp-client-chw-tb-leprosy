@@ -221,6 +221,41 @@ public class TbLeprosyDao extends AbstractDao {
         return "";
     }
 
+    public static String getIndexClientIdForContact(String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId)) {
+            return null;
+        }
+
+        String sql = "SELECT index_client_id FROM ec_tbleprosy_contacts WHERE base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "index_client_id");
+
+        List<String> res = readData(sql, dataMap);
+        if (res != null && !res.isEmpty() && res.get(0) != null) {
+            return res.get(0);
+        }
+        return null;
+    }
+
+    public static ClientNumberInfo getIndexClientNumbers(String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId)) {
+            return null;
+        }
+
+        String sql = "SELECT tb_client_number, leprosy_client_number FROM ec_tbleprosy_screening WHERE base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+
+        DataMap<ClientNumberInfo> dataMap = cursor -> new ClientNumberInfo(
+                getCursorValue(cursor, "tb_client_number"),
+                getCursorValue(cursor, "leprosy_client_number")
+        );
+
+        List<ClientNumberInfo> res = readData(sql, dataMap);
+        if (res != null && !res.isEmpty()) {
+            return res.get(0);
+        }
+        return null;
+    }
+
     public static String getEnrollmentDate(String baseEntityId) {
         String sql = "SELECT enrollment_date FROM ec_tbleprosy_screening p " +
                 " WHERE p.base_entity_id = '" + baseEntityId + "' ORDER BY enrollment_date DESC LIMIT 1";
@@ -387,6 +422,24 @@ public class TbLeprosyDao extends AbstractDao {
                 "where mr.is_closed = 0 ";
 
         return readData(sql, memberObjectMap);
+    }
+
+    public static class ClientNumberInfo {
+        private final String tbClientNumber;
+        private final String leprosyClientNumber;
+
+        public ClientNumberInfo(String tbClientNumber, String leprosyClientNumber) {
+            this.tbClientNumber = tbClientNumber;
+            this.leprosyClientNumber = leprosyClientNumber;
+        }
+
+        public String getTbClientNumber() {
+            return tbClientNumber;
+        }
+
+        public String getLeprosyClientNumber() {
+            return leprosyClientNumber;
+        }
     }
 
 }

@@ -104,8 +104,22 @@ condition: "step1_tb_treatment_initiated.equalsIgnoreCase('yes')"
 actions:
   - "isRelevant = true "
 ---
+name: step1_tb_client_number
+description: tb_client_number
+priority: 1
+condition: "step1_tb_treatment_initiated.equalsIgnoreCase('yes')"
+actions:
+  - "isRelevant = true "
+---
 name: step1_leprosy_treatment_start_date
 description: kama mteja amejibu Ndiyo kwenye ameanza tiba ya ukoma
+priority: 1
+condition: "step1_leprosy_treatment_initiated.equalsIgnoreCase('yes')"
+actions:
+  - "isRelevant = true "
+---
+name: step1_leprosy_client_number
+description: leprosy_client_number
 priority: 1
 condition: "step1_leprosy_treatment_initiated.equalsIgnoreCase('yes')"
 actions:
