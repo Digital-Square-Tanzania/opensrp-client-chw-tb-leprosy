@@ -5,58 +5,58 @@ condition: "step1_amerudi_kwenye_matibabu.equalsIgnoreCase('no')"
 actions:
   - "isRelevant = true"
 ---
-name: step1_changamoto_katika_kituo_cha_afya
+name: step1_health_facility_challenges_detail
 description:  kama changamoto aliyopitia mteja jibu lake ni katika kituo cha kutolea huduma za afya
 priority: 1
-condition: "step1_changamoto_mteja_aliyopata.contains('kituo_cha_afya')"
+condition: "step1_client_challenge_types.contains('health_facility_challenges')"
 actions:
   - "isRelevant = true"
 ---
-name: step1_changamoto_mteja_aliyopata
+name: step1_client_challenge_types
 description:  kama changamoto aliyopitia mteja jibu lake ni katika kituo cha kutolea huduma za afya
 priority: 1
-condition: "step1_changamoto_katika_upatikanaji_huduma.equalsIgnoreCase('yes')"
+condition: "step1_service_access_challenges.equalsIgnoreCase('yes')"
 actions:
   - "isRelevant = true"
 ---
 name: step1_reasons_for_not_returning_to_services_while_not_facing_challenges
 description:  kama changamoto katika upatikanaji huduma jibu ni hapana
 priority: 1
-condition: "step1_changamoto_katika_upatikanaji_huduma.equalsIgnoreCase('no') && step1_amerudi_kwenye_matibabu.equalsIgnoreCase('yes')"
+condition: "step1_service_access_challenges.equalsIgnoreCase('no') && step1_returned_to_treatment.equalsIgnoreCase('yes')"
 actions:
   - "isRelevant = true"
 ---
-name: step1_changamoto_katika_upatikanaji_huduma
+name: step1_service_access_challenges
 description:  kama amerudi kwenye matibabu na jibu ni Ndiyo
 priority: 1
-condition: "step1_amerudi_kwenye_matibabu.equalsIgnoreCase('yes')"
+condition: "step1_returned_to_treatment.equalsIgnoreCase('yes')"
 actions:
   - "isRelevant = true"
 ---
-name: step1_toaster_mteja_kurudi_matibabu
+name: step1_return_to_treatment_prompt
 description:  kama amerudi kwenye matibabu na jibu ni Hapana
 priority: 1
-condition: "step1_amerudi_kwenye_matibabu.equalsIgnoreCase('no')"
+condition: "step1_returned_to_treatment.equalsIgnoreCase('no')"
 actions:
   - "isRelevant = true"
 ---
-name: step1_amerudi_kwenye_matibabu
+name: step1_returned_to_treatment
 description:  kama matokeo ya ufuatiliaji ni amepatikana
 priority: 1
-condition: "step1_matokeo_ya_ufuatiliaji.equalsIgnoreCase('amepatikana')"
+condition: "step1_follow_up_outcome.equalsIgnoreCase('client_found')"
 actions:
   - "isRelevant = true"
 ---
 name: step1_taja_sababu_ya_hajapatikana
 description:  kama matokeo ya ufuatiliaji ni hajapatikana
 priority: 1
-condition: "step1_matokeo_ya_ufuatiliaji.equalsIgnoreCase('hajapatikana')"
+condition: "step1_follow_up_outcome.equalsIgnoreCase('client_not_found')"
 actions:
   - "isRelevant = true"
 ---
 name: step1_tarehe_ya_miadi
 description:  kama amerudi kwenye matibabu jibu ni hapana weka tarehe ya miadi
 priority: 1
-condition: "step1_amerudi_kwenye_matibabu.equalsIgnoreCase('no')"
+condition: "step1_returned_to_treatment.equalsIgnoreCase('no')"
 actions:
   - "isRelevant = true"

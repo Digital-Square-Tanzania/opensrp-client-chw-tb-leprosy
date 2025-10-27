@@ -2,83 +2,83 @@
 name: step1_do_you_know_clients_number
 description: do_you_know_clients_number
 priority: 1
-condition: "step1_anaishi_karibu_na_mgonjwa.contains('tb') || step1_anaishi_karibu_na_mgonjwa.contains('ukoma')"
+condition: "step1_contact_lives_with_patient_type.contains('tuberculosis') || step1_contact_lives_with_patient_type.contains('leprosy')"
 actions:
   - "isRelevant = true"
 ---
-name: step1_namba_ya_mteja_tb
+name: step1_tb_client_number
 description: enter tb client id
 priority: 1
-condition: "step1_anaishi_karibu_na_mgonjwa.contains('tb') && step1_do_you_know_clients_number.contains('yes')"
+condition: "step1_contact_lives_with_patient_type.contains('tuberculosis') && step1_do_you_know_clients_number.contains('yes')"
 actions:
   - "isRelevant = true"
 ---
-name: step1_majina_ya_mteja_tb
+name: step1_tb_client_names
 description: capture tb client names when id unknown
 priority: 1
-condition: "step1_anaishi_karibu_na_mgonjwa.contains('tb') && step1_do_you_know_clients_number.contains('no')"
+condition: "step1_contact_lives_with_patient_type.contains('tuberculosis') && step1_do_you_know_clients_number.contains('no')"
 actions:
   - "isRelevant = true"
 ---
-name: step1_namba_ya_mteja_ukoma
+name: step1_leprosy_client_number
 description: enter leprosy client id
 priority: 1
-condition: "step1_anaishi_karibu_na_mgonjwa.contains('ukoma') && step1_do_you_know_clients_number.contains('yes')"
+condition: "step1_contact_lives_with_patient_type.contains('leprosy') && step1_do_you_know_clients_number.contains('yes')"
 actions:
   - "isRelevant = true"
 ---
-name: step1_majina_ya_mteja_ukoma
+name: step1_leprosy_client_names
 description: capture leprosy client names when id unknown
 priority: 1
-condition: "step1_anaishi_karibu_na_mgonjwa.contains('ukoma') && step1_do_you_know_clients_number.contains('no')"
+condition: "step1_contact_lives_with_patient_type.contains('leprosy') && step1_do_you_know_clients_number.contains('no')"
 actions:
   - "isRelevant = true"
 ---
-name: step2_kundi_la_mteja
+name: step2_client_special_group
 description: enter leprosy client id
 priority: 1
-condition: "step2_kundi_maalumu.contains('ndiyo')"
+condition: "step2_belongs_to_special_group.contains('yes')"
 actions:
   - "isRelevant = true"
 ---
-name: step2_taja_kundi_lingine
+name: step2_other_special_group
 description: enter leprosy client id
 priority: 1
-condition: "step2_kundi_la_mteja.contains('kundi_lingine')"
+condition: "step2_client_special_group.contains('other_group')"
 actions:
   - "isRelevant = true"
 ---
-name: step2_taja_sehemu_nyingine
+name: step2_other_screening_location
 description: enter leprosy client id
 priority: 1
-condition: "step2_uchunguzi_ulipofanyika.contains('kwingineko')"
+condition: "step2_screening_location.contains('other_location')"
 actions:
   - "isRelevant = true"
 ---
-name: step3_majibu_ya_uchunguzi_tb
+name: step3_tb_screening_findings
 description: enter leprosy client id
 priority: 1
-condition: "step3_chagua_aina_ya_uchunguzi.contains('tb')"
+condition: "step3_selected_investigation_type.contains('tuberculosis')"
 actions:
   - "isRelevant = true"
 ---
-name: step3_majibu_ya_uchunguzi_ukoma
+name: step3_leprosy_screening_findings
 description: enter leprosy client id
 priority: 1
-condition: "step3_chagua_aina_ya_uchunguzi.contains('ukoma')"
+condition: "step3_selected_investigation_type.contains('leprosy')"
 actions:
   - "isRelevant = true"
 ---
 name: step3_leprosy_referral_prompt
 description: prompt referral when client is presumptive for leprosy
 priority: 1
-condition: "step3_screening_status != null && step3_screening_status.contains('leprocy_presumptive')"
+condition: "step3_screening_status != null && step3_screening_status.contains('leprosy_presumptive')"
 actions:
   - "isRelevant = true"
 ---
 name: step3_non_presumptive_prompt
 description: notify when client is not presumptive for leprosy
 priority: 1
-condition: "(!step3_majibu_ya_uchunguzi_tb.isEmpty() || !step3_majibu_ya_uchunguzi_ukoma.isEmpty()) && step3_screening_status != null && step3_screening_status == '-'"
+condition: "(!step3_tb_screening_findings.isEmpty() || !step3_leprosy_screening_findings.isEmpty()) && step3_screening_status != null && step3_screening_status == '-'"
 actions:
   - "isRelevant = true"

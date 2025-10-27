@@ -1,7 +1,7 @@
 {
   "validate_on_submit": true,
   "count": "1",
-  "encounter_type": "TBLEPROSY Matokeo ya Sampuli",
+  "encounter_type": "TBLEPROSY Sample Results",
   "entity_id": "",
   "metadata": {
     "start": {
@@ -44,40 +44,40 @@
   },
   "global": {},
   "step1": {
-    "title": "Matokeo ya Sampuli",
+    "title": "Sample Results",
     "fields": [
       {
-        "key": "matokeo_ya_ufuatiliaji",
+        "key": "sample_follow_up_results",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "matokeo_ya_ufuatiliaji",
+        "openmrs_entity_id": "sample_follow_up_results",
         "type": "native_radio",
-        "label": "Matokeo ya Ufuatiliaji",
+        "label": "Follow-up results",
         "text_color": "#000000",
         "options": [
           {
-            "key": "tb_ya_mapafu",
-            "text": "TB ya Mapafu",
+            "key": "pulmonary_tb",
+            "text": "Pulmonary TB",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "tb_ya_mapafu"
+            "openmrs_entity_id": "pulmonary_tb"
           },
           {
-            "key": "tb_nje_ya_mapafu",
-            "text": "TB Nje ya Mapafu",
+            "key": "extra_pulmonary_tb",
+            "text": "Extra-pulmonary TB",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "tb_nje_ya_mapafu"
+            "openmrs_entity_id": "extra_pulmonary_tb"
           },
           {
-            "key": "kifua_kikuu_sugu",
-            "text": "Kifua Kikuu sugu",
+            "key": "drug_resistant_tb",
+            "text": "Drug-resistant TB",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "kifua_kikuu_sugu"
+            "openmrs_entity_id": "drug_resistant_tb"
           },
           {
-            "key": "hana_tb",
-            "text": "Hana TB ",
+            "key": "no_tb_detected",
+            "text": "No TB detected",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "hana_tb"
+            "openmrs_entity_id": "no_tb_detected"
           }
         ],
         "v_required": {

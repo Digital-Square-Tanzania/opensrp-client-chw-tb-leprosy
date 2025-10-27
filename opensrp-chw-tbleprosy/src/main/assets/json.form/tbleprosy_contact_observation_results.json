@@ -44,48 +44,48 @@
   },
   "global": {},
   "step1": {
-    "title": "Matokeo ya Uchunguzi ya Contact",
+    "title": "Contact Investigation Results",
     "fields": [
       {
-        "key": "matokeo_ya_uchunguzi_tb",
+        "key": "tb_investigation_results",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "matokeo_ya_uchunguzi_tb",
+        "openmrs_entity_id": "tb_investigation_results",
         "type": "native_radio",
-        "label": "Matokeo ya Uchunguzi wa TB",
+        "label": "Tuberculosis investigation results",
         "text_color": "#000000",
         "combine_checkbox_option_values": "true",
         "options": [
           {
-            "key": "tb_ya_mapafu",
-            "text": "TB ya Mapafu",
+            "key": "pulmonary_tb",
+            "text": "Pulmonary TB",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "tb_ya_mapafu"
+            "openmrs_entity_id": "pulmonary_tb"
           },
           {
-            "key": "tb_nje_ya_mapafu",
-            "text": "TB Nje ya Mapafu",
+            "key": "extra_pulmonary_tb",
+            "text": "Extra-pulmonary TB",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "tb_nje_ya_mapafu"
+            "openmrs_entity_id": "extra_pulmonary_tb"
           },
           {
-            "key": "kifua_kikuu_sugu",
-            "text": "Kifua Kikuu sugu",
+            "key": "drug_resistant_tb",
+            "text": "Drug-resistant TB",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "kifua_kikuu_sugu"
+            "openmrs_entity_id": "drug_resistant_tb"
           },
           {
             "key": "poor_quality_sample",
-            "text": "Sampuli Haina ubora",
+            "text": "Poor quality sample",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "poor_quality_sample"
           },
           {
-            "key": "hana_tb",
-            "text": "Hana TB ",
+            "key": "no_tb_detected",
+            "text": "No TB detected",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "hana_tb"
+            "openmrs_entity_id": "no_tb_detected"
           }
         ],
         "v_required": {
@@ -94,27 +94,27 @@
         }
       },
       {
-        "key": "ameanza_tiba_ya_tb",
+        "key": "has_tb_treatment_started",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "ameanza_tiba_ya_tb",
-        "label": "Ameanza tiba ya TB/DR TB?",
+        "openmrs_entity_id": "has_tb_treatment_started",
+        "label": "Has the client started TB/DR-TB treatment?",
         "text_color": "#000000",
         "type": "native_radio",
         "options": [
           {
-            "key": "ndiyo_ameanza_tiba_ya_tb",
-            "text": "Ndiyo",
+            "key": "yes_tb_treatment_started",
+            "text": "Yes",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "ndiyo_ameanza_tiba_ya_tb"
+            "openmrs_entity_id": "yes_tb_treatment_started"
           },
           {
-            "key": "hapana_ameanza_tiba_ya_tb",
-            "text": "Hapana",
+            "key": "no_tb_treatment_not_started",
+            "text": "No",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "hapana_ameanza_tiba_ya_tb"
+            "openmrs_entity_id": "no_tb_treatment_not_started"
           }
         ],
         "v_required": {
@@ -130,12 +130,12 @@
         }
       },
       {
-        "key": "tarehe_ya_kuanza_matibabu",
+        "key": "tb_treatment_start_date",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "tarehe_ya_kuanza_matibabu",
+        "openmrs_entity_id": "tb_treatment_start_date",
         "type": "date_picker",
-        "hint": "Tarehe ya  Kuanza Matibabu",
+        "hint": "Treatment start date",
         "label_text_size": "18px",
         "expanded": false,
         "max_date": "today",
@@ -152,27 +152,27 @@
         }
       },
       {
-        "key": "anastahili_kutumia_tiba_kinga",
+        "key": "eligible_for_tb_preventive_therapy",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "anastahili_kutumia_tiba_kinga",
-        "label": "Anastahili kuanza kutumia Tiba Kinga?",
+        "openmrs_entity_id": "eligible_for_tb_preventive_therapy",
+        "label": "Is the client eligible to start TB preventive therapy?",
         "text_color": "#000000",
         "type": "native_radio",
         "options": [
           {
-            "key": "ndiyo_anastahili_kutumia_tiba_kinga",
-            "text": "Ndiyo",
+            "key": "yes_eligible_for_tpt",
+            "text": "Yes",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "ndiyo_anastahili_kutumia_tiba_kinga"
+            "openmrs_entity_id": "yes_eligible_for_tpt"
           },
           {
-            "key": "hapana_anastahili_kutumia_tiba_kinga",
-            "text": "Hapana",
+            "key": "no_not_eligible_for_tpt",
+            "text": "No",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "hapana_anastahili_kutumia_tiba_kinga"
+            "openmrs_entity_id": "no_not_eligible_for_tpt"
           }
         ],
         "v_required": {
@@ -188,27 +188,27 @@
         }
       },
       {
-        "key": "ameanza_tiba_kinga",
+        "key": "has_tb_preventive_therapy_started",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "ameanza_tiba_kinga",
-        "label": "Ameanza Tiba Kinga?",
+        "openmrs_entity_id": "has_tb_preventive_therapy_started",
+        "label": "Has TB preventive therapy started?",
         "text_color": "#000000",
         "type": "native_radio",
         "options": [
           {
-            "key": "ndiyo_ameanza_tiba_kinga",
-            "text": "Ndiyo",
+            "key": "yes_tpt_started",
+            "text": "Yes",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "ndiyo_ameanza_tiba_kinga"
+            "openmrs_entity_id": "yes_tpt_started"
           },
           {
-            "key": "hapana_ameanza_tiba_kinga",
-            "text": "Hapana",
+            "key": "no_tpt_not_started",
+            "text": "No",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "hapana_ameanza_tiba_kinga"
+            "openmrs_entity_id": "no_tpt_not_started"
           }
         ],
         "v_required": {
@@ -224,12 +224,12 @@
         }
       },
       {
-        "key": "tarehe_ya_kuanza_tiba_kinga",
+        "key": "tpt_start_date",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "tarehe_ya_kuanza_tiba_kinga",
+        "openmrs_entity_id": "tpt_start_date",
         "type": "date_picker",
-        "hint": "Tarehe ya  Kuanza Tiba Kinga",
+        "hint": "TB preventive therapy start date",
         "label_text_size": "18px",
         "expanded": false,
         "max_date": "today",
@@ -246,12 +246,12 @@
         }
       },
       {
-        "key": "toaster_sampuli_haina_ubora",
+        "key": "poor_sample_quality_prompt",
         "openmrs_entity_parent": "",
         "openmrs_entity": "person_attribute",
-        "openmrs_entity_id": "toaster_sampuli_haina_ubora",
+        "openmrs_entity_id": "poor_sample_quality_prompt",
         "type": "toaster_notes",
-        "text": "Kusanya sampuli ya mteja kwaajili ya kurudia kufanya kipimo cha kifua kikuu",
+        "text": "Collect a new client sample to repeat the TB test.",
         "text_color": "#CF0800",
         "toaster_type": "info",
         "relevance": {

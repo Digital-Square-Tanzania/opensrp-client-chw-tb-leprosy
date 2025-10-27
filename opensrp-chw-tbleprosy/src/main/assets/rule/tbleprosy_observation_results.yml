@@ -1,90 +1,90 @@
-name: step1_kipimo_cha_uchunguzi_kilichotumika_kupima_tb
+name: step1_tb_diagnostic_test_type
 description:  kipimo cha uchunguzi kilichotumika kupima TB kama aina ya uchunguzi ni kifua kikuu
 priority: 1
-condition: "step1_aina_ya_uchunguzi.contains('tb')"
+condition: "step1_investigation_type.contains('tuberculosis')"
 actions:
   - "isRelevant = true"
 ---
 name: step1_tb_sample_test_results
 description:  matokeo ya sampuli ya TB kama aina ya kipimo cha uchunguzi kilichotumika kupima TB
 priority: 1
-condition: "step1_kipimo_cha_uchunguzi_kilichotumika_kupima_tb.equalsIgnoreCase('trunati') || step1_kipimo_cha_uchunguzi_kilichotumika_kupima_tb.equalsIgnoreCase('genexpert') || step1_kipimo_cha_uchunguzi_kilichotumika_kupima_tb.equals('hadubini')"
+condition: "step1_tb_diagnostic_test_type.equalsIgnoreCase('trunati') || step1_tb_diagnostic_test_type.equalsIgnoreCase('genexpert') || step1_tb_diagnostic_test_type.equalsIgnoreCase('hadubini')"
 actions:
   - "isRelevant = true"
 ---
-name: step1_aina_uchunguzi_uliotumika_kupima_ukoma
+name: step1_leprosy_diagnostic_method
 description:  Kama aina ya uchunguzi ni ukoma
 priority: 1
-condition: "step1_aina_ya_uchunguzi.contains('leprosy')"
+condition: "step1_investigation_type.contains('leprosy')"
 actions:
   - "isRelevant = true"
 ---
-name: step1_matokeo_uchunguzi_ukoma
+name: step1_leprosy_investigation_results
 description:  Kama aina_uchunguzi_uliotumika_kupima_ukoma ni hadubini au maamuzi ya kitabibu
 priority: 1
-condition: "step1_aina_uchunguzi_uliotumika_kupima_ukoma.equalsIgnoreCase('hadubini') || step1_aina_uchunguzi_uliotumika_kupima_ukoma.equalsIgnoreCase('maamuzi_ya_kitabibu')"
+condition: "step1_leprosy_diagnostic_method.equalsIgnoreCase('hadubini') || step1_leprosy_diagnostic_method.equalsIgnoreCase('clinical_decision_method')"
 actions:
   - "isRelevant = true"
 ---
-name: step1_ameanza_tiba_tb_dr
+name: step1_tb_treatment_initiated
 description:  Kama matokeo ya sampuli ya TB ni kifua kikuu ya mapafu au nje ya mapafu au kifua kikuu sugu
 priority: 1
-condition: "step1_tb_sample_test_results.equalsIgnoreCase('kifua_kikuu_ya_mapafu') || step1_tb_sample_test_results.equalsIgnoreCase('kifua_kikuu_nje_ya_mapafu') || step1_tb_sample_test_results.equalsIgnoreCase('kifua_kikuu_sugu') || step1_clinical_decision.equalsIgnoreCase('suggestive')"
+condition: "step1_tb_sample_test_results.equalsIgnoreCase('pulmonary_tb') || step1_tb_sample_test_results.equalsIgnoreCase('extra_pulmonary_tb') || step1_tb_sample_test_results.equalsIgnoreCase('drug_resistant_tb') || step1_clinical_decision.equalsIgnoreCase('suggestive')"
 actions:
   - "isRelevant = true"
 ---
-name: step1_amepima_vvu
+name: step1_hiv_tested
 description:  Kama matokeo ya sampuli ya TB ni kifua kikuu ya mapafu au nje ya mapafu au kifua kikuu sugu na ameanza tiba ya TB
 priority: 1
-condition: "step1_ameanza_tiba_tb_dr.equalsIgnoreCase('yes') || step1_ameanza_tiba_tb_dr.equalsIgnoreCase('no') || step1_ameanza_tiba_ukoma.equalsIgnoreCase('yes') || step1_ameanza_tiba_ukoma.equalsIgnoreCase('no')"
+condition: "step1_tb_treatment_initiated.equalsIgnoreCase('yes') || step1_tb_treatment_initiated.equalsIgnoreCase('no') || step1_leprosy_treatment_initiated.equalsIgnoreCase('yes') || step1_leprosy_treatment_initiated.equalsIgnoreCase('no')"
 actions:
   - "isRelevant = true"
 ---
-name: step1_ameanza_tiba_ukoma
+name: step1_leprosy_treatment_initiated
 description:  Kama matokeo ya uchunguzi wa ukoma ambayo majibu ni amegundulika na Ukoma
 priority: 1
-condition: "step1_matokeo_uchunguzi_ukoma.equalsIgnoreCase('amegundulika_na_ukoma')"
+condition: "step1_leprosy_investigation_results.equalsIgnoreCase('leprosy_confirmed')"
 actions:
   - "isRelevant = true"
 ---
 name: step1_clinical_decision
 description:  Kama aina ya kipimo cha uchunguzi kilichotumika kupima TB ni xray au score chart
 priority: 1
-condition: "step1_kipimo_cha_uchunguzi_kilichotumika_kupima_tb.equalsIgnoreCase('xray') || step1_kipimo_cha_uchunguzi_kilichotumika_kupima_tb.equalsIgnoreCase('score_chart')"
+condition: "step1_tb_diagnostic_test_type.equalsIgnoreCase('xray') || step1_tb_diagnostic_test_type.equalsIgnoreCase('score_chart')"
 actions:
   - "isRelevant = true"
 ---
-name: step1_anastahili_kuanzishiwa_tpt
+name: step1_eligible_for_tpt
 description:  Kama maamuzi ya kitabibu jibu ni non-suggestive
 priority: 1
-condition: "step1_clinical_decision.equalsIgnoreCase('non_suggestive') || step1_tb_sample_test_results.equalsIgnoreCase('tb_dr_tb_haijagundulika')"
+condition: "step1_clinical_decision.equalsIgnoreCase('non_suggestive') || step1_tb_sample_test_results.equalsIgnoreCase('tb_dr_tb_undetected')"
 actions:
   - "isRelevant = true"
 ---
-name: step1_toaster_sampuli_haina_ubora
+name: step1_poor_sample_quality_prompt
 description: if toaster_sampuli_haina_ubora
 priority: 1
-condition: "step1_tb_sample_test_results.equalsIgnoreCase('sampuli_haina_ubora')"
+condition: "step1_tb_sample_test_results.equalsIgnoreCase('poor_quality_sample')"
 actions:
   - "isRelevant = true "
 ---
-name: step1_tarehe_ya_kuanzishiwa_tpt
+name: step1_tpt_initiation_date
 description: kama mteja amejibu Ndiyo kwenye anastahili kuanzishiwa TPT
 priority: 1
-condition: "step1_anastahili_kuanzishiwa_tpt.equalsIgnoreCase('yes')"
+condition: "step1_eligible_for_tpt.equalsIgnoreCase('yes')"
 actions:
   - "isRelevant = true "
 ---
-name: step1_tarehe_ya_kuanza_tiba_kifua_kikuu
+name: step1_tb_treatment_start_date
 description: kama mteja amejibu Ndiyo kwenye ameanza tiba ya TB/DR TB
 priority: 1
-condition: "step1_ameanza_tiba_tb_dr.equalsIgnoreCase('yes')"
+condition: "step1_tb_treatment_initiated.equalsIgnoreCase('yes')"
 actions:
   - "isRelevant = true "
 ---
-name: step1_tarehe_ya_kuanza_tiba_ukoma
+name: step1_leprosy_treatment_start_date
 description: kama mteja amejibu Ndiyo kwenye ameanza tiba ya ukoma
 priority: 1
-condition: "step1_ameanza_tiba_ukoma.equalsIgnoreCase('yes')"
+condition: "step1_leprosy_treatment_initiated.equalsIgnoreCase('yes')"
 actions:
   - "isRelevant = true "

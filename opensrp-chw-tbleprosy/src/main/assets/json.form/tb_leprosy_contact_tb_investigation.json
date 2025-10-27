@@ -1,6 +1,6 @@
 {
   "count": "1",
-  "encounter_type": "Uchunguzi wa Kifua Kikuu",
+  "encounter_type": "Tuberculosis Investigation",
   "entity_id": "",
   "relational_id": "",
   "validate_on_submit": true,
@@ -50,74 +50,69 @@
   },
   "global": {},
   "step1": {
-    "title": "Uchunguzi wa Kifua Kikuu",
+    "title": "Tuberculosis Investigation",
     "fields": [
       {
-        "key": "majibu_ya_uchunguzi_tb",
+        "key": "tb_screening_findings",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "majibu_ya_uchunguzi_tb",
+        "openmrs_entity_id": "tb_screening_findings",
         "type": "check_box",
         "combine_checkbox_option_values": "true",
-        "label": "Uchunguzi wa Kifua Kikuu",
+        "label": "Tuberculosis screening findings",
         "exclusive": [
-          "hana_dalili",
-          "dalili_za_tb_nje_ya_mapafu"
+          "no_tb_signs",
+          "extra_pulmonary_tb_signs"
         ],
-        "options":[
+        "options": [
           {
-            "key": "kikohozi",
-            "text": "Kikohozi (KH)",
+            "key": "persistent_cough",
+            "text": "Persistent cough (KH)",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "kikohozi"
+            "openmrs_entity_id": "persistent_cough"
           },
           {
-            "key": "makohozi_damu",
-            "text": "Makohozi yaliyochanganyika na Damu(D)",
+            "key": "cough_with_blood",
+            "text": "Cough mixed with blood (D)",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "makohozi_damu"
-
+            "openmrs_entity_id": "cough_with_blood"
           },
           {
-            "key": "homa",
-            "text": "Homa(H)",
+            "key": "fever",
+            "text": "Fever (H)",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "homa"
-
+            "openmrs_entity_id": "fever"
           },
           {
-            "key": "kupungua_uzito",
-            "text": "Kupungua Uzito(KU)",
+            "key": "weight_loss",
+            "text": "Weight loss (KU)",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "kupungua_uzito"
-
+            "openmrs_entity_id": "weight_loss"
           },
           {
-            "key": "kutokwa_jasho_jingi",
-            "text": "Kutokwa na Jasho Jingi",
+            "key": "excessive_night_sweats",
+            "text": "Excessive night sweats",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "kutokwa_jasho_jingi"
-
+            "openmrs_entity_id": "excessive_night_sweats"
           },
           {
-            "key": "dalili_za_tb_nje_ya_mapafu",
-            "text": "Dalili za Kifua Kikuu Nje ya Mapafu(Taja)",
+            "key": "extra_pulmonary_tb_signs",
+            "text": "Extra-pulmonary TB signs (specify)",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "dalili_za_tb_nje_ya_mapafu"
-
+            "openmrs_entity_id": "extra_pulmonary_tb_signs"
           },
           {
-            "key": "hana_dalili",
-            "text": "Hana Dalili",
+            "key": "no_tb_signs",
+            "text": "No signs",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "hana_dalili"
+            "openmrs_entity_id": "no_tb_signs"
           }
         ],
         "v_required": {
@@ -126,12 +121,12 @@
         }
       },
       {
-        "key": "dalili_nyingine",
+        "key": "extra_pulmonary_tb_signs_details",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "dalili_nyingine",
+        "openmrs_entity_id": "extra_pulmonary_tb_signs_details",
         "type": "edit_text",
-        "hint": "Dalili za Kifua Kikuu Nje ya Mapafu",
+        "hint": "Extra-pulmonary TB signs",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -141,12 +136,12 @@
         }
       },
       {
-        "key": "mhisiwa_wa_tb",
+        "key": "presumptive_tb_prompt",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "mhisiwa_wa_tb",
+        "openmrs_entity_id": "presumptive_tb_prompt",
         "type": "toaster_notes",
-        "text": "Mhisiwa wa Kifua Kikuu.Mpe Rufaa kwenda Kituo cha kutolea Huduma za Afya",
+        "text": "Client is presumptive for tuberculosis. Refer to a health facility.",
         "text_color": "#CF0800",
         "toaster_type": "info",
         "relevance": {
@@ -158,12 +153,12 @@
         }
       },
       {
-        "key": "sio_mhisiwa_wa_tb",
+        "key": "not_presumptive_tb_prompt",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "sio_mhisiwa_wa_tb",
+        "openmrs_entity_id": "not_presumptive_tb_prompt",
         "type": "toaster_notes",
-        "text": "Mteja sio Mhisiwa wa Kifua Kikuu",
+        "text": "Client is not presumptive for tuberculosis.",
         "text_color": "#CF0800",
         "toaster_type": "info",
         "relevance": {

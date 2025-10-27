@@ -1,6 +1,6 @@
 {
   "count": "1",
-  "encounter_type": "Uchunguzi wa Ukoma",
+  "encounter_type": "Leprosy Investigation",
   "entity_id": "",
   "relational_id": "",
   "validate_on_submit": true,
@@ -53,61 +53,61 @@
     "title": "Uchunguzi wa Ukoma",
     "fields": [
       {
-        "key": "majibu_ya_uchunguzi_ukoma",
+        "key": "leprosy_interview_findings",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "majibu_ya_uchunguzi_ukoma",
+        "openmrs_entity_id": "leprosy_interview_findings",
         "type": "check_box",
         "combine_checkbox_option_values": "true",
-        "label": "Matokeo ya Mahojiano Kuhusu Ukoma",
+        "label": "Leprosy interview findings",
         "label_text_size": "18px",
         "v_required": {
           "value": "true",
-          "err": "Tafadhali jaza taarifa"
+          "err": "Please provide this information"
         },
         "exclusive": [
-          "hana_dalili"
+          "no_leprosy_signs"
         ],
         "options": [
           {
-            "key": "baka_mabaka_yasiyo_hisia",
-            "text": "Baka au Mabaka yasiyo na hisia(B)",
+            "key": "numb_patches",
+            "text": "Patches or plaques without sensation (B)",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "baka_mabaka_yasiyo_hisia"
+            "openmrs_entity_id": "numb_patches"
           },
           {
-            "key": "ngozi_kuota_vinundu_kukamaa",
-            "text": "Ngozi kuota Vinundu au Kukamaa(NV)",
+            "key": "skin_nodules_or_thickening",
+            "text": "Skin nodules or thickening (NV)",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "ngozi_kuota_vinundu_kukamaa"
+            "openmrs_entity_id": "skin_nodules_or_thickening"
           },
           {
-            "key": "ganzi_mikononi_miguuni",
-            "text": "Ganzi Mikononi/Miguuni",
+            "key": "numbness_hands_or_feet",
+            "text": "Numbness of hands or feet",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "ganzi_mikononi_miguuni"
+            "openmrs_entity_id": "numbness_hands_or_feet"
           },
           {
-            "key": "kupata_ulemavu_vidonda_sugu",
-            "text": "Kupata ulemavu au vidonda sugu",
+            "key": "disability_or_chronic_ulcers",
+            "text": "Disability or chronic ulcers",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "kupata_ulemavu_vidonda_sugu"
+            "openmrs_entity_id": "disability_or_chronic_ulcers"
           },
           {
-            "key": "hana_dalili",
-            "text": "Hana Dalili",
+            "key": "no_leprosy_signs",
+            "text": "No signs",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "hana_dalili"
+            "openmrs_entity_id": "no_leprosy_signs"
           }
         ]
       },
       {
-        "key": "mhisiwa_wa_ukoma",
+        "key": "presumptive_leprosy_prompt",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "mhisiwa_wa_tb",
+        "openmrs_entity_id": "presumptive_leprosy_prompt",
         "type": "toaster_notes",
-        "text": "Mhisiwa wa Ukoma.Mpe Rufaa kwenda Kituo cha kutolea Huduma za Afya",
+        "text": "Client is presumptive for leprosy. Refer to a health facility.",
         "text_color": "#CF0800",
         "toaster_type": "info",
         "relevance": {
@@ -119,12 +119,12 @@
         }
       },
       {
-        "key": "sio_mhisiwa_wa_ukoma",
+        "key": "not_presumptive_leprosy_prompt",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "sio_mhisiwa_wa_tb",
+        "openmrs_entity_id": "not_presumptive_leprosy_prompt",
         "type": "toaster_notes",
-        "text": "Mteja sio Mhisiwa wa Ukoma",
+        "text": "Client is not presumptive for leprosy.",
         "text_color": "#CF0800",
         "toaster_type": "info",
         "relevance": {

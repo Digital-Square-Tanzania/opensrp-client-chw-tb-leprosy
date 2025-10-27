@@ -4,4 +4,4 @@ description: screening status calculation
 priority: 1
 condition: "true"
 actions:
-  - "calculation = step1_majibu_ya_uchunguzi_ukoma != null && !step1_majibu_ya_uchunguzi_ukoma.isEmpty() && step1_majibu_ya_uchunguzi_ukoma.contains('hana_dalili') ? 'leprocy_presumptive' : '-' "
+  - "calculation = step1_leprosy_interview_findings != null && !step1_leprosy_interview_findings.isEmpty() && step1_leprosy_interview_findings.contains('no_leprosy_signs') ? 'leprosy_presumptive' : '-' "

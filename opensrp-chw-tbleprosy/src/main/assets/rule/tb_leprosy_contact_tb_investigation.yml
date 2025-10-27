@@ -2,30 +2,30 @@
 name: step1_amechukuliwa_sampuli
 description: je amechukuliwa sample
 priority: 1
-condition: "!global_observation.contains('hana_dalili')"
+condition: "!global_observation.contains('no_tb_signs')"
 actions:
   - "isRelevant = true"
 
 ---
-name: step1_dalili_nyingine
+name: step1_extra_pulmonary_tb_signs_details
 description: dalili nyingine
 priority: 1
-condition: "step1_majibu_ya_uchunguzi_tb.contains('dalili_za_tb_nje_ya_mapafu')"
+condition: "step1_tb_screening_findings.contains('extra_pulmonary_tb_signs')"
 actions:
   - "isRelevant = true"
 
 ---
-name: step1_mhisiwa_wa_tb
+name: step1_presumptive_tb_prompt
 description: je amechukuliwa sample
 priority: 1
-condition: "step1_majibu_ya_uchunguzi_tb.contains('kikohozi') && step1_majibu_ya_uchunguzi_tb.contains('makohozi_damu') && step1_majibu_ya_uchunguzi_tb.contains('homa') && step1_majibu_ya_uchunguzi_tb.contains('kupungua_uzito') && step1_majibu_ya_uchunguzi_tb.contains('kutokwa_jasho_jingi')"
+condition: "step1_tb_screening_findings.contains('persistent_cough') && step1_tb_screening_findings.contains('cough_with_blood') && step1_tb_screening_findings.contains('fever') && step1_tb_screening_findings.contains('weight_loss') && step1_tb_screening_findings.contains('excessive_night_sweats')"
 actions:
   - "isRelevant = true"
 
 ---
-name: step1_sio_mhisiwa_wa_tb
+name: step1_not_presumptive_tb_prompt
 description: je amechukuliwa sample
 priority: 1
-condition: "step1_majibu_ya_uchunguzi_tb.contains('hana_dalili')"
+condition: "step1_tb_screening_findings.contains('no_tb_signs')"
 actions:
   - "isRelevant = true"

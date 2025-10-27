@@ -1,6 +1,6 @@
 {
   "count": "1",
-  "encounter_type": "Kuchukua Sampuli",
+  "encounter_type": "Sample Collection",
   "entity_id": "",
   "relational_id": "",
   "validate_on_submit": true,
@@ -50,27 +50,27 @@
   },
   "global": {},
   "step1": {
-    "title": "Kuchukua Sampuli",
+    "title": "Sample Collection",
     "fields": [
       {
-        "key": "amechukuliwa_sampuli",
+        "key": "has_sample_been_collected",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "amechukuliwa_sampuli",
+        "openmrs_entity_id": "has_sample_been_collected",
         "type": "native_radio",
-        "label": "Je mteja amechukuliwa sampuli?",
+        "label": "Has the client's sample been collected?",
         "label_text_size": "18px",
         "options": [
           {
             "key": "yes",
-            "text": "Ndio",
+            "text": "Yes",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "yes"
           },
           {
             "key": "no",
-            "text": "Hapana",
+            "text": "No",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no"
@@ -87,7 +87,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "sample_collection_date",
         "type": "date_picker",
-        "hint": "Tarehe ya kuchukuliwa sampuli",
+        "hint": "Sample collection date",
         "expanded": false,
         "max_date": "today",
         "v_required": {
@@ -103,42 +103,42 @@
         }
       },
       {
-        "key": "aina_sampuli",
+        "key": "sample_type",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "aina_sampuli",
+        "openmrs_entity_id": "sample_type",
         "type": "check_box",
         "combine_checkbox_option_values": "true",
-        "label": "Aina ya sampuli",
+        "label": "Sample type",
         "label_text_size": "18px",
         "options": [
           {
-            "key": "makohozi",
-            "text": "Makohozi",
+            "key": "sputum",
+            "text": "Sputum",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "makohozi"
+            "openmrs_entity_id": "sputum"
           },
           {
-            "key": "kinyesi",
-            "text": "Kinyesi",
+            "key": "stool",
+            "text": "Stool",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "kinyesi"
+            "openmrs_entity_id": "stool"
           },
           {
-            "key": "mkojo",
-            "text": "Mkojo",
+            "key": "urine",
+            "text": "Urine",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "mkojo"
+            "openmrs_entity_id": "urine"
           },
           {
-            "key": "other",
-            "text": "Nyingine(Taja)",
+            "key": "other_sample",
+            "text": "Other (specify)",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "other"
+            "openmrs_entity_id": "other_sample"
           }
         ],
         "relevance": {
@@ -154,12 +154,12 @@
         }
       },
       {
-        "key": "sampuli_nyingine",
+        "key": "sample_type_other",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "sampuli_nyingine",
+        "openmrs_entity_id": "sample_type_other",
         "type": "edit_text",
-        "hint": "Sampuli Nyingine",
+        "hint": "Other sample (specify)",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
@@ -169,31 +169,31 @@
         }
       },
       {
-        "key": "mteja_anahitaji_kifaa_kingine",
+        "key": "sample_container_provided",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "mteja_anahitaji_kifaa_kingine",
+        "openmrs_entity_id": "sample_container_provided",
         "type": "native_radio",
-        "label": "Chagua kikopo cha kuchukulia sampuli alichopewa mteja",
+        "label": "Select the specimen container provided to the client",
         "label_text_size": "18px",
         "options": [
           {
             "key": "sputum_container",
-            "text": "Kikopo cha makohozi",
+            "text": "Sputum container",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "sputum_container"
           },
           {
             "key": "urine_container",
-            "text": "Kikopo cha mkojo",
+            "text": "Urine container",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "urine_container"
           },
           {
             "key": "stool_container",
-            "text": "Kikopo cha kinyesi",
+            "text": "Stool container",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "stool_container"
@@ -212,12 +212,12 @@
         }
       },
       {
-        "key": "kuchukuliwa_sampuli",
+        "key": "sample_collection_required",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "kuchukuliwa_sampuli",
+        "openmrs_entity_id": "sample_collection_required",
         "type": "hidden",
-        "label": "Je mteja anahitajika kuchukuliwa sampuli?",
+        "label": "Is the client required to provide a sample?",
         "label_text_size": "18px",
         "value": "yes"
       }

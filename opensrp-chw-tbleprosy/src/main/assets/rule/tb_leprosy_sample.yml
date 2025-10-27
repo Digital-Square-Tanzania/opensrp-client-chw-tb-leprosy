@@ -2,37 +2,36 @@
 name: step1_sample_collection_date
 description: sample_collection_date
 priority: 1
-condition: "step1_amechukuliwa_sampuli.equalsIgnoreCase('yes')"
+condition: "step1_has_sample_been_collected.equalsIgnoreCase('yes')"
 actions:
   - "isRelevant = true"
 ---
-name: step1_kifaa_cha_sampuli
-description: Kifaa cha sampuli
+name: step1_sample_container_provided
+description: specimen container provided
 priority: 1
-condition: "step1_amechukuliwa_sampuli.equalsIgnoreCase('yes')"
+condition: "step1_has_sample_been_collected.equalsIgnoreCase('yes')"
 actions:
   - "isRelevant = true"
 ---
-name: step1_aina_sampuli
+name: step1_sample_type
 description: je amechukuliwa sample
 priority: 1
-condition: "step1_amechukuliwa_sampuli.equalsIgnoreCase('yes')"
+condition: "step1_has_sample_been_collected.equalsIgnoreCase('yes')"
 actions:
   - "isRelevant = true"
 ---
-name: step1_mteja_anahitaji_kifaa_kingine
-description: mteja_anahitaji_kifaa_kingine
+name: step1_sample_container_required
+description: sample container selection
 priority: 1
-condition: "step1_amechukuliwa_sampuli.equalsIgnoreCase('yes')"
+condition: "step1_has_sample_been_collected.equalsIgnoreCase('yes')"
 actions:
   - "isRelevant = true"
 ---
-name: step1_sampuli_nyingine
-description: sampuli_nyingine
+name: step1_sample_type_other
+description: other sample type
 priority: 1
-condition: "step1_aina_sampuli.contains('other')"
+condition: "step1_sample_type.contains('other_sample')"
 actions:
   - "isRelevant = true"
-
 
 

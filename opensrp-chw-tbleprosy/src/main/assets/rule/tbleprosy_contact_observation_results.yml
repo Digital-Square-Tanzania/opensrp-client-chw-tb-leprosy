@@ -1,41 +1,41 @@
-name: step1_ameanza_tiba_ya_tb
+name: step1_has_tb_treatment_started
 description:  kama matokeo ya uchunguzi ni tb ya mafau au nje ya mapafu au kifua kikuu sugu swali litakuwa ameanza tiba ya tb
 priority: 1
-condition: "step1_matokeo_ya_uchunguzi_tb.equalsIgnoreCase('tb_ya_mapafu') || step1_matokeo_ya_uchunguzi_tb.equalsIgnoreCase('tb_nje_ya_mapafu') || step1_matokeo_ya_uchunguzi_tb.equalsIgnoreCase('kifua_kikuu_sugu')"
+condition: "step1_tb_investigation_results.equalsIgnoreCase('pulmonary_tb') || step1_tb_investigation_results.equalsIgnoreCase('extra_pulmonary_tb') || step1_tb_investigation_results.equalsIgnoreCase('drug_resistant_tb')"
 actions:
   - "isRelevant = true"
 ---
-name: step1_tarehe_ya_kuanza_matibabu
+name: step1_tb_treatment_start_date
 description:  kama ameanza tib ya TB ni Ndiyo,fahamu tarehe ya kuanza matibabu
 priority: 1
-condition: "step1_ameanza_tiba_ya_tb.equalsIgnoreCase('ndiyo_ameanza_tiba_ya_tb')"
+condition: "step1_has_tb_treatment_started.equalsIgnoreCase('yes_tb_treatment_started')"
 actions:
   - "isRelevant = true"
 ---
-name: step1_anastahili_kutumia_tiba_kinga
+name: step1_eligible_for_tb_preventive_therapy
 description:  kama matokeo ya uchunguzi ya kifua kikuu ni hana TB
 priority: 1
-condition: "step1_matokeo_ya_uchunguzi_tb.equalsIgnoreCase('hana_tb')"
+condition: "step1_tb_investigation_results.equalsIgnoreCase('no_tb_detected')"
 actions:
   - "isRelevant = true"
 ---
-name: step1_ameanza_tiba_kinga
+name: step1_has_tb_preventive_therapy_started
 description:  kama anastahili kutumia tiba kinga jibu ni Ndiyo,tupate swali ameanza tiba kinga
 priority: 1
-condition: "step1_anastahili_kutumia_tiba_kinga.equalsIgnoreCase('ndiyo_anastahili_kutumia_tiba_kinga')"
+condition: "step1_eligible_for_tb_preventive_therapy.equalsIgnoreCase('yes_eligible_for_tpt')"
 actions:
   - "isRelevant = true"
 ---
-name: step1_tarehe_ya_kuanza_tiba_kinga
+name: step1_tpt_start_date
 description:  kama anastahili kutumia tiba kinga jibu ni Ndiyo,tupate swali ameanza tiba kinga
 priority: 1
-condition: "step1_ameanza_tiba_kinga.equalsIgnoreCase('ndiyo_ameanza_tiba_kinga')"
+condition: "step1_has_tb_preventive_therapy_started.equalsIgnoreCase('yes_tpt_started')"
 actions:
   - "isRelevant = true"
 ---
-name: step1_toaster_sampuli_haina_ubora
+name: step1_poor_sample_quality_prompt
 description:  kama matokeo ya uchunguzi ni sampuli haina ubora
 priority: 1
-condition: "step1_matokeo_ya_uchunguzi_tb.equalsIgnoreCase('sampuli_haina_ubora')"
+condition: "step1_tb_investigation_results.equalsIgnoreCase('poor_quality_sample')"
 actions:
   - "isRelevant = true"

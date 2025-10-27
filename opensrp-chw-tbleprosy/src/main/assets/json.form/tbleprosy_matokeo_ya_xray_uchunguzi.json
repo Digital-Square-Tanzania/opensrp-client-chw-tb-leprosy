@@ -1,7 +1,7 @@
 {
   "validate_on_submit": true,
   "count": "1",
-  "encounter_type": "TBLEPROSY Matokeo Ya Xray Uchunguzi",
+  "encounter_type": "TBLEPROSY Investigation Results",
   "entity_id": "",
   "metadata": {
     "start": {
@@ -44,33 +44,33 @@
   },
   "global": {},
   "step1": {
-    "title": "Matokeo ya Sampuli",
+    "title": "Investigation Results",
     "fields": [
       {
-        "key": "aina_ya_uchunguzi",
+        "key": "investigation_type",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "aina_ya_uchunguzi",
+        "openmrs_entity_id": "investigation_type",
         "type": "check_box",
-        "label": "Aina ya Uchunguzi",
+        "label": "Investigation type",
         "label_text_style": "bold",
         "text_color": "#000000",
         "combine_checkbox_option_values": "true",
         "exclusive": [
-          "tb"
+          "tuberculosis"
         ],
         "options": [
           {
-            "key": "kifua_kikuu",
-            "text": "Kifua Kikuu (TB)",
+            "key": "tuberculosis",
+            "text": "Tuberculosis (TB)",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "kifua_kikuu"
+            "openmrs_entity_id": "tuberculosis"
           },
           {
-            "key": "ukoma",
-            "text": "Ukoma",
+            "key": "leprosy",
+            "text": "Leprosy",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "ukoma"
+            "openmrs_entity_id": "leprosy"
           }
         ],
         "v_required": {
@@ -79,11 +79,11 @@
         }
       },
       {
-        "key": "kipimo_cha_uchunguzi_kilichotumika_kupima_tb",
+        "key": "tb_diagnostic_test_type",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "kipimo_cha_uchunguzi_kilichotumika_kupima_tb",
-        "label": "Aina ya kipimo cha uchunguzi kilichotumika kupima TB",
+        "openmrs_entity_id": "tb_diagnostic_test_type",
+        "label": "Diagnostic test used to assess TB",
         "label_text_style": "bold",
         "text_color": "#000000",
         "type": "native_radio",
@@ -104,10 +104,10 @@
           },
           {
             "key": "hadubini",
-            "text": "Hadubini",
+            "text": "Microscopy",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "hadubini"
+            "openmrs_entity_id": "microscopy"
           },
           {
             "key": "xray",
@@ -134,7 +134,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "clinical_decision",
-        "label": "Maamuzi ya kitabibu",
+        "label": "Clinical decision",
         "label_text_style": "bold",
         "text_color": "#000000",
         "type": "native_radio",
@@ -160,28 +160,28 @@
         }
       },
       {
-        "key": "aina_uchunguzi_uliotumika_kupima_ukoma",
+        "key": "leprosy_diagnostic_method",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "aina_uchunguzi_uliotumika_kupima_ukoma",
-        "label": "Aina ya uchunguzi uliyotumika kupima ukoma",
+        "openmrs_entity_id": "leprosy_diagnostic_method",
+        "label": "Diagnostic method used to assess leprosy",
         "label_text_style": "bold",
         "text_color": "#000000",
         "type": "native_radio",
         "options": [
           {
             "key": "hadubini",
-            "text": "Hadubini",
+            "text": "Microscopy",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "hadubini"
+            "openmrs_entity_id": "microscopy"
           },
           {
-            "key": "maamuzi_ya_kitabibu",
-            "text": "Maamuzi ya kitabibu",
+            "key": "clinical_decision_method",
+            "text": "Clinical decision",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "maamuzi_ya_kitabibu"
+            "openmrs_entity_id": "clinical_decision_method"
           }
         ],
         "v_required": {
@@ -190,28 +190,28 @@
         }
       },
       {
-        "key": "matokeo_uchunguzi_ukoma",
+        "key": "leprosy_investigation_results",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "matokeo_uchunguzi_ukoma",
-        "label": "Matokeo ya uchunguzi wa Ukoma",
+        "openmrs_entity_id": "leprosy_investigation_results",
+        "label": "Leprosy investigation results",
         "label_text_style": "bold",
         "text_color": "#000000",
         "type": "native_radio",
         "options": [
           {
-            "key": "amegundulika_na_ukoma",
-            "text": "Amegundulika na Ukoma",
+            "key": "leprosy_confirmed",
+            "text": "Leprosy confirmed",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "amegundulika_na_ukoma"
+            "openmrs_entity_id": "leprosy_confirmed"
           },
           {
-            "key": "hana_ukoma",
-            "text": "Hana Ukoma",
+            "key": "no_leprosy_detected",
+            "text": "No leprosy detected",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "hana_ukoma"
+            "openmrs_entity_id": "no_leprosy_detected"
           }
         ],
         "v_required": {
@@ -220,28 +220,28 @@
         }
       },
       {
-        "key": "amepima_vvu",
+        "key": "hiv_tested",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "amepima_vvu",
-        "label": "Amepima VVU",
+        "openmrs_entity_id": "hiv_tested",
+        "label": "Has the client tested for HIV?",
         "label_text_style": "bold",
         "text_color": "#000000",
         "type": "native_radio",
         "options": [
           {
-            "key": "ndiyo_amepima_vvu",
-            "text": "Ndiyo",
+            "key": "yes_hiv_tested",
+            "text": "Yes",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "ndiyo_amepima_vvu"
+            "openmrs_entity_id": "yes_hiv_tested"
           },
           {
-            "key": "hapana_amepima_ukoma",
-            "text": "Hapana",
+            "key": "no_hiv_not_tested",
+            "text": "No",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "hapana_amepima_ukoma"
+            "openmrs_entity_id": "no_hiv_not_tested"
           }
         ],
         "v_required": {
@@ -250,25 +250,25 @@
         }
       },
       {
-        "key": "ameanza_tiba_tb_dr",
+        "key": "tb_treatment_initiated",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "ameanza_tiba_tb_dr",
-        "label": "Ameanza tiba ya TB/DR TB",
+        "openmrs_entity_id": "tb_treatment_initiated",
+        "label": "Has TB/DR-TB treatment been initiated?",
         "label_text_style": "bold",
         "text_color": "#000000",
         "type": "native_radio",
         "options": [
           {
             "key": "yes",
-            "text": "Ndiyo",
+            "text": "Yes",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "yes"
           },
           {
             "key": "no",
-            "text": "Hapana",
+            "text": "No",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no"
@@ -280,25 +280,25 @@
         }
       },
       {
-        "key": "ameanza_tiba_ukoma",
+        "key": "leprosy_treatment_initiated",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "ameanza_tiba_ukoma",
-        "label": "Ameanza tiba ya Ukoma",
+        "openmrs_entity_id": "leprosy_treatment_initiated",
+        "label": "Has leprosy treatment been initiated?",
         "label_text_style": "bold",
         "text_color": "#000000",
         "type": "native_radio",
         "options": [
           {
             "key": "yes",
-            "text": "Ndiyo",
+            "text": "Yes",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "yes"
           },
           {
             "key": "no",
-            "text": "Hapana",
+            "text": "No",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no"

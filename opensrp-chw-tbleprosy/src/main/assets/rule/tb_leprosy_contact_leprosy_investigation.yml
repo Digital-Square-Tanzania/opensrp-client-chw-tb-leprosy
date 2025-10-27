@@ -1,15 +1,15 @@
 ---
-name: step1_mhisiwa_wa_ukoma
-description: mhisiwa_wa_ukoma
+name: step1_presumptive_leprosy_prompt
+description: show presumptive leprosy prompt when any sign is selected
 priority: 1
-condition: "!step1_majibu_ya_uchunguzi_ukoma.contains('hana_dalili')"
+condition: "!step1_leprosy_interview_findings.contains('no_leprosy_signs')"
 actions:
   - "isRelevant = true"
 
 ---
-name: step1_sio_mhisiwa_wa_ukoma
-description: sio_mhisiwa_wa_ukoma
+name: step1_not_presumptive_leprosy_prompt
+description: show not presumptive prompt when no signs are present
 priority: 1
-condition: "step1_majibu_ya_uchunguzi_ukoma.contains('hana_dalili')"
+condition: "step1_leprosy_interview_findings.contains('no_leprosy_signs')"
 actions:
   - "isRelevant = true"
