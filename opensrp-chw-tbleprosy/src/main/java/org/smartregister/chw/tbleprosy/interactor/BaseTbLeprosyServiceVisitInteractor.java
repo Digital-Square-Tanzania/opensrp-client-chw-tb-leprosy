@@ -24,10 +24,12 @@ import org.smartregister.chw.tbleprosy.util.Constants;
 import org.smartregister.sync.helper.ECSyncHelper;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
 
 import timber.log.Timber;
 
@@ -197,24 +199,72 @@ public class BaseTbLeprosyServiceVisitInteractor extends BaseTbLeprosyVisitInter
 
         try {
             JSONObject jsonObject = new JSONObject(payload);
-            List<String> selections = extractSelections(jsonObject, "relationship_to_index_client");
+            Set<String> contactTypes = extractContactTypes(jsonObject);
 
-            String normalizedRequiredType = requiredType.toLowerCase(Locale.ENGLISH);
-            for (String selection : selections) {
-                if (StringUtils.isBlank(selection)) {
-                    continue;
-                }
-
-                String normalizedSelection = selection.toLowerCase(Locale.ENGLISH);
-                if (normalizedSelection.equals(normalizedRequiredType)) {
-                    return true;
-                }
+            String normalizedRequiredType = normalizeContactType(requiredType);
+            if (StringUtils.isBlank(normalizedRequiredType)) {
+                normalizedRequiredType = requiredType.toLowerCase(Locale.ENGLISH);
             }
+
+            return contactTypes.contains(normalizedRequiredType);
         } catch (Exception e) {
             Timber.e(e);
         }
 
         return false;
+    }
+
+    private Set<String> extractContactTypes(JSONObject jsonObject) {
+        Set<String> normalizedTypes = new HashSet<>();
+        if (jsonObject == null) {
+            return normalizedTypes;
+        }
+
+        String[] candidateKeys = new String[]{
+                "index_case_condition_types",
+                "contact_lives_with_patient_type",
+                "relationship_to_index_client",
+                "anaishi_karibu_na_mgonjwa",
+                "aina_ya_ukaribu_na_mgonjwa"
+        };
+
+        for (String key : candidateKeys) {
+            List<String> selections = extractSelections(jsonObject, key);
+            for (String selection : selections) {
+                if (StringUtils.isBlank(selection)) {
+                    continue;
+                }
+
+                String normalizedSelection = selection.trim().toLowerCase(Locale.ENGLISH);
+                normalizedTypes.add(normalizedSelection);
+
+                String normalizedContactType = normalizeContactType(selection);
+                if (StringUtils.isNotBlank(normalizedContactType)) {
+                    normalizedTypes.add(normalizedContactType);
+                }
+            }
+        }
+
+        return normalizedTypes;
+    }
+
+    private String normalizeContactType(String rawValue) {
+        if (StringUtils.isBlank(rawValue)) {
+            return null;
+        }
+
+        String normalized = rawValue.trim().toLowerCase(Locale.ENGLISH);
+        switch (normalized) {
+            case "tb":
+            case "tuberculosis":
+            case "high_tb_burden_area":
+                return "tb";
+            case "leprosy":
+            case "ukoma":
+                return "leprosy";
+            default:
+                return null;
+        }
     }
 
     private List<String> extractSelections(JSONObject jsonObject, String key) {
