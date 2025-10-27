@@ -58,10 +58,10 @@
         "combine_checkbox_option_values": "true",
         "options": [
           {
-            "key": "tuberculosis",
+            "key": "tb",
             "text": "Tuberculosis (TB)",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "tuberculosis"
+            "openmrs_entity_id": "tb"
           },
           {
             "key": "leprosy",
