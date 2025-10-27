@@ -118,7 +118,7 @@ public class TbLeprosyDao extends AbstractDao {
                 || normalizedStatus.contains("leprosy_presumptive");
     }
 
-    public static String getTBleprosyObservationResults(String baseEntityId) {
+    public static String getTbLeprosyObservationResults(String baseEntityId) {
         String sql = "SELECT tb_sample_test_results, clinical_decision FROM ec_tbleprosy_observation_results p " +
                 " WHERE p.base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
 
@@ -138,15 +138,11 @@ public class TbLeprosyDao extends AbstractDao {
     }
 
     public static String getTBleprosyContactObservationResults(String baseEntityId) {
-        String sql = "SELECT tb_investigation_results, matokeo_ya_uchunguzi_tb FROM ec_tbleprosy_contact_observation_results p " +
+        String sql = "SELECT tb_investigation_results FROM ec_tbleprosy_contact_observation_results p " +
                 " WHERE p.base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
 
         DataMap<String> dataMap = cursor -> {
-            String results = getCursorValue(cursor, "tb_investigation_results");
-            if (StringUtils.isBlank(results)) {
-                results = getCursorValue(cursor, "matokeo_ya_uchunguzi_tb");
-            }
-            return results;
+            return getCursorValue(cursor, "tb_investigation_results");
         };
 
         List<String> res = readData(sql, dataMap);
@@ -157,15 +153,11 @@ public class TbLeprosyDao extends AbstractDao {
     }
 
     public static String getTBleprosyFollowUpVisit(String baseEntityId) {
-        String sql = "SELECT follow_up_reason, sababu_ya_ufuatiliaji FROM ec_tbleprosy_followup_visit p " +
+        String sql = "SELECT follow_up_reason FROM ec_tbleprosy_followup_visit p " +
                 " WHERE p.base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
 
         DataMap<String> dataMap = cursor -> {
-            String reason = getCursorValue(cursor, "follow_up_reason");
-            if (StringUtils.isBlank(reason)) {
-                reason = getCursorValue(cursor, "sababu_ya_ufuatiliaji");
-            }
-            return reason;
+            return getCursorValue(cursor, "follow_up_reason");
         };
 
         List<String> res = readData(sql, dataMap);
@@ -176,15 +168,11 @@ public class TbLeprosyDao extends AbstractDao {
     }
 
     public static String getTBleprosyVisit(String baseEntityId) {
-        String sql = "SELECT has_sample_been_collected, kuchukuliwa_sampuli FROM ec_tbleprosy_visit p " +
+        String sql = "SELECT has_sample_been_collected FROM ec_tbleprosy_visit p " +
                 " WHERE p.entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
 
         DataMap<String> dataMap = cursor -> {
-            String collected = getCursorValue(cursor, "has_sample_been_collected");
-            if (StringUtils.isBlank(collected)) {
-                collected = getCursorValue(cursor, "kuchukuliwa_sampuli");
-            }
-            return collected;
+            return getCursorValue(cursor, "has_sample_been_collected");
         };
 
         List<String> res = readData(sql, dataMap);
