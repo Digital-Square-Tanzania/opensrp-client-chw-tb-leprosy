@@ -59,7 +59,7 @@ public class TbLeprosySampleActionHelper implements BaseTbLeprosyVisitAction.TbL
     public void onPayloadReceived(String jsonPayload) {
         try {
             JSONObject jsonObject = new JSONObject(jsonPayload);
-            sampleCollection = JsonFormUtils.getValue(jsonObject, "amechukuliwa_sampuli");
+            sampleCollection = JsonFormUtils.getValue(jsonObject, "has_sample_been_collected");
 
 
         } catch (JSONException e) {
