@@ -49,7 +49,7 @@ public class TbLeprosySampleActionHelper implements BaseTbLeprosyVisitAction.TbL
             global.put("observation", getCurrentScreeningStatus());
             return jsonObject.toString();
         } catch (JSONException e) {
-            e.printStackTrace();
+            Timber.e(e);
         }
 
         return null;
@@ -63,7 +63,7 @@ public class TbLeprosySampleActionHelper implements BaseTbLeprosyVisitAction.TbL
 
 
         } catch (JSONException e) {
-            e.printStackTrace();
+            Timber.e(e);
         }
     }
 
