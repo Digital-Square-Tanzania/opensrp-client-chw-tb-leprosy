@@ -95,10 +95,10 @@
         },
         "options": [
           {
-            "key": "tuberculosis",
-            "text": "Tuberculosis",
+            "key": "tb",
+            "text": "tb",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "tuberculosis"
+            "openmrs_entity_id": "tb"
           },
           {
             "key": "leprosy",
@@ -457,10 +457,10 @@
         },
         "options": [
           {
-            "key": "tuberculosis",
-            "text": "Tuberculosis",
+            "key": "tb",
+            "text": "tb",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "tuberculosis"
+            "openmrs_entity_id": "tb"
           },
           {
             "key": "leprosy",
