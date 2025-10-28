@@ -58,7 +58,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "has_sample_been_collected",
         "type": "native_radio",
-        "label": "Je mteja amechukuliwa sampuli?",
+        "label": "Je, mteja amechukuliwa sampuli?",
         "label_text_size": "18px",
         "options": [
           {
@@ -108,7 +108,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "sputum_container_provided",
         "type": "native_radio",
-        "label": "Je mteja amepewa kikopo cha makohozi?",
+        "label": "Je, mteja amepewa kikopo cha makohozi?",
         "label_text_size": "18px",
         "options": [
           {
@@ -144,7 +144,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "extra_sputum_container_required",
         "type": "native_radio",
-        "label": "Je mteja anahitaji kikopo cha makohozi cha ziada?",
+        "label": "Je, mteja anahitaji kikopo cha makohozi cha ziada?",
         "label_text_size": "18px",
         "options": [
           {
@@ -180,7 +180,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "sample_collection_required",
         "type": "hidden",
-        "label": "Je mteja anahitajika kuchukuliwa sampuli?",
+        "label": "Je, mteja anahitajika kuchukuliwa sampuli?",
         "label_text_size": "18px",
         "value": "yes"
       }

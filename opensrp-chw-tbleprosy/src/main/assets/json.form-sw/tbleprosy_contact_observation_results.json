@@ -98,7 +98,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "has_tb_treatment_started",
-        "label": "Ameanza tiba ya TB/DR TB?",
+        "label": "Je, ameanza tiba ya TB/DR TB?",
         "text_color": "#000000",
         "type": "native_radio",
         "options": [
@@ -156,7 +156,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "eligible_for_tb_preventive_therapy",
-        "label": "Anastahili kuanza kutumia Tiba Kinga?",
+        "label": "Je, anastahili kuanza kutumia Tiba Kinga?",
         "text_color": "#000000",
         "type": "native_radio",
         "options": [
@@ -192,7 +192,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "has_tb_preventive_therapy_started",
-        "label": "Ameanza Tiba Kinga?",
+        "label": "Je, ameanza Tiba Kinga?",
         "text_color": "#000000",
         "type": "native_radio",
         "options": [
