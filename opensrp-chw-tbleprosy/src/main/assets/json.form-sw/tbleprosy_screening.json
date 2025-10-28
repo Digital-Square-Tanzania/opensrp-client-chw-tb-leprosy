@@ -44,7 +44,7 @@
   },
   "global": {},
   "step1": {
-    "title": "TB/Leprosy Screening",
+    "title": "Uchunguzi wa TB/Ukoma",
     "next": "step2",
     "fields": [
       {
@@ -236,7 +236,7 @@
     ]
   },
   "step2": {
-    "title": "Aina Ya Mteja",
+    "title": "Aina ya Mteja",
     "next": "step3",
     "fields": [
       {
@@ -440,7 +440,7 @@
     ]
   },
   "step3": {
-    "title": "General Health Assessment",
+    "title": "Tathmini ya Afya ya Jumla",
     "next": "step4",
     "fields": [
       {
@@ -647,7 +647,7 @@
     ]
   },
   "step4": {
-    "title": "Vipimo Vya VVU",
+    "title": "Vipimo vya VVU",
     "fields": [
       {
         "key": "hiv_tested",
