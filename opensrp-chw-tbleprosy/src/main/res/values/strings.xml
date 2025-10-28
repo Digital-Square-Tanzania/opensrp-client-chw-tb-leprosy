@@ -2,7 +2,7 @@
     <string name="app_name" translatable="false">tbleprosy</string>
     <string name="error_unable_to_start_form">An error occurred when starting the form</string>
     <string name="error_unable_to_save_form">An error occurred when saving the form</string>
-    <string name="tbleprosy">TbLeprosy</string>
+    <string name="tbleprosy">Tb/Leprosy</string>
     <string name="add_member">Add Member</string>
     <string name="sort">Sort</string>
     <string name="home">Home</string>

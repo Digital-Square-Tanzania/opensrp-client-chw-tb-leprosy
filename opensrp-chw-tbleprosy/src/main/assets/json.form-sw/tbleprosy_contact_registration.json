@@ -44,7 +44,7 @@
   },
   "global": {},
   "step1": {
-    "title": "Mtu wa Karibu wa TB/Ukoma",
+    "title": "Usajili wa wanaohisiwa kuwa na TB/Ukoma",
     "fields": [
       {
         "key": "register_contact",
@@ -52,7 +52,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "register_contact",
         "type": "native_radio",
-        "label": "Msajili mteja nayehisiwa kuwa na TB/Ukoma",
+        "label": "Msajili mteja anayedhaniwa kuwa na TB/Ukoma",
         "v_required": {
           "value": "true",
           "err": "Tafadhali jaza taarifa"
