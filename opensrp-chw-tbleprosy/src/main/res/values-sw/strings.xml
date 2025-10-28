@@ -6,16 +6,22 @@
     <string name="sort">Panga</string>
     <string name="home">Nyumbani</string>
     <string name="add_family">Sajili Kaya</string>
-    <string name="scan_qr">Scan QR</string>
+    <string name="scan_qr">Skanisha QR</string>
     <string name="job_aids">Vitendea kazi</string>
     <string name="saving_dialog_title">Kuhifadhi</string>
     <string name="tbleprosy_followup_visit">Hudhurio la ufuatiliaji</string>
     <string name="record_tbleprosy">Hudhurio la TB/Ukoma</string>
+    <string name="record_tbleprosy_contact_visit">Rekodi hudhurio la msihiwa wa ugonjwa wa TB</string>
+    <string name="record_tbleprosy_client_followup_visit">Rekodi hudhurio la ufuatiliaji la TB/Ukoma</string>
+    <string name="register_tb_leprosy_contact">Sajili msihiwa wa ugonjwa wa TB/Ukoma</string>
+    <string name="record_tbleprosy_contact_visit_followup">Rekodi hudhurio la ufuatiliaji la msihiwa wa ugonjwa wa TB</string>
+    <string name="provide_contact_visit">Toa hudhurio kwa mhisiwa wa ugonjwa wa TB</string>
 
     <string name="optional">Si lazima</string>
     <string name="error_unable_save_visit">Imeshindwa kuhifadhi hudhurio hili</string>
     <string name="return_to_previous_page">Rudi kwenye orodha ya wateja wote wa TB/Ukoma</string>
     <string name="last_visit_40_days_ago">Hudhurio la mwisho lilifanyika %1$s zilizopita</string>
+    <string name="view_visit_history">Angalia historia ya huduma</string>
     <string name="view_medical_history">Angalia historia ya huduma</string>
     <string name="observation_results">Angalia historia ya huduma</string>
     <string name="call_no_number_provided">(Hakuna namba iliyotolewa)</string>
@@ -24,6 +30,12 @@
     <string name="family_has_nothing_due">Hakuna huduma iliyopangwa kwa sasa</string>
     <string name="go_to_family_s_profile">Rudi kwenye taarifa ya kaya</string>
     <string name="family_has_services_due">Muda wa huduma kwenye kaya umefika</string>
+    <string name="tbleprosy_family_member">Mwanafamilia</string>
+    <string name="tbleprosy_existing_client">Mteja aliyesajiliwa</string>
+    <string name="tbleprosy_contact_registration_success">Usajili wa Mhisiwa wa ugonjwa wa TB ameifadhiwa</string>
+    <string name="tbleprosy_no_contacts_available">Hakuna wawasiliani wanaokidhi vigezo</string>
+    <string name="tbleprosy_contact_option_family">Wanafamilia</string>
+    <string name="tbleprosy_contact_option_all_clients">Wateja wengine wote</string>
     <string name="primary_care_giver">MLEZI</string>
     <string name="family_head">MKUU WA KAYA</string>
     <string name="family_has_service_overdue"><![CDATA[Kaya ina <font color=#FF0000>huduma zilizochelewa</font></b>]]></string>
