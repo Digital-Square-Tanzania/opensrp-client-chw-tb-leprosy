@@ -145,10 +145,10 @@
         }
       },
       {
-        "key": "mobilization_area_specify",
+        "key": "other_mobilization_area",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "mobilization_area_specify",
+        "openmrs_entity_id": "other_mobilization_area",
         "hint": "Specify",
         "text_color": "#000000",
         "type": "edit_text",
@@ -219,10 +219,10 @@
         "type": "gps"
       },
       {
-        "key": "select_population_type",
+        "key": "population_type",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "select_population_type",
+        "openmrs_entity_id": "population_type",
         "label": "Select population Type",
         "text_color": "#000000",
         "type": "native_radio",
@@ -291,6 +291,27 @@
             "openmrs_entity_id": "nomadic_population"
           },
           {
+            "key": "elders_camp",
+            "text": "Elders Camp",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "elders_camp"
+          },
+          {
+            "key": "school_children",
+            "text": "School Children",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "school_children"
+          },
+          {
+            "key": "ovc",
+            "text": "Orphans and Vulnerable Childrens (OVC)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "ovc"
+          },
+          {
             "key": "other",
             "text": "Other",
             "openmrs_entity_parent": "",
@@ -304,10 +325,10 @@
         }
       },
       {
-        "key": "population_type_specify",
+        "key": "other_population_type",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
-        "openmrs_entity_id": "specify",
+        "openmrs_entity_id": "other_population_type",
         "hint": "Specify",
         "text_color": "#000000",
         "type": "edit_text",
