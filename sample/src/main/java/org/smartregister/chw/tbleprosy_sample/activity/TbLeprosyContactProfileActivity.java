@@ -100,7 +100,7 @@ public class TbLeprosyContactProfileActivity extends BaseTbLeprosyProfileActivit
     @Override
     public void openObservationResults() {
         try {
-            startForm("tbleprosy_contact_observation_results");
+            startForm("tbleprosy_observation_results");
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

@@ -137,21 +137,6 @@ public class TbLeprosyDao extends AbstractDao {
         return "";
     }
 
-    public static String getTBleprosyContactObservationResults(String baseEntityId) {
-        String sql = "SELECT tb_investigation_results FROM ec_tbleprosy_contact_observation_results p " +
-                " WHERE p.base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
-
-        DataMap<String> dataMap = cursor -> {
-            return getCursorValue(cursor, "tb_investigation_results");
-        };
-
-        List<String> res = readData(sql, dataMap);
-        if (res != null && !res.isEmpty() && res.get(0) != null) {
-            return res.get(0);
-        }
-        return "";
-    }
-
     public static String getTBleprosyFollowUpVisit(String baseEntityId) {
         String sql = "SELECT follow_up_reason FROM ec_tbleprosy_followup_visit p " +
                 " WHERE p.base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
