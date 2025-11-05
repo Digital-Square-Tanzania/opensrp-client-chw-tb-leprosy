@@ -83,9 +83,13 @@ public class TbLeprosySourceActionHelper implements BaseTbLeprosyVisitAction.TbL
                         selectCheckBoxValue(indexCaseConditionTypes, "tb");
                         if (doYouKnowClientsNumber != null) {
                             doYouKnowClientsNumber.put(JsonFormConstants.VALUE, "yes");
+                            doYouKnowClientsNumber.put(EDITABLE, false);
+                            doYouKnowClientsNumber.put(READ_ONLY,true);
                         }
                         if (tbClientNumber != null) {
                             tbClientNumber.put(JsonFormConstants.VALUE, tbNumber);
+                            tbClientNumber.put(EDITABLE, false);
+                            tbClientNumber.put(READ_ONLY,true);
                         }
                     } else if (StringUtils.isNotBlank(leprosyNumber)) {
                         selectCheckBoxValue(indexCaseConditionTypes, "leprosy");
