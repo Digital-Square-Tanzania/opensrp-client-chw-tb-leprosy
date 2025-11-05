@@ -20,6 +20,7 @@
     <string name="manual_process_visit">Process Visit</string>
     <string name="continue_visit">Continue</string>
     <string name="edit_visit">Edit</string>
+    <string name="view_medical_history">View services history</string>
     <string name="tbleprosy_visit_in_progress">Visit In Progress</string>
     <string name="tbleprosy_service_visit_in_progress">TbLeprosy Service In Progress</string>
     <string name="tbleprosy_procedure_visit_in_progress">TbLeprosy Procedure In Progress</string>
@@ -107,6 +108,7 @@
 
     <string name="tbleprosy_mobilization">Mobilization</string>
     <string name="tbleprosy_contact">Contacts</string>
+    <string name="usajili_wa_contacts">Contacts Registration</string>
 
 
 </resources>
