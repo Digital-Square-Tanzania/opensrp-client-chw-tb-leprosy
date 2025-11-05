@@ -280,58 +280,95 @@
         },
         "options": [
           {
-            "key": "health_worker",
-            "text": "Health worker",
+            "key": "health_care_provider",
+            "text": "Health Care Provider",
+            "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "health_worker"
+            "openmrs_entity_id": "health_care_provider"
           },
           {
             "key": "miner",
-            "text": "Miner (mining/quarry)",
+            "text": "Miner",
+            "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "miner"
           },
           {
-            "key": "prisoner_or_staff",
-            "text": "Prisoner/Prison staff",
+            "key": "prisoner_prison_officer",
+            "text": "Prisoner/Prison Officer",
+            "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "prisoner_or_staff"
+            "openmrs_entity_id": "prisoner_prison_officer"
           },
           {
             "key": "pwud",
             "text": "PWUD",
+            "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "pwud"
           },
           {
-            "key": "fisherfolk",
-            "text": "Fisherfolk (fishing camp)",
+            "key": "fisherfolks",
+            "text": "Fisherfolks",
+            "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "fisherfolk"
+            "openmrs_entity_id": "fisherfolks"
           },
           {
-            "key": "refugee",
-            "text": "Refugee",
+            "key": "refugees",
+            "text": "Refugees",
+            "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "refugee"
+            "openmrs_entity_id": "refugees"
           },
           {
-            "key": "migrant",
-            "text": "Migrant",
+            "key": "migrants",
+            "text": "Migrants",
+            "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "migrant"
+            "openmrs_entity_id": "migrants"
           },
           {
-            "key": "slum_dweller",
-            "text": "Slum dweller",
+            "key": "slum_dwellers",
+            "text": "Slum Dwellers",
+            "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "slum_dweller"
+            "openmrs_entity_id": "slum_dwellers"
           },
           {
-            "key": "other_group",
-            "text": "Other group (specify)",
+            "key": "nomadic_population",
+            "text": "Nomadic Population",
+            "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "other_group"
+            "openmrs_entity_id": "nomadic_population"
+          },
+          {
+            "key": "elders_camp",
+            "text": "Elders Camp",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "elders_camp"
+          },
+          {
+            "key": "school_children",
+            "text": "School Children",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "school_children"
+          },
+          {
+            "key": "ovc",
+            "text": "Orphans and Vulnerable Childrens (OVC)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "ovc"
+          },
+          {
+            "key": "other",
+            "text": "Other",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "other"
           }
         ],
         "relevance": {
