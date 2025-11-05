@@ -96,7 +96,7 @@
         "options": [
           {
             "key": "tb",
-            "text": "tb",
+            "text": "TB",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "tb"
           },
@@ -495,7 +495,7 @@
         "options": [
           {
             "key": "tb",
-            "text": "tb",
+            "text": "TB",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "tb"
           },
