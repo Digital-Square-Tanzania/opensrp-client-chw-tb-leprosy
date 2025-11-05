@@ -280,52 +280,88 @@
         },
         "options": [
           {
-            "key": "health_worker",
+            "key": "health_care_provider",
             "text": "Muhudumu wa Afya",
+            "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "health_worker"
+            "openmrs_entity_id": "health_care_provider"
           },
           {
             "key": "miner",
             "text": "Mchimbaji(Machimbo/Migodi)",
+            "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "miner"
           },
           {
-            "key": "prisoner_or_staff",
+            "key": "prisoner_prison_officer",
             "text": "Mfungwa/Afisa wa Magereza",
+            "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "prisoner_or_staff"
+            "openmrs_entity_id": "prisoner_prison_officer"
           },
           {
             "key": "pwud",
             "text": "PWUD",
+            "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "pwud"
           },
           {
-            "key": "fisherfolk",
+            "key": "fisherfolks",
             "text": "Mvuvi(Kambi ya wavuvi)",
+            "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "fisherfolk"
+            "openmrs_entity_id": "fisherfolks"
           },
           {
-            "key": "refugee",
+            "key": "refugees",
             "text": "Wakimbizi",
+            "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "refugee"
+            "openmrs_entity_id": "refugees"
           },
           {
-            "key": "migrant",
+            "key": "migrants",
             "text": "Wahamiaji",
+            "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "migrant"
+            "openmrs_entity_id": "migrants"
           },
           {
-            "key": "slum_dweller",
-            "text": "Slum Dwellers",
+            "key": "slum_dwellers",
+            "text": "Wakazi wa makazi duni",
+            "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "slum_dweller"
+            "openmrs_entity_id": "slum_dwellers"
+          },
+          {
+            "key": "nomadic_population",
+            "text": "Jamii ya kuhamahama",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "nomadic_population"
+          },
+          {
+            "key": "elders_camp",
+            "text": "Kambi ya Wazee",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "elders_camp"
+          },
+          {
+            "key": "school_children",
+            "text": "Watoto wa Shuleni",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "school_children"
+          },
+          {
+            "key": "ovc",
+            "text": "Yatima na Watoto Walioko Katika Mazingira Hatarishi (OVC)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "ovc"
           },
           {
             "key": "other_group",
@@ -495,7 +531,7 @@
           },
           {
             "key": "sputum_with_blood",
-            "text": "Makohozi yaliyochangayika na damu(D)",
+            "text": "Makohozi yaliyochanganyika na damu(D)",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "sputum_with_blood"
           },
