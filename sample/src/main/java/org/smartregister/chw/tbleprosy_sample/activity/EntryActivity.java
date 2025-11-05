@@ -156,13 +156,6 @@ public class EntryActivity extends SecuredActivity implements View.OnClickListen
                     throw new RuntimeException(e);
                 }
                 break;
-            case R.id.tbleprosy_observation_results_contact:
-                try {
-                   startForm("tbleprosy_contact_observation_results");
-                } catch (Exception e) {
-                    throw new RuntimeException(e);
-                }
-                break;
             default:
                 break;
         }
