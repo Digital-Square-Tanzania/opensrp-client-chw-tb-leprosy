@@ -95,7 +95,7 @@
           },
           {
             "key": "xray",
-            "text": "X-Ray",
+            "text": "X-ray (+\\- CAD)",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "xray"
@@ -248,7 +248,7 @@
           },
           {
             "key": "tb_dr_tb_undetected",
-            "text": "TB, DR-TB not detected",
+            "text": "Does not have TB",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "tb_dr_tb_undetected"

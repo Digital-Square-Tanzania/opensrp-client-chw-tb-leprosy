@@ -108,7 +108,7 @@
           },
           {
             "key": "xray",
-            "text": "X-ray",
+            "text": "Mashine ya mionzi",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "xray"

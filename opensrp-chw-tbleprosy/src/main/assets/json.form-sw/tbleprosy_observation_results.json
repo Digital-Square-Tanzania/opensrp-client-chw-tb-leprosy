@@ -88,14 +88,14 @@
         "options": [
           {
             "key": "screening_questionnaire",
-            "text": "Screening questionnaire",
+            "text": "Dodoso la uchunguzi",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "screening_questionnaire"
           },
           {
             "key": "xray",
-            "text": "X-Ray",
+            "text": "Mashine ya mionzi",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "xray"
@@ -139,14 +139,14 @@
         "options": [
           {
             "key": "tb_indicative",
-            "text": "Anaviashiria vya TB",
+            "text": "Ana Viashiria vya TB",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "tb_indicative"
           },
           {
             "key": "no_tb_indications",
-            "text": "Hanaviashiria vya TB",
+            "text": "Hana Viashiria vya TB",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no_tb_indications"
@@ -169,7 +169,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "tb_diagnostic_test_type",
-        "label": "Aina ya kipimo cha uchunguzi kilichotumika kupima TB",
+        "label": "Aina ya kipimo cha ugunduzi kilichotumika kupima TB",
         "label_text_style": "bold",
         "text_color": "#000000",
         "type": "native_radio",
@@ -248,7 +248,7 @@
           },
           {
             "key": "tb_dr_tb_undetected",
-            "text": "TB,DR-TB Haijagundulika",
+            "text": "Hana TB",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "tb_dr_tb_undetected"
