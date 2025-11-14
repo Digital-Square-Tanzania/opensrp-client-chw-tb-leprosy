@@ -34,7 +34,7 @@ public class BaseTbLeprosyRegisterContactFragmentPresenter implements TbLeprosyR
 
     @Override
     public String getMainCondition() {
-        return " "+getMainTable()+".is_closed = 0";
+        return " "+getMainTable()+".is_closed = 0 AND screening_status IS NULL";
     }
 
     @Override
