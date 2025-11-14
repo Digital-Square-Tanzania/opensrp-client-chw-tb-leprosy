@@ -108,7 +108,7 @@
           },
           {
             "key": "xray",
-            "text": "X-ray",
+            "text": "X-ray (+\\- CAD)",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "xray"
