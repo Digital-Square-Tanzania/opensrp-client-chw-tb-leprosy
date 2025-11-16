@@ -29,18 +29,16 @@ public class DBConstants {
         public static final String FAMILY_NAME = "family_name";
         public static final String PHONE_NUMBER = "phone_number";
         public static final String CHILD = "ec_child";
-        public static final String CLIENT_TESTING_APPROACH = "client_testing_approach";
         public static final String MOBILIZATION_DATE = "mobilization_date";
         public static final String FEMALE_CLIENTS_REACHED = "female_clients_reached";
         public static final String MALE_CLIENTS_REACHED = "male_clients_reached";
-        public static final String MALE_CONDOMS_ISSUED = "male_condoms_issued";
-        public static final String FEMALE_CONDOMS_ISSUED = "female_condoms_issued";
 
 
         public static final String KIT_CODE = "kit_code";
         public static final String KIT_FOR = "kit_for";
         public static final String HIVST_RESULT = "hivst_result";
         public static final String COLLECTION_DATE = "collection_date";
+        public static final String INDEX_CLIENT_ID = "index_client_id";
 
     }
 }
