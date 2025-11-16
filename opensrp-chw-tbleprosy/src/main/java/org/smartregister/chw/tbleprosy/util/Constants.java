@@ -26,7 +26,7 @@ public interface Constants {
         String TB_LEPROSY_OBSERVATIONS_RESULT = "TBLEPROSY Contact Observation Results";
         String TB_LEPROSY_RECORD_VISIT = "TBLeprosy Visit";
         String TB_LEPROSY_CLIENT_OBSERVATION = "TBLEPROSY Observation Results";
-        String TBLEPROSY_CONTACTS = "TBLeprosy Contacts";
+        String TBLEPROSY_CONTACTS = "TbLeprosy Contact Registration";
 
     }
 
