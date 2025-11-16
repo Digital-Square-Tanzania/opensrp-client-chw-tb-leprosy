@@ -112,6 +112,38 @@
 
 
 
+                <RelativeLayout
+                    android:id="@+id/registerNewClient"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/newClient"
+                    android:background="@drawable/list_item_background_selctor"
+                    android:padding="20dp"
+                    android:visibility="visible">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/row_goto" />
+
+                    <org.smartregister.view.customcontrols.CustomFontTextView
+                        style="@style/CustomFontTextViewStyle.ListView.Normal.MultipleLines"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:text="@string/tbleprosy_contact_option_new_client"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@color/light_grey_text" />
+                </RelativeLayout>
+
+
+
+
+
+
 
 
                 <View
