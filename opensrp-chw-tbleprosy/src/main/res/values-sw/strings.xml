@@ -36,6 +36,7 @@
     <string name="tbleprosy_no_contacts_available">Hakuna wateja wanaokidhi vigezo</string>
     <string name="tbleprosy_contact_option_family">Wanafamilia</string>
     <string name="tbleprosy_contact_option_all_clients">Wateja wengine wote</string>
+    <string name="tbleprosy_contact_option_new_client">Sajili mteja mpya</string>
     <string name="primary_care_giver">MLEZI</string>
     <string name="family_head">MKUU WA KAYA</string>
     <string name="family_has_service_overdue"><![CDATA[Kaya ina <font color=#FF0000>huduma zilizochelewa</font></b>]]></string>
