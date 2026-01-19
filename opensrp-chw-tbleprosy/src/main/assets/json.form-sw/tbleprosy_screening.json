@@ -555,7 +555,7 @@
           },
           {
             "key": "extra_pulmonary_tb_signs",
-            "text": "Dalili za TB nje ya mapafu(Specify)",
+            "text": "Dalili za TB nje ya mapafu",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "extra_pulmonary_tb_signs"
           },
