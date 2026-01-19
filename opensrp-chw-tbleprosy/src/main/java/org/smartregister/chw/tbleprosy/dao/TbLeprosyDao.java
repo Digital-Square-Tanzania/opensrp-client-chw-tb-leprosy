@@ -160,6 +160,35 @@ public class TbLeprosyDao extends AbstractDao {
         return res != null && !res.isEmpty() && Boolean.TRUE.equals(res.get(0));
     }
 
+    /**
+     * Close TB/Leprosy screening records whose latest observation shows the client is TB-negative.
+     * This uses the most recent entry in ec_tbleprosy_observation_results per client and closes
+     * only when TB results are negative and leprosy has not been confirmed positive.
+     */
+    public static void closeTbNegativeClients() {
+        String sql = "UPDATE ec_tbleprosy_screening SET is_closed = 1 " +
+                "WHERE is_closed = 0 AND base_entity_id IN (" +
+                "  SELECT scr.base_entity_id FROM ec_tbleprosy_screening scr " +
+                "  INNER JOIN (" +
+                "    SELECT latest.base_entity_id, latest.last_interacted_with, " +
+                "           lower(ifnull(latest.tb_sample_test_results, '')) AS tb_result, " +
+                "           lower(ifnull(latest.clinical_decision, '')) AS clinical_result, " +
+                "           lower(ifnull(latest.leprosy_investigation_results, '')) AS leprosy_result " +
+                "    FROM ec_tbleprosy_observation_results latest " +
+                "    WHERE latest.last_interacted_with = (" +
+                "      SELECT MAX(inner_tbl.last_interacted_with) FROM ec_tbleprosy_observation_results inner_tbl " +
+                "      WHERE inner_tbl.base_entity_id = latest.base_entity_id" +
+                "    )" +
+                "  ) latest ON scr.base_entity_id = latest.base_entity_id " +
+                "  WHERE scr.is_closed = 0 " +
+                "    AND scr.last_interacted_with < latest.last_interacted_with " +
+                "    AND (latest.tb_result = 'tb_dr_tb_undetected' OR latest.clinical_result = 'non_suggestive') " +
+                "    AND latest.leprosy_result != 'leprosy_confirmed'" +
+                ")";
+
+        updateDB(sql);
+    }
+
     public static String getTBleprosyFollowUpVisit(String baseEntityId) {
         String sql = "SELECT follow_up_reason FROM ec_tbleprosy_followup_visit p " +
                 " WHERE p.base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
