@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
@@ -191,7 +193,8 @@ public abstract class BaseTbLeprosyProfileActivity extends BaseProfileActivity i
     @Override
     protected void onResume() {
         super.onResume();
-        setupViews();
+        TbLeprosyDao.closeTbNegativeClients();
+        new Handler(Looper.getMainLooper()).postDelayed(this::setupViews, 200);
     }
 
     @Override
