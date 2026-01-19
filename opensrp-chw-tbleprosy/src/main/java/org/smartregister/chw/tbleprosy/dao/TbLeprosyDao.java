@@ -137,6 +137,29 @@ public class TbLeprosyDao extends AbstractDao {
         return "";
     }
 
+    public static boolean isClientTbOrLeprosyNegative(String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId)) {
+            return false;
+        }
+
+        String sql = "SELECT tb_sample_test_results, clinical_decision, leprosy_investigation_results " +
+                "FROM ec_tbleprosy_observation_results " +
+                "WHERE base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+
+        DataMap<Boolean> dataMap = cursor -> {
+            String tbSampleResult = StringUtils.defaultString(getCursorValue(cursor, "tb_sample_test_results", "")).toLowerCase(Locale.ENGLISH);
+            String clinicalDecision = StringUtils.defaultString(getCursorValue(cursor, "clinical_decision", "")).toLowerCase(Locale.ENGLISH);
+            String leprosyResult = StringUtils.defaultString(getCursorValue(cursor, "leprosy_investigation_results", "")).toLowerCase(Locale.ENGLISH);
+
+            boolean tbNegative = "tb_dr_tb_undetected".equals(tbSampleResult) || "non_suggestive".equals(clinicalDecision);
+            boolean leprosyNegative = "no_leprosy_detected".equals(leprosyResult);
+            return tbNegative || leprosyNegative;
+        };
+
+        List<Boolean> res = readData(sql, dataMap);
+        return res != null && !res.isEmpty() && Boolean.TRUE.equals(res.get(0));
+    }
+
     public static String getTBleprosyFollowUpVisit(String baseEntityId) {
         String sql = "SELECT follow_up_reason FROM ec_tbleprosy_followup_visit p " +
                 " WHERE p.base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
