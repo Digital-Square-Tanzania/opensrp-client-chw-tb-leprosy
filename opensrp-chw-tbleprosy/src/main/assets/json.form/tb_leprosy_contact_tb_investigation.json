@@ -102,7 +102,7 @@
           },
           {
             "key": "extra_pulmonary_tb_signs",
-            "text": "Extra-pulmonary TB signs (specify)",
+            "text": "Extra-pulmonary TB signs",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "extra_pulmonary_tb_signs"
