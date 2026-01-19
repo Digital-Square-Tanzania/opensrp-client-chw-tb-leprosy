@@ -111,8 +111,8 @@
       {
         "key": "do_you_know_clients_number",
         "openmrs_entity_parent": "",
-        "openmrs_entity": "",
-        "openmrs_entity_id": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "do_you_know_clients_number",
         "type": "native_radio",
         "label": "Je, anaifahamu namba ya mteja wa Kifua Kikuu/Ukoma anayeishi karibu naye?",
         "label_text_size": "18px",
