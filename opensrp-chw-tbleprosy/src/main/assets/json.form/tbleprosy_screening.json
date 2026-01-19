@@ -485,7 +485,8 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "selected_investigation_type",
-        "type": "native_radio",
+        "type": "check_box",
+        "combine_checkbox_option_values": "true",
         "label": "Select the type of investigation",
         "label_text_size": "18px",
         "v_required": {
