@@ -364,10 +364,11 @@
             "openmrs_entity_id": "ovc"
           },
           {
-            "key": "other_group",
+            "key": "other",
             "text": "Kundi lingine(Taja)",
+            "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
-            "openmrs_entity_id": "other_group"
+            "openmrs_entity_id": "other"
           }
         ],
         "relevance": {
