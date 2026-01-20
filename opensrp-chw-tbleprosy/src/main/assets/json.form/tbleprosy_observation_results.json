@@ -101,13 +101,6 @@
             "openmrs_entity_id": "xray"
           },
           {
-            "key": "scorechart",
-            "text": "Scorechart",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "scorechart"
-          },
-          {
             "key": "treatment_decision_algorithm",
             "text": "Treatment Decision Algorithm",
             "openmrs_entity_parent": "",

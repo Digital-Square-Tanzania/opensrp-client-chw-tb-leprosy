@@ -2,28 +2,14 @@
 name: step1_sample_collection_date
 description: sample_collection_date
 priority: 1
-condition: "step1_has_sample_been_collected.equalsIgnoreCase('yes')"
+condition: "step1_has_sample_been_collected.equals('yes')"
 actions:
   - "isRelevant = true"
 ---
 name: step1_sample_not_collected_prompt
 description: show toaster when sample has not been collected
 priority: 1
-condition: "step1_has_sample_been_collected.equalsIgnoreCase('no')"
-actions:
-  - "isRelevant = true"
----
-name: step1_sputum_container_provided
-description: was the client provided sputum container
-priority: 1
-condition: "step1_has_sample_been_collected.equalsIgnoreCase('yes')"
-actions:
-  - "isRelevant = true"
----
-name: step1_extra_sputum_container_required
-description: does client require extra sputum container
-priority: 1
-condition: "step1_sputum_container_provided.equalsIgnoreCase('yes')"
+condition: "step1_has_sample_been_collected.equals('no')"
 actions:
   - "isRelevant = true"
 ---
