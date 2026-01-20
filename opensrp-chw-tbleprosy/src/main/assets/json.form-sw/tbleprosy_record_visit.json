@@ -93,6 +93,23 @@
             }
           }
         }
+      },
+      {
+        "key": "sample_not_collected_prompt",
+        "type": "toaster_notes",
+        "text": "Sampuli haijachukuliwa. Mpeleke mteja kituo cha afya.",
+        "toaster_info_title": "Toa rufaa kwenda kituo cha afya",
+        "toaster_info_text": "Sampuli haijakusanywa. Tafadhali andaa rufaa kwenda kituo cha afya kwa ufuatiliaji zaidi.",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_record_visit_relevance.yml"
+            }
+          }
+        }
       }
     ]
   }

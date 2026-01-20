@@ -93,6 +93,23 @@
             }
           }
         }
+      },
+      {
+        "key": "sample_not_collected_prompt",
+        "type": "toaster_notes",
+        "text": "Sample not collected. Refer the client to a health facility.",
+        "toaster_info_title": "Refer client to health facility",
+        "toaster_info_text": "Sample collection has not been completed. Please prepare a referral to the nearest health facility for further management.",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_record_visit_relevance.yml"
+            }
+          }
+        }
       }
     ]
   }
