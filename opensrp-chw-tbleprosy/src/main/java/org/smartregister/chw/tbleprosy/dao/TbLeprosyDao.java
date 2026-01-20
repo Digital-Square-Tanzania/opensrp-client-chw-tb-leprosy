@@ -137,6 +137,25 @@ public class TbLeprosyDao extends AbstractDao {
         return "";
     }
 
+    public static ObservationResults getLatestObservationResults(String baseEntityId) {
+        String sql = "SELECT tb_sample_test_results, clinical_decision, leprosy_investigation_results FROM ec_tbleprosy_observation_results p " +
+                " WHERE p.base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+
+        DataMap<ObservationResults> dataMap = cursor -> {
+            String tbSampleTestResults = getCursorValue(cursor, "tb_sample_test_results", "");
+            String clinicalDecision = getCursorValue(cursor, "clinical_decision", "");
+            String leprosyInvestigationResults = getCursorValue(cursor, "leprosy_investigation_results", "");
+            boolean poorQualitySample = StringUtils.containsIgnoreCase(tbSampleTestResults, "poor_quality_sample");
+            return new ObservationResults(tbSampleTestResults, clinicalDecision, leprosyInvestigationResults, poorQualitySample);
+        };
+
+        List<ObservationResults> res = readData(sql, dataMap);
+        if (res != null && !res.isEmpty()) {
+            return res.get(0);
+        }
+        return null;
+    }
+
     public static boolean isClientTbOrLeprosyNegative(String baseEntityId) {
         if (StringUtils.isBlank(baseEntityId)) {
             return false;
@@ -476,6 +495,36 @@ public class TbLeprosyDao extends AbstractDao {
 
         public String getLeprosyClientNumber() {
             return leprosyClientNumber;
+        }
+    }
+
+    public static class ObservationResults {
+        private final String tbSampleTestResults;
+        private final String clinicalDecision;
+        private final String leprosyInvestigationResults;
+        private final boolean poorQualitySample;
+
+        public ObservationResults(String tbSampleTestResults, String clinicalDecision, String leprosyInvestigationResults, boolean poorQualitySample) {
+            this.tbSampleTestResults = tbSampleTestResults;
+            this.clinicalDecision = clinicalDecision;
+            this.leprosyInvestigationResults = leprosyInvestigationResults;
+            this.poorQualitySample = poorQualitySample;
+        }
+
+        public String getTbSampleTestResults() {
+            return tbSampleTestResults;
+        }
+
+        public String getClinicalDecision() {
+            return clinicalDecision;
+        }
+
+        public String getLeprosyInvestigationResults() {
+            return leprosyInvestigationResults;
+        }
+
+        public boolean isPoorQualitySample() {
+            return poorQualitySample;
         }
     }
 
