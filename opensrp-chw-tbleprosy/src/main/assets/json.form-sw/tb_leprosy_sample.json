@@ -97,7 +97,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "tb_leprosy_sample.yml"
+              "rules-file": "tb_leprosy_sample_rules.yml"
             }
           }
         }
@@ -124,7 +124,7 @@
         "relevance": {
           "rules-engine": {
             "ex-rules": {
-              "rules-file": "tb_leprosy_sample.yml"
+              "rules-file": "tb_leprosy_sample_rules.yml"
             }
           }
         }
