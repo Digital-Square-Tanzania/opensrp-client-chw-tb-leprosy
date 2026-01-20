@@ -103,6 +103,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "",
         "openmrs_entity_id": "",
+        "toaster_type": "warning",
         "relevance": {
           "rules-engine": {
             "ex-rules": {
