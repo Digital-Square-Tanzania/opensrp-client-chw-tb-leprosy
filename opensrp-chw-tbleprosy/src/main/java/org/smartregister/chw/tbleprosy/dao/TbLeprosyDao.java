@@ -200,7 +200,7 @@ public class TbLeprosyDao extends AbstractDao {
                 "    )" +
                 "  ) latest ON scr.base_entity_id = latest.base_entity_id " +
                 "  WHERE scr.is_closed = 0 " +
-                "    AND scr.last_interacted_with < latest.last_interacted_with " +
+                "    AND scr.last_interacted_with <= latest.last_interacted_with " +
                 "    AND (latest.tb_result = 'tb_dr_tb_undetected' OR latest.clinical_result = 'non_suggestive') " +
                 "    AND latest.leprosy_result != 'leprosy_confirmed'" +
                 ")";
