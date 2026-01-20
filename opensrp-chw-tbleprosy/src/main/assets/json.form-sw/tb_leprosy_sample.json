@@ -111,6 +111,23 @@
         "label": "Je, mteja anahitajika kuchukuliwa sampuli?",
         "label_text_size": "18px",
         "value": "yes"
+      },
+      {
+        "key": "sample_not_collected_prompt",
+        "type": "toaster_notes",
+        "text": "Sampuli haijachukuliwa. Mpe rufaa mteja kwenda kituo cha afya.",
+        "toaster_info_title": "Toa rufaa kwenda kituo cha afya",
+        "toaster_info_text": "Sampuli haijakusanywa. Tafadhali andaa rufaa kwenda kituo cha afya kwa ufuatiliaji zaidi.",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tb_leprosy_sample.yml"
+            }
+          }
+        }
       }
     ]
   }

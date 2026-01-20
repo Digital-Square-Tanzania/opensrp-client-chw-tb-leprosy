@@ -6,6 +6,13 @@ condition: "step1_has_sample_been_collected.equalsIgnoreCase('yes')"
 actions:
   - "isRelevant = true"
 ---
+name: step1_sample_not_collected_prompt
+description: show toaster when sample has not been collected
+priority: 1
+condition: "step1_has_sample_been_collected.equalsIgnoreCase('no')"
+actions:
+  - "isRelevant = true"
+---
 name: step1_sputum_container_provided
 description: was the client provided sputum container
 priority: 1
