@@ -2,14 +2,13 @@
 name: step1_sample_collection_date
 description: sample_collection_date
 priority: 1
-condition: "step1_has_sample_been_collected.equals('yes')"
+condition: "step1_has_sample_been_collected.contains('yes')"
 actions:
   - "isRelevant = true"
 ---
 name: step1_sample_not_collected_prompt
-description: show toaster when sample has not been collected
+description: show referral prompt when sample not collected
 priority: 1
-condition: "step1_has_sample_been_collected.equals('no')"
+condition: "step1_has_sample_been_collected.contains('no')"
 actions:
   - "isRelevant = true"
----
