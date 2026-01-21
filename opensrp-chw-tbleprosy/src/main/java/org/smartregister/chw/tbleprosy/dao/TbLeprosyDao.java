@@ -217,21 +217,28 @@ public class TbLeprosyDao extends AbstractDao {
                 "    AND (latest.tb_result = 'tb_dr_tb_undetected' OR latest.clinical_result = 'non_suggestive') " +
                 "    AND latest.leprosy_result != 'leprosy_confirmed'";
 
-        String closeScreeningSql = "UPDATE ec_tbleprosy_screening SET is_closed = 1 " +
-                "WHERE is_closed = 0 AND base_entity_id IN (" + baseEntitySubQuery + ")";
-        updateDB(closeScreeningSql);
+        List<String> baseEntityIds = readData(baseEntitySubQuery, cursor -> getCursorValue(cursor, "base_entity_id"));
+        if (baseEntityIds == null || baseEntityIds.isEmpty()) {
+            return;
+        }
+
+        String joinedIds = "'" + String.join("','", baseEntityIds) + "'";
 
         String closeObservationSql = "UPDATE ec_tbleprosy_observation_results SET is_closed = 1 " +
-                "WHERE is_closed = 0 AND entity_id IN (" + baseEntitySubQuery + ")";
+                "WHERE is_closed = 0 AND entity_id IN (" + joinedIds + ")";
         updateDB(closeObservationSql);
 
         String closeFollowUpSql = "UPDATE ec_tbleprosy_followup_visit SET is_closed = 1 " +
-                "WHERE is_closed = 0 AND entity_id IN (" + baseEntitySubQuery + ")";
+                "WHERE is_closed = 0 AND entity_id IN (" + joinedIds + ")";
         updateDB(closeFollowUpSql);
 
         String closeVisitSql = "UPDATE ec_tbleprosy_visit SET is_closed = 1 " +
-                "WHERE is_closed = 0 AND entity_id IN (" + baseEntitySubQuery + ")";
+                "WHERE is_closed = 0 AND entity_id IN (" + joinedIds + ")";
         updateDB(closeVisitSql);
+
+        String closeScreeningSql = "UPDATE ec_tbleprosy_screening SET is_closed = 1 " +
+                "WHERE is_closed = 0 AND base_entity_id IN (" + joinedIds + ")";
+        updateDB(closeScreeningSql);
     }
 
     public static String getTBleprosyFollowUpVisit(String baseEntityId) {
