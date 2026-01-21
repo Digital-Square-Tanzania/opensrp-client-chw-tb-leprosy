@@ -224,7 +224,7 @@ public class TbLeprosyDao extends AbstractDao {
 
     public static String getTBleprosyFollowUpVisit(String baseEntityId) {
         String sql = "SELECT follow_up_reason FROM ec_tbleprosy_followup_visit p " +
-                " WHERE p.base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+                " WHERE p.entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
 
         DataMap<String> dataMap = cursor -> {
             return getCursorValue(cursor, "follow_up_reason");
@@ -242,22 +242,28 @@ public class TbLeprosyDao extends AbstractDao {
             return null;
         }
 
-        String sql = "SELECT base_entity_id, relational_id, last_interacted_with, follow_up_reason, follow_up_outcome, " +
-                "taja_sababu_ya_hajapatikana, returned_to_treatment, tarehe_ya_miadi, service_access_challenges, client_challenge_types " +
+        String sql = "SELECT base_entity_id, entity_id, relational_id, last_interacted_with, follow_up_reason, follow_up_outcome, " +
+                "reason_client_not_found, returned_to_treatment, tb_treatment_start_date, service_access_challenges, " +
+                "reasons_for_not_returning_to_services_while_not_facing_challenges, client_challenge_types, " +
+                "health_facility_challenges_detail, return_to_treatment_prompt " +
                 "FROM ec_tbleprosy_followup_visit " +
-                "WHERE base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+                "WHERE entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
 
         DataMap<FollowUpVisit> dataMap = cursor -> new FollowUpVisit(
                 getCursorValue(cursor, "base_entity_id", ""),
+                getCursorValue(cursor, "entity_id", ""),
                 getCursorValue(cursor, "relational_id", ""),
                 getCursorValue(cursor, "last_interacted_with", ""),
                 getCursorValue(cursor, "follow_up_reason", ""),
                 getCursorValue(cursor, "follow_up_outcome", ""),
-                getCursorValue(cursor, "taja_sababu_ya_hajapatikana", ""),
+                getCursorValue(cursor, "reason_client_not_found", ""),
                 getCursorValue(cursor, "returned_to_treatment", ""),
-                getCursorValue(cursor, "tarehe_ya_miadi", ""),
+                getCursorValue(cursor, "tb_treatment_start_date", ""),
                 getCursorValue(cursor, "service_access_challenges", ""),
-                getCursorValue(cursor, "client_challenge_types", "")
+                getCursorValue(cursor, "reasons_for_not_returning_to_services_while_not_facing_challenges", ""),
+                getCursorValue(cursor, "client_challenge_types", ""),
+                getCursorValue(cursor, "health_facility_challenges_detail", ""),
+                getCursorValue(cursor, "return_to_treatment_prompt", "")
         );
 
         List<FollowUpVisit> res = readData(sql, dataMap);
@@ -543,35 +549,48 @@ public class TbLeprosyDao extends AbstractDao {
     }
 
     public static class FollowUpVisit {
-        private final String baseEntityId;
+        private final String formSubmissionId;
+        private final String entityId;
         private final String relationalId;
         private final String lastInteractedWith;
         private final String followUpReason;
         private final String followUpOutcome;
         private final String reasonClientNotFound;
         private final String returnedToTreatment;
-        private final String appointmentDate;
+        private final String tbTreatmentStartDate;
         private final String serviceAccessChallenges;
+        private final String reasonsForNotReturningWithoutChallenges;
         private final String clientChallengeTypes;
+        private final String healthFacilityChallengesDetail;
+        private final String returnToTreatmentPrompt;
 
-        public FollowUpVisit(String baseEntityId, String relationalId, String lastInteractedWith,
+        public FollowUpVisit(String formSubmissionId, String entityId, String relationalId, String lastInteractedWith,
                              String followUpReason, String followUpOutcome, String reasonClientNotFound,
-                             String returnedToTreatment, String appointmentDate, String serviceAccessChallenges,
-                             String clientChallengeTypes) {
-            this.baseEntityId = baseEntityId;
+                             String returnedToTreatment, String tbTreatmentStartDate, String serviceAccessChallenges,
+                             String reasonsForNotReturningWithoutChallenges, String clientChallengeTypes,
+                             String healthFacilityChallengesDetail, String returnToTreatmentPrompt) {
+            this.formSubmissionId = formSubmissionId;
+            this.entityId = entityId;
             this.relationalId = relationalId;
             this.lastInteractedWith = lastInteractedWith;
             this.followUpReason = followUpReason;
             this.followUpOutcome = followUpOutcome;
             this.reasonClientNotFound = reasonClientNotFound;
             this.returnedToTreatment = returnedToTreatment;
-            this.appointmentDate = appointmentDate;
+            this.tbTreatmentStartDate = tbTreatmentStartDate;
             this.serviceAccessChallenges = serviceAccessChallenges;
+            this.reasonsForNotReturningWithoutChallenges = reasonsForNotReturningWithoutChallenges;
             this.clientChallengeTypes = clientChallengeTypes;
+            this.healthFacilityChallengesDetail = healthFacilityChallengesDetail;
+            this.returnToTreatmentPrompt = returnToTreatmentPrompt;
         }
 
-        public String getBaseEntityId() {
-            return baseEntityId;
+        public String getFormSubmissionId() {
+            return formSubmissionId;
+        }
+
+        public String getEntityId() {
+            return entityId;
         }
 
         public String getRelationalId() {
@@ -598,16 +617,28 @@ public class TbLeprosyDao extends AbstractDao {
             return returnedToTreatment;
         }
 
-        public String getAppointmentDate() {
-            return appointmentDate;
+        public String getTbTreatmentStartDate() {
+            return tbTreatmentStartDate;
         }
 
         public String getServiceAccessChallenges() {
             return serviceAccessChallenges;
         }
 
+        public String getReasonsForNotReturningWithoutChallenges() {
+            return reasonsForNotReturningWithoutChallenges;
+        }
+
         public String getClientChallengeTypes() {
             return clientChallengeTypes;
+        }
+
+        public String getHealthFacilityChallengesDetail() {
+            return healthFacilityChallengesDetail;
+        }
+
+        public String getReturnToTreatmentPrompt() {
+            return returnToTreatmentPrompt;
         }
     }
 
