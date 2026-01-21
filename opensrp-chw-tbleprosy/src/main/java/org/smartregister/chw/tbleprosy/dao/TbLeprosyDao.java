@@ -237,6 +237,36 @@ public class TbLeprosyDao extends AbstractDao {
         return "";
     }
 
+    public static FollowUpVisit getLatestFollowUpVisit(String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId)) {
+            return null;
+        }
+
+        String sql = "SELECT base_entity_id, relational_id, last_interacted_with, follow_up_reason, follow_up_outcome, " +
+                "taja_sababu_ya_hajapatikana, returned_to_treatment, tarehe_ya_miadi, service_access_challenges, client_challenge_types " +
+                "FROM ec_tbleprosy_followup_visit " +
+                "WHERE base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+
+        DataMap<FollowUpVisit> dataMap = cursor -> new FollowUpVisit(
+                getCursorValue(cursor, "base_entity_id", ""),
+                getCursorValue(cursor, "relational_id", ""),
+                getCursorValue(cursor, "last_interacted_with", ""),
+                getCursorValue(cursor, "follow_up_reason", ""),
+                getCursorValue(cursor, "follow_up_outcome", ""),
+                getCursorValue(cursor, "taja_sababu_ya_hajapatikana", ""),
+                getCursorValue(cursor, "returned_to_treatment", ""),
+                getCursorValue(cursor, "tarehe_ya_miadi", ""),
+                getCursorValue(cursor, "service_access_challenges", ""),
+                getCursorValue(cursor, "client_challenge_types", "")
+        );
+
+        List<FollowUpVisit> res = readData(sql, dataMap);
+        if (res != null && !res.isEmpty()) {
+            return res.get(0);
+        }
+        return null;
+    }
+
     public static String getTBleprosyVisit(String baseEntityId) {
         String sql = "SELECT has_sample_been_collected FROM ec_tbleprosy_visit p " +
                 " WHERE p.entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
@@ -509,6 +539,75 @@ public class TbLeprosyDao extends AbstractDao {
 
         public String getLeprosyClientNumber() {
             return leprosyClientNumber;
+        }
+    }
+
+    public static class FollowUpVisit {
+        private final String baseEntityId;
+        private final String relationalId;
+        private final String lastInteractedWith;
+        private final String followUpReason;
+        private final String followUpOutcome;
+        private final String reasonClientNotFound;
+        private final String returnedToTreatment;
+        private final String appointmentDate;
+        private final String serviceAccessChallenges;
+        private final String clientChallengeTypes;
+
+        public FollowUpVisit(String baseEntityId, String relationalId, String lastInteractedWith,
+                             String followUpReason, String followUpOutcome, String reasonClientNotFound,
+                             String returnedToTreatment, String appointmentDate, String serviceAccessChallenges,
+                             String clientChallengeTypes) {
+            this.baseEntityId = baseEntityId;
+            this.relationalId = relationalId;
+            this.lastInteractedWith = lastInteractedWith;
+            this.followUpReason = followUpReason;
+            this.followUpOutcome = followUpOutcome;
+            this.reasonClientNotFound = reasonClientNotFound;
+            this.returnedToTreatment = returnedToTreatment;
+            this.appointmentDate = appointmentDate;
+            this.serviceAccessChallenges = serviceAccessChallenges;
+            this.clientChallengeTypes = clientChallengeTypes;
+        }
+
+        public String getBaseEntityId() {
+            return baseEntityId;
+        }
+
+        public String getRelationalId() {
+            return relationalId;
+        }
+
+        public String getLastInteractedWith() {
+            return lastInteractedWith;
+        }
+
+        public String getFollowUpReason() {
+            return followUpReason;
+        }
+
+        public String getFollowUpOutcome() {
+            return followUpOutcome;
+        }
+
+        public String getReasonClientNotFound() {
+            return reasonClientNotFound;
+        }
+
+        public String getReturnedToTreatment() {
+            return returnedToTreatment;
+        }
+
+        public String getAppointmentDate() {
+            return appointmentDate;
+        }
+
+        public String getServiceAccessChallenges() {
+            return serviceAccessChallenges;
+        }
+
+        public String getClientChallengeTypes() {
+            return clientChallengeTypes;
         }
     }
 
