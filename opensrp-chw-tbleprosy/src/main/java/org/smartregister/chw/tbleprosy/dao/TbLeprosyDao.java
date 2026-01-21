@@ -74,7 +74,7 @@ public class TbLeprosyDao extends AbstractDao {
     }
 
     private static String getClientStatusFromTable(String tableName, String baseEntityId) {
-        String sql = "SELECT status FROM " + tableName + " WHERE base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+        String sql = "SELECT status FROM " + tableName + " WHERE is_closed = 0 AND base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
 
         DataMap<String> dataMap = cursor -> getCursorValue(cursor, "status");
         List<String> res = readData(sql, dataMap);
@@ -85,7 +85,7 @@ public class TbLeprosyDao extends AbstractDao {
     }
 
     public static String getTbScreeningStatus(String baseEntityId) {
-        String sql = "SELECT screening_status FROM ec_tbleprosy_screening WHERE base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+        String sql = "SELECT screening_status FROM ec_tbleprosy_screening WHERE is_closed = 0 AND base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
 
         DataMap<String> dataMap = cursor -> getCursorValue(cursor, "screening_status");
         List<String> res = readData(sql, dataMap);
@@ -120,7 +120,7 @@ public class TbLeprosyDao extends AbstractDao {
 
     public static String getTbLeprosyObservationResults(String baseEntityId) {
         String sql = "SELECT tb_sample_test_results, clinical_decision FROM ec_tbleprosy_observation_results p " +
-                " WHERE p.base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+                " WHERE p.is_closed = 0 AND p.base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
 
         DataMap<String> dataMap = cursor -> {
             String tbSampleTestResults = getCursorValue(cursor, "tb_sample_test_results");
@@ -141,7 +141,7 @@ public class TbLeprosyDao extends AbstractDao {
         String sql = "SELECT last_interacted_with, investigation_type, tb_diagnostic_test_type, tb_sample_test_results, " +
                 "clinical_decision, leprosy_diagnostic_method, tb_treatment_start_date, leprosy_treatment_start_date, leprosy_investigation_results " +
                 "FROM ec_tbleprosy_observation_results p " +
-                " WHERE p.entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+                " WHERE p.is_closed = 0 AND p.entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
 
         DataMap<ObservationResults> dataMap = cursor -> {
             String tbSampleTestResults = getCursorValue(cursor, "tb_sample_test_results", "");
@@ -177,7 +177,7 @@ public class TbLeprosyDao extends AbstractDao {
 
         String sql = "SELECT tb_sample_test_results, clinical_decision, leprosy_investigation_results " +
                 "FROM ec_tbleprosy_observation_results " +
-                "WHERE base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+                "WHERE is_closed = 0 AND base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
 
         DataMap<Boolean> dataMap = cursor -> {
             String tbSampleResult = StringUtils.defaultString(getCursorValue(cursor, "tb_sample_test_results", "")).toLowerCase(Locale.ENGLISH);
@@ -224,7 +224,7 @@ public class TbLeprosyDao extends AbstractDao {
 
     public static String getTBleprosyFollowUpVisit(String baseEntityId) {
         String sql = "SELECT follow_up_reason FROM ec_tbleprosy_followup_visit p " +
-                " WHERE p.entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+                " WHERE p.is_closed = 0 AND p.entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
 
         DataMap<String> dataMap = cursor -> {
             return getCursorValue(cursor, "follow_up_reason");
@@ -247,7 +247,7 @@ public class TbLeprosyDao extends AbstractDao {
                 "reasons_for_not_returning_to_services_while_not_facing_challenges, client_challenge_types, " +
                 "health_facility_challenges_detail, return_to_treatment_prompt " +
                 "FROM ec_tbleprosy_followup_visit " +
-                "WHERE entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+                "WHERE is_closed = 0 AND entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
 
         DataMap<FollowUpVisit> dataMap = cursor -> new FollowUpVisit(
                 getCursorValue(cursor, "last_interacted_with", ""),
@@ -276,7 +276,7 @@ public class TbLeprosyDao extends AbstractDao {
         }
 
         String sql = "SELECT count(entity_id) count FROM ec_tbleprosy_followup_visit " +
-                "WHERE entity_id = '" + baseEntityId + "' AND ifnull(tb_treatment_start_date, '') <> ''";
+                "WHERE is_closed = 0 AND entity_id = '" + baseEntityId + "' AND ifnull(tb_treatment_start_date, '') <> ''";
 
         DataMap<Integer> dataMap = cursor -> getCursorIntValue(cursor, "count");
 
@@ -291,7 +291,7 @@ public class TbLeprosyDao extends AbstractDao {
 
     public static String getTBleprosyVisit(String baseEntityId) {
         String sql = "SELECT has_sample_been_collected FROM ec_tbleprosy_visit p " +
-                " WHERE p.entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+                " WHERE p.is_closed = 0 AND p.entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
 
         DataMap<String> dataMap = cursor -> {
             return getCursorValue(cursor, "has_sample_been_collected");
@@ -306,7 +306,7 @@ public class TbLeprosyDao extends AbstractDao {
 
     public static boolean hasTbLeprosyVisit(String baseEntityId) {
         String sql = "SELECT count(p.entity_id) count FROM ec_tbleprosy_visit p " +
-                " WHERE p.entity_id = '" + baseEntityId + "'";
+                " WHERE p.is_closed = 0 AND p.entity_id = '" + baseEntityId + "'";
 
         DataMap<Integer> dataMap = cursor -> getCursorIntValue(cursor, "count");
 
@@ -319,7 +319,7 @@ public class TbLeprosyDao extends AbstractDao {
     }
 
     public static Date getTbLeprosyTestDate(String baseEntityID) {
-        String sql = "select tbleprosy_test_date from ec_tbleprosy_screening where base_entity_id = '" + baseEntityID + "'";
+        String sql = "select tbleprosy_test_date from ec_tbleprosy_screening where is_closed = 0 AND base_entity_id = '" + baseEntityID + "'";
 
         DataMap<Date> dataMap = cursor -> getCursorValueAsDate(cursor, "tbleprosy_test_date", getNativeFormsDateFormat());
 
@@ -332,7 +332,7 @@ public class TbLeprosyDao extends AbstractDao {
 
     public static String getClientTbLeprosyID(String baseEntityId) {
         String sql = "SELECT tbleprosy_client_id FROM ec_tbleprosy_screening p " +
-                " WHERE p.base_entity_id = '" + baseEntityId + "' ORDER BY enrollment_date DESC LIMIT 1";
+                " WHERE p.is_closed = 0 AND p.base_entity_id = '" + baseEntityId + "' ORDER BY enrollment_date DESC LIMIT 1";
 
         DataMap<String> dataMap = cursor -> getCursorValue(cursor, "tbleprosy_client_id");
 
@@ -348,7 +348,7 @@ public class TbLeprosyDao extends AbstractDao {
             return null;
         }
 
-        String sql = "SELECT index_client_id FROM ec_tbleprosy_contacts WHERE base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+        String sql = "SELECT index_client_id FROM ec_tbleprosy_contacts WHERE is_closed = 0 AND base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
 
         DataMap<String> dataMap = cursor -> getCursorValue(cursor, "index_client_id");
 
@@ -364,7 +364,7 @@ public class TbLeprosyDao extends AbstractDao {
             return null;
         }
 
-        String sql = "SELECT tb_client_number, leprosy_client_number FROM ec_tbleprosy_screening WHERE base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+        String sql = "SELECT tb_client_number, leprosy_client_number FROM ec_tbleprosy_screening WHERE is_closed = 0 AND base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
 
         DataMap<ClientNumberInfo> dataMap = cursor -> new ClientNumberInfo(
                 getCursorValue(cursor, "tb_client_number"),
@@ -380,7 +380,7 @@ public class TbLeprosyDao extends AbstractDao {
 
     public static String getEnrollmentDate(String baseEntityId) {
         String sql = "SELECT enrollment_date FROM ec_tbleprosy_screening p " +
-                " WHERE p.base_entity_id = '" + baseEntityId + "' ORDER BY enrollment_date DESC LIMIT 1";
+                " WHERE p.is_closed = 0 AND p.base_entity_id = '" + baseEntityId + "' ORDER BY enrollment_date DESC LIMIT 1";
 
         DataMap<String> dataMap = cursor -> getCursorValue(cursor, "enrollment_date");
 
@@ -392,7 +392,7 @@ public class TbLeprosyDao extends AbstractDao {
     }
 
     public static int getVisitNumber(String baseEntityID) {
-        String sql = "SELECT visit_number  FROM ec_tbleprosy_follow_up_visit WHERE entity_id='" + baseEntityID + "' ORDER BY visit_number DESC LIMIT 1";
+        String sql = "SELECT visit_number  FROM ec_tbleprosy_follow_up_visit WHERE is_closed = 0 AND entity_id='" + baseEntityID + "' ORDER BY visit_number DESC LIMIT 1";
         DataMap<Integer> map = cursor -> getCursorIntValue(cursor, "visit_number");
         List<Integer> res = readData(sql, map);
 
@@ -461,7 +461,7 @@ public class TbLeprosyDao extends AbstractDao {
                 "inner join ec_tbleprosy_screening mr on mr.base_entity_id = m.base_entity_id " +
                 "left join ec_family_member fh on fh.base_entity_id = f.family_head " +
                 "left join ec_family_member pcg on pcg.base_entity_id = f.primary_caregiver " +
-                "where mr.is_closed = 0 AND m.base_entity_id ='" + baseEntityID + "' ";
+                "where mr.is_closed = 0 AND m.is_closed = 0 AND f.is_closed = 0 AND m.base_entity_id ='" + baseEntityID + "' ";
         List<MemberObject> res = readData(sql, memberObjectMap);
         if (res == null || res.size() != 1)
             return null;
@@ -501,7 +501,7 @@ public class TbLeprosyDao extends AbstractDao {
                 "inner join ec_tbleprosy_contacts mr on mr.base_entity_id = m.base_entity_id " +
                 "left join ec_family_member fh on fh.base_entity_id = f.family_head " +
                 "left join ec_family_member pcg on pcg.base_entity_id = f.primary_caregiver " +
-                "where mr.is_closed = 0 AND m.base_entity_id ='" + baseEntityID + "' ";
+                "where mr.is_closed = 0 AND m.is_closed = 0 AND f.is_closed = 0 AND m.base_entity_id ='" + baseEntityID + "' ";
         List<MemberObject> res = readData(sql, memberObjectMap);
         if (res == null || res.size() != 1)
             return null;
@@ -541,7 +541,7 @@ public class TbLeprosyDao extends AbstractDao {
                 "inner join ec_tbleprosy_screening mr on mr.base_entity_id = m.base_entity_id " +
                 "left join ec_family_member fh on fh.base_entity_id = f.family_head " +
                 "left join ec_family_member pcg on pcg.base_entity_id = f.primary_caregiver " +
-                "where mr.is_closed = 0 ";
+                "where mr.is_closed = 0 AND m.is_closed = 0 AND f.is_closed = 0 ";
 
         return readData(sql, memberObjectMap);
     }
