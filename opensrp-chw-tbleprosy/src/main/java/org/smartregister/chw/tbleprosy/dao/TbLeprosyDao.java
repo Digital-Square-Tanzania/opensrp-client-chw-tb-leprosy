@@ -138,7 +138,9 @@ public class TbLeprosyDao extends AbstractDao {
     }
 
     public static ObservationResults getLatestObservationResults(String baseEntityId) {
-        String sql = "SELECT tb_sample_test_results, clinical_decision, leprosy_investigation_results FROM ec_tbleprosy_observation_results p " +
+        String sql = "SELECT last_interacted_with, investigation_type, tb_diagnostic_test_type, tb_sample_test_results, " +
+                "clinical_decision, leprosy_diagnostic_method, tb_treatment_start_date, leprosy_treatment_start_date, leprosy_investigation_results " +
+                "FROM ec_tbleprosy_observation_results p " +
                 " WHERE p.base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
 
         DataMap<ObservationResults> dataMap = cursor -> {
@@ -146,7 +148,19 @@ public class TbLeprosyDao extends AbstractDao {
             String clinicalDecision = getCursorValue(cursor, "clinical_decision", "");
             String leprosyInvestigationResults = getCursorValue(cursor, "leprosy_investigation_results", "");
             boolean poorQualitySample = StringUtils.containsIgnoreCase(tbSampleTestResults, "poor_quality_sample");
-            return new ObservationResults(tbSampleTestResults, clinicalDecision, leprosyInvestigationResults, poorQualitySample);
+
+            return new ObservationResults(
+                    getCursorValue(cursor, "last_interacted_with", ""),
+                    getCursorValue(cursor, "investigation_type", ""),
+                    getCursorValue(cursor, "tb_diagnostic_test_type", ""),
+                    tbSampleTestResults,
+                    clinicalDecision,
+                    getCursorValue(cursor, "leprosy_diagnostic_method", ""),
+                    getCursorValue(cursor, "tb_treatment_start_date", ""),
+                    getCursorValue(cursor, "leprosy_treatment_start_date", ""),
+                    leprosyInvestigationResults,
+                    poorQualitySample
+            );
         };
 
         List<ObservationResults> res = readData(sql, dataMap);
@@ -499,16 +513,42 @@ public class TbLeprosyDao extends AbstractDao {
     }
 
     public static class ObservationResults {
+        private final String lastInteractedWith;
+        private final String investigationType;
+        private final String tbDiagnosticTestType;
         private final String tbSampleTestResults;
         private final String clinicalDecision;
+        private final String leprosyDiagnosticMethod;
+        private final String tbTreatmentStartDate;
+        private final String leprosyTreatmentStartDate;
         private final String leprosyInvestigationResults;
         private final boolean poorQualitySample;
 
-        public ObservationResults(String tbSampleTestResults, String clinicalDecision, String leprosyInvestigationResults, boolean poorQualitySample) {
+        public ObservationResults(String lastInteractedWith, String investigationType, String tbDiagnosticTestType, String tbSampleTestResults,
+                                  String clinicalDecision, String leprosyDiagnosticMethod, String tbTreatmentStartDate,
+                                  String leprosyTreatmentStartDate, String leprosyInvestigationResults, boolean poorQualitySample) {
+            this.lastInteractedWith = lastInteractedWith;
+            this.investigationType = investigationType;
+            this.tbDiagnosticTestType = tbDiagnosticTestType;
             this.tbSampleTestResults = tbSampleTestResults;
             this.clinicalDecision = clinicalDecision;
+            this.leprosyDiagnosticMethod = leprosyDiagnosticMethod;
+            this.tbTreatmentStartDate = tbTreatmentStartDate;
+            this.leprosyTreatmentStartDate = leprosyTreatmentStartDate;
             this.leprosyInvestigationResults = leprosyInvestigationResults;
             this.poorQualitySample = poorQualitySample;
+        }
+
+        public String getLastInteractedWith() {
+            return lastInteractedWith;
+        }
+
+        public String getInvestigationType() {
+            return investigationType;
+        }
+
+        public String getTbDiagnosticTestType() {
+            return tbDiagnosticTestType;
         }
 
         public String getTbSampleTestResults() {
@@ -517,6 +557,18 @@ public class TbLeprosyDao extends AbstractDao {
 
         public String getClinicalDecision() {
             return clinicalDecision;
+        }
+
+        public String getLeprosyDiagnosticMethod() {
+            return leprosyDiagnosticMethod;
+        }
+
+        public String getTbTreatmentStartDate() {
+            return tbTreatmentStartDate;
+        }
+
+        public String getLeprosyTreatmentStartDate() {
+            return leprosyTreatmentStartDate;
         }
 
         public String getLeprosyInvestigationResults() {
