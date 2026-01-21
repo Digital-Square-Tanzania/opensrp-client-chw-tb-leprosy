@@ -120,7 +120,7 @@ public class TbLeprosyDao extends AbstractDao {
 
     public static String getTbLeprosyObservationResults(String baseEntityId) {
         String sql = "SELECT tb_sample_test_results, clinical_decision FROM ec_tbleprosy_observation_results p " +
-                " WHERE p.is_closed = 0 AND p.base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+                " WHERE p.is_closed = 0 AND p.entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
 
         DataMap<String> dataMap = cursor -> {
             String tbSampleTestResults = getCursorValue(cursor, "tb_sample_test_results");
@@ -177,7 +177,7 @@ public class TbLeprosyDao extends AbstractDao {
 
         String sql = "SELECT tb_sample_test_results, clinical_decision, leprosy_investigation_results " +
                 "FROM ec_tbleprosy_observation_results " +
-                "WHERE is_closed = 0 AND base_entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+                "WHERE is_closed = 0 AND entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
 
         DataMap<Boolean> dataMap = cursor -> {
             String tbSampleResult = StringUtils.defaultString(getCursorValue(cursor, "tb_sample_test_results", "")).toLowerCase(Locale.ENGLISH);
@@ -202,16 +202,16 @@ public class TbLeprosyDao extends AbstractDao {
     public static void closeTbNegativeClients() {
         String baseEntitySubQuery = "SELECT scr.base_entity_id FROM ec_tbleprosy_screening scr " +
                 "  INNER JOIN (" +
-                "    SELECT latest.base_entity_id, latest.last_interacted_with, " +
+                "    SELECT latest.entity_id, latest.last_interacted_with, " +
                 "           lower(ifnull(latest.tb_sample_test_results, '')) AS tb_result, " +
                 "           lower(ifnull(latest.clinical_decision, '')) AS clinical_result, " +
                 "           lower(ifnull(latest.leprosy_investigation_results, '')) AS leprosy_result " +
                 "    FROM ec_tbleprosy_observation_results latest " +
                 "    WHERE latest.is_closed = 0 AND latest.last_interacted_with = (" +
                 "      SELECT MAX(inner_tbl.last_interacted_with) FROM ec_tbleprosy_observation_results inner_tbl " +
-                "      WHERE inner_tbl.base_entity_id = latest.base_entity_id AND inner_tbl.is_closed = 0" +
+                "      WHERE inner_tbl.entity_id = latest.entity_id AND inner_tbl.is_closed = 0" +
                 "    )" +
-                "  ) latest ON scr.base_entity_id = latest.base_entity_id " +
+                "  ) latest ON scr.base_entity_id = latest.entity_id " +
                 "  WHERE scr.is_closed = 0 " +
                 "    AND scr.last_interacted_with <= latest.last_interacted_with " +
                 "    AND (latest.tb_result = 'tb_dr_tb_undetected' OR latest.clinical_result = 'non_suggestive') " +
@@ -222,7 +222,7 @@ public class TbLeprosyDao extends AbstractDao {
         updateDB(closeScreeningSql);
 
         String closeObservationSql = "UPDATE ec_tbleprosy_observation_results SET is_closed = 1 " +
-                "WHERE is_closed = 0 AND base_entity_id IN (" + baseEntitySubQuery + ")";
+                "WHERE is_closed = 0 AND entity_id IN (" + baseEntitySubQuery + ")";
         updateDB(closeObservationSql);
 
         String closeFollowUpSql = "UPDATE ec_tbleprosy_followup_visit SET is_closed = 1 " +
