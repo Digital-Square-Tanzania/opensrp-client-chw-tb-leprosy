@@ -242,7 +242,7 @@ public class TbLeprosyDao extends AbstractDao {
             return null;
         }
 
-        String sql = "SELECT base_entity_id, entity_id, relational_id, last_interacted_with, follow_up_reason, follow_up_outcome, " +
+        String sql = "SELECT last_interacted_with, follow_up_reason, follow_up_outcome, " +
                 "reason_client_not_found, returned_to_treatment, tb_treatment_start_date, service_access_challenges, " +
                 "reasons_for_not_returning_to_services_while_not_facing_challenges, client_challenge_types, " +
                 "health_facility_challenges_detail, return_to_treatment_prompt " +
@@ -250,9 +250,6 @@ public class TbLeprosyDao extends AbstractDao {
                 "WHERE entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
 
         DataMap<FollowUpVisit> dataMap = cursor -> new FollowUpVisit(
-                getCursorValue(cursor, "base_entity_id", ""),
-                getCursorValue(cursor, "entity_id", ""),
-                getCursorValue(cursor, "relational_id", ""),
                 getCursorValue(cursor, "last_interacted_with", ""),
                 getCursorValue(cursor, "follow_up_reason", ""),
                 getCursorValue(cursor, "follow_up_outcome", ""),
@@ -549,9 +546,6 @@ public class TbLeprosyDao extends AbstractDao {
     }
 
     public static class FollowUpVisit {
-        private final String formSubmissionId;
-        private final String entityId;
-        private final String relationalId;
         private final String lastInteractedWith;
         private final String followUpReason;
         private final String followUpOutcome;
@@ -564,14 +558,10 @@ public class TbLeprosyDao extends AbstractDao {
         private final String healthFacilityChallengesDetail;
         private final String returnToTreatmentPrompt;
 
-        public FollowUpVisit(String formSubmissionId, String entityId, String relationalId, String lastInteractedWith,
-                             String followUpReason, String followUpOutcome, String reasonClientNotFound,
+        public FollowUpVisit(String lastInteractedWith, String followUpReason, String followUpOutcome, String reasonClientNotFound,
                              String returnedToTreatment, String tbTreatmentStartDate, String serviceAccessChallenges,
                              String reasonsForNotReturningWithoutChallenges, String clientChallengeTypes,
                              String healthFacilityChallengesDetail, String returnToTreatmentPrompt) {
-            this.formSubmissionId = formSubmissionId;
-            this.entityId = entityId;
-            this.relationalId = relationalId;
             this.lastInteractedWith = lastInteractedWith;
             this.followUpReason = followUpReason;
             this.followUpOutcome = followUpOutcome;
@@ -583,18 +573,6 @@ public class TbLeprosyDao extends AbstractDao {
             this.clientChallengeTypes = clientChallengeTypes;
             this.healthFacilityChallengesDetail = healthFacilityChallengesDetail;
             this.returnToTreatmentPrompt = returnToTreatmentPrompt;
-        }
-
-        public String getFormSubmissionId() {
-            return formSubmissionId;
-        }
-
-        public String getEntityId() {
-            return entityId;
-        }
-
-        public String getRelationalId() {
-            return relationalId;
         }
 
         public String getLastInteractedWith() {
