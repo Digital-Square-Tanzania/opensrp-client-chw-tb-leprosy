@@ -169,6 +169,29 @@
         }
       },
       {
+        "key": "tb_treatment_start_date",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "tb_treatment_start_date",
+        "type": "date_picker",
+        "hint": "Select TB treatment start date",
+        "label": "TB treatment start date",
+        "label_text_size": "18px",
+        "expanded": false,
+        "max_date": "today",
+        "v_required": {
+          "value": "true",
+          "err": "Please specify the start date"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_followup_visit.yml"
+            }
+          }
+        }
+      },
+      {
         "key": "service_access_challenges",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
