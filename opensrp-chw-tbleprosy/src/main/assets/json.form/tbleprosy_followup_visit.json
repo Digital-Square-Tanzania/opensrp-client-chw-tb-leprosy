@@ -169,6 +169,43 @@
         }
       },
       {
+        "key": "tb_treatment_initiated",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "tb_treatment_initiated",
+        "label": "Has TB/DR-TB treatment been initiated?",
+        "label_text_style": "bold",
+        "text_color": "#000000",
+        "type": "native_radio",
+        "options": [
+          {
+            "key": "yes",
+            "text": "Yes",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "yes"
+          },
+          {
+            "key": "no",
+            "text": "No",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "no"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Please select an answer"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_followup_visit.yml"
+            }
+          }
+        }
+      },
+      {
         "key": "tb_treatment_start_date",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
