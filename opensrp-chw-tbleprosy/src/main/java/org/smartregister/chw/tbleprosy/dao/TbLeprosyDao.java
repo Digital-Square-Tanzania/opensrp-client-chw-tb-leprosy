@@ -423,7 +423,7 @@ public class TbLeprosyDao extends AbstractDao {
 
     public static boolean isRegisteredForTbLeprosy(String baseEntityID) {
         String sql = "SELECT count(p.base_entity_id) count FROM ec_tbleprosy_screening p " +
-                "WHERE p.base_entity_id = '" + baseEntityID + "' AND p.is_closed = 0 ";
+                "WHERE p.base_entity_id = '" + baseEntityID + "' AND p.is_closed = 0  AND screening_status != '-' ";
 
         DataMap<Integer> dataMap = cursor -> getCursorIntValue(cursor, "count");
 
