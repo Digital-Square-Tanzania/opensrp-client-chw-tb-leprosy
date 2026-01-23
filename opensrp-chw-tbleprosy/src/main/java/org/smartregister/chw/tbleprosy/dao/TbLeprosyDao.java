@@ -27,7 +27,7 @@ public class TbLeprosyDao extends AbstractDao {
         memberObject.setGender(getCursorValue(cursor, "gender"));
         memberObject.setMartialStatus(getCursorValue(cursor, "marital_status"));
         memberObject.setUniqueId(getCursorValue(cursor, "unique_id", ""));
-        memberObject.setAge(getCursorValue(cursor, "dob"));
+        memberObject.setDob(getCursorValue(cursor, "dob"));
         memberObject.setFamilyBaseEntityId(getCursorValue(cursor, "family_base_entity_id", ""));
         memberObject.setRelationalId(getCursorValue(cursor, "relational_id", ""));
         memberObject.setPrimaryCareGiver(getCursorValue(cursor, "primary_caregiver"));
@@ -214,7 +214,7 @@ public class TbLeprosyDao extends AbstractDao {
                 "  ) latest ON scr.base_entity_id = latest.entity_id " +
                 "  WHERE scr.is_closed = 0 " +
                 "    AND scr.last_interacted_with <= latest.last_interacted_with " +
-                "    AND (latest.tb_result = 'tb_dr_tb_undetected' OR latest.clinical_result = 'non_suggestive') " +
+                "    AND (latest.tb_result = 'tb_dr_tb_undetected' OR latest.clinical_result = 'non_suggestive' OR latest.leprosy_investigation_results = 'no_leprosy_detected') " +
                 "    AND latest.leprosy_result != 'leprosy_confirmed'";
 
         List<String> baseEntityIds = readData(baseEntitySubQuery, cursor -> getCursorValue(cursor, "base_entity_id"));
