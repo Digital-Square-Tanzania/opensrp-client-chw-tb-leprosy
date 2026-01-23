@@ -214,8 +214,7 @@ public class TbLeprosyDao extends AbstractDao {
                 "  ) latest ON scr.base_entity_id = latest.entity_id " +
                 "  WHERE scr.is_closed = 0 " +
                 "    AND scr.last_interacted_with <= latest.last_interacted_with " +
-                "    AND (latest.tb_result = 'tb_dr_tb_undetected' OR latest.clinical_result = 'non_suggestive' OR latest.leprosy_investigation_results = 'no_leprosy_detected') " +
-                "    AND latest.leprosy_result != 'leprosy_confirmed'";
+                "    AND (latest.tb_result = 'tb_dr_tb_undetected' OR latest.clinical_result = 'non_suggestive' OR latest.leprosy_result = 'no_leprosy_detected') ";
 
         List<String> baseEntityIds = readData(baseEntitySubQuery, cursor -> getCursorValue(cursor, "base_entity_id"));
         if (baseEntityIds == null || baseEntityIds.isEmpty()) {
