@@ -23,8 +23,6 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
 import org.apache.commons.lang3.StringUtils;
-import org.joda.time.DateTime;
-import org.joda.time.Period;
 import org.smartregister.chw.tbleprosy.R;
 import org.smartregister.chw.tbleprosy.TbLeprosyLibrary;
 import org.smartregister.chw.tbleprosy.contract.TbLeprosyProfileContract;
@@ -71,7 +69,6 @@ public abstract class BaseTbLeprosyProfileActivity extends BaseProfileActivity i
     protected View view_family_row;
     protected View view_positive_date_row;
     protected RelativeLayout rlLastVisit;
-    protected RelativeLayout rlObservationResults;
     protected RelativeLayout rlUpcomingServices;
     protected RelativeLayout rlFamilyServicesDue;
     protected RelativeLayout visitStatus;
@@ -87,13 +84,11 @@ public abstract class BaseTbLeprosyProfileActivity extends BaseProfileActivity i
     protected TextView textViewRecordAncNotDone;
     protected String profileType;
     protected BaseTbLeprosyFloatingMenu baseTbLeprosyFloatingMenu;
+    protected CustomFontTextView ivViewHistoryArrow;
     private TextView tvUpComingServices;
     private TextView tvFamilyStatus;
     private SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM", Locale.getDefault());
     private ProgressBar progressBar;
-
-    protected CustomFontTextView ivViewHistoryArrow;
-
 
     public static void startProfileActivity(Activity activity, String baseEntityId) {
         Intent intent = new Intent(activity, BaseTbLeprosyProfileActivity.class);
@@ -104,6 +99,7 @@ public abstract class BaseTbLeprosyProfileActivity extends BaseProfileActivity i
     public abstract void openObservationResults();
 
     public abstract void openTbLeprosyContactRegister();
+
     @Override
     protected void onCreation() {
         setContentView(R.layout.activity_tbleprosy_profile);
@@ -139,7 +135,6 @@ public abstract class BaseTbLeprosyProfileActivity extends BaseProfileActivity i
         tvFamilyStatus = findViewById(R.id.textview_family_has);
         textview_positive_date = findViewById(R.id.textview_positive_date);
         rlLastVisit = findViewById(R.id.rlLastVisit);
-        rlObservationResults = findViewById(R.id.rlObservationResults);
         rlUpcomingServices = findViewById(R.id.rlUpcomingServices);
         rlFamilyServicesDue = findViewById(R.id.rlFamilyServicesDue);
         rlTbLeprosyPositiveDate = findViewById(R.id.rlTbLeprosyPositiveDate);
@@ -169,7 +164,6 @@ public abstract class BaseTbLeprosyProfileActivity extends BaseProfileActivity i
         textViewRecordAncNotDone.setOnClickListener(this);
         textViewVisitDoneEdit.setOnClickListener(this);
         rlLastVisit.setOnClickListener(this);
-        rlObservationResults.setOnClickListener(this);
         rlUpcomingServices.setOnClickListener(this);
         rlFamilyServicesDue.setOnClickListener(this);
         rlTbLeprosyPositiveDate.setOnClickListener(this);
@@ -219,8 +213,6 @@ public abstract class BaseTbLeprosyProfileActivity extends BaseProfileActivity i
 
 
     protected void processTbLeprosyService() {
-//         rlLastVisit.setVisibility(View.VISIBLE);
-//        rlTbLeprosyMatokeoYaUchunguzi.setVisibility(View.VISIBLE);
         findViewById(R.id.family_tbleprosy_head).setVisibility(View.VISIBLE);
     }
 
@@ -247,18 +239,15 @@ public abstract class BaseTbLeprosyProfileActivity extends BaseProfileActivity i
         } else if (id == R.id.rlFamilyServicesDue) {
             this.openFamilyDueServices();
         } else if (id == R.id.textview_record_tbleprosy) {
-            if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_tbleprosy))){
+            if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_tbleprosy))) {
                 this.openRecordClientVisit();
-            }else if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_tbleprosy_contact_visit))){
+            } else if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_tbleprosy_contact_visit))) {
                 this.openRecordTbContactVisit();
-            }
-            else if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_tbleprosy_client_followup_visit))) {
+            } else if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_tbleprosy_client_followup_visit))) {
                 this.openFollowupVisit();
-            }
-            else if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_tbleprosy_contact_visit_followup))) {
+            } else if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_tbleprosy_contact_visit_followup))) {
                 this.openTbContactFollowUpVisit();
-            }
-            else if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_observation_results))) {
+            } else if (textViewRecordTbLeprosy.getText().equals(getString(R.string.record_observation_results))) {
                 this.openObservationResults();
             } else {
                 Toast.makeText(getApplicationContext(), "No click", Toast.LENGTH_SHORT).show();
@@ -267,8 +256,7 @@ public abstract class BaseTbLeprosyProfileActivity extends BaseProfileActivity i
             this.continueService();
         } else if (id == R.id.textview_continue) {
             this.continueContactVisit();
-        }
-        else if (id == R.id.textview_register_tb_leprosy_contact) {
+        } else if (id == R.id.textview_register_tb_leprosy_contact) {
             this.openTbLeprosyContactRegister();
         }
     }
@@ -289,7 +277,6 @@ public abstract class BaseTbLeprosyProfileActivity extends BaseProfileActivity i
             addContentView(baseTbLeprosyFloatingMenu, linearLayoutParams);
         }
     }
-
 
 
     @Override
