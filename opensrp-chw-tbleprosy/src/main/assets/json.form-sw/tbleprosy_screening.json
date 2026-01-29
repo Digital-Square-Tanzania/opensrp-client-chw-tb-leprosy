@@ -148,7 +148,7 @@
         "openmrs_entity_id": "tb_index_client_number",
         "type": "mask_edit_text",
         "mask": "############-#/KK/####/###",
-        "mask_hint": "07020110009752025431",
+        "mask_hint": "00000000000000000000",
         "allowed_chars": "0123456789",
         "hint": "Namba ya Mteja wa Kifua Kikuu",
         "v_regex": {
@@ -188,8 +188,8 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "leprosy_index_client_number",
         "type": "mask_edit_text",
-        "mask": "############-#/UK/555421/###",
-        "mask_hint": "07020110009752025431",
+        "mask": "############-#/UK/2026/###",
+        "mask_hint": "00000000000000000000",
         "allowed_chars": "0123456789",
         "hint": "Namba ya Mteja wa Ukoma",
         "v_regex": {
