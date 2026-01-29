@@ -74,3 +74,10 @@ priority: 1
 condition: "step1_follow_up_reason.equalsIgnoreCase('never_started_treatment') && step1_follow_up_outcome.equalsIgnoreCase('client_found') && step1_tb_treatment_initiated.equalsIgnoreCase('yes')"
 actions:
   - "isRelevant = true"
+---
+name: step1_tb_client_number
+description: capture TB number when client resumes after never starting
+priority: 1
+condition: "step1_follow_up_reason.equalsIgnoreCase('never_started_treatment') && step1_follow_up_outcome.equalsIgnoreCase('client_found') && step1_tb_treatment_initiated.equalsIgnoreCase('yes')"
+actions:
+  - "isRelevant = true"

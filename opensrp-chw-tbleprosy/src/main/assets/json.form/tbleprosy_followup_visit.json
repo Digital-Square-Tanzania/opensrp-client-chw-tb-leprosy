@@ -229,6 +229,28 @@
         }
       },
       {
+        "key": "tb_client_number",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "tb_client_number",
+        "type": "mask_edit_text",
+        "mask": "############-#/KK/####/###",
+        "mask_hint": "00000000000000000000",
+        "allowed_chars": "0123456789",
+        "hint": "TB client number",
+        "v_regex": {
+          "value": "^\\d{12}-\\d/KK/\\d{4}/\\d{3}$",
+          "err": "TB client number should follow this format (070201100097-5/KK/2025/431)"
+        },
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_observation_results.yml"
+            }
+          }
+        }
+      },
+      {
         "key": "service_access_challenges",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
