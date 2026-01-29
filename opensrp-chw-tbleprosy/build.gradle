@@ -159,6 +159,7 @@ publishing {
 
 allprojects {
     repositories {
+        mavenCentral()
         maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
         mavenLocal()
 
@@ -174,7 +175,7 @@ allprojects {
 }
 
 dependencies {
-    implementation('org.smartregister:opensrp-client-core:1.11.3-SNAPSHOT@aar') {
+    implementation('org.smartregister:opensrp-client-core:1.18.0-MOH-SNAPSHOT@aar') {
         transitive = true
         exclude group: 'com.github.bmelnychuk', module: 'atv'
         exclude group: 'com.google.guava', module: 'guava'
@@ -183,6 +184,8 @@ dependencies {
     }
 
     implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.22"))
+
+    implementation 'net.zetetic:sqlcipher-android:4.5.4'
 
     implementation group: 'id.zelory', name: 'compressor', version: '3.0.1'
 
