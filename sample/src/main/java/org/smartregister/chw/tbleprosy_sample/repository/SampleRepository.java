@@ -2,7 +2,7 @@ package org.smartregister.chw.tbleprosy_sample.repository;
 
 import android.content.Context;
 
-import net.sqlcipher.database.SQLiteDatabase;
+import net.zetetic.database.sqlcipher.SQLiteDatabase;
 
 import org.smartregister.AllConstants;
 import org.smartregister.chw.tbleprosy.TbLeprosyLibrary;
@@ -87,7 +87,7 @@ public class SampleRepository extends Repository {
                 if (readableDatabase != null) {
                     readableDatabase.close();
                 }
-                readableDatabase = super.getReadableDatabase(password);
+                readableDatabase = super.getReadableDatabase();
             }
             return readableDatabase;
         } catch (Exception e) {
@@ -103,7 +103,7 @@ public class SampleRepository extends Repository {
             if (writableDatabase != null) {
                 writableDatabase.close();
             }
-            writableDatabase = super.getWritableDatabase(password);
+            writableDatabase = super.getWritableDatabase();
         }
         return writableDatabase;
     }

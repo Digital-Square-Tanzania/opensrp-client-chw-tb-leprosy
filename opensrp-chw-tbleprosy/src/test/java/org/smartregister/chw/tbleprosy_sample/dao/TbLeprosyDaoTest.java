@@ -1,6 +1,6 @@
 package org.smartregister.chw.tbleprosy_sample.dao;
 
-import net.sqlcipher.database.SQLiteDatabase;
+import net.zetetic.database.sqlcipher.SQLiteDatabase;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -55,4 +55,3 @@ public class TbLeprosyDaoTest extends TbLeprosyDao {
     }
 
 }
-
