@@ -357,7 +357,7 @@
           },
           {
             "key": "ovc",
-            "text": "Orphans and Vulnerable Childrens (OVC)",
+            "text": "Orphans and Vulnerable Children (OVC)",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "ovc"
