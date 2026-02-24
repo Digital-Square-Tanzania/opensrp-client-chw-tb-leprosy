@@ -188,7 +188,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "leprosy_index_client_number",
         "type": "mask_edit_text",
-        "mask": "############-#/UK/2026/###",
+        "mask": "############-#/UK/####/###",
         "mask_hint": "00000000000000000000",
         "allowed_chars": "0123456789",
         "hint": "Leprosy client number",
