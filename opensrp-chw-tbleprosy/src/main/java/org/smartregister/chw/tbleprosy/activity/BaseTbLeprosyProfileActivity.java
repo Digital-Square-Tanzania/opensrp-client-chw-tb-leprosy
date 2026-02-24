@@ -58,6 +58,7 @@ public abstract class BaseTbLeprosyProfileActivity extends BaseProfileActivity i
     protected TextView textViewUniqueID;
     protected TextView textViewRecordTbLeprosy;
     protected TextView textViewRecordTbContactVisit;
+    protected TextView textViewRecordLeprosyTreatmentStartDate;
     protected TextView textViewRecordAnc;
     protected TextView textViewContinueTbLeprosy;
     protected TextView textViewContinueTbLeprosyService;
@@ -149,6 +150,7 @@ public abstract class BaseTbLeprosyProfileActivity extends BaseProfileActivity i
         textViewVisitDoneEdit = findViewById(R.id.textview_edit);
         textViewRecordTbLeprosy = findViewById(R.id.textview_record_tbleprosy);
         textViewRecordTbContactVisit = findViewById(R.id.textview_record_tbleprosy_contact_visit);
+        textViewRecordLeprosyTreatmentStartDate = findViewById(R.id.textview_record_leprosy_start_date);
         textViewContinueTbLeprosy = findViewById(R.id.textview_continue);
         textViewContinueTbLeprosyService = findViewById(R.id.continue_tbleprosy_service);
         textViewRegisterTBLeprosyContact = findViewById(R.id.textview_register_tb_leprosy_contact);
