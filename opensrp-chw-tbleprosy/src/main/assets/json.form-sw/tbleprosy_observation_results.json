@@ -213,7 +213,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "tb_sample_test_results",
-        "label": "Matokeo ya sampuli ya TB",
+        "label": "Matokeo ya Sampuli ya Kifua Kikuu",
         "label_text_style": "bold",
         "text_color": "#000000",
         "type": "native_radio",
@@ -241,7 +241,7 @@
           },
           {
             "key": "tb_dr_tb_undetected",
-            "text": "Hana TB",
+            "text": "Hana Kifua Kikuu",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "tb_dr_tb_undetected"
