@@ -55,14 +55,7 @@ public class TbLeprosySourceActionHelper implements BaseTbLeprosyVisitAction.TbL
 
             JSONArray fields = jsonObject.getJSONObject(JsonFormConstants.STEP1).getJSONArray(JsonFormConstants.FIELDS);
             JSONObject tbClientNumber = JsonFormUtils.getFieldJSONObject(fields, "tb_client_number");
-            if (tbClientNumber != null) {
-                tbClientNumber.put("mask", "############-#/KK/" + Calendar.getInstance().get(Calendar.YEAR) + "/###");
-            }
-
             JSONObject leprosyClientNumber = JsonFormUtils.getFieldJSONObject(fields, "leprosy_client_number");
-            if (leprosyClientNumber != null) {
-                leprosyClientNumber.put("mask", "############-#/UK/" + Calendar.getInstance().get(Calendar.YEAR) + "/###");
-            }
 
             JSONObject indexCaseConditionTypes = JsonFormUtils.getFieldJSONObject(fields, "index_case_condition_types");
             JSONObject doYouKnowClientsNumber = JsonFormUtils.getFieldJSONObject(fields, "do_you_know_clients_number");
