@@ -39,6 +39,8 @@ public class DBConstants {
         public static final String HIVST_RESULT = "hivst_result";
         public static final String COLLECTION_DATE = "collection_date";
         public static final String INDEX_CLIENT_ID = "index_client_id";
+        public static final String TB_CLIENT_NUMBER = "tb_client_number";
+        public static final String LEPROSY_CLIENT_NUMBER = "leprosy_client_number";
 
     }
 }

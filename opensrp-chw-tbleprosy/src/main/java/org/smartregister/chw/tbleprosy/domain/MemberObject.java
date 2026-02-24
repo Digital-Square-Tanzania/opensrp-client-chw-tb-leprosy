@@ -43,6 +43,8 @@ public class MemberObject implements Serializable {
     private String phoneNumber;
     private String tbleprosyFollowUpDate;
     private String enrollmentDate;
+    private String leprosyClientNumber;
+    private String tbClientNumber;
 
     public MemberObject() {
     }
@@ -322,5 +324,21 @@ public class MemberObject implements Serializable {
 
     public void setEnrollmentDate(String enrollmentDate) {
         this.enrollmentDate = enrollmentDate;
+    }
+
+    public String getLeprosyClientNumber() {
+        return leprosyClientNumber;
+    }
+
+    public void setLeprosyClientNumber(String leprosyClientNumber) {
+        this.leprosyClientNumber = leprosyClientNumber;
+    }
+
+    public String getTbClientNumber() {
+        return tbClientNumber;
+    }
+
+    public void setTbClientNumber(String tbClientNumber) {
+        this.tbClientNumber = tbClientNumber;
     }
 }

@@ -56,6 +56,9 @@ public class TbLeprosyDao extends AbstractDao {
                 (familyPcgName.trim() + " " + getCursorValue(cursor, "pcg_last_name", "")).trim();
         memberObject.setPrimaryCareGiverName(familyPcgName);
 
+        memberObject.setTbClientNumber(getCursorValue(cursor, "tb_client_number", ""));
+        memberObject.setLeprosyClientNumber(getCursorValue(cursor, "leprosy_client_number", ""));
+
         return memberObject;
     };
 
