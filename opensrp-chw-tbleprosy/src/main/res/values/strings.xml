@@ -56,6 +56,7 @@
     <string name="observation_results">View Visit History</string>
     <string name="call_no_number_provided">(no number provided)</string>
     <string name="record_observation_results">Record Observation Results</string>
+    <string name="record_leprosy_treatment_start_date">Record Leprosy Treatment Start Date</string>
     <string name="view_observation_results">View Service History</string>
     <string name="family_has_nothing_due">Family has nothing due</string>
     <string name="go_to_family_s_profile">Go to family\'s profile</string>

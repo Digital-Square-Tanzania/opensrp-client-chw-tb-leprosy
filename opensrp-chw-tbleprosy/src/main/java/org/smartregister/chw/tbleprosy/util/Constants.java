@@ -27,6 +27,7 @@ public interface Constants {
         String TB_LEPROSY_RECORD_VISIT = "TBLeprosy Visit";
         String TB_LEPROSY_CLIENT_OBSERVATION = "TBLEPROSY Observation Results";
         String TBLEPROSY_CONTACTS = "TbLeprosy Contact Registration";
+        String RECORD_LEPROSY_TREATMENT_START_DATE = "Record Leprosy Treatment Start Date";
 
     }
 
@@ -38,6 +39,7 @@ public interface Constants {
         String OBSERVATION_RESULTS = "tbleprosy_observation_results";
         String CONTACT_OBSERVATION_RESULTS = "tbleprosy_contact_observation_results";
         String TBLEPROSY_FOLLOWUP_VISIT = "tbleprosy_followup_visit";
+        String RECORD_LEPROSY_TREATMENT_START_DATE = "tbleprosy_record_leprosy_start_date";
 
     }
 

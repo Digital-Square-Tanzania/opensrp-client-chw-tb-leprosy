@@ -26,6 +26,7 @@
     <string name="observation_results">Angalia historia ya huduma</string>
     <string name="call_no_number_provided">(Hakuna namba iliyotolewa)</string>
     <string name="record_observation_results">Jaza matokeo ya Uchunguzi</string>
+    <string name="record_leprosy_treatment_start_date">Rekodi tarehe ya kuanza matibabu ya Ukoma</string>
     <string name="view_observation_results">Angalia historia ya uchunguzi</string>
     <string name="family_has_nothing_due">Hakuna huduma iliyopangwa kwa sasa</string>
     <string name="go_to_family_s_profile">Rudi kwenye taarifa ya kaya</string>
