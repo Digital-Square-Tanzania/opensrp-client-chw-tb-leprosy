@@ -164,7 +164,7 @@
         "allowed_chars": "0123456789",
         "hint": "TB client number",
         "v_regex": {
-          "value": "^\\d{12}-\\d/KK/\\d{4}/\\d{3}$",
+          "value": "^\\d{12}-\\d/KK/(19\\d{2}|20(?:0\\d|1\\d|2\\d|30))/\\d{3}$",
           "err": "TB client number should follow this format (070201100097-5/KK/2025/431)"
         },
         "relevance": {
@@ -205,7 +205,7 @@
         "allowed_chars": "0123456789",
         "hint": "Leprosy client number",
         "v_regex": {
-          "value": "^\\d{12}-\\d/UK/\\d{4}/\\d{3}$",
+          "value": "^\\d{12}-\\d/UK/(19\\d{2}|20(?:0\\d|1\\d|2\\d|30))/\\d{3}$",
           "err": "Leprosy client number should follow this format (070201100097-5/UK/2025/431)"
         },
         "relevance": {
