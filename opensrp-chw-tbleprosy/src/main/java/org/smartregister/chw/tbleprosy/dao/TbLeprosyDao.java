@@ -122,29 +122,28 @@ public class TbLeprosyDao extends AbstractDao {
     }
 
     public static String getTbLeprosyObservationResults(String baseEntityId) {
-        String sql = "SELECT tb_sample_test_results, clinical_decision FROM ec_tbleprosy_observation_results p " +
-                " WHERE p.is_closed = 0 AND p.entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
-
-        DataMap<String> dataMap = cursor -> {
-            String tbSampleTestResults = getCursorValue(cursor, "tb_sample_test_results");
-            if (StringUtils.isNotBlank(tbSampleTestResults)) {
-                return tbSampleTestResults;
-            }
-            return getCursorValue(cursor, "clinical_decision");
-        };
-
-        List<String> res = readData(sql, dataMap);
-        if (res != null && !res.isEmpty() && res.get(0) != null) {
-            return res.get(0);
+        ObservationResults observationResults = getLatestObservationResults(baseEntityId);
+        if (observationResults == null) {
+            return "";
         }
-        return "";
+
+        String tbSampleTestResults = observationResults.getTbSampleTestResults();
+        if (StringUtils.isNotBlank(tbSampleTestResults)) {
+            return tbSampleTestResults;
+        }
+
+        return StringUtils.defaultString(observationResults.getClinicalDecision());
     }
 
     public static ObservationResults getLatestObservationResults(String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId)) {
+            return null;
+        }
+
         String sql = "SELECT last_interacted_with, investigation_type, tb_diagnostic_test_type, tb_sample_test_results, " +
                 "clinical_decision, leprosy_diagnostic_method, tb_treatment_start_date, leprosy_treatment_start_date, leprosy_investigation_results " +
                 "FROM ec_tbleprosy_observation_results p " +
-                " WHERE p.is_closed = 0 AND p.entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+                " WHERE p.is_closed = 0 AND p.entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC";
 
         DataMap<ObservationResults> dataMap = cursor -> {
             String tbSampleTestResults = getCursorValue(cursor, "tb_sample_test_results", "");
@@ -167,10 +166,61 @@ public class TbLeprosyDao extends AbstractDao {
         };
 
         List<ObservationResults> res = readData(sql, dataMap);
-        if (res != null && !res.isEmpty()) {
-            return res.get(0);
+        return mergeObservationResults(res);
+    }
+
+    protected static ObservationResults mergeObservationResults(List<ObservationResults> observationResults) {
+        if (observationResults == null || observationResults.isEmpty()) {
+            return null;
         }
-        return null;
+
+        String lastInteractedWith = "";
+        String investigationType = "";
+        String tbDiagnosticTestType = "";
+        String tbSampleTestResults = "";
+        String clinicalDecision = "";
+        String leprosyDiagnosticMethod = "";
+        String tbTreatmentStartDate = "";
+        String leprosyTreatmentStartDate = "";
+        String leprosyInvestigationResults = "";
+
+        for (ObservationResults current : observationResults) {
+            if (current == null) {
+                continue;
+            }
+
+            if (StringUtils.isBlank(lastInteractedWith)) {
+                lastInteractedWith = StringUtils.defaultString(current.getLastInteractedWith());
+            }
+
+            investigationType = pickFirstNonBlankValue(investigationType, current.getInvestigationType());
+            tbDiagnosticTestType = pickFirstNonBlankValue(tbDiagnosticTestType, current.getTbDiagnosticTestType());
+            tbSampleTestResults = pickFirstNonBlankValue(tbSampleTestResults, current.getTbSampleTestResults());
+            clinicalDecision = pickFirstNonBlankValue(clinicalDecision, current.getClinicalDecision());
+            leprosyDiagnosticMethod = pickFirstNonBlankValue(leprosyDiagnosticMethod, current.getLeprosyDiagnosticMethod());
+            tbTreatmentStartDate = pickFirstNonBlankValue(tbTreatmentStartDate, current.getTbTreatmentStartDate());
+            leprosyTreatmentStartDate = pickFirstNonBlankValue(leprosyTreatmentStartDate, current.getLeprosyTreatmentStartDate());
+            leprosyInvestigationResults = pickFirstNonBlankValue(leprosyInvestigationResults, current.getLeprosyInvestigationResults());
+        }
+
+        boolean poorQualitySample = StringUtils.containsIgnoreCase(tbSampleTestResults, "poor_quality_sample");
+
+        return new ObservationResults(
+                lastInteractedWith,
+                investigationType,
+                tbDiagnosticTestType,
+                tbSampleTestResults,
+                clinicalDecision,
+                leprosyDiagnosticMethod,
+                tbTreatmentStartDate,
+                leprosyTreatmentStartDate,
+                leprosyInvestigationResults,
+                poorQualitySample
+        );
+    }
+
+    private static String pickFirstNonBlankValue(String currentValue, String candidateValue) {
+        return StringUtils.isNotBlank(currentValue) ? currentValue : StringUtils.defaultString(candidateValue);
     }
 
     public static boolean isClientTbOrLeprosyNegative(String baseEntityId) {
@@ -178,22 +228,18 @@ public class TbLeprosyDao extends AbstractDao {
             return false;
         }
 
-        String sql = "SELECT tb_sample_test_results, clinical_decision, leprosy_investigation_results " +
-                "FROM ec_tbleprosy_observation_results " +
-                "WHERE is_closed = 0 AND entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+        ObservationResults observationResults = getLatestObservationResults(baseEntityId);
+        if (observationResults == null) {
+            return false;
+        }
 
-        DataMap<Boolean> dataMap = cursor -> {
-            String tbSampleResult = StringUtils.defaultString(getCursorValue(cursor, "tb_sample_test_results", "")).toLowerCase(Locale.ENGLISH);
-            String clinicalDecision = StringUtils.defaultString(getCursorValue(cursor, "clinical_decision", "")).toLowerCase(Locale.ENGLISH);
-            String leprosyResult = StringUtils.defaultString(getCursorValue(cursor, "leprosy_investigation_results", "")).toLowerCase(Locale.ENGLISH);
+        String tbSampleResult = StringUtils.defaultString(observationResults.getTbSampleTestResults()).toLowerCase(Locale.ENGLISH);
+        String clinicalDecision = StringUtils.defaultString(observationResults.getClinicalDecision()).toLowerCase(Locale.ENGLISH);
+        String leprosyResult = StringUtils.defaultString(observationResults.getLeprosyInvestigationResults()).toLowerCase(Locale.ENGLISH);
 
-            boolean tbNegative = "tb_dr_tb_undetected".equals(tbSampleResult) || "non_suggestive".equals(clinicalDecision);
-            boolean leprosyNegative = "no_leprosy_detected".equals(leprosyResult);
-            return tbNegative || leprosyNegative;
-        };
-
-        List<Boolean> res = readData(sql, dataMap);
-        return res != null && !res.isEmpty() && Boolean.TRUE.equals(res.get(0));
+        boolean tbNegative = "tb_dr_tb_undetected".equals(tbSampleResult) || "non_suggestive".equals(clinicalDecision);
+        boolean leprosyNegative = "no_leprosy_detected".equals(leprosyResult);
+        return tbNegative || leprosyNegative;
     }
 
     /**
