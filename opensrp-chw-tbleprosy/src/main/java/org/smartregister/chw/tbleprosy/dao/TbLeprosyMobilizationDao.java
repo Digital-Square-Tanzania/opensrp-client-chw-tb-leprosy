@@ -42,19 +42,29 @@ public class TbLeprosyMobilizationDao extends AbstractDao {
         };
 
         List<TbLeprosyMobilizationModel> res = readData(sql, dataMap);
-        if (res == null || res.size() == 0)
+        if (res == null || res.isEmpty())
             return null;
         return res;
     }
 
     private static String computeSessionParticipants(String femaleParticipants, String maleParticipants) {
-        int sum = Integer.parseInt(femaleParticipants) + Integer.parseInt(maleParticipants);
+        int female = safeParseInt(femaleParticipants);
+        int male = safeParseInt(maleParticipants);
+        int sum = female + male;
         return String.valueOf(sum);
     }
 
     private static String computeCondomsIssued(String femaleCondoms, String maleCondoms) {
-        int sum = Integer.parseInt(femaleCondoms) + Integer.parseInt(maleCondoms);
+        int sum = safeParseInt(femaleCondoms) + safeParseInt(maleCondoms);
         return String.valueOf(sum);
+    }
+
+    private static int safeParseInt(String value) {
+        try {
+            return value == null ? 0 : Integer.parseInt(value);
+        } catch (Exception e) {
+            return 0;
+        }
     }
 
 
