@@ -15,8 +15,9 @@ public class TbLeprosyMobilizationDao extends AbstractDao {
 
     public static void updateData(String baseEntityID, String mobilization_date, String female_clients_reached, String male_clients_reached) {
         String sql = "INSERT INTO ec_tbleprosy_mobilization " +
-                "           (id, mobilization_date, female_clients_reached, male_clients_reached) " +
+                "           (id,base_entity_id, mobilization_date, female_clients_reached, male_clients_reached) " +
                 "           VALUES (" +
+                "                   '" + baseEntityID + "', " +
                 "                   '" + baseEntityID + "', " +
                 "                   '" + mobilization_date + "', " +
                 "                   '" + female_clients_reached + "', " +
