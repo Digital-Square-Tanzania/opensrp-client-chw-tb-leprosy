@@ -103,7 +103,7 @@
         "options": [
           {
             "key": "tb",
-            "text": "TB",
+            "text": "Kifua Kikuu",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "tb"
           },
