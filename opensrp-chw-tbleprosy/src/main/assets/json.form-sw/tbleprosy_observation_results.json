@@ -81,7 +81,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "tb_preliminary_investigation_tests",
         "type": "native_radio",
-        "label": "Chagua vipimo vya awali vya uchunguzi wa TB",
+        "label": "Chagua vipimo vya awali vya uchunguzi wa Kifua Kikuu",
         "label_text_style": "bold",
         "text_color": "#000000",
         "combine_checkbox_option_values": "true",
@@ -132,14 +132,14 @@
         "options": [
           {
             "key": "tb_indicative",
-            "text": "Ana Viashiria vya TB",
+            "text": "Ana Viashiria vya Kifua Kikuu",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "tb_indicative"
           },
           {
             "key": "no_tb_indications",
-            "text": "Hana Viashiria vya TB",
+            "text": "Hana Viashiria vya Kifua Kikuu",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "no_tb_indications"
@@ -162,7 +162,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "tb_diagnostic_test_type",
-        "label": "Aina ya kipimo cha ugunduzi kilichotumika kupima TB",
+        "label": "Aina ya kipimo cha ugunduzi kilichotumika kupima Kifua Kikuu",
         "label_text_style": "bold",
         "text_color": "#000000",
         "type": "native_radio",
@@ -524,7 +524,7 @@
             }
           }
         },
-        "label": "TB treatment start date"
+        "label": "Tarehe ya kuanza tiba ya Kifua Kikuu"
       },
       {
         "key": "tb_client_number",

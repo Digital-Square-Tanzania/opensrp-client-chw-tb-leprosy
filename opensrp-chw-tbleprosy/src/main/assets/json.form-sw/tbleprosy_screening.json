@@ -43,7 +43,7 @@
   },
   "global": {},
   "step1": {
-    "title": "Uchunguzi wa awali wa TB na Ukoma katika jamii",
+    "title": "Uchunguzi wa awali wa Kifua Kikuu na Ukoma katika jamii",
     "next": "step2",
     "fields": [
       {
@@ -95,7 +95,7 @@
         "options": [
           {
             "key": "tb",
-            "text": "TB",
+            "text": "Kifua Kikuu",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "tb"
           },
@@ -495,7 +495,7 @@
         "options": [
           {
             "key": "tb",
-            "text": "TB",
+            "text": "Kifua Kikuu",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "tb"
           },
@@ -514,7 +514,7 @@
         "openmrs_entity_id": "tb_screening_findings",
         "type": "check_box",
         "combine_checkbox_option_values": "true",
-        "label": "Matokeo ya Uchunguzi wa TB",
+        "label": "Matokeo ya Uchunguzi wa Kifua Kikuu",
         "label_text_size": "18px",
         "v_required": {
           "value": "true",
@@ -556,7 +556,7 @@
           },
           {
             "key": "extra_pulmonary_tb_signs",
-            "text": "Dalili za TB nje ya mapafu",
+            "text": "Dalili za Kifua Kikuu nje ya mapafu",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "extra_pulmonary_tb_signs"
           },
