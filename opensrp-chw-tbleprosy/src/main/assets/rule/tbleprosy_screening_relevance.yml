@@ -84,8 +84,22 @@ actions:
   - "isRelevant = true"
 ---
 name: step3_non_presumptive_prompt
-description: notify when client is not presumptive for leprosy
+description: notify when client is not presumptive for both tb and leprosy
 priority: 1
-condition: "(!step3_tb_screening_findings.isEmpty() || !step3_leprosy_screening_findings.isEmpty()) && step3_screening_status != null && step3_screening_status == '-'"
+condition: "step3_selected_investigation_type.contains('tb') && step3_selected_investigation_type.contains('leprosy') && step3_tb_screening_findings != null && !step3_tb_screening_findings.isEmpty() && step3_leprosy_screening_findings != null && !step3_leprosy_screening_findings.isEmpty() && step3_screening_status != null && step3_screening_status == '-'"
+actions:
+  - "isRelevant = true"
+---
+name: step3_non_presumptive_tb_prompt
+description: notify when client is not presumptive for tb only
+priority: 1
+condition: "step3_selected_investigation_type.contains('tb') && !step3_selected_investigation_type.contains('leprosy') && step3_tb_screening_findings != null && !step3_tb_screening_findings.isEmpty() && step3_screening_status != null && step3_screening_status == '-'"
+actions:
+  - "isRelevant = true"
+---
+name: step3_non_presumptive_leprosy_prompt
+description: notify when client is not presumptive for leprosy only
+priority: 1
+condition: "!step3_selected_investigation_type.contains('tb') && step3_selected_investigation_type.contains('leprosy') && step3_leprosy_screening_findings != null && !step3_leprosy_screening_findings.isEmpty() && step3_screening_status != null && step3_screening_status == '-'"
 actions:
   - "isRelevant = true"
