@@ -1,7 +1,7 @@
 <resources>
     <string name="error_unable_to_start_form">Hitilafu imetokea wakati wa kuanzisha fomu</string>
     <string name="error_unable_to_save_form">Hitilafu imetokea wakati wa kuhifadhi fomu</string>
-    <string name="tbleprosy">Tb/Ukoma</string>
+    <string name="tbleprosy">Kifua Kikuu/Ukoma</string>
     <string name="add_member">Sajili mwanafamilia</string>
     <string name="sort">Panga</string>
     <string name="home">Nyumbani</string>
@@ -10,16 +10,16 @@
     <string name="job_aids">Vitendea kazi</string>
     <string name="saving_dialog_title">Kuhifadhi</string>
     <string name="tbleprosy_followup_visit">Hudhurio la ufuatiliaji</string>
-    <string name="record_tbleprosy">Hudhurio la TB/Ukoma</string>
+    <string name="record_tbleprosy">Hudhurio la Kifua Kikuu/Ukoma</string>
     <string name="record_tbleprosy_contact_visit">Rekodi hudhurio la mhisiwa wa ugonjwa wa TB</string>
-    <string name="record_tbleprosy_client_followup_visit">Rekodi hudhurio la ufuatiliaji la TB/Ukoma</string>
-    <string name="register_tb_leprosy_contact">Sajili mhisiwa wa ugonjwa wa TB/Ukoma</string>
+    <string name="record_tbleprosy_client_followup_visit">Rekodi hudhurio la ufuatiliaji la Kifua Kikuu/Ukoma</string>
+    <string name="register_tb_leprosy_contact">Sajili watu wa karibu wa mgonjwa wa Kifua Kikua/Ukoma</string>
     <string name="record_tbleprosy_contact_visit_followup">Rekodi hudhurio la ufuatiliaji la mhisiwa wa ugonjwa wa TB</string>
     <string name="provide_contact_visit">Toa hudhurio kwa mhisiwa wa ugonjwa wa TB</string>
 
     <string name="optional">Si lazima</string>
     <string name="error_unable_save_visit">Imeshindwa kuhifadhi hudhurio hili</string>
-    <string name="return_to_previous_page">Rudi kwenye orodha ya wateja wote wa TB/Ukoma</string>
+    <string name="return_to_previous_page">Rudi kwenye orodha ya wateja wote wa Kifua Kikuu/Ukoma</string>
     <string name="last_visit_40_days_ago">Hudhurio la mwisho lilifanyika %1$s zilizopita</string>
     <string name="view_visit_history">Angalia historia ya huduma</string>
     <string name="view_medical_history">Angalia historia ya huduma</string>
@@ -44,9 +44,9 @@
     <string name="vaccine_service_upcoming"><![CDATA[%1$s <font color=#7f7f7f>inakaribia (%2$s)</font></b>]]></string>
     <string name="vaccine_service_overdue"><![CDATA[%1$s <font color=#f04646>muda umepita (%2$s)</font></b>]]></string>
     <string name="vaccine_service_due"><![CDATA[%1$s <font color=#000000>imefika (%2$s)</font></b>]]></string>
-    <string name="call_tbleprosy_client">Piga simu kwa mteja wa TB/Ukoma</string>
+    <string name="call_tbleprosy_client">Piga simu kwa mteja wa Kifua Kikuu/Ukoma</string>
     <string name="head_of_family">Mkuu wa kaya</string>
-    <string name="tbleprosy_client">Mteja wa TB/Ukoma</string>
+    <string name="tbleprosy_client">Mteja wa Kifua Kikuu/Ukoma</string>
     <string name="copy_to_clipboard">Nakili namba ya simu</string>
     <string name="copied_phone_number">Namba ya simu imenakiliwa</string>
     <string name="call">Piga simu</string>
@@ -61,7 +61,7 @@
     <string name="call_pnc_client">Mama aliyejifungua</string>
     <string name="call_head_of_family">Piga simu kwa mkuu wa kaya</string>
     <string name="view_tbleprosy_test_result">Angalia matokeo ya uchunguzi</string>
-    <string name="tbleprosy_positive">TB/Ukoma chanya</string>
+    <string name="tbleprosy_positive">Kifua Kikuu/Ukoma chanya</string>
     <string name="anc_string">Wajawazito</string>
     <string name="pnc_string">Baada ya kujifungua</string>
     <string name="visit_done">Hudhurio limekamilika</string>
@@ -86,7 +86,7 @@
     <string name="tbleprosy_hts">Huduma za upimaji wa VVU</string>
     <string name="tbleprosy_contraindication">Shughulikia vizuizi kabla ya kuendelea na huduma</string>
     <string name="no_phone_number">Hakuna nambari ya simu</string>
-    <string name="return_to_tbleprosy_clients">Rudi kwenye wateja wote wa TB/Ukoma</string>
+    <string name="return_to_tbleprosy_clients">Rudi kwenye wateja wote wa Kifua Kikuu/Ukoma</string>
     <string name="number_not_filled">Nambari ya simu ya mteja haijajazwa</string>
 
     <string name="tbleprosy_contact_tb_investigation">Uchunguzi wa Kifua Kikuu</string>
@@ -99,14 +99,14 @@
     <string name="mobilization_condoms_issued">Kondomu zilizogaiwa: %s</string>
     <string name="mobilziation_session_date">Tarehe: %s</string>
 
-    <string name="tbleprosy_session">TB/Ukoma</string>
+    <string name="tbleprosy_session">Kifua Kikuu/Ukoma</string>
     <string name="participants">Waliohamasishwa:</string>
     <string name="date">Tarehe:</string>
     <string name="issued_condoms">Kondomu zilizogaiwa:</string>
 
-    <string name="tbleprosy_sessions">Vipindi vya uhamasishaji wa TB/Ukoma</string>
+    <string name="tbleprosy_sessions">Vipindi vya uhamasishaji wa Kifua Kikuu/Ukoma</string>
     <string name="tbleprosy_mobilization">Uhamasishaji</string>
     <string name="tbleprosy_contact">Watu wa karibu</string>
-    <string name="usajili_wa_contacts">Usaliji wa mhisiwa wa TB/Ukoma</string>
+    <string name="usajili_wa_contacts">Usaliji wa mhisiwa wa Kifua Kikuu/Ukoma</string>
 
 </resources>

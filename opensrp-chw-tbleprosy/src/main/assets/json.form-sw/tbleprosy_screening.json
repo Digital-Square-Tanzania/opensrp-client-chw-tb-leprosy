@@ -52,7 +52,7 @@
         "openmrs_entity": "",
         "openmrs_entity_id": "",
         "type": "native_radio",
-        "label": "Je, anaishi pamoja au karibu na mgonjwa wa TB/Ukoma?",
+        "label": "Je, anaishi pamoja au karibu na mgonjwa wa Kifua Kikuu/Ukoma?",
         "label_text_size": "18px",
         "v_required": {
           "value": "true",
@@ -514,7 +514,7 @@
         "openmrs_entity_id": "tb_screening_findings",
         "type": "check_box",
         "combine_checkbox_option_values": "true",
-        "label": "Majibu ya Uchunguzi wa TB",
+        "label": "Matokeo ya Uchunguzi wa TB",
         "label_text_size": "18px",
         "v_required": {
           "value": "true",
@@ -582,7 +582,7 @@
         "openmrs_entity_id": "leprosy_screening_findings",
         "type": "check_box",
         "combine_checkbox_option_values": "true",
-        "label": "Majibu ya Uchunguzi wa Ukoma",
+        "label": "Matokeo ya Uchunguzi wa Ukoma",
         "label_text_size": "18px",
         "v_required": {
           "value": "true",
@@ -668,7 +668,7 @@
         "type": "toaster_notes",
         "text": "Mteja ana dalili za ukoma, toa rufaa kwenda kituo cha afya.",
         "toaster_info_title": "Mpe mteja rufaa ya kwenda kituo cha afya",
-        "toaster_info_text": "Mteja anaonekana kuwa mtuhumiwa wa ukoma. Andaa na mkabidhi rufaa ya kwenda kituo cha afya kwa uchunguzi zaidi.",
+        "toaster_info_text": "Mteja anaonekana kuwa mhisiwa wa ukoma. Andaa na mkabidhi rufaa ya kwenda kituo cha afya kwa uchunguzi zaidi.",
         "openmrs_entity_parent": "",
         "openmrs_entity": "",
         "openmrs_entity_id": "",
