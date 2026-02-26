@@ -102,7 +102,7 @@
           },
           {
             "key": "treatment_decision_algorithm",
-            "text": "Treatment Decision Algorithm",
+            "text": "Treatment Decision Algorithm  (TDA) ",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "treatment_decision_algorithm"

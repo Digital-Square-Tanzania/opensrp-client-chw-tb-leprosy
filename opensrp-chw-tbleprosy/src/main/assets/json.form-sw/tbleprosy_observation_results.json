@@ -102,7 +102,7 @@
           },
           {
             "key": "treatment_decision_algorithm",
-            "text": "Treatment Decision Algorithm",
+            "text": "Treatment Decision Algorithm  (TDA) ",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "treatment_decision_algorithm"
@@ -125,7 +125,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "tb_preliminary_investigation_results",
-        "label": "Majibu ya uchunguzi wa awali",
+        "label": "Matokeo ya uchunguzi wa awali",
         "label_text_style": "bold",
         "text_color": "#000000",
         "type": "native_radio",
