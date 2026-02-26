@@ -60,6 +60,35 @@
         }
       },
       {
+        "key": "mobilization_topics",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "concept",
+        "openmrs_entity_id": "mobilization_topics",
+        "type": "check_box",
+        "label": "Aina ya uhamasishaji uliotolewa",
+        "label_text_style": "bold",
+        "text_color": "#000000",
+        "combine_checkbox_option_values": "true",
+        "options": [
+          {
+            "key": "tb",
+            "text": "Kifua Kikuu (TB)",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "tb"
+          },
+          {
+            "key": "leprosy",
+            "text": "Ukoma",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "leprosy"
+          }
+        ],
+        "v_required": {
+          "value": "true",
+          "err": "Tafadhali taja"
+        }
+      },
+      {
         "key": "mobilization_area",
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
