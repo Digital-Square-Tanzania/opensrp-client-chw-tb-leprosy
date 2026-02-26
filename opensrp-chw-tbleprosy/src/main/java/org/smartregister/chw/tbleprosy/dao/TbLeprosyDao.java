@@ -1,10 +1,12 @@
 package org.smartregister.chw.tbleprosy.dao;
 
 import org.apache.commons.lang3.StringUtils;
+import org.opensrp.api.domain.Event;
 import org.smartregister.chw.tbleprosy.domain.MemberObject;
 import org.smartregister.chw.tbleprosy.util.Constants;
 import org.smartregister.dao.AbstractDao;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -15,6 +17,10 @@ public class TbLeprosyDao extends AbstractDao {
             "dd-MM-yyyy",
             Locale.getDefault()
     );
+    private static final String ISO_DATE_WITH_MILLIS_TZ = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX";
+    private static final String ISO_DATE_WITH_TZ = "yyyy-MM-dd'T'HH:mm:ssXXX";
+    private static final String ISO_DATE_WITH_MILLIS_TZ_NO_COLON = "yyyy-MM-dd'T'HH:mm:ss.SSSZ";
+    private static final String ISO_DATE_WITH_TZ_NO_COLON = "yyyy-MM-dd'T'HH:mm:ssZ";
 
     private static final DataMap<MemberObject> memberObjectMap = cursor -> {
 
@@ -357,11 +363,15 @@ public class TbLeprosyDao extends AbstractDao {
     }
 
     public static String getTBleprosyVisit(String baseEntityId) {
-        String sql = "SELECT has_sample_been_collected FROM ec_tbleprosy_visit p " +
+        String sql = "SELECT event_date, last_interacted_with FROM ec_tbleprosy_visit p " +
                 " WHERE p.is_closed = 0 AND p.entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
 
         DataMap<String> dataMap = cursor -> {
-            return getCursorValue(cursor, "has_sample_been_collected");
+            String eventDate = getCursorValue(cursor, "event_date", "");
+            if (StringUtils.isNotBlank(eventDate)) {
+                return eventDate;
+            }
+            return getCursorValue(cursor, "last_interacted_with", "");
         };
 
         List<String> res = readData(sql, dataMap);
@@ -371,21 +381,68 @@ public class TbLeprosyDao extends AbstractDao {
         return "";
     }
 
-    public static String getLatestTbLeprosyVisitLastInteractedWith(String baseEntityId) {
+    public static Date getLatestTbSampleCollectionDate(String baseEntityId) {
+        return getLatestEventDate(Constants.TABLES.TBLEPROSY_VISIT, "entity_id", baseEntityId);
+    }
+
+    public static Date getLatestTbLeprosyScreeningDate(String baseEntityId) {
+        return getLatestEventDate(Constants.TABLES.TBLEPROSY_SCREENING, "base_entity_id", baseEntityId);
+    }
+
+    private static Date getLatestEventDate(String tableName, String entityColumn, String baseEntityId) {
         if (StringUtils.isBlank(baseEntityId)) {
-            return "";
+            return null;
         }
 
-        String sql = "SELECT last_interacted_with FROM ec_tbleprosy_visit p " +
-                " WHERE p.is_closed = 0 AND p.entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+        String sql = "SELECT event_date FROM " + tableName + " p " +
+                " WHERE p.is_closed = 0 AND p." + entityColumn + " = '" + baseEntityId + "' ORDER BY event_date DESC LIMIT 1";
 
-        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "last_interacted_with", "");
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "event_date", "");
 
         List<String> res = readData(sql, dataMap);
-        if (res != null && !res.isEmpty() && res.get(0) != null) {
-            return res.get(0);
+        if (res != null && !res.isEmpty()) {
+            return parseEventDate(res.get(0));
         }
-        return "";
+        return null;
+    }
+
+    private static Date parseEventDate(String eventDate) {
+        if (StringUtils.isBlank(eventDate)) {
+            return null;
+        }
+
+        String normalizedDate = normalizeTimezoneOffset(eventDate);
+        Date parsedDate = tryParseDate(eventDate, ISO_DATE_WITH_MILLIS_TZ);
+        if (parsedDate != null) return parsedDate;
+
+        parsedDate = tryParseDate(eventDate, ISO_DATE_WITH_TZ);
+        if (parsedDate != null) return parsedDate;
+
+        parsedDate = tryParseDate(normalizedDate, ISO_DATE_WITH_MILLIS_TZ_NO_COLON);
+        if (parsedDate != null) return parsedDate;
+
+        parsedDate = tryParseDate(normalizedDate, ISO_DATE_WITH_TZ_NO_COLON);
+        if (parsedDate != null) return parsedDate;
+
+        return tryParseDate(eventDate, getNativeFormsDateFormat().toPattern());
+    }
+
+    private static Date tryParseDate(String dateValue, String pattern) {
+        try {
+            return new SimpleDateFormat(pattern, Locale.getDefault()).parse(dateValue);
+        } catch (ParseException ignored) {
+            return null;
+        }
+    }
+
+    private static String normalizeTimezoneOffset(String eventDate) {
+        int length = eventDate.length();
+        if (length > 5
+                && eventDate.charAt(length - 3) == ':'
+                && (eventDate.charAt(length - 6) == '+' || eventDate.charAt(length - 6) == '-')) {
+            return eventDate.substring(0, length - 3) + eventDate.substring(length - 2);
+        }
+        return eventDate;
     }
 
     public static boolean hasTbLeprosyVisit(String baseEntityId) {
