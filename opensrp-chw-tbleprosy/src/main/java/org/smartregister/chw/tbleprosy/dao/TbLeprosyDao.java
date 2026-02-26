@@ -371,6 +371,23 @@ public class TbLeprosyDao extends AbstractDao {
         return "";
     }
 
+    public static String getLatestTbLeprosyVisitLastInteractedWith(String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId)) {
+            return "";
+        }
+
+        String sql = "SELECT last_interacted_with FROM ec_tbleprosy_visit p " +
+                " WHERE p.is_closed = 0 AND p.entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "last_interacted_with", "");
+
+        List<String> res = readData(sql, dataMap);
+        if (res != null && !res.isEmpty() && res.get(0) != null) {
+            return res.get(0);
+        }
+        return "";
+    }
+
     public static boolean hasTbLeprosyVisit(String baseEntityId) {
         String sql = "SELECT count(p.entity_id) count FROM ec_tbleprosy_visit p " +
                 " WHERE p.is_closed = 0 AND p.entity_id = '" + baseEntityId + "'";
