@@ -108,5 +108,8 @@
     <string name="tbleprosy_mobilization">Uhamasishaji</string>
     <string name="tbleprosy_contact">Watu wa karibu</string>
     <string name="usajili_wa_contacts">Usaliji wa mhisiwa wa Kifua Kikuu/Ukoma</string>
+    <string name="tbleprosy_issue_referral_action">Toa rufaa</string>
+    <string name="tbleprosy_pending_issuing_of_referral">Bado rufaa haijatolewa</string>
+    <string name="tbleprosy_issue_referral_toast">Toa rufaa</string>
 
 </resources>

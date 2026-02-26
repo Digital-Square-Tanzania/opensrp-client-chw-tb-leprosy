@@ -111,6 +111,9 @@
     <string name="tbleprosy_mobilization">Mobilization</string>
     <string name="tbleprosy_contact">Contacts</string>
     <string name="usajili_wa_contacts">Contacts Registration</string>
+    <string name="tbleprosy_issue_referral_action">Issue</string>
+    <string name="tbleprosy_pending_issuing_of_referral">Pending Issuing of Referral</string>
+    <string name="tbleprosy_issue_referral_toast">Issue referral</string>
 
 
 </resources>
