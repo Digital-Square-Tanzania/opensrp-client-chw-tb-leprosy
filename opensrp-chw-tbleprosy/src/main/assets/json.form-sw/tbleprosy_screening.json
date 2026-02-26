@@ -648,9 +648,39 @@
       {
         "key": "non_presumptive_prompt",
         "type": "toaster_notes",
-        "text": "Mteja hana dalili za ukoma wala TB kwa sasa.",
-        "toaster_info_title": "Hakuna dalili za ukoma zilizobainika",
-        "toaster_info_text": "Mteja hana dalili za ukoma wala TB zilizobainika katika uchunguzi huu.",
+        "text": "Mteja hana dalili za Kifua Kikuu wala Ukoma kwa sasa.",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "toaster_type": "info",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_screening_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "non_presumptive_tb_prompt",
+        "type": "toaster_notes",
+        "text": "Mteja hana dalili za Kifua Kikuu kwa sasa.",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "toaster_type": "info",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_screening_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "non_presumptive_leprosy_prompt",
+        "type": "toaster_notes",
+        "text": "Mteja hana dalili za ukoma kwa sasa.",
         "openmrs_entity_parent": "",
         "openmrs_entity": "",
         "openmrs_entity_id": "",

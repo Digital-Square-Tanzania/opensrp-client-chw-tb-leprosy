@@ -664,6 +664,42 @@
         }
       },
       {
+        "key": "non_presumptive_tb_prompt",
+        "type": "toaster_notes",
+        "text": "Client has no signs of TB at this time.",
+        "toaster_info_title": "No TB signs found",
+        "toaster_info_text": "Client shows no TB signs during this screening.",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "toaster_type": "info",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_screening_relevance.yml"
+            }
+          }
+        }
+      },
+      {
+        "key": "non_presumptive_leprosy_prompt",
+        "type": "toaster_notes",
+        "text": "Client has no signs of leprosy at this time.",
+        "toaster_info_title": "No leprosy signs found",
+        "toaster_info_text": "Client shows no leprosy signs during this screening.",
+        "openmrs_entity_parent": "",
+        "openmrs_entity": "",
+        "openmrs_entity_id": "",
+        "toaster_type": "info",
+        "relevance": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_screening_relevance.yml"
+            }
+          }
+        }
+      },
+      {
         "key": "leprosy_referral_prompt",
         "type": "toaster_notes",
         "text": "Client has leprosy signs. Provide a referral to a health facility.",
