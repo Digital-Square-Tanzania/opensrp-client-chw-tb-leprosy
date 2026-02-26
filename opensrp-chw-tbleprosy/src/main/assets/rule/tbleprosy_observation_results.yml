@@ -79,7 +79,7 @@ actions:
 name: step1_eligible_for_tpt
 description:  Kama maamuzi ya kitabibu jibu ni non-suggestive
 priority: 1
-condition: "step1_clinical_decision.equalsIgnoreCase('non_suggestive') || step1_tb_sample_test_results.equalsIgnoreCase('tb_dr_tb_undetected')"
+condition: "(step1_clinical_decision.equalsIgnoreCase('non_suggestive') || step1_tb_sample_test_results.equalsIgnoreCase('tb_dr_tb_undetected')) && global_age < 5"
 actions:
   - "isRelevant = true"
 ---
