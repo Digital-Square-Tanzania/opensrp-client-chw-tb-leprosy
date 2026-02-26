@@ -56,6 +56,7 @@ public interface Constants {
         String TBLEPROSY_CONTACTS = "ec_tbleprosy_contacts";
         String TBLEPROSY_SERVICES = "ec_tbleprosy_services";
         String TBLEPROSY_MOBILIZATION = "ec_tbleprosy_mobilization";
+        String TBLEPROSY_VISIT = "ec_tbleprosy_visit";
     }
 
     interface ACTIVITY_PAYLOAD {
