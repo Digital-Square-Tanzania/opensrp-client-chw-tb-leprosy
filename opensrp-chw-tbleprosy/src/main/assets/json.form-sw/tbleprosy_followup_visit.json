@@ -173,7 +173,7 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "tb_treatment_initiated",
-        "label": "Je, ameanza tiba ya TB/DR TB?",
+        "label": "Je, ameanza tiba ya Kifua kikuu/Kifua kikuu sugu?",
         "label_text_style": "bold",
         "text_color": "#000000",
         "type": "native_radio",

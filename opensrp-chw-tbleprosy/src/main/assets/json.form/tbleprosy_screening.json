@@ -235,7 +235,7 @@
     ]
   },
   "step2": {
-    "title": "Special Groups",
+    "title": "Key Vulnerable Populations",
     "next": "step3",
     "fields": [
       {
@@ -244,7 +244,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "belongs_to_special_group",
         "type": "native_radio",
-        "label": "Is the client part of a special group?",
+        "label": "Is the client part of any key vulnerable population?",
         "label_text_size": "18px",
         "v_required": {
           "value": "true",
@@ -271,7 +271,7 @@
         "openmrs_entity": "concept",
         "openmrs_entity_id": "client_special_group",
         "type": "native_radio",
-        "label": "Select the client's special group",
+        "label": "Select the client's key vulnerable population",
         "label_text_size": "18px",
         "v_required": {
           "value": "true",
