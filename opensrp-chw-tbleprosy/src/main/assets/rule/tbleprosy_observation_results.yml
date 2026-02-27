@@ -98,7 +98,7 @@ actions:
   - "isRelevant = true "
 ---
 name: step1_tb_treatment_start_date
-description: kama mteja amejibu Ndiyo kwenye ameanza tiba ya TB/DR TB
+description: kama mteja amejibu Ndiyo kwenye ameanza tiba ya Kifua kikuu/Kifua kikuu sugu
 priority: 1
 condition: "step1_tb_treatment_initiated.equalsIgnoreCase('yes')"
 actions:
