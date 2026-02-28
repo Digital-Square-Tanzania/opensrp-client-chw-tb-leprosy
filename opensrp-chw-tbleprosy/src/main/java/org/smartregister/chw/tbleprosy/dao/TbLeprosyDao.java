@@ -619,7 +619,7 @@ public class TbLeprosyDao extends AbstractDao {
                 "inner join ec_tbleprosy_screening mr on mr.base_entity_id = m.base_entity_id " +
                 "left join ec_family_member fh on fh.base_entity_id = f.family_head " +
                 "left join ec_family_member pcg on pcg.base_entity_id = f.primary_caregiver " +
-                "where mr.is_closed = 0 AND m.is_closed = 0 AND f.is_closed = 0 AND m.base_entity_id ='" + baseEntityID + "' ";
+                "where mr.is_closed = 0 AND m.base_entity_id ='" + baseEntityID + "' ";
         List<MemberObject> res = readData(sql, memberObjectMap);
         if (res == null || res.size() != 1)
             return null;
