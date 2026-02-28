@@ -310,6 +310,23 @@ public class TbLeprosyDao extends AbstractDao {
         return "";
     }
 
+    public static boolean isClientDeceased(String baseEntityId) {
+        if (StringUtils.isBlank(baseEntityId)) {
+            return false;
+        }
+
+        String sql = "SELECT follow_up_outcome FROM ec_tbleprosy_followup_visit p " +
+                " WHERE p.is_closed = 0 AND p.entity_id = '" + baseEntityId + "' ORDER BY last_interacted_with DESC LIMIT 1";
+
+        DataMap<String> dataMap = cursor -> getCursorValue(cursor, "follow_up_outcome", "");
+        List<String> res = readData(sql, dataMap);
+        if (res == null || res.isEmpty()) {
+            return false;
+        }
+
+        return StringUtils.equalsIgnoreCase("client_deceased", res.get(0));
+    }
+
     public static FollowUpVisit getLatestFollowUpVisit(String baseEntityId) {
         if (StringUtils.isBlank(baseEntityId)) {
             return null;
