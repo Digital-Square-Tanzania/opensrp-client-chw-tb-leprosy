@@ -148,9 +148,11 @@ publishing {
                         }
                     }
                 }
-                configurations.compile.getDependencies().each { dep -> addDependency(dep, 'compile') }
-                configurations.api.getDependencies().each { dep -> addDependency(dep, 'compile') }
-                configurations.implementation.getDependencies().each { dep -> addDependency(dep, 'compile') }
+                ['compile', 'api', 'implementation'].each { configurationName ->
+                    configurations.findByName(configurationName)?.getDependencies()?.each { dep ->
+                        addDependency(dep, 'compile')
+                    }
+                }
             }
 
         }
