@@ -9,6 +9,6 @@ actions:
 name: step1_other_population_type
 description: other_population_type
 priority: 1
-condition: "step1_population_type.contains('other')"
+condition: "step1_mobilization_area.contains('other')"
 actions:
   - "isRelevant = true "

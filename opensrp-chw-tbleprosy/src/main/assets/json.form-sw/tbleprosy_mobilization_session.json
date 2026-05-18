@@ -99,14 +99,14 @@
         "options": [
           {
             "key": "addo_pharmacy",
-            "text": "ADDO/Duka la dawa",
+            "text": "Duka la Dawa Muhimu (DLDLM)",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "addo_pharmacy"
           },
           {
             "key": "traditional_healer",
-            "text": "Mganga wa Tiba Asili",
+            "text": "Waganga wa Jadi",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "traditional_healer"
@@ -120,7 +120,7 @@
           },
           {
             "key": "public_meeting",
-            "text": "Mkutano wa Umma",
+            "text": "Mkutano wa hadhara",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "public_meeting"
@@ -134,7 +134,7 @@
           },
           {
             "key": "church_mosque",
-            "text": "Nyumba ya ibada",
+            "text": "Kanisani/Msikiti",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "church_mosque"
@@ -148,21 +148,77 @@
           },
           {
             "key": "market",
-            "text": "Soko",
+            "text": "Sokoni",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "market"
           },
           {
             "key": "drug_house",
-            "text": "Kituo cha dawa za kulevya",
+            "text": "Makazi ya Waraibu",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "drug_house"
           },
           {
+            "key": "elderly_camp",
+            "text": "Kambi/Nyumba ya Wazee",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "elderly_camp"
+          },
+          {
+            "key": "ovc",
+            "text": "Makazi ya Watoto Yatima",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "ovc"
+          },
+          {
+            "key": "nomadic_population",
+            "text": "Wafugaji wanaohama",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "nomadic_population"
+          },
+          {
+            "key": "health_facility",
+            "text": "Kituo cha Afya",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "health_facility"
+          },
+          {
+            "key": "refugee_camp",
+            "text": "Kambi ya Wakimbizi",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "refugee_camp"
+          },
+          {
+            "key": "fishing_communities",
+            "text": "Jamii ya Wavuvi",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "fishing_communities"
+          },
+          {
+            "key": "local_clubs_breweries",
+            "text": "Vilabu Vya Pombe",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "local_clubs_breweries"
+          },
+          {
+            "key": "house_to_house",
+            "text": "Nyumba kwa Nyumba",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "house_to_house"
+          },
+          {
             "key": "other",
-            "text": "Nyingine",
+            "text": "Nyinginezo",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "other"
@@ -252,102 +308,17 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "population_type",
-        "label": "Chagua aina ya kundi la watu",
+        "hint": "Aina ya kundi la watu",
         "text_color": "#000000",
-        "type": "native_radio",
-        "options": [
-          {
-            "key": "health_care_provider",
-            "text": "Muhudumu wa Afya",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "health_care_provider"
-          },
-          {
-            "key": "miner",
-            "text": "Mchimbaji(Machimbo/Migodi)",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "miner"
-          },
-          {
-            "key": "prisoner_prison_officer",
-            "text": "Mfungwa/Afisa wa Magereza",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "prisoner_prison_officer"
-          },
-          {
-            "key": "pwud",
-            "text": "PWUD",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "pwud"
-          },
-          {
-            "key": "fisherfolks",
-            "text": "Mvuvi(Kambi ya wavuvi)",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "fisherfolks"
-          },
-          {
-            "key": "refugees",
-            "text": "Wakimbizi",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "refugees"
-          },
-          {
-            "key": "migrants",
-            "text": "Wahamiaji",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "migrants"
-          },
-          {
-            "key": "slum_dwellers",
-            "text": "Wakazi wa makazi duni",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "slum_dwellers"
-          },
-          {
-            "key": "nomadic_population",
-            "text": "Jamii ya kuhamahama",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "nomadic_population"
-          },
-          {
-            "key": "elders_camp",
-            "text": "Kambi ya Wazee",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "elders_camp"
-          },
-          {
-            "key": "school_children",
-            "text": "Watoto wa Shuleni",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "school_children"
-          },
-          {
-            "key": "ovc",
-            "text": "Yatima na Watoto Walioko Katika Mazingira Hatarishi (OVC)",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "ovc"
-          },
-          {
-            "key": "other",
-            "text": "Nyingine",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "other"
+        "type": "edit_text",
+        "read_only": true,
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_mobilization_population_type_sw.yml"
+            }
           }
-        ],
+        },
         "v_required": {
           "value": "true",
           "err": "Tafadhali chagua jibu"

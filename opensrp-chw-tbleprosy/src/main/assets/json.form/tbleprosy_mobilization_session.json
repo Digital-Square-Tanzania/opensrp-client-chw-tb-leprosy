@@ -106,7 +106,7 @@
           },
           {
             "key": "traditional_healer",
-            "text": "Traditional Healer",
+            "text": "Traditional healers",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "traditional_healer"
@@ -127,14 +127,14 @@
           },
           {
             "key": "prisons",
-            "text": "Prisons",
+            "text": "Prison Premises",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "prisons"
           },
           {
             "key": "church_mosque",
-            "text": "Church/Mosque",
+            "text": "Church/Mosques",
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "church_mosque"
@@ -159,6 +159,62 @@
             "openmrs_entity_parent": "",
             "openmrs_entity": "concept",
             "openmrs_entity_id": "drug_house"
+          },
+          {
+            "key": "elderly_camp",
+            "text": "Elderly Camp",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "elderly_camp"
+          },
+          {
+            "key": "ovc",
+            "text": "Orphan and Vulnerable Children (OVC)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "ovc"
+          },
+          {
+            "key": "nomadic_population",
+            "text": "Nomadic Population",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "nomadic_population"
+          },
+          {
+            "key": "health_facility",
+            "text": "Health Facility",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "health_facility"
+          },
+          {
+            "key": "refugee_camp",
+            "text": "Refugee Camp",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "refugee_camp"
+          },
+          {
+            "key": "fishing_communities",
+            "text": "Fishing Communities",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "fishing_communities"
+          },
+          {
+            "key": "local_clubs_breweries",
+            "text": "Local Clubs and Breweries (Vilabu vya Pombe hasa asili)",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "local_clubs_breweries"
+          },
+          {
+            "key": "house_to_house",
+            "text": "House to House",
+            "openmrs_entity_parent": "",
+            "openmrs_entity": "concept",
+            "openmrs_entity_id": "house_to_house"
           },
           {
             "key": "other",
@@ -252,102 +308,17 @@
         "openmrs_entity_parent": "",
         "openmrs_entity": "concept",
         "openmrs_entity_id": "population_type",
-        "label": "Select population Type",
+        "hint": "Population Type",
         "text_color": "#000000",
-        "type": "native_radio",
-        "options": [
-          {
-            "key": "health_care_provider",
-            "text": "Health Care Provider",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "health_care_provider"
-          },
-          {
-            "key": "miner",
-            "text": "Miner",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "miner"
-          },
-          {
-            "key": "prisoner_prison_officer",
-            "text": "Prisoner/Prison Officer",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "prisoner_prison_officer"
-          },
-          {
-            "key": "pwud",
-            "text": "PWUD",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "pwud"
-          },
-          {
-            "key": "fisherfolks",
-            "text": "Fisherfolks",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "fisherfolks"
-          },
-          {
-            "key": "refugees",
-            "text": "Refugees",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "refugees"
-          },
-          {
-            "key": "migrants",
-            "text": "Migrants",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "migrants"
-          },
-          {
-            "key": "slum_dwellers",
-            "text": "Slum Dwellers",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "slum_dwellers"
-          },
-          {
-            "key": "nomadic_population",
-            "text": "Nomadic Population",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "nomadic_population"
-          },
-          {
-            "key": "elders_camp",
-            "text": "Elders Camp",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "elders_camp"
-          },
-          {
-            "key": "school_children",
-            "text": "School Children",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "school_children"
-          },
-          {
-            "key": "ovc",
-            "text": "Orphans and Vulnerable Childrens (OVC)",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "ovc"
-          },
-          {
-            "key": "other",
-            "text": "Other",
-            "openmrs_entity_parent": "",
-            "openmrs_entity": "concept",
-            "openmrs_entity_id": "other"
+        "type": "edit_text",
+        "read_only": true,
+        "calculation": {
+          "rules-engine": {
+            "ex-rules": {
+              "rules-file": "tbleprosy_mobilization_population_type.yml"
+            }
           }
-        ],
+        },
         "v_required": {
           "value": "true",
           "err": "Please select an answer"
