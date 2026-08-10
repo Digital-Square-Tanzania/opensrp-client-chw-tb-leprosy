@@ -121,7 +121,7 @@ dependencies {
     implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
 
 
-    implementation('org.smartregister:opensrp-client-native-form:3.1.8-NACP-SNAPSHOT') {
+    implementation('org.smartregister:opensrp-client-native-form:3.2.0-NACP-SNAPSHOT') {
         transitive = true
         exclude group: 'com.android.support', module: 'recyclerview-v7'
         exclude group: 'com.android.support', module: 'appcompat-v7'
